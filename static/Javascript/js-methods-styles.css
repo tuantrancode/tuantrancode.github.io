@@ -1,6 +1,0 @@
-@media (max-width:480px){
-    table th:nth-child(4n), table td:nth-child(4n), 
-    table th:nth-child(4n-1), table td:nth-child(4n-1){
-        display:none;
-    }
-}
