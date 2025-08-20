@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+}
+
+.formContainer {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.formColumn {
+    width: 100%;
+    /* flex: 50%;
+    flex-direction: column;
+    display: flex;
+    min-width: 300px;
+    gap: 15px; */
+}
+
+label,
+fieldset {
+    font-weight: bold;
+    scroll-margin-top: var(--top-nav-height);
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+select {
+    width: 100%;
+    padding: 8px 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.formButtons {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+    gap: 20px;
+}
+
+input[type=submit],
+input[type=reset] {
+    color: white;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+}
+
+input[type=reset] {
+    background-color: red;
+}
+
+textArea {
+    width: 100%;
+    padding: 8px 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+    /* Allow vertical resizing */
+}
+
+hr {
+    /* Overrides */
+    margin: 20px 0;
+}
