@@ -84,11 +84,16 @@ body {
   text-decoration: none;
 }
 
-.top-nav a:hover, .top-nav a:active,
+.top-nav a:hover, 
 .menu-btn:hover,
-.right-nav-btn:hover, .right-nav-btn:active,
+.right-nav-btn:hover, 
 .theme-btn:hover {
   background-color: var(--hover-color);
+}
+
+/* prevent button from sticking to hover state on mobile */
+.menu-btn:hover, .theme-btn:focus, .right-nav-btn:hover {
+  background-color:inherit;
 }
 
 .menu-btn,
@@ -152,7 +157,7 @@ body {
   color: var(--left-nav-sub-color);
 }
 
-.left-nav a:hover, .left-nav a:active {
+.left-nav a:hover {
   /* text-decoration: underline; */
   background-color: var(--hover-color);
   color: white;
@@ -183,7 +188,7 @@ body {
   color: var(--left-nav-sub-color);
 }
 
-.right-nav a:hover, .right-nav a:active {
+.right-nav a:hover {
   background-color: var(--hover-color);
   color: white;
 }

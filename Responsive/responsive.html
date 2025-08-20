@@ -394,9 +394,8 @@ function toggleTheme() {
                     placed in the shortest column</li>
                 <li>Cheaper than <code>grid</code>, but can have empty gaps in columns after resizing</li>
                 <li>Good if not strict with responsiveness</li>
-                <li>When making responsive layout, it's good with columns number that are multiples of each other
-                    (8,4,2,1)
-                    or (12,6,3,1)</li>
+                <li>Number of &lt;div> columns need to be calculated on page load, if the browser try to wrap the columns, then new images will load at the top columsn as well</li>
+                <li>If screen changes (switching orientation) after page load then columns will fail</li>
             </ul>
             <p></p>
             <p></p>
