@@ -131,6 +131,29 @@
 }    </code></pre>
             <hr>
 
+            <!-- CSS VARIABLES -->
+            <h3 class="section-header" id="cssVariables">Calculating with CSS</h3>
+            <p>You can dynamically calculate the value in CSS by using <code>calc()</code></p>
+            <pre><code class="language-css">:root {
+  --top-nav-height: 50px;
+}
+
+.container {
+  height: calc(100% - var(--top-nav-height));
+}    </code></pre>
+
+            <h4 class="sub-section-header">Modifying Color</h4>
+            <p>Use the function <code>oklch()</code>oklch() to modify a color's oklab, lightness, chroma, and hue</p>
+            <pre><code class="language-css">:root {
+  --primary-color: blue;
+}
+
+.container {
+    /* Make the primary color 1.5x brighter */
+  background-color: oklch( from var(--primary-color) calc(l * 1.5) c h);
+}    </code></pre>
+            <hr>
+
             <!-- HOVER EFFECTS -->
             <h3 class="section-header" id="hoverEffect">Hover Effect</h3>
             <pre><code class="language-css">#hoverExample:hover {
@@ -153,6 +176,7 @@
             <a href="#selectors">Selectors</a>
             <a href="#lengthUnits">Length Units</a>
             <a href="#cssVariables">CSS Variables</a>
+            <a href="#cssVariables">Calculating with CSS</a>
             <a href="#hoverEffect">Hover Effect</a>
         </div>
     </div> <!-- Main Container End -->
