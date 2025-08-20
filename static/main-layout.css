@@ -85,9 +85,9 @@ body {
 }
 
 .top-nav a:hover, .top-nav a:active,
-.menu-btn:hover, .menu-btn:active,
+.menu-btn:hover,
 .right-nav-btn:hover, .right-nav-btn:active,
-.theme-btn:hover, .theme-btn:active {
+.theme-btn:hover {
   background-color: var(--hover-color);
 }
 
@@ -230,10 +230,43 @@ body {
 }
 /* Responsive Styles */
 @media (max-width: 480px) {
+  /* For phone where navigation buttons are part of screen 
+  * This will change the phone's navigation panel to be slightly darker than the top-nav bar */
+  :root {
+     --body-bg-color: oklch(from var(--primary-color) calc(l * 0.9) c h);
+  }
+  [data-theme='dark'] {
+     --body-bg-color: oklch(from var(--primary-color) calc(l * 0.9) c h);
+  }
   .main-content {
     padding: 10px 10px;
   }
   .top-nav a {
     display: none;
   }
+  /* Move the top nav bar to the bottom */
+    .top-bar {
+      justify-content: left;
+      bottom: 0;
+    }
+    .container {
+      padding-top: 0;
+      padding-bottom: var(--top-nav-height); /* For phone where navigation buttons are part of screen */
+    }
+    .left-nav {
+      top: 0;
+      bottom: var(--top-nav-height);
+      height: (100% - var(--top-nav-height));
+    }
+     /* Have right nav open upward */
+    .right-nav {
+        top: auto;
+        right: 0;
+        bottom: var(--top-nav-height);
+        max-height: 50%;
+        transform: translateY(100vh);
+    }
+    .right-nav.open {
+        transform: translateY(0);
+    }
 }
