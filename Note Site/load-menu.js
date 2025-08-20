@@ -184,7 +184,7 @@ function toggleTheme() {
 }
 export function getTheme() {
     // console.log('getTheme called');
-    const currentTheme = localStorage.getItem("data-theme") ? localStorage.getItem("data-theme") : "light";
+    const currentTheme = localStorage.getItem("data-theme") ? localStorage.getItem("data-theme") : "dark";
     if (currentTheme) {
         document.documentElement.setAttribute('data-theme', currentTheme);
     }
