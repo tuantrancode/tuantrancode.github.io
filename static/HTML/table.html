@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML - Tables</title>
+    <link rel="stylesheet" href="/common-styles.css">
+    <link rel="stylesheet" href="/main-layout.css">
+    <link rel="stylesheet" href="/HTML/table-styles.css">
+    <script type="module">
+        import { loadMenu, getTheme } from '../load-menu.js';
+
+        getTheme();
+        loadMenu("mainContainer", "rightNav");
+    </script>
+
+</head>
+
+<body>
+    <!-- Main Container -->
+    <div class="container" id="mainContainer">
+
+        <!-- Main Content -->
+        <div class="main-content" id="mainContent">
+
+            <!-- TABLE -->
+            <h3 class="section-header" id="table">Table</h3>
+            <ul>
+                <li><strong>&lt;tr></strong>: row</li>
+                <li><strong>&lt;th></strong>: header cell</li>
+                <li><strong>&lt;td></strong>: data cell</li>
+                <li><strong>&lt;thead></strong> and <strong>&lt;tbody></strong>: useful for separating styles of head
+                    and body of table (optional)</li>
+                <li>Useful attributes: <code>rowspan</code> and <code>colspan</code></li>
+                <ul>
+                    <li><code>rowspan: x</code>: the cell will span 'x' rows starting from the cell this attribute was
+                        placed on</li>
+                    <li><code>colspan: x</code>: the cell will span 'x' columns starting from the cell this attribute
+                        was placed on</li>
+                </ul>
+                <li>More examples: <a href="https://www.w3schools.com/css/css_table.asp"
+                        target="_blank">www.w3schools.com/css/css_table.asp</a></li>
+            </ul>
+            <p>
+            <div>
+                <pre><code class="language-html">&lt;table&gt;
+    &lt;thead&gt;
+	&lt;tr&gt;
+		<mark>&lt;th&gt;</mark>Column 1&lt;/th&gt;
+		&lt;th&gt;Column 2&lt;/th&gt;
+		&lt;th&gt;Column 3&lt;/th&gt;
+		&lt;th&gt;Column 4&lt;/th&gt;
+	&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+	&lt;tr&gt;
+		<mark>&lt;td&gt;</mark> 1 &lt;/td&gt;
+		&lt;td&gt; 2 &lt;/td&gt;
+		&lt;td&gt; 3 &lt;/td&gt;
+		&lt;td&gt; 4 &lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		<mark>&lt;td&gt; rowspan="2" style="background-color:#80ced6"> 5 &lt;/td&gt;</mark>
+		<mark>&lt;td&gt; colspan="2" style="background-color:#80ced6"> 6 &lt;/td&gt;</mark>
+		&lt;td&gt; 7 &lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt; 8 &lt;/td&gt;
+		&lt;td&gt; 9 &lt;/td&gt;
+		&lt;td&gt; 10 &lt;/td&gt;
+	&lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+
+                <div>
+                    <table>
+                        <tr>
+                            <th>Column 1</th>
+                            <th>Column 2</th>
+                            <th>Column 3</th>
+                            <th>Column 4</th>
+                        </tr>
+                        <tr>
+                            <td> 1 </td>
+                            <td> 2 </td>
+                            <td> 3 </td>
+                            <td> 4 </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2" style="background-color:#80ced6"> 5 </td>
+                            <td colspan="2" style="background-color:#80ced6"> 6 </td>
+                            <td> 7 </td>
+                        </tr>
+                        <tr>
+                            <td> 8 </td>
+                            <td> 9 </td>
+                            <td> 10 </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+
+        </div> <!-- Main Content End -->
+
+
+
+        <!-- Table of Contents -->
+        <div class="right-nav" id="rightNav">
+            <h3>Table of Contents</h3>
+            <a href="#table">Table</a>
+        </div>
+    </div> <!-- Main Container End -->
+
+
+
+</body>
+
+</html>

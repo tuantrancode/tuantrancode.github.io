@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masonry Gallery</title>
+    <link rel="stylesheet" href="/common-styles.css">
+    <link rel="stylesheet" href="/main-layout.css">
+    <link rel="stylesheet" href="/Responsive/masonry-gallery-styles.css">
+<script type="module">
+import { loadMenu, getTheme } from '/load-menu.js';
+import { loadMasonryImages, updateImageCount } from '/Responsive/masonry-script.js';
+
+const gridId = "masonryGallery";
+
+getTheme();
+loadMenu("mainContainer", "rightNav");
+document.getElementById('loadImgBtn').addEventListener('click', () => {
+    loadMasonryImages(gridId)
+    document.getElementById('rightNav').classList.remove('open');
+});
+
+/* Code to save gallery session when leaving page and reloading it when the user pressed the back button*/
+// Save state when leaving page
+window.addEventListener('beforeunload', saveGalleryState);
+
+// Save gallery HTML and scroll position
+function saveGalleryState() {
+    const gallery = document.getElementById(gridId);
+    if (gallery) {
+        sessionStorage.setItem('galleryHTML', gallery.innerHTML);
+        sessionStorage.setItem('galleryItemsCount', gallery.childElementCount)
+        sessionStorage.setItem('scrollPos', window.scrollY);
+    }
+}
+
+// Restore gallery HTML, number of images, and scroll position
+function restoreGalleryState() {
+    const savedHTML = sessionStorage.getItem('galleryHTML');
+    if (savedHTML) {
+        const gallery = document.getElementById(gridId);
+        gallery.innerHTML = savedHTML;
+        updateImageCount(sessionStorage.getItem('galleryItemsCount'));
+        window.scrollTo(0, parseInt(sessionStorage.getItem('scrollPos')) || 0);
+    }
+}
+
+// Normal page initialization
+function makeOnce() {
+    loadMasonryImages(gridId);
+}
+
+// Handle event (Back/Forward cache)
+window.addEventListener('load', () => {
+    const navType = performance.getEntriesByType("navigation")[0].type;
+    if (navType === "back_forward") {
+        console.log("Back/Forward navigation — restoring gallery");
+        restoreGalleryState();
+    } else {
+        console.log("Normal load — initialize page");
+        makeOnce();
+    }
+});
+</script>
+</head>
+
+<body>
+    <!-- Main Container -->
+    <div class="container" id="mainContainer">
+
+        <!-- Main Content -->
+        <div class="main-content" id="mainContent">
+
+            <!-- USING GRID AND CALCULATING ROW SPAN OF EACH IMAGE TO MAKE MASONRY GALLERY -->
+            <div class="grid" id="masonryGallery"></div>
+
+        </div> <!-- Main Content End -->
+
+
+        <!-- Table of Contents -->
+        <div class="right-nav" id="rightNav">
+            <button id="loadImgBtn">Load More Images</button>
+        </div>
+    </div> <!-- Main Container End -->
+
+</body>
+
+</html>
