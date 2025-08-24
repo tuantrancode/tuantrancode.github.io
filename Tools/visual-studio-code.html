@@ -20,17 +20,16 @@
     </script>
 </head>
 
-<body>
+<body id="root">
     <!-- Main Container -->
     <div class="container" id="mainContainer">
 
         <!-- Main Content -->
-        <div class="main-content" id="mainContent">
-
-            <input type="text" class="search-bar" id="vsShortCutsSearchBar"
-                placeholder="Search actions, shortcuts, or extensions...">
+        <main class="main-content" id="mainContent">
 
             <h3 class="section-header" id="shortcuts">Common Visual Studio Shortcuts</h3>
+             <input type="text" class="search-bar" id="vsShortCutsSearchBar"
+                placeholder="Search actions, shortcuts, or extensions...">
             <table>
                 <thead>
                     <tr>
@@ -51,7 +50,7 @@
                         <td>Format Whole Document</td>
                         <td>Shift + Alt + F</td>
                         <td>Shift + Option + F</td>
-                        <td>Very useful.</td>
+                        <td>Very useful. Life or Death</td>
                     </tr>
                     <tr>
                         <td>Search and replace in all files</td>
@@ -81,7 +80,7 @@
                         <td>Select current word or expand selection </td>
                         <td>Ctrl + W</td>
                         <td>Shift + Option + Right</td>
-                        <td>Very useful. Default keybinding was Shift + Alt + Right</td>
+                        <td>Very useful.<br>Default keybinding was Shift + Alt + Right</td>
                     </tr>
                     <tr>
                         <td>Select whole line</td>
@@ -138,10 +137,10 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td>Toggle Terminal</td>
-                        <td>Ctrl + `</td>
-                        <td>Cmd + `</td>
-                        <td></td>
+                        <td>Toggle Terminal/ Console</td>
+                        <td>Ctrl + ` (backtick)</td>
+                        <td>Cmd + ` (backtick)</td>
+                        <td>Very useful.<br>Right clicking a file/folder will also give the option to open the terminal at that location</td>
                     </tr>
                     <tr>
                         <td>Toggle Sidebar</td>
@@ -171,7 +170,7 @@
             </ul>
 
 
-        </div> <!-- Main Content End -->
+        </main> <!-- Main Content End -->
 
 
 

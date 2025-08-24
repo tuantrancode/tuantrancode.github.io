@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React - Setup</title>
+    <link rel="stylesheet" href="/common-styles.css">
+    <link rel="stylesheet" href="/main-layout.css">
+    <script type="module">
+        import { loadMenu, getTheme } from '/load-menu.js';
+
+        getTheme();
+        loadMenu("mainContainer", "rightNav");
+    </script>
+</head>
+
+<body id="root">
+    <!-- Main Container -->
+    <div class="container" id="mainContainer">
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+
+            <!-- SETTING UP VITE -->
+            <h3 class="section-header" id="vite">Setup using Vite</h3>
+            <p>Vite is a build tool and dev server for React app.</p>
+            <ul>
+              <li>A front-end tool to quickly develop app/prototype, SPAs, Dashboard, interal tooling</li>
+              <li>Minimal and any extra tech will need to be added: routing, SSR, testing setup, API routes</li>
+            </ul>
+                <h4 class="sub-section-header">Basic Commands</h4>
+            <ul>
+                <li><strong>Creating the Project</strong> : <code>npm create vite@latest my-app</code></li>
+                <ul>
+                  <li>Select React framework, and Javascript or Typescript variant</li>
+                </ul>
+                <li><strong>Running the Developer Server</strong> : <code>npm run dev</code> in the project root folder
+                </li>
+                <li><strong>Building the Project</strong> : <code>npm run build</code> in the project root folder</li>
+            </ul>
+            <h4 class="sub-section-header">Folder Structure</h4>
+            <pre><code>my-vite-app/
+├── index.html
+├── src/
+│   ├── App.jsx         # root component that wraps all other components
+│   ├── main.jsx        # entry point of website
+│   ├── pages/
+│   │   ├── Home.jsx    # Home page (/)
+│   │   └── About.jsx   # About page (/about)
+│   ├── store.js
+└── public/             # holds static assets
+│   ├── images/         # accessed from root (/images/*)
+│   └── sitemap.xml     # good for SEO (/sitemap.xml)
+│   └── robots.txt      # accessed from root (/robots.txt)
+└── package.json
+└── vite.config.js</code></pre>
+            <h4 class="sub-section-header">Minimal Project + React Router</h4>
+            <p>React Router is used to add routing functionality into the Vite app</p>
+            <ul>
+                <li>the main.jsx is the same as index.js in other React app (except Next.js)</li>
+            </ul>
+            <pre><code class="language-jsx">
+// src/main.jsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App.jsx";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  &lt;BrowserRouter>
+    &lt;App />
+  &lt;/BrowserRouter>
+);
+--------------------------------------------------------------
+// src/App.jsx
+import { Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+
+export default function App() {
+  return (
+    &lt;div>
+      &lt;nav>
+        &lt;Link to="/">Home&lt;/Link> |{" "}
+        &lt;Link to="/about">About&lt;/Link>
+      &lt;/nav>
+      &lt;Routes>     # Routes is the main container that swaps components out depending on the current URL
+        &lt;Route path="/" element={&lt;Home />} />
+        &lt;Route path="/about" element={&lt;About />} />
+      &lt;/Routes>
+    &lt;/div>
+  );
+}
+--------------------------------------------------------------
+// src/pages/Home.jsx
+export default function Home() {
+  return (
+    &lt;div>
+      &lt;h1>Home Page&lt;/h1>
+    &lt;/div>
+  );
+}
+--------------------------------------------------------------
+// src/pages/About.jsx
+export default function About() {
+  return &lt;h1>About Page&lt;/h1>;
+}</code></pre>
+            <hr>
+
+            <!-- SETTING UP NEXT.JS -->
+            <h3 class="section-header" id="nextjs">Setup using Next.js</h3>
+            <p>Next.js is a framework for full-stack React app.</p>
+                <ul>
+                  <li>It has built-in features like routing, SSR, API routes, and testing setup (Jest)</li>
+                  <li>Good for SEO and a variety of apps like blogs, marketing sites, e-commerce, enterprise apps, SaaS and large apps</li>
+                </ul>
+            <h4 class="sub-section-header">Basic Commands</h4>
+            <ul>
+                <li><strong>Creating the Project</strong> : <code>npx create-next-app@latest my-app</code></li>
+                <li><strong>Running the Developer Server</strong> : <code>npm run dev</code> in the project root folder
+                </li>
+                <li><strong>Building the Project</strong> : <code>npm run build</code> in the project root folder</li>
+            </ul>
+            <h4 class="sub-section-header">Folder Structure</h4>
+            <pre><code>my-next-app/
+├── app/                 # the root for all navigation and links
+│   ├── layout.jsx       # Optional Global Layout - entry point if file exist
+│   ├── page.jsx         # Home page (/) - normal entry point if layout.jsx did not exist
+│   ├── about/
+│   │   └── page.jsx     # About page (/about)
+└── public/              # holds static assets
+│   ├── images/          # accessed from root (/images/*)
+│   └── sitemap.xml     # good for SEO (/sitemap.xml)
+│   └── robots.txt       # accessed from root (/robots.txt)
+├── store.js
+├── next.config.js
+├── tsconfig.json
+└── package.json</code></pre>
+            <ul>
+                <li>In Next.js App Router (Next 13+), your entire site structure and navigation are based on the folder
+                    and file structure inside <code>app/</code> folder</li>
+                <ul>
+                    <li>The <code>app/</code> and <code>public/</code> folders must stay the same.</li>
+                    <li>Special files like <code>layout.js</code> and <code>page.js</code> can not be renamed and need
+                        to be in their expected locations for proper navigation</li>
+                    <li>The subfolders of <code>app/</code> can be organized however you want</li>
+                    <li>Config files like <code>next.config.js</code>, <code>package.json</code>,
+                        <code>tsconfig.json</code> must be in the root</li>
+                    <li>Standard Node.js rules apply. Keep <code>node_modules/</code> in root; you don’t move this
+                        around.</li>
+                    <li>You can create folders like <code>components/, hooks/, utils/, styles/, lib/, etc.</code>
+                        anywhere as long as they're imported correctly</li>
+                </ul>
+            </ul>
+
+            <h4 class="sub-section-header">Minimal Project with Global Layout</h4>
+            <p>Next.js already has built in routing and SSR.</p>
+            <ul>
+                <li><code>app/layout.jsx</code> acts as the entry point and root component for the app so it's similar
+                    to combining <code>main.jsx</code> + <code>App.jsx</code> in Vite</li>
+
+
+            </ul>
+            <pre><code class='language-jsx'>// app/layout.jsx (global layout)
+export const metadata = {
+  title: "My Next.js App",
+  description: "Minimal Next.js example with SSR and layout",
+};
+
+export default function RootLayout({ children }) {
+  return (
+    &lt;html lang="en">
+      &lt;body>
+        &lt;header>
+          &lt;nav>
+            &lt;a href="/">Home&lt;/a>
+            &lt;a href="/about">About&lt;/a>
+          &lt;/nav>
+        &lt;/header>
+        <mark>&lt;main>{children}&lt;/main></mark> #{children} is where the components will be swapped
+        &lt;footer>
+        &lt;/footer>
+      &lt;/body>
+    &lt;/html>
+  );
+}
+--------------------------------------------------------------
+// app/page.jsx (Home Page)
+export const dynamic = "force-dynamic"; // Ensures SSR every request
+
+export default async function HomePage() {
+  // Fetch some server-side data
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts/1", {
+    cache: "no-store", // Forces SSR fetch
+  });
+  const data = await res.json();
+
+  return (
+    &lt;section>
+      &lt;h1>Welcome to My Next.js App!&lt;/h1>
+      &lt;h2>SSR Example:&lt;/h2>
+      &lt;p>&lt;strong>Title:&lt;/strong> {data.title}&lt;/p>
+      &lt;p>&lt;strong>Body:&lt;/strong> {data.body}&lt;/p>
+    &lt;/section>
+  );
+}
+--------------------------------------------------------------
+// app/about/page.jsx (About Page)
+export default function AboutPage() {
+  return &lt;h1>About Page&lt;/h1>;
+}
+--------------------------------------------------------------
+// next.config.js (optional but recommended)
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+};
+
+module.exports = nextConfig;
+</code></pre>
+<hr>
+
+<h3 class="section-header" id="keyFiles">Key Files</h3>
+<ul>
+  <li><code>package.json</code> : includes dependencies required, scripts, and other metadata about the project</li>
+  <ul>
+    <li><code>dev</code> : script used when starting development server</li>
+    <li><code>build</code> : script used when creating a production-ready build</li>
+    <li><code>preview</code> : script for serving the production build locally for testing</li>
+  </ul>
+  <li><code>*.config.js</code> : configuration file for the tool you're using (Vite or Next)</li>
+</ul>
+
+
+        </main> <!-- Main Content End -->
+
+
+
+        <!-- Table of Contents -->
+        <div class="right-nav" id="rightNav">
+            <h3>Table of Contents</h3>
+            <a href="#vite">Vite</a>
+            <a href="#nextjs">Next.js</a>
+            <a href="#keyFiles">Key Files</a>
+
+        </div>
+    </div> <!-- Main Container End -->
+
+</body>
+
+</html>

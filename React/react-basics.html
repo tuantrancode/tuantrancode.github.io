@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React - Basics</title>
+    <link rel="stylesheet" href="/common-styles.css">
+    <link rel="stylesheet" href="/main-layout.css">
+    <script type="module">
+        import { loadMenu, getTheme } from '/load-menu.js';
+
+        getTheme();
+        loadMenu("mainContainer", "rightNav");
+    </script>
+</head>
+
+<body id="root">
+    <!-- Main Container -->
+    <div class="container" id="mainContainer">
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+
+            <h2 class="page-header">React</h2>
+            <p> The benefit of React is that it only updates DOM elements that have changed by managing a virtual DOM.
+                It also allow us to swap component out of webpages.</p>
+            <p><strong>Primary Libraries</strong> :</p>
+            <ul>
+                <li><code>import React from 'react'</code> : for pure React purposes; the library does not interact with
+                    the DOM; mainly use for creating components or writing JSX elements</li>
+                <li><code>import ReactDOM from 'react-dom/client'</code> : contains methods for React to interact with
+                    DOM</li>
+            </ul>
+            <hr>
+
+
+            <!-- JSX LANGUAGE-->
+            <h3 class="section-header" id="jsx">JSX</h3>
+            <p>JSX is the language use for React. It's a combination of Javascript + HTML. JSX is used everywhere
+                between the opening and closing tags of JSX elements</p>
+            <h4 class="sub-section-header">JSX Elements</h4>
+            <ul>
+                <li>JSX Elements are the same as HTML Elements, like <code>div button input p</code> except they're in
+                    Javascript file, but they are not the same as React components</li>
+                <li>They can contain attributes like <code>id</code></li>
+                <ul>
+                    <li>The HTML attribute <code>class</code> can not be used in JSX, instead <code>className</code>
+                        has to be used instead because class is a reserved Javascript keyword</li>
+                </ul>
+                <li>They can be assigned to variables and pass around like functions</li>
+                <li>They must be <mark>wrapped in parenthesis ()</mark> if the element require multiple lines of code
+                </li>
+                <li><mark>There can only be <strong>one outermost</strong> html element in a jsx element</mark></li>
+            </ul>
+            <p><strong>Differences in React</strong> :</p>
+            <ul>
+                <li>The HTML attribute <code>class</code> can not be used in JSX, instead <code>className</code> has to
+                    be used instead because class is a reserved Javascript keyword</li>
+                <li>Elements that have a self-closing tag MUST have a forward slash before the final bracket</li>
+                <ul>
+                    <li>Example: <code>&lt;img src=""/> &lt;input name=""/> &lt;br/></code></li>
+                </ul>
+                <li>JSX elements must be wrapped in parenthesis () if the element require multiple lines of code</li>
+                <li>Similar to injecting Javascript <code>${expression}</code> in string, it's possible to inject
+                    Javascript into JSX expressions too, but using only curly braces <code>{js expression}</code></li>
+                <ul>
+                    <li>Example: <code>&lt;img src={variableName}/></code> : there is no need for quotation mark</li>
+                </ul>
+            </ul>
+            <pre><code class="language-jsx">// In Javascript file (JSX still use the extension .js)
+const jsxElement = (
+    &lt;div class="top-bar">
+        &lt;div <mark>className="top-nav"</mark>>
+            &lt;button id="menuBtn" onClick=<mark>{functionName}</mark>>Menu&lt;/button>
+            &lt;a href="#">Link</a>
+        &lt;/div>
+    &lt;/div>
+); </code></pre>
+            <hr>
+
+            <!-- RENDERING JSX LANGUAGE-->
+            <h3 class="section-header" id="renderingJSX">Rendering JSX Elements</h3>
+            <ul>
+                <li>JSX element typically render to one react root.</li>
+                <li>Use <code>createRoot()</code> method to create the root from "react-dom/client" library</li>
+                <li>Use <code> render()</code> method to render the JSX element</li>
+            </ul>
+            <pre><code class="language-jsx">// JSX
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(jsxElement);
+--------------------------------------------------------------
+// HTML
+&lt;div id="root">&lt;/div> </code></pre>
+
+            <h4 class="sub-section-header">Conditional Rendering</h4>
+            <ul>
+                <li>You can use the ternary operator and <code>&&</code> to make conditional rendering, but not
+                    <code>if</code> statements
+                </li>
+            </ul>
+            <pre><code class="language-jsx">// JSX
+// Using ternary operator
+const headline = (
+  &lt;1>
+    { age >= drinkingAge ? 'Buy Drink' : 'Do Teen Stuff' }
+  &lt;/h1>
+); // if age is above drinkingAge, it will render &lt;h1>Buy Drink&lt;/h1>
+---------------------------------------------------------------------------
+// Using && operator
+const tasty = (
+  &lt;ul>
+    &lt;li>Applesauce&lt;/li>
+    { !baby && &lt;li>Pizza&lt;/li> }
+); // if baby is false, it will render  &lt;li>Pizza&lt;/li> </code></pre>
+            <hr>
+
+
+            <!-- USING MAP METHOD-->
+            <h3 class="section-header" id="renderingJSX">Using array.map() Method</h3>
+            <p>The map() method is very useful for building repetitive elements from an array.</p>
+            <pre><code class="language-jsx">// JSX
+// Mapping a string array
+const strings = ['Home', 'Shop', 'About Me'];
+const listItems = strings.map(string => &lt;li key="string">{string}&lt;/li>);
+root.render(&lt;ul>{listItems}&lt;/ul>)
+
+// Output
+&lt;ul>
+    &lt;li key="Home">Home&lt;/li>
+    &lt;li key="Shop">Shop&lt;/li>
+    &lt;li key="About Me">About Me&lt;/li>
+    &lt;/ul></code></pre>
+            <br>
+            <pre><code class="language-jsx">// JSX
+// Mapping a set
+const navSet = {
+    'Home': '/index.html',
+    'Shop': '/shop.html',
+    'About Me': '/aboutMe.html'
+};
+const navMenu = Object.keys(navSet).map( ([name, url]) => &lt;a key={name} href={url}>{name}&lt;/a>);
+root.render(navMenu);
+
+// Output:
+&lt;a key="Home" href="/index.html">Home&lt;/a>,
+&lt;a key="Shop" href="/shop.html">Shop&lt;/a>,
+&lt;a key="About Me" href="/aboutMe.html">About Me&lt;/a> </code></pre>
+            <hr>
+
+            <!-- USING JSX KEY ATTRIBUTE-->
+            <h3 class="section-header" id="key">JSX key Attribute</h3>
+            <p>When rendering with map(), React uses the <code>key</code> attribute to identify which element was mapped
+                from which value. This allows React to update/remove only the necessary element when the list changes.
+            </p>
+            <ul>
+                <li><code>key</code> must be unique among siblings element, but they' dont have to be globally unique
+                </li>
+                <li>Don’t use the array index as a key unless you’re sure items never reorder or get removed.</li>
+                <ul>
+                    <li>Combining value and index to make a key can work, but list can not be re-order:
+                        <code>key={array[i] + i}</code>
+                    </li>
+                </ul>
+                <li>Keys are not accessible inside the component via <code>props</code></li>
+                <li>ALWAYS try to have the key attribute for repetitive elements as it makes rendering more efficient
+                </li>
+            </ul>
+            <hr>
+
+
+            <!-- REACT COMPONENT-->
+            <h3 class="section-header" id="component">React Component</h3>
+            <ul>
+                <li><strong>Component</strong> : for React, it a block of code that render HTML and re-render it
+                    whenever some data changes</li>
+                <li><strong>Functional Component</strong> : a Javascript function that returns a JSX element (a
+                    component)</li>
+                <ul>
+                    <li>Functional components MUST begin with a capital letter, or the React compiler will not realize
+                        it's returning a React component</li>
+                    <ul>
+                        <li>The js file of the component should also have the first letter capatalized for easy
+                            recognition.</li>
+                    </ul>
+                    <li>They can be used like JSX element: nesting other components and adding attributes, but require
+                        passing and using <code>props</code> within the function</li>
+                    <pre><code class="language-jsx">// JSX
+
+// MySimpleComponent can not accept attributes or have nested children
+function MySimpleComponent() {
+  return &lt;div>Hello, I'm a functional React Component!&lt;/div>;
+}   
+// MyNewComponent is allow to accept attributes and have nested children b/c it accepts props
+function MyNewComponent(<mark>props</mark>) {
+  return (
+        &lt;div className={props.className}> <mark>{props.children}</mark> || Hello, I'm a functional React Component!&lt;/div>
+    );
+}   
+
+// Using functional component
+const nestedComponent = (
+&lt;MyNewComponent className="top-bar">
+    &lt;OtherComponent />
+&lt;/MyNewComponent>  
+);
+
+// Rendering functional component
+root.render(&lt;MySimpleComponent/>)
+</code></pre>
+
+                </ul>
+            </ul>
+            <hr>
+
+
+
+            <!-- FUNCTIONAL COMPONENT LIFECYCLE-->
+            <h3 class="section-header" id="lifecycle">Functional Component (with Hooks) Lifecycle</h3>
+            <p>Sequence: Mount → Render → Update (re-render on state/props change) → Unmount</p>
+            <ol>
+                <li><strong>Mounting</strong> :</li>
+                <ul>
+                    <li>Runs the function once</li>
+                    <li><code>useEffect(() => { ... }, [])</code> runs after initial render</li>
+                </ul>
+                <li><strong>Updating</strong> :</li>
+                <ul>
+                    <li>Function runs again when state or props change</li>
+                    <li><code>useEffect(() => { ... })</code> runs after every render by default</li>
+                    <li><code>useEffect(() => { ... }, [deps])</code> runs when dependencies change</li>
+                </ul>
+                <li><strong>Unmounting</strong> :</li>
+                <ul>
+                    <li>Cleanup function inside <code>useEffect</code>> runs:</li>
+                </ul>
+
+            </ol>
+            <hr>
+
+
+            <!-- PROPS-->
+            <h3 class="section-header" id="props">Props</h3>
+            <p><code>props</code> are used to pass information from one component to another (like className, style,
+                children nodes)</p>
+            <ul>
+                <li>The functional component add <code>props</code> into its argument to tell that it will accept
+                    attributes</li>
+                <li>By giving attributes to the component, the attributes and their values are passed function component
+                    by <code>props</code></li>
+                <li>Add curly braces {} to pass Javascript expressions like functions, arrays, json, etc.</li>
+                <li>Use <code>useContext</code>, Context Hook, instead if you're passing <code>props</code> to deeply
+                    nested children or if multiple components need to share the same state - i.e. theme</li>
+            </ul>
+            <pre><code class='language-jsx'> // JSX
+// passing info to Button component as attributes
+root.render( 
+    &lt;Button className="submitBtn" onClick={myFunction} data={ [1, 2, 3] }/> 
+);
+
+// The functional component access the info using props
+function <mark>Button(props)</mark> {
+    calcData(props.data);
+    return &lt;button className={props.className} onClick={props.onClick}/>;
+}  
+
+// Since props is an object, destructuring syntax can help simplify code
+function <mark>Button({data, className, onClick} )</mark> {
+    calcData(data);
+    return &lt;button className={className} onClick={onClick}/>;
+}  </code></pre>
+
+
+            <h4 class="sub-section-header">Passing Props to Children Components</h4>
+            <p><code>props</code> are immutable (read-only) and one-way: data flows down from the parent to the child
+            </p>
+            <ul>
+                <li>In order for a child component to modify a props property, the parent needs to pass a callback
+                    function, that
+                    edit the property, as a reference to the child</li>
+            </ul>
+            <pre><code class="language-jsx">// JSX
+// Parent component
+function Parent() {
+    const [count, setCount] = React.useState(0);
+
+    // handleIncrement allows the child component to modify the count property
+    const handleIncrement = () => {
+        setCount(current => current + 1);
+    };
+
+    return &lt;Child count={count} onIncrement={handleIncrement} />;
+}
+
+// Child component
+function Child( {count, onIncrement} ) {
+    count = count + 1;  // ❌ this statement will not work and be ignored
+
+    return (
+        &lt;div>
+            &lt;p>Count: {count}&lt;/p>
+            &lt;button onClick={onIncrement}>Increment&lt;/button>
+        &lt;/div>
+    );
+} 
+
+--------------------------------------------------------------
+// For simple callback that only modify one property/statement
+function Parent() {
+    const [count, setCount] = React.useState(0);
+    return &lt;Child count={count} <mark>setCount={setCount}</mark> />;
+}
+function Child( {count, setCount} ) { <mark>// props is required in the argument</mark>
+    return (
+        &lt;div>
+            &lt;p>Count: {count}&lt;/p>
+            &lt;button <mark>onClick={ () => setCount(current => current + 1) }</mark>> Increment &lt;/button>
+        &lt;/div>
+    );
+} </code></pre>
+            <h4 class="sub-section-header">Nesting Components with props.children</h4>
+            <p><code>props.children</code> return everything in between a component's opening and closing JSX tags</p>
+            <ul>
+                <li>Useful for reusing components while letting the parent controls the content</li>
+            </ul>
+            <pre><code class="language-jsx">// JSX
+// Parent component
+function Grid() {
+    return (
+        &lt;grid>
+            &lt;Card>
+                &lt;h5>Image 1&lt;/h5>
+                &lt;img src="/image1.jpg"/>
+            &lt;/Card>
+            &lt;Card>
+                &lt;h5>Image 2&lt;/h5>
+                &lt;img src="/image2.jpg"/>
+            &lt;/Card>
+        &lt;/grid>
+    );
+}
+
+// Child component
+// Swap out Card's content depending on what parent decide and makes it easier for lower-level components to be reused.
+// Makes it easier to group up JSX element so you won't need an h5 or img component.
+function Card(props){
+    return (
+        &lt;div className="grid-item">
+            <mark>{props.children}</mark> 
+        &lt;/div>
+    );
+} </code></pre>
+            <h4 class="sub-section-header">Setting Default Values for props</h4>
+            <p>Default values can be set for <code>props</code> properties if none were passed using 3 methods</p>
+            <ul>
+                <li>Add a <code>defaultProps</code> static property to the component</li>
+                <pre><code class="language-jsx">// JSX
+function Card( {src = '/defaultImage.jpg'} ) {
+  return &lt;img src={src}/>;
+}
+
+Card.defaultProps = {
+  src: '/defaultImage.jpg',
+};  </code></pre>
+                <li>Add the default value directly to the function arguments</li>
+                <pre><code class="language-jsx">// JSX
+function Card( {src = '/defaultImage.jpg'} ) {
+  return &lt;img src={src}/>;
+}   </code></pre>
+                <li>Set the default value in the function body</li>
+                <pre><code class="language-jsx">// JSX
+function Card(props) {
+  const {src = '/defaultImage.jpg'} = props;
+  return &lt;img src={src}/>;
+}  </code></pre>
+            </ul>
+            <hr>
+
+
+            <!-- HOOKS-->
+            <h3 class="section-header" id="hooks">Hooks</h3>
+            <p>Hooks allow us to manage and use state, lifecycle methods, and other React features inside functional
+                components</p>
+            <p>Some common hooks are:
+                <code>useState, useEffect, useContext, useReducer, and useRef, useMemo, useCallback</code>
+            </p>
+            <p><strong>Rules of Hooks</strong></p>
+            <ul>
+                <li>Only call hooks at the top level (inside the main function body)</li>
+                <ul>
+                    <li>i.e. Don't call hooks inside loops, conditions, or nested functions</li>
+                </ul>
+                <li>Only call hooks in React functions (functional components and custom hooks)</li>
+                <ul>
+                    <li>Functional components start with a capital letter</li>
+                    <li>Custom hooks are functions that start with "use", call other hooks, and return values, state, or
+                        logic (not JSX)</li>
+                </ul>
+            </ul>
+            <hr>
+
+
+            <!-- REACT CONTEXT-->
+            <h3 class="section-header" id="useContext">Context Hook</h3>
+            <p>React Context is another way to pass information to components and their children without using
+                <code>props</code>
+            </p>
+            <ul>
+                <li>Use React Context to give many components access to the same state</li>
+                <li>React Context also allow any component children component to get access without having to drill
+                    <code>props</code> down to deeply nested children
+                </li>
+            </ul>
+            <pre><code class="language-jsx">// JSX
+import React, { createContext, useContext, useState } from "react";
+
+// 1. Create a Context with createContext()
+ <mark>const CounterContext = createContext();</mark>
+
+function Parent() {
+    const [count, setCount] = useState(0);
+
+    return (
+         // 2. Wrap children in the Provider and pass state + setter using "value" attribute
+         <mark>&lt;CounterContext.Provider value={ { count, setCount } }></mark>
+            &lt;NestedChild />
+        &lt;/CounterContext.Provider>
+    );
+}
+function NestedChild() { <mark>// No need to pass props</mark>
+    // 3. Access count and setCount directly using useContext()
+    <mark>const { count, setCount } = useContext(CounterContext);</mark>
+
+    return (
+        &lt;div>
+            &lt;p>Count: {count}&lt;/p>
+            &lt;button onClick={ () => setCount(current => current + 1)}> Increment &lt;/button>
+        &lt;/div>  
+    );
+}  </code></pre>
+            <hr>
+
+
+
+            <!-- STATE HOOK-->
+            <h3 class="section-header" id="useState">State Hook</h3>
+            <p><code>[ current, setState ] = useState(initial)</code></p>
+            <ul>
+                <li><code>useState</code> : returns an array with the current state and a state setter</li>
+                <li><code>current</code> : the current state value</li>
+                <li><code>setState(callbackFunc)</code> : a function that we can use to update the value of the current
+                    state</li>
+                <ul>
+                    <li><code>setState( (current) => {return newState} )</code> : the <code>callbackFunc</code> always
+                        have the current state (or previous state) as a parameter and return the new state</li>
+                    <li>Always use a callback function in <code>setState</code> instead of using
+                        <code>setState(current + 1)</code> because it can cause race condition
+                    </li>
+                    <li>React will always re-render the component (unless new state is the same as old) whenever the
+                        setter function is called</li>
+                    <ul>
+                        <li>i.e. React will calls on the functional component again and re-render the whole component,
+                            so the whole function rerun except with different state values</li>
+                    </ul>
+                </ul>
+                <li><code>initial</code> : the initial value of the state (optional, but recommended to put an empty
+                    object, array, or <code>null</code>, otherwise useState default to <code>undefined</code>)</li>
+            </ul>
+            <pre><code class="language-jsx"> // JSX
+import { useState } from "react";
+
+function Counter() {
+  // 1. Call on useState to assign the state and setState callback function
+  <mark>const [count, setCount] = useState(0);</mark>
+  const increment = () => {
+    // 2. Use setState to update the state by passing it a callback function
+    <mark>setCount( (prev) => {</mark>
+        return prev + 1;
+    });
+  };
+
+  return (
+    &lt;div>
+      // 3. Use state where needed
+      <mark>&lt;p>Count: {count}&lt;p></mark>
+      &lt;button onClick={increment}>Increase&lt;/button>
+    &lt;/div>
+  );
+} </code></pre>
+            <hr>
+
+            <!-- EFFECT HOOK-->
+            <h3 class="section-header" id="useEffect">Effect Hook</h3>
+            <p><code>useEffect(callbackFunc, [dependencyArray])</code></p>
+            <ul>
+                <li><code>callbackFunc</code> returns a <code>cleanup()</code> function to be used before re-rendering
+                    and unmounting a component</li>
+                <li>The 2nd argument takes a dependency array that tells <code>useEffect</code> to run only if any
+                    variable in the array changed, like <code>[state]</code></li>
+                <ul>
+                    <li>Passing an empty dependency array <code>[]</code> tells <code>useEffect</code> to only run after
+                        the first render()</li>
+                </ul>
+            </ul>
+            <p><code>useEffect</code> runs everytime AFTER the component finishes rendering by calling on the callback
+                function, or effect</p>
+            <ul>
+                <li>Use to fetch data from back-end, subscribe to a stream of data, manage timers and intervals,
+                    read/edit DOM</li>
+                <li>There are 3 key moments in a component's lifecycle that can make use of the Effect Hook</li>
+                <ul>
+                    <li>When component is first added/mounted to the DOM and renders</li>
+                    <ul>
+                        <li>Only the body of the <code>callbackFunc</code> is run</li>
+                    </ul>
+                    <li>When it re-render due to state or props change</li>
+                    <ul>
+                        <li>Both the body of the <code>callbackFunc</code> and <code>cleanup</code> function is run</li>
+                    </ul>
+                    <li>When it's removed/unmounted from the DOM</li>
+                    <ul>
+                        <li>Only the <code>cleanup</code> function is run</li>
+                    </ul>
+                </ul>
+                <li>Keep hooks separate based on their effect - i.e. one <code>useEffect</code> hook for setting up menu
+                    items and another <code>useEffect</code> for fetching data</li>
+            </ul>
+            <pre><code class='language-jsx'>// JSX
+import { useState, useEffect } from "react";
+
+export default function UsersList() {
+  const [users, setUsers] = useState([]);       // Store fetched data
+  const [loading, setLoading] = useState(true); // Loading state
+  const [error, setError] = useState(null);     // Error state
+
+  <mark>useEffect(() => {</mark>
+    // Fetch data when component mounts
+    async function fetchUsers() {
+      try {
+        const response = await fetch("https://jsonplaceholder.typicode.com/users");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setUsers(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchUsers();
+  }, <mark>[]); // Empty dependency so it runs only once when component mounts</mark>
+
+  if (loading) return &lt;p>Loading...&lt;/p>;
+  if (error) return &lt;p>Error: {error}&lt;/p>;
+
+  return (
+    &lt;div>
+      &lt;h5>User List&lt;/h5>
+      &lt;ul>
+        {users.map(user => (
+          &lt;li key={user.id}>
+            &lt;strong>{user.name}&lt;/strong> — {user.email}
+          &lt;/li>
+        ))}
+      &lt;/ul>
+    &lt;/div>
+  );}            </code></pre>
+
+            <h4 class="sub-section-header">When Cleanup is Needed</h4>
+            <ul>
+                <li>Adding event listeners to elements outside the component - <code>window, document, body</code></li>
+                <pre><code class="language-jsx">useEffect(() => {
+  function handleResize() {
+    console.log(window.innerWidth);
+  }
+  window.addEventListener("resize", handleResize);
+
+  return () => {
+    window.removeEventListener("resize", handleResize);
+  };
+}, []);</code></pre>
+
+                <li>Adding listeners using <code>ref</code></li>
+                <pre><code class="language-jsx">useEffect(() => {
+  const btn = buttonRef.current;
+  btn.addEventListener("click", handleClick);
+  return () => btn.removeEventListener("click", handleClick);
+}, []);</code></pre>
+
+                <li>Subscribing to data, opens a connection, or starts streaming (Subscriptions / WebSockets / APIs)
+                </li>
+                <pre><code class="language-jsx">useEffect(() => {
+  const ws = new WebSocket("wss://example.com");
+  ws.onmessage = (event) => console.log(event.data);
+
+  return () => {
+    ws.close(); // Cleanup when component unmounts
+  };
+}, []); </code></pre>
+
+                <li>If you use <code>setInterval</code> or <code>setTimeout</code>, you must clean them up to avoid
+                    memory leaks:</li>
+                <pre><code class="language-jsx">useEffect(() => {
+  const timer = setInterval(() => {
+    console.log("Tick");
+  }, 1000);
+
+  return () => clearInterval(timer);
+}, []); </code></pre>
+
+                <li>When you initialize libraries like Chart.js, Leaflet, or GSAP inside useEffect, you should destroy
+                    or dispose of them in the cleanup</li>
+                <pre><code class="language-jsx">useEffect(() => {
+  const chart = new Chart(ctx, config);
+  return () => chart.destroy();
+}, []); </code></pre>
+            </ul>
+            <hr>
+
+
+            <!-- REFERENCE HOOK-->
+            <h3 class="section-header" id="useRef">Reference Hook</h3>
+            <p><code>ref = useRef(initial)</code></p>
+            <ul>
+                <li><code>ref</code> : an object with a single property: <code>current</code> that will persist between
+                    re-render</li>
+                <li><code>ref.current</code> : use to access and update the value of the object</li>
+                <li><code>initial</code> : inital value of <code>ref.current</code></li>
+            </ul>
+            <p>Used to access DOM elements or persist a value between re-render, without causing re-render when the
+                value changes</p>
+            <ul>
+                <li>Accessing DOM elements directly</li>
+                <li>Storing mutable values that don’t trigger a re-render</li>
+                <li>Keeping previous values between re-render for comparison</li>
+            </ul>
+            <pre><code class="language-jsx">// JSX
+// Tracking previous state
+import React, { useState, useEffect, useRef } from "react";
+
+export default function PreviousValueTracker() {
+  const [count, setCount] = useState(0);
+  <mark>const prevCountRef = useRef(); // create a ref to store previous value</mark>
+
+  // Update the ref after each render
+  useEffect(() => {
+    <mark>prevCountRef.current = count;</mark>
+  }, [count]);
+
+  return (
+    &lt;div>
+      &lt;h5>Current Count: {count}&lt;/h5>
+      <mark>&lt;h3>Previous Count: {prevCountRef.current}&lt;/h3></mark>
+      &lt;button onClick={() => setCount((c) => c + 1)}>Increment&lt;/button>
+      &lt;button onClick={() => setCount((c) => c - 1)}>Decrement&lt;/button>
+    &lt;/div>
+  );
+}   </code></pre>
+
+            <hr>
+
+
+            <!-- MEMO HOOK-->
+            <h3 class="section-header" id="useMemo">Memo Hook</h3>
+            <p>Memoization - Optimizes expensive computations by caching results.</p>
+            <hr>
+
+
+            <!-- CALLBACK HOOK-->
+            <h3 class="section-header" id="useCallback">Callback Hook</h3>
+            <p>Memoized Functions - Prevents unnecessary function re-creations.</p>
+            <hr>
+
+
+
+            <!-- REDUCER HOOK-->
+            <h3 class="section-header" id="useReducer">Reducer Hook</h3>
+            <p>Advanced State Management - An alternative to useState when state logic is complex.</p>
+            <hr>
+
+
+
+            <!-- EVENT LISTENER AND HANDLER-->
+            <h3 class="section-header" id="eventListener">Event Listener & Handler</h3>
+            <p>Event handlers are custom callback functions with the naming convention that they start with "handle"</p>
+            <p>Event listeners are used in the same way as their HTML counterpart</p>
+            <h4 class="sub-section-header">Naming Convention</h4>
+            <ul>
+                <li>React uses camelCase to name their events - <code>onClick</code> instead of <code>click</code></li>
+                <li>The custom callback function that handles the event commonly starts with 'handle'</li>
+                <li>For 'click' event, the callback function would be named <code>handleClick</code></li>
+                <li>For 'hover' event, the callback function would be named <code>handleHover</code></li>
+            </ul>
+            <pre><code class="language-jsx">// JSX
+function SubmitButton() {
+  function handleClick() {
+    alert('Submission Successful.');
+  }
+  return &lt;button <mark>onClick={handleClick}</mark>>Submit&lt;/button>;
+}</code></pre>
+
+            <h4 class="sub-section-header">Common Event React Supports</h4>
+
+
+            <ul>
+                <li><strong>Mouse Events</strong>
+                    <ul>
+                        <li><code>onClick</code> : Mouse click on an element</li>
+                        <li><code>onDoubleClick</code> : Double-click on an element</li>
+                        <li><code>onMouseDown</code> / <code>onMouseUp</code> : Mouse button pressed/released</li>
+                        <li><code>onMouseMove</code> : Mouse moves over an element</li>
+                        <li><code>onMouseEnter</code> / <code>onMouseLeave</code> : Mouse enters/leaves (no bubbling)
+                        </li>
+                        <li><code>onMouseOver</code> / <code>onMouseOut</code> : Mouse enters/leaves (bubbles)</li>
+                        <li><code>onContextMenu</code> : Right-click context menu</li>
+                    </ul>
+                </li>
+
+                <li><strong>Pointer Events</strong>
+                    <ul>
+                        <li><code>onPointerDown</code>, <code>onPointerUp</code>, <code>onPointerMove</code> : Pointer
+                            pressed, released, moved</li>
+                        <li><code>onPointerEnter</code>, <code>onPointerLeave</code> : Pointer enters/leaves (no
+                            bubbling)</li>
+                        <li><code>onPointerOver</code>, <code>onPointerOut</code> : Pointer enters/leaves (bubbles)</li>
+                        <li><code>onPointerCancel</code> : Pointer interaction canceled</li>
+                    </ul>
+                </li>
+
+                <li><strong>Keyboard Events</strong>
+                    <ul>
+                        <li><code>onKeyDown</code> : Key is pressed down</li>
+                        <li><code>onKeyPress</code> : Key is pressed (deprecated, prefer <code>onKeyDown</code>)</li>
+                        <li><code>onKeyUp</code> : Key is released</li>
+                    </ul>
+                </li>
+
+                <li><strong>Form & Input Events</strong>
+                    <ul>
+                        <li><code>onSubmit</code> : Form submission</li>
+                        <li><code>onChange</code> : Input/select value changes</li>
+                        <li><code>onInput</code> : Input value changes (real-time)</li>
+                        <li><code>onFocus</code> / <code>onBlur</code> : Element gains or loses focus</li>
+                        <li><code>onInvalid</code> : Form validation fails</li>
+                        <li><code>onReset</code> : Form reset</li>
+                    </ul>
+                </li>
+
+                <li><strong>Clipboard Events</strong>
+                    <ul>
+                        <li><code>onCopy</code>, <code>onCut</code>, <code>onPaste</code> : Clipboard interactions</li>
+                    </ul>
+                </li>
+
+                <li><strong>Drag & Drop Events</strong>
+                    <ul>
+                        <li><code>onDragStart</code>, <code>onDrag</code>, <code>onDragEnd</code> : Drag starts, moves,
+                            ends</li>
+                        <li><code>onDragEnter</code>, <code>onDragOver</code>, <code>onDragLeave</code>,
+                            <code>onDrop</code> : Drag target interactions
+                        </li>
+                    </ul>
+                </li>
+
+                <li><strong>Touch Events</strong>
+                    <ul>
+                        <li><code>onTouchStart</code>, <code>onTouchMove</code>, <code>onTouchEnd</code>,
+                            <code>onTouchCancel</code> : Touch interactions
+                        </li>
+                    </ul>
+                </li>
+
+                <li><strong>Composition Events</strong>
+                    <ul>
+                        <li><code>onCompositionStart</code>, <code>onCompositionUpdate</code>,
+                            <code>onCompositionEnd</code> : IME text input handling
+                        </li>
+                    </ul>
+                </li>
+
+                <li><strong>Media Events</strong>
+                    <ul>
+                        <li><code>onPlay</code>, <code>onPause</code>, <code>onEnded</code> : Media playback state</li>
+                        <li><code>onVolumeChange</code>, <code>onTimeUpdate</code>, <code>onProgress</code> : Media
+                            volume, time, and loading progress</li>
+                        <li><code>onLoadedData</code>, <code>onLoadedMetadata</code>, <code>onCanPlay</code>,
+                            <code>onCanPlayThrough</code> : Media readiness events
+                        </li>
+                        <li><code>onStalled</code>, <code>onSuspend</code>, <code>onWaiting</code> : Media buffering
+                            states</li>
+                    </ul>
+                </li>
+
+                <li><strong>Animation & Transition Events</strong>
+                    <ul>
+                        <li><code>onAnimationStart</code>, <code>onAnimationEnd</code>,
+                            <code>onAnimationIteration</code> : CSS animations
+                        </li>
+                        <li><code>onTransitionEnd</code> : CSS transition ends</li>
+                    </ul>
+                </li>
+
+                <li><strong>Wheel & Scroll Events</strong>
+                    <ul>
+                        <li><code>onWheel</code> : Mouse wheel scroll</li>
+                        <li><code>onScroll</code> : Scroll event on an element</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>More events: <a
+                    href="https://react.dev/reference/react-dom/components/common">react.dev/reference/react-dom/components/common</a>
+            </p>
+
+        </main> <!-- Main Content End -->
+
+
+
+        <!-- Table of Contents -->
+        <div class="right-nav" id="rightNav">
+            <h3>Table of Contents</h3>
+            <a href="#jsx">JSX</a>
+            <a href="#renderingJSX">Rendering JSX Elements</a>
+            <a href="#usingMap">Using array.map()</a>
+            <a href="#key">JSX key Attribute</a>
+            <a href="#component">React Component</a>
+            <a href="#lifecycle">Functional Component Lifecycle</a>
+            <a href="#props">Props</a>
+            <a href="#hooks">Hooks</a>
+            <a href="#useContext">Context Hook</a>
+            <a href="#useState">State Hook</a>
+            <a href="#useEffect">Effect Hook</a>
+            <a href="#useRef">Reference Hook</a>
+            <a href="#useMemo">Memo Hook</a>
+            <a href="#useCallback">Callback Hook</a>
+            <a href="#useReducer">Reducer Hook</a>
+            <a href="#eventListener">Event Listener & Handler</a>
+
+        </div>
+    </div> <!-- Main Container End -->
+
+</body>
+
+</html>

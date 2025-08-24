@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React - Styling</title>
+    <link rel="stylesheet" href="/common-styles.css">
+    <link rel="stylesheet" href="/main-layout.css">
+    <script type="module">
+        import { loadMenu, getTheme } from '/load-menu.js';
+
+        getTheme();
+        loadMenu("mainContainer", "rightNav");
+    </script>
+</head>
+
+<body id="root">
+    <!-- Main Container -->
+    <div class="container" id="mainContainer">
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+        
+        <!--INLINE STYLES-->
+        <h3 class="section-header" id="inline">Inline Styles</h3>
+        <p>Apply styles directly to elements using the <code>style</code> attribute, but it takes a Javascript object instead of a string unlike HTML inline CSS</p>
+        <ul>
+            <li>Styles are scoped to element automatically</li>
+            <li>No media queries</li>
+            <li>No pseudo-classes (:hover, :focus, etc.).</li>
+            <li>CSS properties are camelCase for inline styling in JSX</li>
+        </ul>
+        <pre><code class='language-jsx'>// JSS
+
+const styleObj = {
+    backgroundColor: "blue", 
+    color: "white", 
+    padding: "10px"
+}
+
+function Button() {
+  return (      // style attribute accepts a Javascript object
+    &lt;button <mark>style={{ backgroundColor: "blue", color: "white", padding: "10px" }}</mark>>Click Me&lt;/button>
+    &lt;button <mark>style={styleObj}</mark>>Click Me&lt;/button>
+  );
+}    </code></pre>
+        <hr>
+
+
+        <!--REGULAR CSS STYLESHEET-->
+        <h3 class="section-header" id="regularCSS">Regular CSS Stylesheets</h3>
+        <p>Like normal external CSS files, you can import it into your components</p>
+        <ul>
+            <li>Exactly the same as normal CSS</li>
+            <li>Good for global styles</li>
+            <li>Same rule of CSS where last imported css file override previous ones</li>
+        </ul>
+                <pre><code class='language-jsx'>// JSS
+
+// In App.jsx
+<mark>import "./App.css"; </mark>            // Global css rules
+import Child from "./Child";    // Child.css will override App.css because it's imported after
+
+function App() {
+  return (
+    &lt;div <mark>className="main-container"</mark>>
+      &lt;Child />
+    &lt;/div>
+  );
+}  
+--------------------------------------------------------------
+// In Child.jsx
+import "./Child.css";
+
+function Child() {
+  return &lt;button className="button">Child Button&lt;/button>;
+} </code></pre>
+        <hr>
+
+
+        <!--CSS MODULES-->
+        <h3 class="section-header" id="moduleCSS">CSS Modules</h3>
+        <p>Write CSS rules in <code>*.module.css</code> file and scope styles to component automatically</p>
+        <ul>
+            <li>Syntax of CSS module files are exactly the same as normal CSS files</li>
+            <li>Styles are automatically scoped so no naming conflicts</li>
+            <li>Harder to share global styles unless combined with normal <code>.css</code> files</li>
+        </ul>
+        <pre><code class="language-jsx">// JSX
+
+<mark>import styles from "./Button.module.css";</mark>
+
+function Button() {
+  return &lt;button className=<mark>{styles.btn}</mark>>Click Me&lt;/button>;
+}        </code></pre>
+        <hr>
+
+
+        <!--CSS-IN-JS-->
+        <h3 class="section-header" id="styledComponent">Styled Components (CSS-in-JS)</h3>
+        <p>Uses external libraries to write styles inside the Javascript file and attach them to components</p>
+        <ul>
+            <li>Scoped styles automatically</li>
+            <li>Supports <code>props</code> for dynamic styling</li>
+            <li>Harder to separate styles from logic so avoid if planning for mobile development afterward</li>
+            <li>Uses backtick <code>`</code> to declare style</li>
+        </ul>
+        <pre><code class="language-jsx">// JSX
+
+<mark>import styled from "styled-components";</mark>
+
+<mark>const Button = styled.button`</mark>
+  background-color: blue;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: darkblue;
+  }
+<mark>`</mark>;
+
+function App() {
+  return &lt;<mark>Button</mark>>Click Me&lt;/Button>;
+}        </code></pre>
+        <hr>
+
+
+            <!--TAILWIND CSS-->
+        <h3 class="section-header" id="tailwind">Tailwind CSS</h3>
+        <p>Styles are directly defined onto the class names</p>
+        <ul>
+            <li>Fast UI</li>
+            <li>Consisten design system</li>
+            <li>JSX will become clutter with classes</li>
+        </ul>
+        <pre><code class="language-jsx">// JSX
+function Button() {
+  return (
+    &lt;button <mark>className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700"</mark>>
+      Click Me
+    &lt;/button>
+  );
+}       </code></pre>
+
+
+
+
+        </main> <!-- Main Content End -->
+
+
+
+        <!-- Table of Contents -->
+        <div class="right-nav" id="rightNav">
+            <h3>Table of Contents</h3>
+            <a href="#inline">Inline Styles</a>
+            <a href="#regularCSS">Regular CSS Stylesheets</a>
+            <a href="#moduleCSS">CSS Modules</a>
+            <a href="#styledComponent">CSS-In-JS</a>
+            <a href="#tailwind">Tailwind CSS</a>
+
+        </div>
+    </div> <!-- Main Container End -->
+
+</body>
+
+</html>

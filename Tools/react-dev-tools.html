@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React DevTools</title>
+    <link rel="stylesheet" href="/common-styles.css">
+    <link rel="stylesheet" href="/main-layout.css">
+    <script type="module">
+        import { loadMenu, getTheme } from '/load-menu.js';
+
+        getTheme();
+        loadMenu("mainContainer", "rightNav");
+    </script>
+</head>
+
+<body id="root">
+    <!-- Main Container -->
+    <div class="container" id="mainContainer">
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+
+            <!-- REACT DEV TOOLS EXTENSION -->
+            <h2 class="page-header">React Developer Tools</h2>
+            <p>The React Developer Tools is an extension for both Chrome and Firefox</p>
+            <ul>
+                <li><a href="https://addons.mozilla.org/en-US/firefox/addon/react-devtools/">Firefox Extension</a></li>
+            </ul>
+            <p>Tutorial: <a href="https://react-devtools-tutorial.vercel.app/">react-devtools-tutorial.vercel.app/</a>
+            </p>
+            <hr>
+
+            <!-- COMPONENTS TAB -->
+            <h3 class="section-header">Components Tab</h3>
+            <p>It allows dev to edit the props and state of components in the browser using the right side panel.</p>
+            <p>There is also a Suspense API in the right panel ( &#x23F1; ) that shows what the app looks like while
+                waiting for that specific component to load.</p>
+            <hr>
+
+            <!-- PROFILER TAB -->
+            <h3 class="section-header">Profiler Tab</h3>
+            <p>By recording action/ events, dev can view how many times a component rendered and the amount of time it took</p>
+
+
+
+
+
+
+
+        </main> <!-- Main Content End -->
+
+
+
+        <!-- Table of Contents -->
+        <div class="right-nav" id="rightNav">
+            <h3>Table of Contents</h3>
+            <a href="#devTools">React Developer Tools</a>
+            <a href="#components">Components Tab</a>
+            <a href="#profiler">Profiler Tab</a>
+
+        </div>
+    </div> <!-- Main Container End -->
+
+</body>
+
+</html>

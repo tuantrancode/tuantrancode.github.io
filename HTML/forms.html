@@ -17,12 +17,12 @@
     </script>
 </head>
 
-<body>
+<body id="root">
     <!-- Main Container -->
     <div class="container" id="mainContainer">
 
         <!-- Main Content -->
-        <div class="main-content" id="mainContent">
+        <main class="main-content" id="mainContent">
 
             <!-- FORMS -->
             <h3 class="section-header" id="forms">Forms</h3>
@@ -38,7 +38,8 @@
                             common)</li>
                         <li><code>get</code>: sends data in the URL, visible to users</li>
                     </ul>
-                <li><code>enctype="multipart/form-data"</code>: only if the form requires users to upload files
+                <li><code>enctype="multipart/form-data"</code>: only if the form requires users to upload files</li>
+                <li>Attribute <code>name</code> is used to tell the backend server what this form field is called - i.e. an input text for your first name should have a <code>name='firstName'</code> so the server can which input this belong to</li>
             </ul>
             <pre><code class="language-html"><mark>&lt;form action="submit.html" method="post"&gt;</mark>
   &lt;label for="name"&gt;Name:&lt;/label&gt;
@@ -215,7 +216,7 @@
                 </ul>
             </form>
 
-        </div> <!-- Main Content End -->
+        </main> <!-- Main Content End -->
 
         <!-- Table of Contents -->
         <div class="right-nav" id="rightNav">

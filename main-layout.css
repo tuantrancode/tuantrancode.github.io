@@ -33,7 +33,7 @@ Also includes responsive styles for mobile devices.
   --body-bg-color: #363636;
   --container-bg-color: #2c2c2c;
   --container-font-color: #fff;
-  --hover-color:  #117cad;
+  --hover-color: #117cad;
   --left-nav-heading-color: white;
   --left-nav-sub-color: #e2e2e2;
   --right-nav-heading-color: white;
@@ -44,7 +44,7 @@ Also includes responsive styles for mobile devices.
   box-sizing: border-box;
 }
 
-body {
+#root {
   margin: 0;
   background-color: var(--body-bg-color);
   line-height: 1.6;
@@ -75,7 +75,7 @@ body {
 
 .top-nav-scrollable {
   display: flex;
-	overflow: auto;
+  overflow: auto;
 }
 
 .top-nav a {
@@ -84,17 +84,14 @@ body {
   text-decoration: none;
 }
 
-.top-nav a:hover, 
+.top-nav a:hover,
 .menu-btn:hover,
-.right-nav-btn:hover, 
+.right-nav-btn:hover,
 .theme-btn:hover {
   background-color: var(--hover-color);
 }
 
-/* prevent button from sticking to hover state on mobile */
-.menu-btn:hover, .theme-btn:focus, .right-nav-btn:hover {
-  background-color:inherit;
-}
+
 
 .menu-btn,
 .right-nav-btn,
@@ -128,7 +125,7 @@ body {
   max-width: var(--max-width);
   margin: auto;
   background-color: var(--container-bg-color);
-    padding-bottom: 1px;
+  padding-bottom: 1px;
 }
 
 /* LEFT NAV */
@@ -210,18 +207,22 @@ body {
     left: 0;
     max-width: 100%;
   }
+
   .menu-btn,
   .right-nav-btn {
     display: block;
     height: var(--top-nav-height);
   }
+
   .left-nav {
     position: fixed;
     transform: translateX(-100%);
   }
+
   .left-nav.open {
     transform: translateX(0);
   }
+
   .right-nav {
     position: fixed;
     right: 0;
@@ -229,49 +230,68 @@ body {
     max-height: calc(100% - var(--top-nav-height));
     transform: translateY(-100%);
   }
+
   .right-nav.open {
     transform: translateY(0);
   }
 }
+
 /* Responsive Styles */
 @media (max-width: 480px) {
+
   /* For phone where navigation buttons are part of screen 
   * This will change the phone's navigation panel to be slightly darker than the top-nav bar */
   :root {
-     --body-bg-color: oklch(from var(--primary-color) calc(l * 0.9) c h);
+    --body-bg-color: oklch(from var(--primary-color) calc(l * 0.9) c h);
   }
+
   [data-theme='dark'] {
-     --body-bg-color: oklch(from var(--primary-color) calc(l * 0.9) c h);
+    --body-bg-color: oklch(from var(--primary-color) calc(l * 0.9) c h);
   }
+
   .main-content {
     padding: 10px 10px;
   }
+
   .top-nav a {
     display: none;
   }
+
+  /* prevent button from sticking to hover state on mobile */
+  .menu-btn:hover,
+  .theme-btn:focus,
+  .right-nav-btn:hover {
+    background-color: inherit;
+  }
+
   /* Move the top nav bar to the bottom */
-    .top-bar {
-      justify-content: left;
-      bottom: 0;
-    }
-    .container {
-      padding-top: 0;
-      padding-bottom: var(--top-nav-height); /* For phone where navigation buttons are part of screen */
-    }
-    .left-nav {
-      top: 0;
-      bottom: var(--top-nav-height);
-      height: (100% - var(--top-nav-height));
-    }
-     /* Have right nav open upward */
-    .right-nav {
-        top: auto;
-        right: 0;
-        bottom: var(--top-nav-height);
-        max-height: 50%;
-        transform: translateY(100vh);
-    }
-    .right-nav.open {
-        transform: translateY(0);
-    }
+  .top-bar {
+    justify-content: left;
+    bottom: 0;
+  }
+
+  .container {
+    padding-top: 0;
+    padding-bottom: var(--top-nav-height);
+    /* For phone where navigation buttons are part of screen */
+  }
+
+  .left-nav {
+    top: 0;
+    bottom: var(--top-nav-height);
+    height: (100% - var(--top-nav-height));
+  }
+
+  /* Have right nav open upward */
+  .right-nav {
+    top: auto;
+    right: 0;
+    bottom: var(--top-nav-height);
+    max-height: 50%;
+    transform: translateY(100vh);
+  }
+
+  .right-nav.open {
+    transform: translateY(0);
+  }
 }

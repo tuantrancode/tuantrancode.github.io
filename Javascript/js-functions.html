@@ -15,12 +15,12 @@
     </script>
 </head>
 
-<body>
+<body id="root">
     <!-- Main Container -->
     <div class="container" id="mainContainer">
 
         <!-- Main Content -->
-        <div class="main-content" id="mainContent">
+        <main class="main-content" id="mainContent">
 
             <!-- CALLING VS REFERENCING FUNCTION -->
             <h3 class="section-header" id="referenceFunction">Calling vs Referencing Function</h3>
@@ -28,7 +28,7 @@
             <ul>
                 <li>When passing a function as a reference, leave the parenthesis out</li>
                 <ul><li><code>addEventListener( 'click', myFunction)</code></li></ul>
-                 <li>If the function has agruments, wrap it in an arrow function</li>
+                 <li>If the function has arguments, wrap it in an arrow function</li>
                 <ul><li><code>addEventListener( 'click', () => myFunction(arg1))</code></li></ul>
                  <li>If you want to call a function, put parenthesis in front</li>
                 <ul><li><code>if(!restoreState()) initialize();</code></li>
@@ -71,6 +71,14 @@ param => {
                             target="_blank">developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions</a>
                     </li>
                 </ul>
+                  <li><strong>Named functions</strong> can also be declared in another function (useful in React to pass an event handler funtion to components)</li>
+                  <pre><code class="language-javascript">function outerFunction() {
+    function innerFunction() {
+        return 'Hello';
+    }
+    const a = innerFunction();
+    return a;
+}  </code></pre>
             </ul>
             <hr>
 
@@ -162,16 +170,20 @@ createPromise()
                 <li><strong>Method 2</strong>: using <code>async</code> and <code>await</code></li>
             </ul>
             <pre><code class="language-javascript"><mark>async</mark> function getPromise() {
-    successValue = <mark>await</mark> createPromise();
-    console.log(successValue);
+    try{
+        successValue = <mark>await</mark> createPromise();
+        console.log(successValue);
+    } catch (error){
+        console.log("Error: " + error)
+    } finally {
+        console.log("Gets called no matter what.");
+    }
 }
-
-getPromise()
-    .catch( (error) => console.log("Error: " + error) )
-    .finally( () => console.log("Gets called no matter what.") ); </code></pre>
+<mark>getPromise();</mark> </code></pre>
             <h4 class="sub-section-header">Notes:</h4>
             <ul>
                 <li><code>await</code> has to be used in an <code>async</code> function</li>
+                <li><code>async / await</code> is cleaner when successive async calls are required (i.e. fetch data &rarr; convert json to data)</li>
             </ul>
 
             <p>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promise"
@@ -396,13 +408,13 @@ console.log(u.href);                // "https://example.com/path?lang=en&tab=pro
             <!-- TIMERS AND DATE AND NUMBER FORMATTING-->
             <h3 class="section-header" id="timers">Timers, Date, & Number Formatting</h3>
             <ul>
-                <li>setTimeout( function(), time ) and clearTimeout( timeOutId)</li>
+                <li><code>timeoutId = setTimeout( function(), time )</code> and <code>clearTimeout( timeOutId)</code></li>
                 <pre><code class="language-javascript">const timeOutId = setTimeout( () => {
     console.log("This message is shown after 3 seconds");  
 }, 3000);  // time in milliseconds
 
 clearTimeout(timeOutId);</code></pre>
-                <li>setInterval( function(), time ) and clearInterval( intervalId )</li>
+                <li><code>intervalId = setInterval( function(), time )</code> and <code>clearInterval( intervalId )</code></li>
                 <pre><code class="language-javascript">let count = 0;
 const intervalId = setInterval( () => {
     count++;
@@ -508,7 +520,7 @@ asyncSequence.reduce( (p, f) => p.then(f), Promise.resolve() );
                 </ul>
             </ul>
 
-        </div> <!-- Main Content End -->
+        </main> <!-- Main Content End -->
 
 
 
