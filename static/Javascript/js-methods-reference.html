@@ -26,12 +26,12 @@
     </script>
 </head>
 
-<body>
+<body id="root">
     <!-- Main Container -->
     <div class="container" id="mainContainer">
 
         <!-- Main Content -->
-        <div class="main-content" id="mainContent">
+        <main class="main-content" id="mainContent">
 
             <!-- STRING -->
             <h3 class="section-header" id="string">String</h3>
@@ -318,8 +318,7 @@
             <h3 class="section-header" id="arrays">Array</h3>
             <input type="text" class="search-bar" id="arraySearchBar" placeholder="Search methods...">
             <!-- Returns BOOLEAN -->
-            <h4 class="sub-section-header">Return Type: Boolean
-            </h4>
+            <h4 class="sub-section-header">Return Type: Boolean</h4>
             <table class="array-table">
                 <thead>
                     <tr>
@@ -327,6 +326,7 @@
                         <th>Description</th>
                         <th>Example</th>
                         <th>Result</th>
+                        <th>Callback Arguments</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -335,60 +335,96 @@
                         <td>Checks if all elements pass the test.</td>
                         <td><code>[1, 2, 3].every(x =&gt; x &gt; 0)</code></td>
                         <td><code>true</code></td>
+                        <td>
+                            <ul>
+                                <li><code>element</code> — current element</li>
+                                <li><code>index</code> — index of element</li>
+                                <li><code>array</code> — original array</li>
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
                         <td><code>some(callbackFn, thisArg?)</code></td>
                         <td>Checks if at least one element passes the test.</td>
                         <td><code>[1, 2, 3].some(x =&gt; x &gt; 2)</code></td>
                         <td><code>true</code></td>
+                        <td>
+                            <ul>
+                                <li><code>element</code> — current element</li>
+                                <li><code>index</code> — index of element</li>
+                                <li><code>array</code> — original array</li>
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
                         <td><code>includes(valueToFind, fromIndex?)</code></td>
                         <td>Checks if the array contains a value.</td>
                         <td><code>[1, 2, 3].includes(2)</code></td>
                         <td><code>true</code></td>
+                        <td>-</td>
                     </tr>
                 </tbody>
             </table>
 
+
             <!-- Returns NUMBER -->
-            <h4 class="sub-section-header">Return Type: Number
-            </h4>
+            <h4 class="sub-section-header">Return Type: Number</h4>
             <table class="array-table">
-                <tr>
-                    <th>Method</th>
-                    <th>Description</th>
-                    <th>Example</th>
-                    <th>Result</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                        <th>Result</th>
+                        <th>Callback Arguments</th>
+                    </tr>
+                </thead>
                 <tbody>
                     <tr>
                         <td><code>indexOf(searchElement, fromIndex?)</code></td>
                         <td>Returns the first index of the element, or -1 if not found.</td>
                         <td><code>["a", "b", "c"].indexOf("b")</code></td>
                         <td><code>1</code></td>
+                        <td>-</td>
                     </tr>
                     <tr>
                         <td><code>lastIndexOf(searchElement, fromIndex?)</code></td>
                         <td>Returns the last index of the element, or -1 if not found.</td>
                         <td><code>["a", "b", "a"].lastIndexOf("a")</code></td>
                         <td><code>2</code></td>
+                        <td>-</td>
                     </tr>
                     <tr>
                         <td><code>findIndex(callbackFn, thisArg?)</code></td>
                         <td>Returns the index of the first element that satisfies the test, or -1.</td>
                         <td><code>[4, 6, 8].findIndex(x =&gt; x &gt; 5)</code></td>
                         <td><code>1</code></td>
+                        <td>
+                            <ul>
+                                <li><code>element</code> — current element</li>
+                                <li><code>index</code> — index of element</li>
+                                <li><code>array</code> — original array</li>
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
-                        <td><code>reduce( function(total, currentValue), initialValue)</code></td>
+                        <td><code>reduce(callbackFn, initialValue)</code></td>
                         <td>Reduce an array to a single value by applying a function to each element, accumulating the
-                            result</td>
-                        <td><code>[1,2].reduce((acc, curr) => acc + curr, 0);</code></td>
+                            result.</td>
+                        <td><code>[1,2].reduce((acc, curr) =&gt; acc + curr, 0)</code></td>
                         <td><code>3</code></td>
+                        <td>
+                            <ul>
+                                <li><code>accumulator</code> — accumulated value</li>
+                                <li><code>currentValue</code> — current element</li>
+                                <li><code>currentIndex</code> — index of element</li>
+                                <li><code>array</code> — original array</li>
+                            </ul>
+                        </td>
                     </tr>
                 </tbody>
             </table>
+
 
             <!-- Returns STRING -->
             <h4 class="sub-section-header">Return Type: String
@@ -425,65 +461,96 @@
             <!-- Returns ARRAY -->
             <h4 class="sub-section-header">Return Type: Array</h4>
             <table class="array-table">
-                <tr>
-                    <th>Method</th>
-                    <th>Description</th>
-                    <th>Example</th>
-                    <th>Result</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                        <th>Result</th>
+                        <th>Callback Arguments</th>
+                    </tr>
+                </thead>
                 <tbody>
                     <tr>
                         <td><code>filter(callbackFn, thisArg?)</code></td>
                         <td>Creates a new array with elements that pass the test.</td>
                         <td><code>[1, 2, 3, 4].filter(x =&gt; x &gt; 2)</code></td>
                         <td><code>[3, 4]</code></td>
+                        <td>
+                            <ul>
+                                <li><code>element</code> — current element</li>
+                                <li><code>index</code> — index of element</li>
+                                <li><code>array</code> — original array</li>
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
                         <td><code>map(callbackFn, thisArg?)</code></td>
                         <td>Creates a new array with results of calling a function on every element.</td>
                         <td><code>[1, 2, 3].map(x =&gt; x * 2)</code></td>
                         <td><code>[2, 4, 6]</code></td>
+                        <td>
+                            <ul>
+                                <li><code>element</code> — current element</li>
+                                <li><code>index</code> — index of element</li>
+                                <li><code>array</code> — original array</li>
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
                         <td><code>slice(start?, end?)</code></td>
                         <td>Returns a shallow copy of a portion of the array.</td>
                         <td><code>["a", "b", "c"].slice(1)</code></td>
                         <td><code>["b", "c"]</code></td>
+                        <td>-</td>
                     </tr>
                 </tbody>
             </table>
 
+
             <!-- Returns ELEMENT (any type) -->
-            <h4 class="sub-section-header">Return Type: Element
-            </h4>
+            <h4 class="sub-section-header">Return Type: Element</h4>
             <table class="array-table">
-                <tr>
-                    <th>Method</th>
-                    <th>Description</th>
-                    <th>Example</th>
-                    <th>Result</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                        <th>Result</th>
+                        <th>Callback Arguments</th>
+                    </tr>
+                </thead>
                 <tbody>
                     <tr>
                         <td><code>find(callbackFn, thisArg?)</code></td>
                         <td>Returns the first element that satisfies the test, or undefined.</td>
                         <td><code>[5, 12, 8].find(x =&gt; x &gt; 10)</code></td>
                         <td><code>12</code></td>
+                        <td>
+                            <ul>
+                                <li><code>element</code> — current element</li>
+                                <li><code>index</code> — index of element</li>
+                                <li><code>array</code> — original array</li>
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
                         <td><code>pop()</code></td>
                         <td>Removes the last element and returns it.</td>
                         <td><code>let arr = [1, 2, 3]; arr.pop()</code></td>
                         <td><code>3</code></td>
+                        <td>-</td>
                     </tr>
                     <tr>
                         <td><code>shift()</code></td>
                         <td>Removes the first element and returns it.</td>
                         <td><code>let arr = [1, 2, 3]; arr.shift()</code></td>
                         <td><code>1</code></td>
+                        <td>-</td>
                     </tr>
                 </tbody>
             </table>
+
 
             <!-- Returns NUMBER (length modifying) -->
             <h4 class="sub-section-header">Return Type: Number
@@ -514,21 +581,32 @@
             <!-- Returns undefined (no return) -->
             <h4 class="sub-section-header">Return Type: Undefined (no return)</h4>
             <table class="array-table">
-                <tr>
-                    <th>Method</th>
-                    <th>Description</th>
-                    <th>Example</th>
-                    <th>Result</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                        <th>Result</th>
+                        <th>Callback Arguments</th>
+                    </tr>
+                </thead>
                 <tbody>
                     <tr>
                         <td><code>forEach(callbackFn)</code></td>
                         <td>Act on each element using the provided function.</td>
-                        <td><code>[1, 2, 3].forEach((element) => console.log(element));</code></td>
+                        <td><code>[1, 2, 3].forEach((element) =&gt; console.log(element));</code></td>
                         <td><code>1 2 3</code></td>
+                        <td>
+                            <ul>
+                                <li><code>element</code> — current element</li>
+                                <li><code>index</code> — index of element</li>
+                                <li><code>array</code> — original array</li>
+                            </ul>
+                        </td>
                     </tr>
                 </tbody>
             </table>
+
 
             <h4 class="sub-section-header">Notes</h4>
             <ul>
@@ -600,36 +678,48 @@
             </table>
 
             <!-- Returns SET (itself) -->
-            <h4 class="sub-section-header">Return Type: Set
-                (itself) or <code>undefined</code></h4>
+            <h4 class="sub-section-header">Return Type: Set (itself) or <code>undefined</code></h4>
             <table class="set-table">
-                <tr>
-                    <th>Method</th>
-                    <th>Description</th>
-                    <th>Example</th>
-                    <th>Result</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                        <th>Result</th>
+                        <th>Callback Arguments</th>
+                    </tr>
+                </thead>
                 <tbody>
                     <tr>
                         <td><code>add(value)</code></td>
                         <td>Adds a new value to the Set and returns the Set object.</td>
                         <td><code>let s = new Set(); s.add(1)</code></td>
                         <td><code>Set {1}</code></td>
+                        <td>-</td>
                     </tr>
                     <tr>
                         <td><code>clear()</code></td>
                         <td>Removes all elements from the Set and returns undefined.</td>
                         <td><code>let s = new Set([1, 2]); s.clear()</code></td>
                         <td><code>undefined</code></td>
+                        <td>-</td>
                     </tr>
                     <tr>
                         <td><code>forEach(callbackFn)</code></td>
                         <td>Act on each element using the provided function.</td>
-                        <td><code>{1, 2, 3}.forEach((element) => console.log(element));</code></td>
+                        <td><code>new Set([1, 2, 3]).forEach((element) =&gt; console.log(element));</code></td>
                         <td><code>1 2 3</code></td>
+                        <td>
+                            <ul>
+                                <li><code>value</code> — current element</li>
+                                <li><code>key</code> — same as value (for compatibility with Map)</li>
+                                <li><code>set</code> — original Set</li>
+                            </ul>
+                        </td>
                     </tr>
                 </tbody>
             </table>
+
 
             <!-- Returns ITERATOR -->
             <h4 class="sub-section-header">Return Type: Iterator
@@ -750,39 +840,53 @@
             <!-- Returns ITERATOR -->
             <h4 class="sub-section-header">Return Type: Iterator</h4>
             <table class="map-table">
-                <tr>
-                    <th>Method</th>
-                    <th>Description</th>
-                    <th>Example</th>
-                    <th>Result</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                        <th>Result</th>
+                        <th>Callback Arguments</th>
+                    </tr>
+                </thead>
                 <tbody>
                     <tr>
                         <td><code>keys()</code></td>
                         <td>Returns a new Iterator object containing the keys of the Map.</td>
                         <td><code>myMap = new Map([[1,'a'],[2,'b']]); myMap.keys();</code></td>
                         <td><code>[1,2]</code></td>
+                        <td>-</td>
                     </tr>
                     <tr>
                         <td><code>values()</code></td>
                         <td>Returns a new Iterator object containing the values of the Map.</td>
-                        <td><code>myMap = new Map([[1,'a'],[2,'b']]); myMap.values()]</code></td>
+                        <td><code>myMap = new Map([[1,'a'],[2,'b']]); myMap.values();</code></td>
                         <td><code>['a','b']</code></td>
+                        <td>-</td>
                     </tr>
                     <tr>
                         <td><code>entries()</code></td>
                         <td>Returns a new Iterator object containing [key, value] pairs for each element.</td>
-                        <td><code>myMap = new Map([[1,'a'],[2,'b']]); myMap.entries()]</code></td>
+                        <td><code>myMap = new Map([[1,'a'],[2,'b']]); myMap.entries();</code></td>
                         <td><code>[[1,'a'],[2,'b']]</code></td>
+                        <td>-</td>
                     </tr>
                     <tr>
                         <td><code>forEach(callback, thisArg?)</code></td>
                         <td>Calls a function for each key/value pair in the Map.</td>
-                        <td><code>myMap = new Map([[1,'a']]); myMap.forEach((v,k)=>console.log(k,v))</code></td>
+                        <td><code>myMap = new Map([[1,'a']]); myMap.forEach((v,k) =&gt; console.log(k,v))</code></td>
                         <td><code>logs: 1 'a'</code></td>
+                        <td>
+                            <ul>
+                                <li><code>value</code> — current value</li>
+                                <li><code>key</code> — current key</li>
+                                <li><code>map</code> — original Map</li>
+                            </ul>
+                        </td>
                     </tr>
                 </tbody>
             </table>
+
 
             <h4 class="sub-section-header">Notes</h4>
             <ul>
@@ -1104,7 +1208,7 @@
                     more reliable because it does not coerce values.</li>
             </ul>
 
-        </div> <!-- Main Content End -->
+        </main> <!-- Main Content End -->
 
 
 

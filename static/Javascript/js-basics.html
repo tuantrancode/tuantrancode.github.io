@@ -15,12 +15,12 @@
     </script>
 </head>
 
-<body>
+<body id="root">
     <!-- Main Container -->
     <div class="container" id="mainContainer">
 
         <!-- Main Content -->
-        <div class="main-content" id="mainContent">
+        <main class="main-content" id="mainContent">
 
             <!-- JS FIDDLE -->
             <h3 class="section-header" id="jsFiddle">JS Fiddle</h3>
@@ -31,10 +31,11 @@
             <!-- BACKTICK AND STRING-->
             <h3 class="section-header" id="backtick">Backtick & String</h3>
             <pre><code class="language-javascript">const embeddedExpression = `Current Year: ${new Date().getFullYear()}`;</code></pre>
-                  <ul>
-                <li>Use backticks ` in order to create a <strong>template literal</strong> string - string in Javascript that spans
+            <ul>
+                <li>Use backticks ` in order to create a <strong>template literal</strong> string - string in Javascript
+                    that spans
                     multiple lines and uses embedded expression ( i.e. ${variableName} )</li>
-    
+
             </ul>
             <hr>
 
@@ -115,6 +116,10 @@ typeof new String("abc") === "object";</code></pre>
             <h4 class="sub-section-header">Notes</h4>
             <ul>
                 <li><code>typeof</code> can be used to identify type</li>
+                <li><code>instanceof</code> can be used to check if object is sublcass of another</li>
+                <ul>
+                    <li><code>instanceof Array</code> : check if something is an array</li>
+                </ul>
             </ul>
             <hr>
 
@@ -321,9 +326,115 @@ myFunction();</code></pre>
             <!-- IMPORTING INTO HTML -->
             <h3 class="section-header" id="importingIntoHTML">Importing into HTML</h3>
             <p>The section in <a href="/index.html#linkingJS"> <strong>HTML Basics</strong></a> covered it.</p>
+            <hr>
 
 
-        </div> <!-- Main Content End -->
+            <!-- DESTRUCTURING SYNTAX -->
+            <h3 class="section-header" id="destructuring">Destructuring Syntax</h3>
+            <p>Destructuring syntax can be used on arrays and objects to simplify code by using shorthand to unpack
+                values into distinct variables</p>
+            <ul>
+                <li>The values of an array can be unpacked into an array of distinct variables; likewise, the properties
+                    of an object can be unpacked into an object with the same number of dinstinct variables</li>
+                <li>When destructuring an array, the order of the distinct variables matter</li>
+                <li>When destructuring an object, only the name of the properties matter and not the order, but requires
+                    parenthesis around the whole statement</li>
+                <li>It's useful for destructuring function arguments</li>
+            </ul>
+            <pre><code class="language-js">// JS
+
+// Destructuring array (order matter)
+const array = [1, 2, 3, 4, 5];
+let first, second, rest;
+[first, second, ...rest] = array;   
+// first = 1, second = 2, rest = [3, 4, 5]
+
+------------------------------------------------
+// Destructuring object (order does not matter, but need () )
+const obj = { 
+    prop1: 1, 
+    prop2: 2, 
+    prop3: 3,
+    prop4: { 
+        a:10, 
+        b:11, 
+        c:12 
+    } 
+};
+let prop1, prop2, prop3, prop4, rest, a;
+
+<mark>(</mark> {prop1, prop2, ...rest} = obj <mark>)</mark>;   
+// prop1 = 1, prop2 = 2, rest = { prop3: 3,  prop4: { a:10, b:11, c:12} }
+
+( {prop3, prop4:{a} } = obj );  
+// prop3 = 3, prop4 = undefined, a = 10 
+
+------------------------------------------------
+// Destructuring works well with function arguments
+function myFunction(props) {
+    const prop1 = props.prop1;
+    ...
+}
+function myFunction( {prop1} ){
+
+}</code></pre>
+            <hr>
+
+
+            <h3 class="section-header" id="computedPropertyName">Computed Property Name</h3>
+            <p>Normally, the keys of an object are literal, i.e. <code>const obj = { key: 1 };</code> would have <code>key</code> itself as the key, but Computed Property Name allow Javascript to dynamically assign keys to object by replacing them with Javascript expressions. </p>
+            <ul>
+                <li>In order to use the value of a variable or expression as an object's key, add brackets <code>[]</code> around it</li>
+                <ul>
+                    <li><code>const obj = { [expression]: value };</code></li>
+                </ul>
+                <li>This syntax can only be used on objects' keys</li>
+                <li>Useful in creating React forms or merging objects dynamically or when keys are not known until runtime</li>
+            </ul>
+            <pre><code class="language-javascript">// JS
+
+// Use for merging objects dynamically (i.e. updating an object field)
+const field = "email";
+const value = "alice@example.com";
+
+const user = { name: "Alice", email: "old@example.com" };
+
+// Create a new object with updated field dynamically
+const updatedUser = { 
+  ...user, 
+  [field]: value 
+};
+
+console.log(updatedUser);
+// { name: 'Alice', email: 'alice@example.com' }</code></pre>
+<br>
+ <pre><code class="language-javascript">// JS
+
+// Use for building API payloads based on user input 
+const params = ["sortBy", "filter"];
+const values = ["date", "active"];
+
+const payload = {
+  [params[0]]: values[0],
+  [params[1]]: values[1]
+};
+
+console.log(payload);
+// { sortBy: 'date', filter: 'active' }</code></pre>
+<br>
+ <pre><code class="language-javascript">// JS
+    
+// Computed keys with expressions
+const i = 1;
+const obj = {
+  ["item_" + i]: "apple",
+  ["item_" + (i + 1)]: "banana"
+};
+
+console.log(obj);
+// { item_1: 'apple', item_2: 'banana' }</code></pre>
+
+        </main> <!-- Main Content End -->
 
 
 
@@ -343,6 +454,8 @@ myFunction();</code></pre>
             <a href="#classes">Classes</a>
             <a href="#importing">Importing</a>
             <a href="#importingIntoHTML">Importing into HTML</a>
+            <a href="#destructuring">Destructuring Syntax</a>
+            <a href="#computedPropertyName">Computed Property Name</a>
         </div>
     </div> <!-- Main Container End -->
 

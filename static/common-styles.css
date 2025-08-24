@@ -13,7 +13,6 @@
       --hyperlink-visited-color: #551a8b;
       --table-cell-even-bg: #fafafa;
       --table-border-color: #999999;
-
   }
 
   /* Dark Theme */
@@ -22,7 +21,7 @@
       --code-font-color: white;
       --pre-border-color: #4e4e4e;
       --hr-color: #575757;
-      --mark-bg-color: rgb(5, 65, 62);
+      --mark-bg-color: rgba(17, 159, 194, 0.61);
       --sectionHeader-color: lightskyblue;
       --hyperlink-color: lightskyblue;
       --hyperlink-visited-color: #8547c0;
@@ -132,5 +131,6 @@
       max-width: 400px;
       border: 1px solid #ccc;
       border-radius: 4px;
+      margin-bottom: 20px;
       scroll-margin-top: calc(var(--top-nav-height) + 20px);
   }

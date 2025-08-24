@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React - Next.js</title>
+  <link rel="stylesheet" href="/common-styles.css">
+  <link rel="stylesheet" href="/main-layout.css">
+  <script type="module">
+    import { loadMenu, getTheme } from '/load-menu.js';
+
+    getTheme();
+    loadMenu("mainContainer", "rightNav");
+  </script>
+</head>
+
+<body id="root">
+  <!-- Main Container -->
+  <div class="container" id="mainContainer">
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+
+      <!-- IMPORTING -->
+      <h3 class="section-header" id="importing">Importing</h3>
+      <p>Next.js does not require an extension in import statements for files <code>.js .jsx .ts .tsx</code></p>
+      <pre><code class="language-jsx">import MyComponent from '@/src/components/MyComponent.jsx';
+import MyComponent from '@/src/components/MyComponent'; // will also work            </code></pre>
+      <h4 class="sub-section-header">Root Alias @</h4>
+      <p>Configure <code>jsconfig.json</code> or <code>tsconfig.json</code> to include the following line
+        <code>"@/*": ["./"]</code> in the <code>paths</code> object
+      </p>
+      <pre><code class="language-jsx">// jsconfig.json / tsconfig.json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      <mark>"@/*": ["./*"]</mark>
+    }
+  }
+}    </code></pre>
+      <h4 class="sub-section-header">Importing CSS</h4>
+      <ul>
+        <li>Next.js only allows regular (global) <code>.css</code> import in <code>app/layout.js</code> or
+          <code>pages/_app.js</code>
+        </li>
+        <li>Module CSS <code>*.module.css</code> can be imported anywhere</li>
+      </ul>
+
+      <h4 class="sub-section-header">Public Folder Assets</h4>
+      <ul>
+        <li>Files in <code>public/</code> can be accessed directly at the root - <code>/images/*</code></li>
+      </ul>
+      <hr>
+
+
+      <!-- SERVER SIDE VS CLIENT SIDE COMPONENT -->
+      <h3 class="section-header" id="serverClient">Server-Side vs Client-Side Component</h3>
+      <ul>
+        <li>Components in Next.js are server-side, rendered on the server, by default</li>
+        <li>Server components can NOT use hooks, event handlers, and browser APIs like
+          <code>window, document, etc</code>
+        </li>
+        <li>A client-side component must have <code>'use client';</code> at the top to be a client component
+        <li>Both server and client components are SSRed</li>
+      </ul>
+      <h4 class="sub-section-header">Balancing Server/Client & Stateless/Stateful Component</h4>
+      <ul>
+        <li><strong>Client Component</strong></li>
+        <ul>
+          <li>Client component should also be stateful component</li>
+          <li>Use client/stateful component when you need event handlers, hooks, browser-only APIs
+            (<code>window, document, etc</code>)</li>
+          <li>Primarily for interactive elements, managing states, UI</li>
+          <li>Ideal for interactive components: buttons, forms, etc.</li>
+        </ul>
+        <li><strong>Server Component</strong></li>
+        <ul>
+          <li>Server component should also be stateless componenent</li>
+          <li>Use server/stateless component when you want to fetch data or APIs close to the source</li>
+          <li>Good for API keys, tokens, authorization, and other secrets without exposing them to the client</li>
+          <li>Use to run expensive processes that client can't handle</li>
+          <li>Reduce the amount of Javascript sent to the browser</li>
+          <li>Server component can NOT accept client-side callback functions or hooks </li>
+          <li>Ideal for rendering static content, layout, fetching data, or expensive calculation</li>
+        </ul>
+      </ul>
+      <p>Official explanation: <a
+          href="https://nextjs.org/docs/app/getting-started/server-and-client-components">nextjs.org/docs/app/getting-started/server-and-client-components</a>
+      </p>
+      <pre><code class="language-jsx">// JSX
+
+// Server Component (Stateless Parent)
+import Counter from '../components/Counter';
+
+export default function Page() {
+  return (
+    &lt;div>
+      &lt;h1>Server Page&lt;/h1>
+      &lt;p>This is rendered on the server.&lt;/p>
+      &lt;Counter /> {/* Stateful child */}
+    &lt;/div>
+  );
+}
+--------------------------------------------------------------
+// Client Component (Stateful Child)
+'use client'; // makes it client-side component
+import { useState } from 'react';
+
+export default function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div>
+      &lt;p>Count: {count}&lt;/p>
+      &lt;button onClick={() => setCount(count + 1)}>Increment&lt;/button>
+    &lt;/div>
+  );
+}</code></pre>
+
+      <hr>
+
+
+      <!-- ROUTING -->
+      <h3 class="section-header" id="router">Built-in Router</h3>
+      <p>This section is about the App Router (Next.js version 13+)</p>
+      <h4 class="sub-section-header">Folder Structure</h4>
+      <ul>
+        <li>Next.js uses file structure within the <code>app/</code> folder to determine routing</li>
+        <li>The subfolder name set the route name while the component for that route has to be named
+          <code>page.jsx</code>
+        </li>
+        <li><code>layout.jsx</code> and <code>page.jsx</code> are special files and must retain their names</li>
+      </ul>
+      <pre><code>my-app/
+├── app/
+│   ├── layout.jsx          // Global layout (header, nav, etc.) and entry point
+│   ├── page.jsx            // Home page → /
+│   ├── about/
+│   │   └── page.jsx        // About page → /about
+│   └── blog/
+│       └── [id]/
+│           └── page.jsx    // Dynamic route → /blog/1, /blog/abc
+</code></pre>
+
+      <h4 class="sub-section-header">Global Layout - app/layout.jsx</h4>
+      <ul>
+        <li>It must define the <code>&lt;html></code> and <code>&lt;body></code> elements and accept the
+          <code>children</code> prop
+        </li>
+      </ul>
+      <pre><code class="language-jsx">// JSX
+// app/layout.jsx
+import './globals.css'; // global CSS
+import TopNav from './components/TopNav'; // global UI component
+import LeftNav from './components/LeftNav'; // global UI component
+
+export const metadata = {
+  title: 'My Next.js App',
+};
+
+export default function RootLayout({ children }) {
+  return (
+    &lt;html lang="en">
+      &lt;body id="root">
+        &lt;TopNav />
+        &lt;div className="container">
+            &lt;LeftNav />
+            &lt;main className="main-content">{children}&lt;/main>
+        &lt;/div>
+      &lt;/body>
+    &lt;/html>
+  );
+} </code></pre>
+      <h4 class="sub-section-header">Normal Pages - */page.jsx</h4>
+      <pre><code class="language-jsx">// JSX
+// Home page - app/page.jsx
+export default function HomePage() {
+  return &lt;h1>Welcome to the Home Page!&lt;/h1>;
+}
+--------------------------------------------------------------
+// About page - app/about/page.jsx
+export default function AboutPage() {
+  return &lt;h1>About Page&lt;/h1>;
+}</code></pre>
+      <h4 class="sub-section-header">Dynamic Page - */[x]/page.jsx</h4>
+      <ul>
+        <li>Dynamic pages uses brackets <code>[]</code> and a variable name in the file structure</li>
+        <li>Within the component, use the <code>useParams()</code> function to get a <code>params</code> object
+          with the key that matches your variable name</li>
+      </ul>
+      <pre><code class="language-jsx">// JSX
+// Dynamic blog page - app/blog/[id]/page.js
+ import { useParams } from 'next/navigation';
+
+export default function BlogPage() {
+  const <mark>params = useParams();</mark> // { id: '1' }
+  return &lt;h1>Blog Post ID: <mark>{params.id}</mark>&lt;/h1>;  // if id = 1, /blog/1
+}</code></pre>
+      <h4 class="sub-section-header">Navigating</h4>
+      <ul>
+        <li>Use <code>&lt;a href="/about"</code> or <code>&lt;a href="/blog/1"</code> like normal</li>
+        <li>Can also use <code>useRouter()</code> hook : <a
+            href="https://nextjs.org/docs/pages/api-reference/functions/use-router">nextjs.org/docs/pages/api-reference/functions/use-router</a>
+        </li>
+      </ul>
+      <pre><code class="language-jsx">// JSX
+<mark>'use client';</mark> // Require to be able to use event handlers and hooks
+import { useRouter } from 'next/navigation';
+
+export default function HomePage() {
+  const router = <mark>useRouter();</mark>
+  return &lt;button onClick={ () => <mark>router.push('/about')</mark>}>Go to About&lt;/button>;
+} </code></pre>
+      <hr>
+
+
+      <!-- ROUTE GROUP -->
+      <h3 class="section-header" id="routeGroup">Route Groups</h3>
+      <p>A route group can be added by wrapping a folder in parenthesis <code>()</code> and they will not appear in the
+        route or URL</p>
+      <ul>
+        <li>Route group can be use to organize routes into groups</li>
+        <li>Can also be used to define multiple root layouts</li>
+        <li>Route groups don't automatically inherit the global layout <code>app/layout.jsx</code></li>
+        <ul>
+          <li>A new <code>layout.jsx</code> must be defined or omitted if desired</li>
+        </ul>
+        <li>Group up certain routes to share a layout</li>
+        <li>To avoid conflicting paths, routes in different groups should not have the same URL paths</li>
+        <ul>
+          <li><code>(marketing)/about/page.js</code> and <code>(shop)/about/page.js</code> would resolve to
+            <code>/about</code></li>
+        </ul>
+      </ul>
+      <pre><code>my-app/
+├── app/
+│   ├── layout.jsx          // Global layout
+│   ├── page.jsx            // Uses global layout (/)
+│   ├── dashboard/
+│   │   └── page.jsx        // Uses global layout (/dashboard)
+│   └── (no-layout)/        // New route group
+│       └── special/
+│           └── page.jsx    // This page ignores global layout! (/special)</code></pre>
+      <hr>
+
+
+      <!-- API ROUTE -->
+      <h3 class="section-header" id="apiRoute">API Route</h3>
+      <hr>
+
+
+
+      <!-- METADATA -->
+      <h3 class="section-header" id="metadata">Metadata</h3>
+      <p>By default two <code>meta</code> tags are always added to a page</p>
+      <pre><code class="language-html">&lt;meta charset="utf-8" />
+&lt;meta name="viewport" content="width=device-width, initial-scale=1" /></code></pre>
+      <h4 class="sub-section-header">Static Metadata</h4>
+      <p>Export a <code>Metadata</code> object into a layout.jsx or page.jsx and dfine the fields</p>
+      <pre><code class="language-jsx">export const metadata = {
+  title: 'My Blog',
+  description: '...',
+}
+ 
+export default function Page() {}
+</code></pre>
+      <h4 class="sub-section-header">Generated Metadata</h4>
+      <p>Use the <code>generateMetadata</code> function to fetch data and return a <code>Metadata</code> object</p>
+      <ul>
+        <li>Parameters: <code>props</code> and <code>parents</code></li>
+        <ul>
+          <li><code>props.param</code> : contain the dynamic route parameters (/blog/[id] >> props.param.id)</li>
+          <li><code>props.searchParams</code> : contain current URL's search params</li>
+          <li><code>parent</code> : a promise of the resolved metadata from parent route</li>
+        </ul>
+      </ul>
+      <pre><code class="language-jsx">export async function generateMetadata({ params, searchParams }, parent) {
+  const id = (await params).id
+ 
+  // fetch post information
+  const post = await fetch(`https://api.vercel.app/blog/${id}`).then((res) =>
+    res.json()
+  )
+ 
+  return {
+    title: post.title,
+    description: post.description,
+  }
+}
+ 
+export default function Page({ params, searchParams }) {}</code></pre>
+      <h4 class="sub-section-header">Streaming Metadata</h4>
+      <p><a
+          href="https://nextjs.org/docs/app/getting-started/metadata-and-og-images">nextjs.org/docs/app/getting-started/metadata-and-og-images</a>
+      </p>
+      <hr>
+
+    </main> <!-- Main Content End -->
+
+
+    <!-- Table of Contents -->
+    <div class="right-nav" id="rightNav">
+      <h3>Table of Contents</h3>
+      <a href="#importing">Importing</a>
+      <a href="#serverClient">Server-Side vs Client-Side Component</a>
+      <a href="#router">Built-in Router</a>
+      <a href="#routeGroup">Route Groups</a>
+      <a href="#apiRoute">API Route</a>
+      <a href="#metadata">Metadata</a>
+      <a href="#ssr">SSR & SSG</a>
+      <a href="#templates">Templates</a>
+
+    </div>
+  </div> <!-- Main Container End -->
+
+</body>
+
+</html>

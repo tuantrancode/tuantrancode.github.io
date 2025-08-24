@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React - Forms</title>
+    <link rel="stylesheet" href="/common-styles.css">
+    <link rel="stylesheet" href="/main-layout.css">
+    <script type="module">
+        import { loadMenu, getTheme } from '/load-menu.js';
+
+        getTheme();
+        loadMenu("mainContainer", "rightNav");
+    </script>
+</head>
+
+<body id="root">
+    <!-- Main Container -->
+    <div class="container" id="mainContainer">
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+
+
+            <!-- CONTROLLED VS UNCONTROLLED ELEMENTS-->
+            <h3 class="section-header" id="differences">Differences Between HTML Form</h3>
+            <ul>
+                <li>The <code>for</code> attribute in HTML form is replaced by <code>htmlFor</code> in React</li>
+                <ul>
+                    <li><code>&lt;label htmlFor="nameId">Name:&lt;/label></code></li>
+                </ul>
+            </ul>
+            <hr>
+
+
+            <!-- CONTROLLED VS UNCONTROLLED ELEMENTS-->
+            <h3 class="section-header" id="controlledVsUncontrolled">Controlled vs Uncontrolled Elements</h3>
+            <p>A controlled input is one where the <code>&lt;input></code>, <code>&lt;select></code>, or
+                <code>&lt;textarea></code> element set the <code>value</code> attribute/prop. Then React expects the app
+                to update that value via <code>onChange</code>
+            </p>
+            <ul>
+                <li>Nothing will show up even if the user try typing in input</li>
+                <li>Requires app to handle onChange event to update the <code>value</code></li>
+                <li>If the input type is <code>file</code>, then an uncontrolled element is required</li>
+            </ul>
+            <p>An uncontrolled input is when the <code>value</code> attribute/prop is not set</p>
+            <pre><code class='language-jsx'>// Controlled input
+function Input() {
+  const [query, setQuery] = useState("");
+  function handleChange(event) {
+    setQuery( () => event.target.value );
+  }
+
+  return (
+    &lt;input
+      type="text"
+      <mark>value={query}</mark>    // controlled
+      onChange={handleChange} // needed to update state
+      placeholder="Search..."
+    />
+  );
+}</code></pre>
+            <br>
+            <pre><code class='language-jsx'>// Uncontrolled input
+function Input() {
+  return  &lt;input type="text" placeholder="Search..." />;
+}</code></pre>
+            <br>
+            <h4 class="sub-section-header">Common elements that can be controlled</h4>
+            <p>They will need an <code>onChange</code> event handler to update the prop</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Controlled Prop</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>&lt;input type="text" /&gt;</td>
+                        <td>value</td>
+                        <td>Standard text input.</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;input type="password" /&gt;</td>
+                        <td>value</td>
+                        <td>Same as text input.</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;input type="number" /&gt;</td>
+                        <td>value</td>
+                        <td>Value is a string; convert to number if needed.</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;input type="email" /&gt;</td>
+                        <td>value</td>
+                        <td>Same as text input.</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;input type="checkbox" /&gt;</td>
+                        <td>checked</td>
+                        <td><code>e.target.checked</code> gives boolean value.</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;input type="radio" /&gt;</td>
+                        <td>checked</td>
+                        <td>Usually grouped by <code>name</code>; <code>e.target.value</code> gives selected value.</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;textarea&gt;</td>
+                        <td>value</td>
+                        <td>Multi-line text input.</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;select&gt;</td>
+                        <td>value</td>
+                        <td>Single select. <code>e.target.value</code> gives selected option.</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;select multiple&gt;</td>
+                        <td>value</td>
+                        <td>Multi-select. Use <code>Array.from(e.target.selectedOptions, o =&gt; o.value)</code> to get
+                            array of selected values.</td>
+                    </tr>
+                    <tr>
+                        <td>Custom input components</td>
+                        <td>Depends on prop (<code>value</code> or <code>checked</code>)</td>
+                        <td>Pass value/checked from parent and trigger handler on change.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+
+
+            <!-- UNCONTROLLED EXAMPLE -->
+            <h3 class="section-header" id="uncontrolled">Uncontrolled Sample for Form</h3>
+            <ul>
+                <li>Use <code>useRef</code> hook to get the value of the form once submit is liressed.</li>
+                <li>Use <code>formRef.current.reset</code> to reset the whole form.</li>
+                <li>Easy to understand for small form</li>
+            </ul>
+
+            <pre><code class="language-jsx">// JSX
+import React, { useRef } from "react";
+
+export default function UncontrolledForm() {
+  <mark>const nameRef = useRef(null);</mark>
+  const colorRef = useRef(null);
+  const formRef = useRef(null);
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    <mark>const name = nameRef.current.value;</mark>
+    const color = colorRef.current.value;
+
+    // Send form to wherever needed
+    alert(`Submitted:\nName: ${name}\nFavorite Color: ${color}`);
+  };
+
+  // Handle form reset
+  const handleReset = () => {
+    <mark>formRef.current.reset();</mark>
+  };
+
+  return (
+      &lt;form <mark>ref={formRef}</mark> onSubmit={handleSubmit} >
+
+        {/* Input Text */}
+        &lt;div>
+          &lt;label htmlFor="name">Name:&lt;/label>
+          &lt;input
+            id="name"
+            name='name' // this is what back-end server sees to identify field
+            type="text"
+            <mark>ref={nameRef}</mark>
+            placeholder="Enter your name"
+          />
+        &lt;/div>
+
+        {/* Select Dropdown */}
+        &lt;div>
+          &lt;label htmlFor="color">Favorite Color:&lt;/label>
+          &lt;select
+            id="color"
+            name='color'
+            <mark>ref={colorRef}</mark>
+          >
+            &lt;option value=''>-- Select --&lt;/option>
+            &lt;option value="Red">Red&lt;/option>
+            &lt;option value="Blue">Blue&lt;/option>
+            &lt;option value="Green">Green&lt;/option>
+          &lt;/select>
+        &lt;/div>
+
+        {/* Buttons */}
+        &lt;div>
+          &lt;button type="button" onClick={handleReset}>Reset&lt;/button>
+          &lt;button type="submit">Submit&lt;/button>
+        &lt;/div>
+      &lt;/form>
+  );
+}             </code></pre>
+            <hr>
+
+
+
+            <!-- CONTROLLED EXAMPLE -->
+            <h3 class="section-header" id="controlled">Controlled Sample for Form</h3>
+            <ul>
+                <li>More scalable than uncontrolled version</li>
+                <li>Use <code>useState</code> hook to keeli track of the value of the fields.</li>
+                <li>Use <code>setState({})</code> to reset the whole form at once</li>
+                <li>Good for large forms</li>
+                <li>Good for forms that need validation on certain field</li>
+            </ul>
+            <pre><code class="language-jsx">// JSX
+import React, { useState } from "react";
+
+export default function App() {
+  <mark>const [formData, setFormData] = useState({});</mark>
+  const [status, setStatus] = useState("");
+
+  // Update state onChange
+  <mark>const handleChange = ({ target }) => {</mark>
+    const { name, value } = target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value, // dynamic field update
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStatus("Submitting...");
+    alert(JSON.stringify(formData, '', 2));
+  };
+
+  const handleReset = () => {
+    <mark>setFormData({});</mark>
+  };
+
+  return (
+    &lt;>
+      <mark>&lt;form onSubmit={handleSubmit}></mark>
+
+        {/* Input Text */}
+        &lt;div>
+          &lt;label htmlFor="name">Name:&lt;/label>
+          &lt;input
+            id="name"
+            name="name"
+            type="text"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Enter your name"
+            required
+          />
+        &lt;/div>
+
+        {/* Select Dropdown */}
+        &lt;div>
+          &lt;label htmlFor="color">Favorite Color:&lt;/label>
+          &lt;select
+            id="color"
+            name="color"
+            value={formData.color}
+            onChange={handleChange}
+            required
+          >
+            &lt;option value="">-- Select --&lt;/option>
+            &lt;option value="Red">Red&lt;/option>
+            &lt;option value="Blue">Blue&lt;/option>
+            &lt;option value="Green">Green&lt;/option>
+          &lt;/select>
+        &lt;/div>
+
+        {/* Buttons */}
+        &lt;div>
+          &lt;button type="button" onClick={handleReset}>Reset&lt;/button>
+          <mark>&lt;button type="submit">Submit&lt;/button></mark>
+        &lt;/div>
+      &lt;/form>
+
+      {status && &lt;p>{status}&lt;/p>} // If status is true, render  &lt;p>{status}&lt;/p>
+    &lt;/>
+  );
+}</code></pre>
+<hr>
+
+
+   <!-- SUBMITTING FORM -->
+            <h3 class="section-header" id="submitting">Submitting Form</h3>
+            Use the <code>onSubmit</code> attribute on the <code>&lt;form></code> element to give the callback function
+            <ul>
+                <li>Use the Fetch API with POST method: <a href="/Javascript/js-functions.html#fetch">Fetch API notes</a></li>
+                <li>Zybooks is a good place to test form by sending the form to this link: <a href="https://wp.zybooks.com/form-viewer.php">https://wp.zybooks.com/form-viewer.php</a></li>
+                <ul>
+                    <li>To test the form, set its attribute <code>action="https://wp.zybooks.com/form-viewer.php"</code></li>
+                    <li>It will be possible to view what data the server sees</li>
+                </ul>
+            </ul>
+            <pre><code class="language-jsx">// JSX
+ const handleSubmit = async (event) => {
+    event.preventDefault();   // prevent browser from refreshing or navigating away on submit
+    setStatus("Submitting...");
+
+    try {
+      const response = await fetch("https://wp.zybooks.com/form-viewer.php", {
+        method: "POST",
+        <mark>headers: { "Content-Type": "application/x-www-form-urlencoded" },</mark>
+        <mark>body: new URLSearchParams(formData),</mark>
+      });
+
+      if (response.ok) {
+        setStatus("✅ Form submitted successfully!");
+        handleReset(); // reset state
+      } else {
+        setStatus("❌ Submission failed. Please try again.");
+      }
+    } catch (error) {
+      setStatus("⚠️ Network error. Please try later.");
+    }
+  };
+            </code></pre>
+
+
+
+
+
+
+
+
+
+
+        </main> <!-- Main Content End -->
+
+
+
+        <!-- Table of Contents -->
+        <div class="right-nav" id="rightNav">
+            <h3>Table of Contents</h3>
+            <a href="#differences">Differences Between HTML Form</a>
+            <a href="#controlledVsUncontrolled">Controlled vs Uncontrolled Elements</a>
+            <a href="#uncontrolled">Uncontrolled Sample</a>
+            <a href="#controlled">Controlled Sample</a>
+            <a href="#submitting">Submitting Form</a>
+
+        </div>
+    </div> <!-- Main Container End -->
+
+</body>
+
+</html>

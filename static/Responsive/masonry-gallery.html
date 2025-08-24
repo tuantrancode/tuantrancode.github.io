@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masonry Gallery</title>
-    <link rel="stylesheet" href="/common-styles.css">
-    <link rel="stylesheet" href="/main-layout.css">
-    <link rel="stylesheet" href="/Responsive/masonry-gallery-styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Masonry Gallery</title>
+<link rel="stylesheet" href="/common-styles.css">
+<link rel="stylesheet" href="/main-layout.css">
+<link rel="stylesheet" href="/Responsive/masonry-gallery-styles.css">
 <script type="module">
 import { loadMenu, getTheme } from '/load-menu.js';
 import { loadMasonryImages, updateImageCount } from '/Responsive/masonry-script.js';
@@ -65,17 +65,17 @@ window.addEventListener('load', () => {
 </script>
 </head>
 
-<body>
+<body id="root">
     <!-- Main Container -->
     <div class="container" id="mainContainer">
 
         <!-- Main Content -->
-        <div class="main-content" id="mainContent">
+        <main class="main-content" id="mainContent">
 
             <!-- USING GRID AND CALCULATING ROW SPAN OF EACH IMAGE TO MAKE MASONRY GALLERY -->
             <div class="grid" id="masonryGallery"></div>
 
-        </div> <!-- Main Content End -->
+        </main> <!-- Main Content End -->
 
 
         <!-- Table of Contents -->

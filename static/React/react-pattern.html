@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Programming Patterns</title>
+    <link rel="stylesheet" href="/common-styles.css">
+    <link rel="stylesheet" href="/main-layout.css">
+    <script type="module">
+        import { loadMenu, getTheme } from '/load-menu.js';
+
+        getTheme();
+        loadMenu("mainContainer", "rightNav");
+    </script>
+</head>
+
+<body id="root">
+    <!-- Main Container -->
+    <div class="container" id="mainContainer">
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+
+            <h2 class="page-header">React Programming Pattern</h2>
+            <p>Each component should focus on one responsilitiy. Components that handle states, calculations, or complex
+                logic should not render JSX. To reduce the code complexity, a component can be split into stateful
+                (container) or stateless (presentational) components</p>
+            <ul>
+                <li><strong>Stateful (Container) Component</strong> : manage state, make calculations based on
+                    props/state, and handle complex logic</li>
+                <li><strong>Stateless (Presentational) Component</strong> : render JSX</li>
+            </ul>
+            <p>A simple React app will have one stateful component that holds the other stateless components</p>
+            <pre><code class="language-jsx">// JSX
+//Main component (stateful)
+import React, { useState } from "react";
+import Counter from "./Counter";       // Stateless
+import Display from "./Display";       // Stateless
+
+export default function App() {
+  // Stateful part: count
+  const [count, setCount] = useState(0);
+
+  // Function to update state
+  const increment = () => setCount(count + 1);
+  const decrement = () => setCount(count - 1);
+
+  return (
+    &lt;div style={{ textAlign: "center", marginTop: "50px" }}>
+      &lt;h1>Stateful vs Stateless Example&lt;/h1>
+      
+      {/* Stateless component, receives props */}
+      <mark>&lt;Display count={count} />
+      &lt;Counter onIncrement={increment} onDecrement={decrement} /></mark>
+    &lt;/div>
+  );
+} </code></pre>
+
+            <pre><code class="language-jsx">// JSX
+//Counter.js - render the buttons (stateless)
+import React from "react";
+
+export default function Counter({ onIncrement, onDecrement }) {
+  return (
+    &lt;div>
+      &lt;button onClick={onDecrement}>-&lt;/button>
+      &lt;button onClick={onIncrement}>+&lt;/button>
+    &lt;/div>
+  );
+} </code></pre>
+
+            <pre><code class="language-jsx">// JSX
+//Display.js - render the header (stateless)
+import React from "react";
+
+export default function Display({ count }) {
+  return &lt;h2>Current Count: {count}&lt;/h2>;
+}</code></pre>
+            <p>In this sample, the whole App component and its children will re-render (update the Virtual DOM) when the
+                buttons are clicked because App's state got changed. Using memo hook can helps avoid unnecessary Virtual
+                DOM recalculations for performance optimization.</p>
+                <hr>
+
+                <!-- COMPARING STATEFUL/STATELESS WITH SERVER/CLIENT -->
+                <h3 class="section-header" id="comparison">Comparing with Next.js Server/Client Components</h3>
+                <p>Server/Client component notes: <a href="/React/react-nextjs.html#serverClient">link</a></p>
+                <ul>
+                  <li><strong>Server Component (Next.js)</strong> :</li>
+                   <ul>
+                    <li>Fetch data from backend and handle API</li>
+                    <li>Authorization, tokens, and any secrets that shouldn't be run on client</li>
+                    <li>Perform heavy process client can't do</li>
+                  </ul>
+                  <li><strong>Client Component (Next.js)</strong> :</li>
+                   <ul>
+                    <li>Manages states, hooks</li>
+                    <li>Use browser APIs</li>
+                    <li>Interactive and dynamic UI</li>
+                  </ul>
+                  <li><strong>Stateful Component</strong> :</li>
+                  <ul>
+                    <li>Manages states, hooks, event handlers</li>
+                    <li>Perform complex logic</li>
+                  </ul>
+                  <li><strong>Stateless Component</strong> :</li>
+                   <ul>
+                    <li>Render JSX</li>
+                  </ul>
+                </ul>
+                <p>Separating code to make components mobile-ready for React Native: <a href="/React/react-mobile-ready.html#sharedComponents">link</a></p>
+
+
+
+
+
+        </main> <!-- Main Content End -->
+
+
+
+        <!-- Table of Contents -->
+        <div class="right-nav" id="rightNav">
+            <h3>Table of Contents</h3>
+             <a href="#importing">Stateful vs Stateless</a>
+             <a href="#comparing">Server/Client & Stateful/Stateless</a>
+
+        </div>
+    </div> <!-- Main Container End -->
+
+</body>
+
+</html>

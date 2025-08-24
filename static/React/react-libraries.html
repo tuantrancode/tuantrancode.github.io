@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React - Libraries</title>
+    <link rel="stylesheet" href="/common-styles.css">
+    <link rel="stylesheet" href="/main-layout.css">
+    <script type="module">
+        import { loadMenu, getTheme } from '/load-menu.js';
+
+        getTheme();
+        loadMenu("mainContainer", "rightNav");
+    </script>
+</head>
+
+<body id="root">
+    <!-- Main Container -->
+    <div class="container" id="mainContainer">
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+
+            <!-- ROUTING -->
+            <h3 class="section-header" id="routing">Routing</h3>
+            <h4 class="sub-section-header">React Router</h4>
+            <p>A library to handle navigation inside your website</p>
+            <p>Works very similarly to React Native routing library, React Navigation</p>
+            <p><strong>Folder Structure</strong></p>
+            <pre><code>src/
+ ├─ pages/
+ │   ├─ HTML/
+ │   │   ├─ Basics.js
+ │   │   ├─ Forms.js
+ │   ├─ CSS/
+ │   │   ├─ Basics.js
+ │   │   ├─ Properties.js
+ ├─ App.js
+ ├─ index.js</code></pre>
+            <p><strong>Wrap <code>BrowserRouter</code> around the root component</strong></p>
+            <pre><code class='language-jsx'>// JSX
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  &lt;BrowserRouter>
+    &lt;App />
+  &lt;/BrowserRouter>
+);</code></pre>
+            <p><strong>Set up the <code>Routes</code> and <code>Link</code> elements</strong></p>
+            <ul>
+                <li><code>Routes</code> acts as the main-content container and will swap out components based on URL
+                </li>
+                <li><code>Link</code> replaces element <code>a</code></li>
+            </ul>
+            <pre><code class="language-jsx">// JSX
+import { Routes, Route, Link } from "react-router-dom";
+
+import HTMLBasics from "./pages/HTML/Basics";
+import Forms from "./pages/HTML/Forms";
+
+import CSSBasics from "./pages/CSS/Basics";
+import CSSProperties from "./pages/CSS/Properties";
+
+export default function App() {
+  return (
+    &lt;div>
+      {/* Sidebar Navigation */}
+      &lt;nav>
+        &lt;h3>HTML&lt;/h3>
+        &lt;ul>
+          &lt;li>&lt;Link to="/html/basics">HTML Basics&lt;/Link>&lt;/li>
+          &lt;li>&lt;Link to="/html/forms">Forms&lt;/Link>&lt;/li>
+        &lt;/ul>
+
+        &lt;h3>CSS&lt;/h3>
+        &lt;ul>
+          &lt;li>&lt;Link to="/css/basics">CSS Basics&lt;/Link>&lt;/li>
+          &lt;li>&lt;Link to="/css/properties">CSS Properties&lt;/Link>&lt;/li>
+        &lt;/ul>
+      &lt;/nav>
+
+      {/* Page Content */}
+      &lt;main>
+        &lt;Routes>
+          {/* HTML Routes */}
+          &lt;Route path="/html/basics" element={&lt;HTMLBasics />} />
+          &lt;Route path="/html/forms" element={&lt;Forms />} />
+
+          {/* CSS Routes */}
+          &lt;Route path="/css/basics" element={&lt;CSSBasics />} />
+          &lt;Route path="/css/properties" element={&lt;CSSProperties />} />
+        &lt;/Routes>
+      &lt;/main>
+    &lt;/div>
+  );
+}
+
+</code></pre>
+            <hr>
+
+
+            <!-- STATE MANAGEMENT -->
+            <h3 class="section-header" id="stateManagement">State Management</h3>
+            <h4 class="sub-section-header">Zustand</h4>
+            <p>Quick and lightweight way to manage state to avoid props drilling and allow multiple components to share
+                states</p>
+            <ul>
+                <li>Minimal boilerplate code</li>
+                <li>Supports async actions naturally</li>
+                <li>Can set up small, modular stores</li>
+                <li>Works the same way in React Native</li>
+            </ul>
+            <p>Code sample to manage a store with 2 states: theme and user</code></p>
+            <p>Setting up the store</p>
+            <pre><code class='language-jsx'>// JSX
+// store.js
+import create from 'zustand';
+
+export const useStore = create((set) => ({
+  theme: 'light',
+  user: { name: '', email: '' },
+
+  // Theme actions
+  toggleTheme: () => set(state => ({
+    theme: state.theme === 'light' ? 'dark' : 'light'
+  })),
+
+  // User actions
+  setUser: (user) => set({ user }),
+  clearUser: () => set({ user: { name: '', email: '' } }),
+}));</code></pre>
+            <p>Updating the store and getting value</p>
+            <pre><code class='language-jsx'>// JSX
+// App.jsx
+import React from 'react';
+import { useStore } from './store';
+
+export default function App() {
+  const { theme, toggleTheme, user, setUser, clearUser } = useStore();
+
+  return (
+    &lt;div>
+      &lt;h1>Zustand Example&lt;/h1>
+      &lt;p>Current theme: {theme}&lt;/p>
+      &lt;button onClick={toggleTheme}>Toggle Theme&lt;/button>
+
+      &lt;h2>User Profile&lt;/h2>
+      {user.name ? (
+        &lt;div>
+          &lt;p>Name: {user.name}&lt;/p>
+          &lt;p>Email: {user.email}&lt;/p>
+          &lt;button onClick={clearUser}>Clear User&lt;/button>
+        &lt;/div>
+      ) : (
+        &lt;button onClick={() => setUser({ name: 'Tran', email: 'tran@example.com' })}>
+          Set User
+        &lt;/button>
+      )}
+    &lt;/div>
+  );
+}</code></pre>
+
+
+            <h4 class="sub-section-header">Redux</h4>
+
+            <p>Centralized state management for your entire app.</p>
+            <ul>
+                <li>Uses a single global store</li>
+                <li>Requre high boiler plate codes</li>
+                <li>Higher learning curve to understand</li>
+                <li>Works the same way in React Native</li>
+            </ul>
+            <p>Code sample to manage a store with 2 states: theme and user</code></p>
+            <p>Setting up the store</p>
+            <pre><code class='language-jsx'>// JSX
+// store.js
+import { configureStore, createSlice } from '@reduxjs/toolkit';
+
+// Theme slice
+const themeSlice = createSlice({
+  name: 'theme',
+  initialState: { mode: 'light' },
+  reducers: {
+    toggleTheme: (state) => {
+      state.mode = state.mode === 'light' ? 'dark' : 'light';
+    },
+  },
+});
+
+// User slice
+const userSlice = createSlice({
+  name: 'user',
+  initialState: { name: '', email: '' },
+  reducers: {
+    setUser: (state, action) => {
+      state.name = action.payload.name;
+      state.email = action.payload.email;
+    },
+    clearUser: (state) => {
+      state.name = '';
+      state.email = '';
+    },
+  },
+});
+
+export const { toggleTheme } = themeSlice.actions;
+export const { setUser, clearUser } = userSlice.actions;
+
+export const store = configureStore({
+  reducer: {
+    theme: themeSlice.reducer,
+    user: userSlice.reducer,
+  },
+});</code></pre>
+            <p>Using the store and getting value</p>
+            <pre><code class='language-jsx'>// JS
+// App.jsx
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleTheme, setUser, clearUser } from './store';
+
+function App() {
+  const dispatch = useDispatch();
+  const theme = useSelector(state => state.theme.mode);
+  const user = useSelector(state => state.user);
+
+  return (
+    &lt;div>
+      &lt;h1>Redux Example&lt;/h1>
+      &lt;p>Current theme: {theme}&lt;/p>
+      &lt;button onClick={() => dispatch(toggleTheme())}>Toggle Theme&lt;/button>
+
+      &lt;h2>User Profile&lt;/h2>
+      {user.name ? (
+        &lt;div>
+          &lt;p>Name: {user.name}&lt;/p>
+          &lt;p>Email: {user.email}&lt;/p>
+          &lt;button onClick={() => dispatch(clearUser())}>Clear User&lt;/button>
+        &lt;/div>
+      ) : (
+        &lt;button onClick={() => dispatch(setUser({ name: 'Tran', email: 'tran@example.com' }))}>
+          Set User
+        &lt;/button>
+      )}
+    &lt;/div>
+  );
+}</code></pre>
+
+            <hr>
+
+            <!-- SERVER STATE MANAGEMENT -->
+            <h3 class="section-header" id="serverStateManagement">Server-State Management</h3>
+            <h4 class="sub-section-header">React Query</h4>
+            <hr>
+
+        </main> <!-- Main Content End -->
+
+
+
+        <!-- Table of Contents -->
+        <div class="right-nav" id="rightNav">
+            <h3>Table of Contents</h3>
+            <a href="#routing">Routing</a>
+            <a href="#stateManagement">State Management</a>
+            <a href="#serverStateManagement">Server-State Management</a>
+
+        </div>
+    </div> <!-- Main Container End -->
+
+</body>
+
+</html>

@@ -7,6 +7,7 @@ const topNavDiv = `
           <a href="/index.html">HTML</a>
           <a href="/CSS/css-basics.html">CSS</a>
           <a href="/Javascript/js-basics.html">Javascript</a>
+          <a href="/React/react-basics.html">React</a>
           <a href="/Responsive/responsive.html">Responsive</a>
           <a href="/Tools/browser.html">Tools</a>
           <button class="theme-btn" id="themeBtn">&#9681;</button>
@@ -24,6 +25,7 @@ const leftNavDiv = `
     <a href="/HTML/forms.html">Forms</a>
     <a href="/HTML/table.html">Table</a>
     <a href="/HTML/special-characters.html">Special Characters</a>
+    <a href="/HTML/libraries.html">Libraries</a>
 
     <h3>CSS</h3>
     <a href="/CSS/css-basics.html">CSS Basics</a>
@@ -37,13 +39,25 @@ const leftNavDiv = `
     <a href="/Javascript/js-functions.html">Functions</a>
     <a href="/Javascript/js-methods-reference.html">Methods Reference</a>
     <a href="/Javascript/js-dom.html">Working with DOM</a>
+
+    <h3>React</h3>
+    <a href="/React/react-basics.html">React Basics</a>
+    <a href="/React/react-styling.html">React Styling</a>
+    <a href="/React/react-form.html">Form in React</a>
+    <a href="/React/react-setup.html">React Setup Comparison</a>
+    <a href="/React/react-nextjs.html">Next.js</a>
+    <a href="/React/react-libraries.html">Libraries</a>
+    <a href="/React/react-pattern.html">Programming Pattern</a>
+    <a href="/React/react-mobile-ready.html">Mobile-Ready React</a>
     
     <h3>Responsive</h3>
     <a href="/Responsive/responsive.html">Responsive Styles</a>
     <a href="/Responsive/masonry-gallery.html">Masonry Gallery</a>
 
     <h3>Tools</h3>
-      <a href="/Tools/browser.html">Browser</a>
+    <a href="/Tools/browser.html">Browser DevTools</a>
+    <a href="/Tools/react-dev-tools.html">React DevTools</a>
+    <a href="/Tools/cmd.html">Cmd / Terminal</a>
     <a href="/Tools/visual-studio-code.html">Visual Studio Code</a>
     <a href="/Tools/eclipse.html">Eclipse for Java</a>
     <a href="/Tools/android-studio.html">Android Studio</a>
