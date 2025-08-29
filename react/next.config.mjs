@@ -12,8 +12,6 @@ const nextConfig = {
   /* For Deploying to GitHub Pages as a static site (SSG)*/
   output: 'export', // generate a static site (SSG) from the Next.js project <-- Important for GitHub Pages
   distDir: 'out',   // Where to put the built static files
-  basePath: "/tuantrancode.github.io",
-  assetPrefix: '',
   // add file named .nojekyll to public/
   images: {
     unoptimized: true, // Important for GitHub Pages
