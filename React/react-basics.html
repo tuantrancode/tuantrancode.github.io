@@ -415,30 +415,52 @@ function Card(props) {
                 </li>
             </ul>
             <pre><code class="language-jsx">// JSX
-import React, { createContext, useContext, useState } from "react";
+// ThemeContext.js
+// 1. Create the ThemeContext and ThemeProvider
+"use client";
+import { createContext, useContext, useState } from "react";
 
-// 1. Create a Context with createContext()
- <mark>const CounterContext = createContext();</mark>
+<mark>const ThemeContext = createContext();</mark>
 
-function Parent() {
-    const [count, setCount] = useState(0);
+export function ThemeProvider({ children }) {
+  const [theme, setTheme] = useState("light");
+  return (
+    <mark>&lt;ThemeContext.Provider value={{ theme, setTheme }}>
+      {children}
+    &lt;/ThemeContext.Provider></mark>
+  );
+}
 
+<mark>export function useTheme() {</mark>
+  return useContext(ThemeContext);
+}
+--------------------------------------------------------------
+// app/layout.js
+import {ThemeProvider} from 'context/ThemeContext';
+
+export default function RootLayout({children}) {
     return (
-         // 2. Wrap children in the Provider and pass state + setter using "value" attribute
-         <mark>&lt;CounterContext.Provider value={ { count, setCount } }></mark>
-            &lt;NestedChild />
-        &lt;/CounterContext.Provider>
+        &lt;html lang="en">
+            &lt;body id="root">
+                // 2. Wrap children in the Provider
+                <mark>&lt;ThemeProvider></mark>
+                    &lt;Child />
+                &lt;/ThemeProvider>
+            &lt;/body>
+        &lt;/html>
     );
 }
-function NestedChild() { <mark>// No need to pass props</mark>
-    // 3. Access count and setCount directly using useContext()
-    <mark>const { count, setCount } = useContext(CounterContext);</mark>
+--------------------------------------------------------------
+// Child.js
+// Using the value
+import {useTheme} from 'context/ThemeContext';
 
+function Child(){
+    const {theme, setTheme} = useTheme();
     return (
-        &lt;div>
-            &lt;p>Count: {count}&lt;/p>
-            &lt;button onClick={ () => setCount(current => current + 1)}> Increment &lt;/button>
-        &lt;/div>  
+        &lt;button 
+            onClick={ () => setTheme(theme === "light" ? "dark" : "light")}>Toggle Theme
+        &lt;/button>
     );
 }  </code></pre>
             <hr>
@@ -503,6 +525,7 @@ function Counter() {
                 <ul>
                     <li>Passing an empty dependency array <code>[]</code> tells <code>useEffect</code> to only run after
                         the first render()</li>
+                    <li>General rule of thumb is to include any variables or functions from outer scope that <code>useEffect</code> used, like the setter of the context</li>
                 </ul>
             </ul>
             <p><code>useEffect</code> runs everytime AFTER the component finishes rendering by calling on the callback

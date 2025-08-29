@@ -114,25 +114,30 @@ export default function App() {
                 <li>Supports async actions naturally</li>
                 <li>Can set up small, modular stores</li>
                 <li>Works the same way in React Native</li>
+                <li>When updating the store, Zustand does a shallow merge</li>
+                <ul>
+                  <li>If updating nested objects, keys not in the new object will be deleted</li>
+                  <li>Zustand Recommendation: <a href="https://zustand.docs.pmnd.rs/guides/updating-state">zustand.docs.pmnd.rs/guides/updating-state</a></li>
+                </ul>
             </ul>
             <p>Code sample to manage a store with 2 states: theme and user</code></p>
             <p>Setting up the store</p>
             <pre><code class='language-jsx'>// JSX
 // store.js
-import create from 'zustand';
+import { create } from 'zustand';
 
 export const useStore = create((set) => ({
   theme: 'light',
   user: { name: '', email: '' },
 
   // Theme actions
-  toggleTheme: () => set(state => ({
-    theme: state.theme === 'light' ? 'dark' : 'light'
+  toggleTheme: () => set(currentState => ({
+    theme: currentState.theme === 'light' ? 'dark' : 'light'
   })),
 
   // User actions
-  setUser: (user) => set({ user }),
-  clearUser: () => set({ user: { name: '', email: '' } }),
+  setUser: (newUser) => set({ newUser }),
+  clearUser: () => set( { user: { name: '', email: '' } }),
 }));</code></pre>
             <p>Updating the store and getting value</p>
             <pre><code class='language-jsx'>// JSX
