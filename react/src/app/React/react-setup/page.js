@@ -243,7 +243,7 @@ module.exports = nextConfig;
         <ol>
           <li>Install the analyzer: <code>npm install @next/bundle-analyzer --save-dev</code> and <code>npm install cross-env --save-dev</code> in the project root</li>
           <li>Update <code>package.json</code> to have the following key-value pair in "scripts"</li>
-           <CodeBlock language='jsx'>{`
+          <CodeBlock language='jsx'>{`
 "scripts": {
   ...
   "analyze": "cross-env ANALYZE=true next build",
@@ -301,6 +301,29 @@ export default function MasonryPage() {
   );
 }
       `}</CodeBlock>
+        </ul>
+        <hr />
+      </section>
+
+
+      {/*<!-- PRODUCTION BUILD NOTES -->*/}
+      <section>
+        <h3 className='section-header' id='buildNotes'>Production Build</h3>
+        <ul>
+          <li>Make sure to add the homepage URL to <code>package.json</code> like so <code>{`"homepage": "https://<your-username>.github.io/<repo-name>/"`}</code></li>
+        </ul>
+        <p><strong>Deploying to Github Pages</strong></p>
+        <ul>
+          <li>Github Pages only supports static exports of React App, some extra requirements are needed to run Next.js app on Github</li>
+          <ol>
+            <li>Update <code>package.json</code> scripts section to include <code>"export": "next export",</code></li>
+            <li>Update <code>next.config.js</code> <code>nextConfig</code> constant to contain the following <code>output: 'export'</code> and <code>distDir: 'out'</code></li>
+            <li>The static build for the Next.js site will be in the folder <code>out/</code> inside the root folder; this is what Github Page uses</li>
+            <ul>
+              <li>The static version will not have API routes, dynamic server rendering, middleware, and <code>getServerSideProps</code></li>
+            </ul>
+            <li>The normal Next.js app build for the  site will be in the folder <code>.next/</code> inside the root folder</li>
+          </ol>
         </ul>
 
       </section>
