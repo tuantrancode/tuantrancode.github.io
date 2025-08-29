@@ -1,0 +1,1 @@
+:root{--example-bg-color:#fafafa;--example-border-color:#aaa}[data-theme=dark]{--example-bg-color:#222;--example-border-color:#dfdfdf}.css-basics-module__c7mQPG__example{background-color:var(--example-bg-color);border:1px dashed var(--example-border-color);margin:10px 0;padding:10px}.css-basics-module__c7mQPG__hoverExample:hover{background-color:#f08080}
