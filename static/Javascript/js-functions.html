@@ -65,7 +65,15 @@ param => {
 (param1, paramN) => {
   statements;
 }</code></pre>
+<li>As an Object Literal: requires parenthesis around the function body; Javascript will read the content as an object and implicitly return it</li>
+<pre><code class="language-javascript">() => (
+    { key: value }
+)
 
+// Same thing
+() => {
+    return { key: value };
+}</code></pre>
                     <li>More on Arrow Functions: <a
                             href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions"
                             target="_blank">developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions</a>

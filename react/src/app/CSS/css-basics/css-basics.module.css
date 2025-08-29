@@ -1,0 +1,20 @@
+:root {
+    --example-bg-color: #fafafa;
+    --example-border-color: #aaa;
+}
+
+:global([data-theme="dark"]) {
+    --example-bg-color: #222222;
+    --example-border-color: #dfdfdf;
+}
+
+.example {
+    background-color: var(--example-bg-color);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px dashed var(--example-border-color);
+}
+
+.hoverExample:hover {
+  background-color: lightcoral;
+}

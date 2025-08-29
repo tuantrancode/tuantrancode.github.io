@@ -1,0 +1,136 @@
+  /*
+    CSS for common elements and styles used across the site.
+    Includes typography, fonts, hr, 
+  */
+  :root {
+      --code-bg-color: #eceae9;
+      --code-font-color: #black;
+      --pre-border-color: #aaaaaa;
+      --hr-color: #99a5a8;
+      --mark-bg-color: rgb(224, 238, 25);
+      --sectionHeader-color: rgb(29, 29, 146);
+      --hyperlink-color: #00f;
+      --hyperlink-visited-color: #551a8b;
+      --table-cell-even-bg: #fafafa;
+      --table-border-color: #999999;
+  }
+
+  /* Dark Theme */
+  [data-theme="dark"] {
+      --code-bg-color: #1b1b1b;
+      --code-font-color: white;
+      --pre-border-color: #4e4e4e;
+      --hr-color: #575757;
+      --mark-bg-color: rgba(17, 159, 194, 0.61);
+      --sectionHeader-color: lightskyblue;
+      --hyperlink-color: lightskyblue;
+      --hyperlink-visited-color: #8547c0;
+      --table-cell-even-bg: #242424;
+      --table-border-color: #ddd;
+  }
+
+  /* Horizontal Rule */
+  hr {
+      border: none;
+      border-top: 1px solid var(--hr-color);
+      margin: 30px 0;
+  }
+
+  /* Code Sample Styles */
+  code {
+      background-color: var(--code-bg-color) !important;
+      color: var(--code-font-color);
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+      white-space: pre-wrap !important;
+      overflow-wrap: break-word !important;
+  }
+
+  pre {
+      background-color: var(--code-bg-color) !important;
+      padding: 10px;
+      border-left: 4px solid var(--pre-border-color);
+      padding: 8px;
+      white-space: pre-wrap !important;
+      overflow-wrap: break-word !important;
+  }
+
+  /* To overwrite prism.js and allow word wrap */
+  pre code span {
+      white-space: pre-wrap !important;
+      overflow-wrap: break-word !important;
+  }
+
+  pre>code {
+      display: block;
+  }
+
+  /* Highlighted Text */
+  mark {
+      background: var(--mark-bg-color);
+      color: inherit;
+  }
+
+  /* Hyperlink Styles */
+  a:link {
+      color: var(--hyperlink-color);
+  }
+
+  a:visited {
+      color: var(--hyperlink-visited-color);
+  }
+
+  /* Table Styles */
+  table {
+      width: 100%;
+      max-width: 960px;
+      border-collapse: collapse;
+      table-layout: fixed;
+      word-wrap: break-word;
+  }
+
+  th {
+      font-size: 18px;
+  }
+
+  th,
+  td {
+      border: 1px solid var(--table-border-color);
+      padding: 10px 12px;
+      text-align: left;
+  }
+
+  th,
+  tbody tr:nth-child(even) {
+      background-color: var(--table-cell-even-bg)
+  }
+
+  /* Class Selector */
+  .page-header {
+      text-decoration: underline dotted;
+  }
+
+  /* Common class for section headers and act as anchor for table of contents links*/
+  .section-header,
+  .page-header {
+      font-variant: small-caps;
+      /* Offset for fixed top nav */
+      scroll-margin-top: var(--top-nav-height);
+      color: var(--sectionHeader-color)
+  }
+
+  .sub-section-header {
+      font-style: italic;
+  }
+
+  /* Search Input Bar */
+  .search-bar {
+      padding: 8px;
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      scroll-margin-top: calc(var(--top-nav-height) + 20px);
+  }

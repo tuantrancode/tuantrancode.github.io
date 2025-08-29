@@ -1,0 +1,1232 @@
+import React from 'react';
+import styles from './js-methods-reference.module.css';
+import SearchContainer from '@/components/shared/SearchContainer';
+
+export const metadata = {
+  title: "Methods Reference for Javascript",
+  description: "Reference page for various Javascript methods",
+};
+
+export default function JsMethods() {
+
+  return (
+    <>
+      {/* <!-- STRING --> */}
+      <h3 className="section-header" id="string">String</h3>
+      <SearchContainer searchSelector='tbody tr, thead:not(.firstHead) tr' placeholder="Search methods...">
+        {/* <!-- Returns STRING --> */}
+        <h4 className="sub-section-header">Return Type: String</h4>
+        <table className="string-table">
+          <thead className='firstHead'>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>charAt(index)</code></td>
+              <td>Character at position (empty string if out of range).</td>
+              <td><code>'Hello'.charAt(1)</code></td>
+              <td><code>'e'</code></td>
+            </tr>
+            <tr>
+              <td><code>concat(...strings)</code></td>
+              <td>Concatenate strings.</td>
+              <td><code>'Hello'.concat(' ', 'World')</code></td>
+              <td><code>'Hello World'</code></td>
+            </tr>
+            <tr>
+              <td><code>slice(start, end?)</code></td>
+              <td>Extract substring by indices (end not included).</td>
+              <td><code>'Hello'.slice(1, 4)</code></td>
+              <td><code>'ell'</code></td>
+            </tr>
+            <tr>
+              <td><code>substring(start, end?)</code></td>
+              <td>Extract substring; swaps args if start &gt; end.</td>
+              <td><code>'Hello'.substring(1, 4)</code></td>
+              <td><code>'ell'</code></td>
+            </tr>
+            <tr>
+              <td><code>toUpperCase()</code></td>
+              <td>Uppercase copy.</td>
+              <td><code>'hi'.toUpperCase()</code></td>
+              <td><code>'HI'</code></td>
+            </tr>
+            <tr>
+              <td><code>toLowerCase()</code></td>
+              <td>Lowercase copy.</td>
+              <td><code>'HI'.toLowerCase()</code></td>
+              <td><code>'hi'</code></td>
+            </tr>
+            <tr>
+              <td><code>trim()</code></td>
+              <td>Remove leading/trailing whitespace.</td>
+              <td><code>'  hi  '.trim()</code></td>
+              <td><code>'hi'</code></td>
+            </tr>
+            <tr>
+              <td><code>trimStart()</code>, <code>trimEnd()</code></td>
+              <td>Remove whitespace at start or end.</td>
+              <td><code>'  hi'.trimStart()</code></td>
+              <td><code>'hi'</code></td>
+            </tr>
+            <tr>
+              <td><code>padStart(targetLength, padString?)</code></td>
+              <td>Pad at start to reach length.</td>
+              <td><code>'5'.padStart(3, '0')</code></td>
+              <td><code>'005'</code></td>
+            </tr>
+            <tr>
+              <td><code>padEnd(targetLength, padString?)</code></td>
+              <td>Pad at end to reach length.</td>
+              <td><code>'5'.padEnd(3, '0')</code></td>
+              <td><code>'500'</code></td>
+            </tr>
+            <tr>
+              <td><code>repeat(count)</code></td>
+              <td>Repeat string count times.</td>
+              <td><code>'ab'.repeat(3)</code></td>
+              <td><code>'ababab'</code></td>
+            </tr>
+            <tr>
+              <td><code>replace(searchValue, replaceValue)</code></td>
+              <td>Replace first match (string or regex).</td>
+              <td><code>'hi hi'.replace('hi','yo')</code></td>
+              <td><code>'yo hi'</code></td>
+            </tr>
+            <tr>
+              <td><code>replaceAll(searchValue, replaceValue)</code></td>
+              <td>Replace all matches.</td>
+              <td><code>'hi hi'.replaceAll('hi','yo')</code></td>
+              <td><code>'yo yo'</code></td>
+            </tr>
+            <tr>
+              <td><code>normalize(form?)</code></td>
+              <td>Unicode normalization (<code>NFC</code>, <code>NFD</code>, <code>NFKC</code>,
+                <code>NFKD</code>).
+              </td>
+              <td><code>'é'.normalize('NFD')</code></td>
+              <td><code>'é'</code></td>
+            </tr>
+            <tr>
+              <td><code>toString()</code>, <code>valueOf()</code></td>
+              <td>Primitive string value.</td>
+              <td><code>new String('x').toString()</code></td>
+              <td><code>'x'</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* <!-- Returns NUMBER --> */}
+        <h4 className="sub-section-header">Return Type: Number
+        </h4>
+        <table className="string-table">
+
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+
+
+          <tbody>
+            <tr>
+              <td><code>parseInt(string)</code></td>
+              <td>Parses a string and returns an integer.</td>
+              <td><code>parseInt('77')</code></td>
+              <td><code>77</code></td>
+            </tr>
+            <tr>
+              <td><code>parseFloat(string)</code></td>
+              <td>Parses a string and returns a floating point number.</td>
+              <td><code>parseFloat('4.567')</code></td>
+              <td><code>4.567</code></td>
+            </tr>
+            <tr>
+              <td><code>charCodeAt(index)</code></td>
+              <td>UTF‑16 code unit at position.</td>
+              <td><code>'ABC'.charCodeAt(0)</code></td>
+              <td><code>65</code></td>
+            </tr>
+            <tr>
+              <td><code>indexOf(searchValue, fromIndex?)</code></td>
+              <td>First index of substring (or -1).</td>
+              <td><code>'Hello'.indexOf('l')</code></td>
+              <td><code>2</code></td>
+            </tr>
+            <tr>
+              <td><code>lastIndexOf(searchValue, fromIndex?)</code></td>
+              <td>Last index of substring (or -1).</td>
+              <td><code>'Hello'.lastIndexOf('l')</code></td>
+              <td><code>3</code></td>
+            </tr>
+            <tr>
+              <td><code>localeCompare(other, locales?, options?)</code></td>
+              <td>Compares strings using locale rules.</td>
+              <td><code>'a'.localeCompare('b')</code></td>
+              <td><code>-1</code> (read notes)</td>
+            </tr>
+            <tr>
+              <td><code>search(regexp)</code></td>
+              <td>Index of first regex match (or -1).</td>
+              <td><code>'abc'.search(/b/)</code></td>
+              <td><code>1</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* <!-- Returns BOOLEAN --> */}
+        <h4 className="sub-section-header">Return Type: Boolean
+        </h4>
+        <table className="string-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><code>includes(substring, fromIndex?)</code></td>
+              <td>Substring presence.</td>
+              <td><code>'Hello'.includes('ell')</code></td>
+              <td><code>true</code></td>
+            </tr>
+            <tr>
+              <td><code>startsWith(prefix, position?)</code></td>
+              <td>Check starting substring.</td>
+              <td><code>'Hello'.startsWith('He')</code></td>
+              <td><code>true</code></td>
+            </tr>
+            <tr>
+              <td><code>endsWith(suffix, length?)</code></td>
+              <td>Check ending substring.</td>
+              <td><code>'Hello'.endsWith('lo')</code></td>
+              <td><code>true</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* <!-- Returns ARRAY --> */}
+        <h4 className="sub-section-header">Return Type: Array</h4>
+        <table className="string-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><code>split(separator, limit?)</code></td>
+              <td>Split into array of substrings.</td>
+              <td><code>'a,b,c'.split(',')</code></td>
+              <td><code>['a','b','c']</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* <!-- Returns ITERATOR --> */}
+        <h4 className="sub-section-header">Return Type: Iterator
+        </h4>
+        <table className="string-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><code>matchAll(regexp)</code></td>
+              <td>Returns an iterator of all regex matches.</td>
+              <td><code>Array.from('test'.matchAll(/t/g))</code></td>
+              <td><code>[['t'],['t']]</code> (after <code>Array.from</code>)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* <!-- Returns ARRAY OR NULL --> */}
+        <h4 className="sub-section-header">Return Type: Array or
+          <code>null</code>
+        </h4>
+        <table className="string-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><code>match(regexp)</code></td>
+              <td>First regex match result array (or <code>null</code> if none).</td>
+              <td><code>'abc'.match(/b/)</code></td>
+              <td><code>['b', index:1, input:'abc', groups:undefined]</code> (or <code>null</code>)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4 className="sub-section-header">Notes</h4>
+        <ul>
+          <li>Most string methods are case-sensitive by default. To do case-insensitive checks, use regex with the
+            <code>i</code> flag or convert both strings to a common case with
+            <code>toLowerCase()</code>/<code>toUpperCase()</code>.
+          </li>
+          <li><code>String.prototype.at(index)</code> can return a string or <code>undefined</code> (if out of
+            range), so it is omitted from single-type tables.</li>
+          <li><code>substr()</code> is deprecated; prefer <code>slice()</code> or <code>substring()</code>.</li>
+          <li><code>localeCompare</code> returns different values depending on whether the reference value is
+            before/after/equal to the compare value</li>
+          <ul>
+            <li><code>-1</code>: if the reference value is before the compared value (i.e.
+              'a'.localeCompare('b'))</li>
+            <li><code>0</code>: if the reference is equal to the compared (i.e. 'b'.localeCompare('b'))</li>
+            <li><code>1</code>: if the reference is after the compared (i.e. 'c'.localeCompare('b'))</li>
+          </ul>
+        </ul>
+        <hr />
+      </SearchContainer>
+
+      {/* <!-- ARRAYS --> */}
+      <h3 className="section-header" id="arrays">Array</h3>
+      <SearchContainer searchSelector='tbody tr, thead:not(.firstHead) tr' placeholder="Search methods...">
+        {/* <!-- Returns BOOLEAN --> */}
+        <h4 className="sub-section-header">Return Type: Boolean</h4>
+        <table className="array-table">
+          <thead className='firstHead'>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+              <th>Callback Arguments</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>every(callbackFn, thisArg?)</code></td>
+              <td>Checks if all elements pass the test.</td>
+              <td><code>[1, 2, 3].every(x =&gt; x &gt; 0)</code></td>
+              <td><code>true</code></td>
+              <td>
+                <ul>
+                  <li><code>element</code> — current element</li>
+                  <li><code>index</code> — index of element</li>
+                  <li><code>array</code> — original array</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><code>some(callbackFn, thisArg?)</code></td>
+              <td>Checks if at least one element passes the test.</td>
+              <td><code>[1, 2, 3].some(x =&gt; x &gt; 2)</code></td>
+              <td><code>true</code></td>
+              <td>
+                <ul>
+                  <li><code>element</code> — current element</li>
+                  <li><code>index</code> — index of element</li>
+                  <li><code>array</code> — original array</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><code>includes(valueToFind, fromIndex?)</code></td>
+              <td>Checks if the array contains a value.</td>
+              <td><code>[1, 2, 3].includes(2)</code></td>
+              <td><code>true</code></td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        {/* <!-- Returns NUMBER --> */}
+        <h4 className="sub-section-header">Return Type: Number</h4>
+        <table className="array-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+              <th>Callback Arguments</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>indexOf(searchElement, fromIndex?)</code></td>
+              <td>Returns the first index of the element, or -1 if not found.</td>
+              <td><code>['a', 'b', 'c'].indexOf('b')</code></td>
+              <td><code>1</code></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td><code>lastIndexOf(searchElement, fromIndex?)</code></td>
+              <td>Returns the last index of the element, or -1 if not found.</td>
+              <td><code>['a', 'b', 'a'].lastIndexOf('a')</code></td>
+              <td><code>2</code></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td><code>findIndex(callbackFn, thisArg?)</code></td>
+              <td>Returns the index of the first element that satisfies the test, or -1.</td>
+              <td><code>[4, 6, 8].findIndex(x =&gt; x &gt; 5)</code></td>
+              <td><code>1</code></td>
+              <td>
+                <ul>
+                  <li><code>element</code> — current element</li>
+                  <li><code>index</code> — index of element</li>
+                  <li><code>array</code> — original array</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><code>reduce(callbackFn, initialValue)</code></td>
+              <td>Reduce an array to a single value by applying a function to each element, accumulating the
+                result.</td>
+              <td><code>[1,2].reduce((acc, curr) =&gt; acc + curr, 0)</code></td>
+              <td><code>3</code></td>
+              <td>
+                <ul>
+                  <li><code>accumulator</code> — accumulated value</li>
+                  <li><code>currentValue</code> — current element</li>
+                  <li><code>currentIndex</code> — index of element</li>
+                  <li><code>array</code> — original array</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        {/* <!-- Returns STRING --> */}
+        <h4 className="sub-section-header">Return Type: String
+        </h4>
+        <table className="array-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><code>join(separator?)</code></td>
+              <td>Joins all elements into a string.</td>
+              <td><code>['a', 'b', 'c'].join('-')</code></td>
+              <td><code>'a-b-c'</code></td>
+            </tr>
+            <tr>
+              <td><code>toString()</code></td>
+              <td>Converts the array to a comma-separated string.</td>
+              <td><code>[1, 2, 3].toString()</code></td>
+              <td><code>'1,2,3'</code></td>
+            </tr>
+            <tr>
+              <td><code>toLocaleString()</code></td>
+              <td>Converts array to a locale-sensitive string.</td>
+              <td><code>[1234.56].toLocaleString()</code></td>
+              <td><code>'1,234.56'</code> (US locale)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* <!-- Returns ARRAY --> */}
+        <h4 className="sub-section-header">Return Type: Array</h4>
+        <table className="array-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+              <th>Callback Arguments</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>filter(callbackFn, thisArg?)</code></td>
+              <td>Creates a new array with elements that pass the test.</td>
+              <td><code>[1, 2, 3, 4].filter(x =&gt; x &gt; 2)</code></td>
+              <td><code>[3, 4]</code></td>
+              <td>
+                <ul>
+                  <li><code>element</code> — current element</li>
+                  <li><code>index</code> — index of element</li>
+                  <li><code>array</code> — original array</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><code>map(callbackFn, thisArg?)</code></td>
+              <td>Creates a new array with results of calling a function on every element.</td>
+              <td><code>[1, 2, 3].map(x =&gt; x * 2)</code></td>
+              <td><code>[2, 4, 6]</code></td>
+              <td>
+                <ul>
+                  <li><code>element</code> — current element</li>
+                  <li><code>index</code> — index of element</li>
+                  <li><code>array</code> — original array</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><code>slice(start?, end?)</code></td>
+              <td>Returns a shallow copy of a portion of the array.</td>
+              <td><code>['a', 'b', 'c'].slice(1)</code></td>
+              <td><code>['b', 'c']</code></td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        {/* <!-- Returns ELEMENT (any type) --> */}
+        <h4 className="sub-section-header">Return Type: Element</h4>
+        <table className="array-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+              <th>Callback Arguments</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>find(callbackFn, thisArg?)</code></td>
+              <td>Returns the first element that satisfies the test, or undefined.</td>
+              <td><code>[5, 12, 8].find(x =&gt; x &gt; 10)</code></td>
+              <td><code>12</code></td>
+              <td>
+                <ul>
+                  <li><code>element</code> — current element</li>
+                  <li><code>index</code> — index of element</li>
+                  <li><code>array</code> — original array</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><code>pop()</code></td>
+              <td>Removes the last element and returns it.</td>
+              <td><code>let arr = [1, 2, 3]; arr.pop()</code></td>
+              <td><code>3</code></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td><code>shift()</code></td>
+              <td>Removes the first element and returns it.</td>
+              <td><code>let arr = [1, 2, 3]; arr.shift()</code></td>
+              <td><code>1</code></td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        {/* <!-- Returns NUMBER (length modifying) --> */}
+        <h4 className="sub-section-header">Return Type: Number
+          (Length)</h4>
+        <table className="array-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><code>push(...items)</code></td>
+              <td>Adds one or more elements to the end, returns new length.</td>
+              <td><code>let arr = [1]; arr.push(2, 3)</code></td>
+              <td><code>3</code></td>
+            </tr>
+            <tr>
+              <td><code>unshift(...items)</code></td>
+              <td>Adds one or more elements to the start, returns new length.</td>
+              <td><code>let arr = [1]; arr.unshift(0)</code></td>
+              <td><code>2</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* <!-- Returns undefined (no return) --> */}
+        <h4 className="sub-section-header">Return Type: Undefined (no return)</h4>
+        <table className="array-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+              <th>Callback Arguments</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>forEach(callbackFn)</code></td>
+              <td>Act on each element using the provided function.</td>
+              <td><code>[1, 2, 3].forEach((element) =&gt; console.log(element));</code></td>
+              <td><code>1 2 3</code></td>
+              <td>
+                <ul>
+                  <li><code>element</code> — current element</li>
+                  <li><code>index</code> — index of element</li>
+                  <li><code>array</code> — original array</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <h4 className="sub-section-header">Notes</h4>
+        <ul>
+          <li>A shallow copy creates a new object, but it doesn't duplicate nested objects; it copies references
+            to them </li>
+          <ul>
+            <li>i.e. changes to the nested objects in the copy also affect the original</li>
+          </ul>
+          <li>Arrays in JavaScript are zero-indexed.</li>
+          <li>Other methods (<code>map</code>, <code>filter</code>, <code>slice</code>, <code>concat</code>)
+            return a new array without changing the original.</li>
+        </ul>
+        <hr />
+      </SearchContainer>
+
+      {/* <!-- SET --> */}
+      <h3 className="section-header" id="set">Set</h3>
+      <SearchContainer searchSelector='tbody tr, thead:not(.firstHead) tr' placeholder="Search methods...">
+        {/* <!-- Returns BOOLEAN --> */}
+        <h4 className="sub-section-header">Return Type: Boolean
+        </h4>
+        <table className="set-table">
+          <thead className='firstHead'>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>has(value)</code></td>
+              <td>Checks if the Set contains a value.</td>
+              <td><code>new Set([1, 2, 3]).has(2)</code></td>
+              <td><code>true</code></td>
+            </tr>
+            <tr>
+              <td><code>delete(value)</code></td>
+              <td>Removes a value from the Set. Returns <code>true</code> if found and removed, otherwise
+                <code>false</code>.
+              </td>
+              <td><code>let s = new Set([1]); s.delete(1)</code></td>
+              <td><code>true</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* <!-- Returns NUMBER --> */}
+        <h4 className="sub-section-header">Return Type: Number
+        </h4>
+        <table className="set-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>size</code></td>
+              <td>Returns the number of elements in the Set.</td>
+              <td><code>new Set([1, 2, 3]).size</code></td>
+              <td><code>3</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* <!-- Returns SET (itself) --> */}
+        <h4 className="sub-section-header">Return Type: Set (itself) or <code>undefined</code></h4>
+        <table className="set-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+              <th>Callback Arguments</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>add(value)</code></td>
+              <td>Adds a new value to the Set and returns the Set object.</td>
+              <td><code>let s = new Set(); s.add(1)</code></td>
+              <td><code>Set {1}</code></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td><code>clear()</code></td>
+              <td>Removes all elements from the Set and returns undefined.</td>
+              <td><code>let s = new Set([1, 2]); s.clear()</code></td>
+              <td><code>undefined</code></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td><code>forEach(callbackFn)</code></td>
+              <td>Act on each element using the provided function.</td>
+              <td><code>new Set([1, 2, 3]).forEach((element) =&gt; console.log(element));</code></td>
+              <td><code>1 2 3</code></td>
+              <td>
+                <ul>
+                  <li><code>value</code> — current element</li>
+                  <li><code>key</code> — same as value (for compatibility with Map)</li>
+                  <li><code>set</code> — original Set</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        {/* <!-- Returns ITERATOR --> */}
+        <h4 className="sub-section-header">Return Type: Iterator
+        </h4>
+        <table className="set-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>values()</code></td>
+              <td>Returns a new Iterator object containing all values.</td>
+              <td><code>[...new Set([1, 2]).values()]</code></td>
+              <td><code>[1, 2]</code></td>
+            </tr>
+            <tr>
+              <td><code>keys()</code></td>
+              <td>Alias for <code>values()</code> in Set.</td>
+              <td><code>[...new Set(['a', 'b']).keys()]</code></td>
+              <td><code>['a', 'b']</code></td>
+            </tr>
+            <tr>
+              <td><code>entries()</code></td>
+              <td>Returns a new Iterator of [value, value] pairs.</td>
+              <td><code>[...new Set(['x', 'y']).entries()]</code></td>
+              <td><code>[['x', 'x'], ['y', 'y']]</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <h4 className="sub-section-header">Notes</h4>
+        <ul>
+          <li>Set objects store <strong>UNIQUE</strong> values of any type, whether primitive values or object
+            references.</li>
+          <li>The insertion order is preserved when iterating over a Set.</li>
+          <li><code>Set.prototype.size</code> is a property, not a method.</li>
+        </ul>
+        <hr />
+      </SearchContainer>
+
+      {/* <!-- MAP --> */}
+      <h3 className="section-header" id="map">Map</h3>
+      <SearchContainer searchSelector='tbody tr, thead:not(.firstHead) tr' placeholder="Search methods...">
+        {/* <!-- Returns BOOLEAN --> */}
+        <h4 className="sub-section-header">Return Type: Boolean</h4>
+        <table className="map-table">
+          <thead className='firstHead'>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>has(key)</code></td>
+              <td>Returns true if a Map contains the specified key.</td>
+              <td><code>new Map([[1, 'a']]).has(1)</code></td>
+              <td><code>true</code></td>
+            </tr>
+            <tr>
+              <td><code>delete(key)</code></td>
+              <td>Removes a Map element by key and returns true if removed.</td>
+              <td><code>let m = new Map([[1,'a']]); m.delete(1)</code></td>
+              <td><code>true</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* <!-- Returns NUMBER --> */}
+        <h4 className="sub-section-header">Return Type: Number</h4>
+        <table className="map-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>size</code></td>
+              <td>Returns the number of key/value pairs in the Map.</td>
+              <td><code>new Map([[1,'a'], [2,'b']]).size</code></td>
+              <td><code>2</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* <!-- Returns MAP (itself) --> */}
+        <h4 className="sub-section-header">Return Type: Map (itself) or <code>undefined</code></h4>
+        <table className="map-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>set(key, value)</code></td>
+              <td>Adds or updates an element with a specified key and value.</td>
+              <td><code>let m = new Map(); m.set(1,'a')</code></td>
+              <td><code>Map &#123;1 =&gt; 'a' &125;</code></td>
+            </tr>
+            <tr>
+              <td><code>clear()</code></td>
+              <td>Removes all Map elements.</td>
+              <td><code>let m = new Map([[1,'a']]); m.clear()</code></td>
+              <td><code>undefined</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* <!-- Returns ITERATOR --> */}
+        <h4 className="sub-section-header">Return Type: Iterator</h4>
+        <table className="map-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+              <th>Callback Arguments</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>keys()</code></td>
+              <td>Returns a new Iterator object containing the keys of the Map.</td>
+              <td><code>myMap = new Map([[1,'a'],[2,'b']]); myMap.keys();</code></td>
+              <td><code>[1,2]</code></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td><code>values()</code></td>
+              <td>Returns a new Iterator object containing the values of the Map.</td>
+              <td><code>myMap = new Map([[1,'a'],[2,'b']]); myMap.values();</code></td>
+              <td><code>['a','b']</code></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td><code>entries()</code></td>
+              <td>Returns a new Iterator object containing [key, value] pairs for each element.</td>
+              <td><code>myMap = new Map([[1,'a'],[2,'b']]); myMap.entries();</code></td>
+              <td><code>[[1,'a'],[2,'b']]</code></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td><code>forEach(callback, thisArg?)</code></td>
+              <td>Calls a function for each key/value pair in the Map.</td>
+              <td><code>myMap = new Map([[1,'a']]); myMap.forEach((v,k) =&gt; console.log(k,v))</code></td>
+              <td><code>logs: 1 'a'</code></td>
+              <td>
+                <ul>
+                  <li><code>value</code> — current value</li>
+                  <li><code>key</code> — current key</li>
+                  <li><code>map</code> — original Map</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <h4 className="sub-section-header">Notes</h4>
+        <ul>
+          <li><code>forEach(callback(value, key, map))</code>: the key and value positions are flipped</li>
+          <li>Map keys can be of any value type, including objects and functions.</li>
+          <li>Insertion order of keys is preserved during iteration.</li>
+          <li>Use <code>forEach</code> or the iterator methods (<code>keys</code>, <code>values</code>,
+            <code>entries</code>) to traverse a Map.
+          </li>
+          <li><code>size</code> is a property, not a method.</li>
+        </ul>
+        <hr />
+      </SearchContainer>
+
+
+      {/* <!-- OBJECT --> */}
+      <h3 className="section-header" id="object">Object</h3>
+      <SearchContainer searchSelector='tbody tr, thead:not(.firstHead) tr' placeholder="Search methods...">
+        {/* <!-- Returns BOOLEAN --> */}
+        <h4 className="sub-section-header">Return Type: Boolean
+        </h4>
+        <table className="object-table">
+          <thead className='firstHead'>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>hasOwnProperty(prop)</code></td>
+              <td>Checks if the object has the specified property as its own property.</td>
+              <td><code>(&#123; a: 1 &#125;).hasOwnProperty('a')</code></td>
+              <td><code>true</code></td>
+            </tr>
+            <tr>
+              <td><code>propertyIsEnumerable(prop)</code></td>
+              <td>Checks if a property is enumerable.</td>
+              <td><code>(&#123; a: 1 &#125;).propertyIsEnumerable('a')</code></td>
+              <td><code>true</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* <!-- Returns ARRAY --> */}
+        <h4 className="sub-section-header">Return Type: Array</h4>
+        <table className="object-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>Object.keys(obj)</code></td>
+              <td>Returns an array of the object's own enumerable property names.</td>
+              <td><code>Object.keys(&#123; a: 1, b: 2 &#125;)</code></td>
+              <td><code>['a', 'b']</code></td>
+            </tr>
+            <tr>
+              <td><code>Object.values(obj)</code></td>
+              <td>Returns an array of the object's own enumerable property values.</td>
+              <td><code>Object.values(&#123; a: 1, b: 2 &#125;)</code></td>
+              <td><code>[1, 2]</code></td>
+            </tr>
+            <tr>
+              <td><code>Object.entries(obj)</code></td>
+              <td>Returns an array of the object's own enumerable [key, value] pairs.</td>
+              <td><code>Object.entries(&#123; a: 1 &#125;)</code></td>
+              <td><code>[['a', 1]]</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* <!-- Returns OBJECT --> */}
+        <h4 className="sub-section-header">Return Type: Object
+        </h4>
+        <table className="object-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>Object.assign(target, ...sources)</code></td>
+              <td>Copies properties from source objects to a target object.</td>
+              <td><code>Object.assign(&#123;&#125;, &#123; a: 1 &#125;, &#123; b: 2 &#125;)</code></td>
+              <td><code>&#123; a: 1, b: 2 &#125;</code></td>
+            </tr>
+            <tr>
+              <td><code>Object.create(proto, propertiesObject?)</code></td>
+              <td>Creates a new object with the specified prototype object and properties.</td>
+              <td><code>Object.create(&#123; a: 1 &#125;)</code></td>
+              <td><code>Object with prototype &#123; a: 1 &#125;</code></td>
+            </tr>
+            <tr>
+              <td><code>Object.fromEntries(iterable)</code></td>
+              <td>Returns a new object from an iterable of [key, value] pairs.</td>
+              <td><code>Object.fromEntries([['a', 1]])</code></td>
+              <td><code>&#123; a: 1 &#125;</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* <!-- Returns STRING --> */}
+        <h4 className="sub-section-header">Return Type: String or Primitive </h4>
+        <table className="object-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>toString()</code></td>
+              <td>Returns a string representation of the object.</td>
+              <td><code>(&#123; a: 1 &#125;).toString()</code></td>
+              <td><code>'[object Object]'</code></td>
+            </tr>
+            <tr>
+              <td><code>valueOf()</code></td>
+              <td>Returns the primitive value of the specified object.</td>
+              <td><code>(&#123; a: 1 &#125;).valueOf()</code></td>
+              <td><code>&#123; a: 1 &#125;</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4 className="sub-section-header">Notes</h4>
+        <ul>
+          <li>Some Object methods are static (e.g., <code>Object.keys</code>), while others are instance methods
+            (e.g., <code>toString</code>).</li>
+        </ul>
+        <hr />
+      </SearchContainer>
+
+
+      {/* <!-- JSON --> */}
+      <h3 className="section-header" id="json">JSON</h3>
+      <SearchContainer searchSelector='tbody tr, thead:not(.firstHead) tr' placeholder="Search methods...">
+        {/* <!-- Returns STRING --> */}
+        <h4 className="sub-section-header">Return Type: String
+        </h4>
+        <table className="json-table">
+          <thead className='firstHead'>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>JSON.stringify(value, replacer?, space?)</code></td>
+              <td>Converts a JavaScript value to a JSON string.</td>
+              <td><code>JSON.stringify(&#123; a: 1 &#125;)</code></td>
+              <td><code>'&#123;&apos;a&apos;:1&#125;'</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* // <!-- Returns OBJECT --> */}
+        <h4 className="sub-section-header">Return Type: Object
+        </h4>
+        <table className="json-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>JSON.parse(text, reviver?)</code></td>
+              <td>Parses a JSON string and returns the corresponding JavaScript value.</td>
+              <td><code>JSON.parse(&apos;&#123;'a':1&#125;&apos;)</code></td>
+              <td><code>&#123; a: 1 &#125;</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4 className="sub-section-header">Notes</h4>
+        <ul>
+          <li>All JSON methods are static and are called on the <code>JSON</code> object.</li>
+          <li><code>JSON.stringify</code> can take a <em>replacer</em> function/array to filter properties, and a
+            <em>space</em> argument to format the output.
+          </li>
+          <li><code>JSON.parse</code> can take a <em>reviver</em> function to transform values during parsing.
+          </li>
+          <li>JSON only supports strings, numbers, booleans, null, arrays, and objects (no functions or
+            <code>undefined</code>).
+          </li>
+        </ul>
+        <hr />
+      </SearchContainer>
+
+      {/* <!-- MATH --> */}
+      <h3 className="section-header" id="math">Math</h3>
+      <SearchContainer searchSelector='tbody tr, thead:not(.firstHead) tr' placeholder="Search methods...">
+        {/* <!-- Returns NUMBER --> */}
+        <h4 className="sub-section-header">Return Type: Number</h4>
+        <table className="math-table">
+          <thead className='firstHead'>
+            <tr>
+              <th>Function</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>Math.abs(x)</code></td>
+              <td>Returns the absolute value of a number.</td>
+              <td><code>Math.abs(-5)</code></td>
+              <td><code>5</code></td>
+            </tr>
+            <tr>
+              <td><code>Math.ceil(x)</code></td>
+              <td>Returns the smallest integer greater than or equal to a number.</td>
+              <td><code>Math.ceil(4.2)</code></td>
+              <td><code>5</code></td>
+            </tr>
+            <tr>
+              <td><code>Math.floor(x)</code></td>
+              <td>Returns the largest integer less than or equal to a number.</td>
+              <td><code>Math.floor(4.8)</code></td>
+              <td><code>4</code></td>
+            </tr>
+            <tr>
+              <td><code>Math.round(x)</code></td>
+              <td>Returns the value of a number rounded to the nearest integer.</td>
+              <td><code>Math.round(4.5)</code></td>
+              <td><code>5</code></td>
+            </tr>
+            <tr>
+              <td><code>Math.max(...values)</code></td>
+              <td>Returns the largest of zero or more numbers.</td>
+              <td><code>Math.max(1, 3, 2)</code></td>
+              <td><code>3</code></td>
+            </tr>
+            <tr>
+              <td><code>Math.min(...values)</code></td>
+              <td>Returns the smallest of zero or more numbers.</td>
+              <td><code>Math.min(1, 3, 2)</code></td>
+              <td><code>1</code></td>
+            </tr>
+            <tr>
+              <td><code>Math.random()</code></td>
+              <td>Returns a pseudo-random number between 0 (inclusive) and 1 (exclusive).</td>
+              <td><code>Math.random()</code></td>
+              <td><code>0.123... (varies)</code></td>
+            </tr>
+            <tr>
+              <td><code>Math.sqrt(x)</code></td>
+              <td>Returns the positive square root of a number.</td>
+              <td><code>Math.sqrt(9)</code></td>
+              <td><code>3</code></td>
+            </tr>
+            <tr>
+              <td><code>Math.pow(base, exponent)</code></td>
+              <td>Returns the base raised to the exponent power.</td>
+              <td><code>Math.pow(2, 3)</code></td>
+              <td><code>8</code></td>
+            </tr>
+            <tr>
+              <td><code>Math.PI</code></td>
+              <td>Returns pi</td>
+              <td><code>Math.PI</code></td>
+              <td><code>3.14...</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* <!-- Returns BOOLEAN --> */}
+        <h4 className="sub-section-header">Return Type: Boolean</h4>
+        <table className="math-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>Number.isFinite(value)</code></td>
+              <td>Determines whether the passed value is a finite number.</td>
+              <td><code>Number.isFinite(10)</code></td>
+              <td><code>true</code></td>
+            </tr>
+            <tr>
+              <td><code>Number.isNaN(value)</code></td>
+              <td>Determines whether the passed value is NaN.</td>
+              <td><code>Number.isNaN(NaN)</code></td>
+              <td><code>true</code></td>
+            </tr>
+            <tr>
+              <td><code>Number.isInteger(value)</code></td>
+              <td>Determines whether the passed value is an integer.</td>
+              <td><code>Number.isInteger(4)</code></td>
+              <td><code>true</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4 className="sub-section-header">Notes</h4>
+        <ul>
+          <li>All <code>Math</code> methods are static and must be called on the <code>Math</code> object (e.g.,
+            <code>Math.sqrt(4)</code>).
+          </li>
+          <li><code>Math.random()</code> does not produce cryptographically secure numbers. Use
+            <code>crypto.getRandomValues()</code> for secure random numbers.
+          </li>
+          <li>Some numeric checks like <code>isNaN()</code> exist globally, but <code>Number.isNaN()</code> is
+            more reliable because it does not coerce values.</li>
+        </ul>
+      </SearchContainer>
+    </>
+  );
+}

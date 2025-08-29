@@ -1,0 +1,32 @@
+.htmlTable{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.htmlTable table {
+    max-width: 500px;
+    border-collapse: separate;
+    border-spacing: 15px;
+    padding: 7px;
+}
+
+.htmlTable th {
+    font-style: italic;
+    text-align: center;
+    font-variant: small-caps;
+    font-size: 18px;
+    padding: 0px;
+    color: #FC7307;
+    border: none;
+    background: none;
+}
+
+.htmlTable td {
+    border: 1px solid #B85B14;
+    vertical-align: center;
+    text-align: center;
+    padding: 15px;
+    color: #341C09;
+    background-color: #D4E4F7;;
+}

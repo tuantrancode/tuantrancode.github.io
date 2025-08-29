@@ -1,0 +1,220 @@
+:root {
+    --container-color: #236AB9;
+    --cell-color: #f1f1f1;
+    --font-color: black;
+}
+
+/* Dark Theme */
+:global([data-theme="dark"]) {
+    --container-color: #51137a;
+    --cell-color: #201f50;
+    --font-color: white;
+}
+
+.loadImgBtn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 15px;
+}
+
+/* CSS for using flex-direction ----------------------------------------- */
+.flexResponsiveContainer {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--container-color);
+    color: var(--font-color)
+}
+
+.flexResponsiveContainer>div {
+    flex-basis: 25%;
+    margin: 10px;
+    text-align: center;
+    line-height: 50px;
+    background-color: var(--cell-color)
+}
+
+@media (max-width: 800px) {
+
+    /* Responsive layout - makes a one column layout instead of a 4-column layout */
+    .flexResponsiveContainer {
+        flex-direction: column;
+    }
+}
+
+/* CSS for using flex-wrap ----------------------------------------- */
+.flexContainer {
+    display: flex;
+    background-color: var(--container-color);
+    color: var(--font-color);
+}
+
+.flexContainer>div {
+    flex-basis: 50%;
+    margin: 10px;
+    text-align: center;
+    line-height: 50px;
+    background-color: var(--cell-color);
+}
+
+@media (max-width: 800px) {
+
+    /* Responsive layout - makes a one column layout instead of a 4-column layout */
+    .flexContainer {
+        flex-wrap: wrap;
+    }
+
+    .flexContainer>div {
+        flex-basis: 100%;
+    }
+}
+
+/* CSS for Dynamic Image Gallery using column-count----------------------------------------- */
+/* "box-sizing: border-box" let us include the padding and border when calculating an element's width and height; 
+*/
+
+/* Create four equal columns that sits next to each other; */
+.gallery {
+    display: block;
+    column-count: 4;
+    column-gap: 10px;
+}
+
+.gallery div {
+    display: inline-block;
+    /* To prevent part of the div element from wrapping to the next column */
+    break-inside: avoid;
+    margin-bottom: 4px;
+}
+
+.gallery img {
+    width: 100%;
+}
+
+.gallery span {
+    display: block;
+    padding: 0px 2px;
+    text-align: center;
+}
+
+/* Responsive layout  */
+@media (max-width: 800px) {
+    .gallery {
+        margin: 0px -12px;
+        /* To get rid of right & left margins on mobile screen */
+    }
+}
+
+/* Responsive layout - makes a single column-layout */
+@media (max-width: 480px) {
+    .gallery {
+        column-count: 2;
+    }
+}
+
+
+/* CSS for Dynamic Image Gallery using flex-basis-------------------------------------------- */
+
+/* The main container for the gallery, the whole page is one row */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+    flex: 1 1 24%;
+}
+
+.column div {
+    background-color: #000000;
+    color: white;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.column img {
+    width: 100%;    
+}
+
+.column span {
+    display: block;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+/* Responsive layout  */
+@media (max-width: 800px) {
+    .row {
+        margin: 0px -15px;
+        /* To get rid of right & left margins on mobile screen */
+    }
+}
+/* Responsive layout  */
+@media (max-width: 480px) {
+    .row {
+        margin: 0px -10px;
+        /* To get rid of right & left margins on mobile screen */
+    }
+    .column {
+        flex: 49%;
+    }
+}
+
+
+
+/* CSS for Dynamic Image Gallery using Grid and calculating grid-row-end------------------- */
+.grid {
+    display: grid;
+    /* grid-template-columns: repeat(4, 1fr); 4 equal columns */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* auto fill column number, min-width of 200px and can grow evenly if there space */
+    grid-auto-rows: 10px; /* Height of each row track, the lower the number the more accurate the grid */
+    gap: 0 10px;    /* Set row track gap to 0 to make calculation easier and column gap to desired */
+}
+
+.item {
+    position: relative;
+    margin-bottom: 5px;
+    break-inside: avoid;
+}
+
+.item img {
+    border-radius: 15px;
+    display: block;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.item span {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 0;      
+    border-radius: 15px 15px 0 0;
+    color: white;
+    background-color: #000000;
+    text-align: center;
+    z-index: 99;
+    opacity: 0.5;
+    padding: 5px 0;
+}
+
+.item:hover span {
+    display: block;
+}
+
+/* Responsive layout - keep 2 columns for mobile screen */
+@media (max-width: 480px) {
+   .grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    .item {
+        margin-bottom: 2px;
+    }
+    :global(.main-content) {
+        padding: 0;
+    }
+}

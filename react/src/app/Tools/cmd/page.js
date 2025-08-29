@@ -1,0 +1,430 @@
+import React from 'react';
+import SearchContainer from '@/components/shared/SearchContainer';
+
+export const metadata = {
+  title: "CMD and Terminal",
+  description: "Notes on various terminal tools",
+};
+
+export default function CmdTools() {
+
+  return (
+    <>
+      {/* <!-- CMD COMMANDS --> */}
+      <h3 className="section-header" id="cmd">CMD Commands</h3>
+      <SearchContainer placeholder="Search for commands..." searchSelector='tbody tr'>
+        <table className="cmd-table">
+          <caption>Common Terminal Commands (macOS/Linux vs Windows PowerShell)</caption>
+          <thead>
+            <tr>
+              <th>Task</th>
+              <th>macOS / Linux</th>
+              <th>Windows (PowerShell)</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Show current directory</td>
+              <td>pwd</td>
+              <td>Get-Location (alias: pwd)</td>
+              <td><code>pwd</code></td>
+            </tr>
+            <tr>
+              <td>List files</td>
+              <td>ls</td>
+              <td>Get-ChildItem (alias: ls)</td>
+              <td><code>ls -la</code></td>
+            </tr>
+            <tr>
+              <td>Change directory</td>
+              <td>cd</td>
+              <td>Set-Location (alias: cd)</td>
+              <td><code>cd projects</code></td>
+            </tr>
+            <tr>
+              <td>Move up one directory</td>
+              <td>cd ..</td>
+              <td>Set-Location (alias: cd ..)</td>
+              <td><code>cd .. projects</code></td>
+            </tr>
+            <tr>
+              <td>Make directory</td>
+              <td>mkdir</td>
+              <td>New-Item -ItemType Directory (alias: mkdir)</td>
+              <td><code>mkdir assets</code></td>
+            </tr>
+            <tr>
+              <td>Remove empty directory</td>
+              <td>rmdir</td>
+              <td>Remove-Item -Force (alias: rmdir)</td>
+              <td><code>rmdir old</code></td>
+            </tr>
+            <tr>
+              <td>Remove directory (recursive)</td>
+              <td>rm -r</td>
+              <td>Remove-Item -Recurse</td>
+              <td><code>rm -rf build</code></td>
+            </tr>
+            <tr>
+              <td>Copy file</td>
+              <td>cp</td>
+              <td>Copy-Item (alias: cp)</td>
+              <td><code>cp a.txt b.txt</code></td>
+            </tr>
+            <tr>
+              <td>Move/Rename</td>
+              <td>mv</td>
+              <td>Move-Item (alias: mv, ren)</td>
+              <td><code>mv app.js app.old.js</code></td>
+            </tr>
+            <tr>
+              <td>Delete file</td>
+              <td>rm</td>
+              <td>Remove-Item (alias: rm, del)</td>
+              <td><code>rm notes.tmp</code></td>
+            </tr>
+            <tr>
+              <td>View file (print)</td>
+              <td>cat</td>
+              <td>Get-Content (alias: cat, type)</td>
+              <td><code>cat README.md</code></td>
+            </tr>
+            <tr>
+              <td>Paged view</td>
+              <td>less / more</td>
+              <td>more</td>
+              <td><code>less big.log</code></td>
+            </tr>
+            <tr>
+              <td>Search in files</td>
+              <td>grep</td>
+              <td>Select-String (similar to grep)</td>
+              <td><code>grep -R "TODO" .</code></td>
+            </tr>
+            <tr>
+              <td>Find files by name</td>
+              <td>find</td>
+              <td>Get-ChildItem -Recurse</td>
+              <td><code>find . -name "*.js"</code></td>
+            </tr>
+            <tr>
+              <td>Show running processes</td>
+              <td>ps / top</td>
+              <td>Get-Process</td>
+              <td><code>ps aux</code></td>
+            </tr>
+            <tr>
+              <td>Kill process</td>
+              <td>kill / kill -9</td>
+              <td>Stop-Process / taskkill.exe</td>
+              <td><code>kill -9 12345</code></td>
+            </tr>
+            <tr>
+              <td>Show username</td>
+              <td>whoami</td>
+              <td>whoami (or $env:USERNAME)</td>
+              <td><code>whoami</code></td>
+            </tr>
+            <tr>
+              <td>Environment variables</td>
+              <td>printenv / export</td>
+              <td>Get-ChildItem Env: / $env:VAR=</td>
+              <td><code>printenv PATH</code></td>
+            </tr>
+            <tr>
+              <td>Make empty file</td>
+              <td>touch</td>
+              <td>New-Item file.txt (or &gt; file.txt)</td>
+              <td><code>touch .gitignore</code></td>
+            </tr>
+            <tr>
+              <td>Download HTTP</td>
+              <td>curl / wget</td>
+              <td>Invoke-WebRequest (alias: curl, iwr)</td>
+              <td><code>curl -O https://example.com/file.zip</code></td>
+            </tr>
+            <tr>
+              <td>Archive (tar)</td>
+              <td>tar</td>
+              <td>tar (on recent Windows) / Compress-Archive</td>
+              <td><code>tar -czf site.tgz dist/</code></td>
+            </tr>
+            <tr>
+              <td>Disk usage</td>
+              <td>du -sh</td>
+              <td>Get-ChildItem | Measure-Object -Sum Length</td>
+              <td><code>du -sh *</code></td>
+            </tr>
+            <tr>
+              <td>Free disk space</td>
+              <td>df -h</td>
+              <td>Get-PSDrive</td>
+              <td><code>df -h</code></td>
+            </tr>
+            <tr>
+              <td>Network config</td>
+              <td>ifconfig / ip</td>
+              <td>ipconfig</td>
+              <td><code>ipconfig</code></td>
+            </tr>
+            <tr>
+              <td>Ping host</td>
+              <td>ping</td>
+              <td>ping</td>
+              <td><code>ping example.com</code></td>
+            </tr>
+            <tr>
+              <td>Change file mode</td>
+              <td>chmod</td>
+              <td>(No direct equivalent; use file properties/ACLs)</td>
+              <td><code>chmod +x script.sh</code></td>
+            </tr>
+            <tr>
+              <td>Change owner</td>
+              <td>chown</td>
+              <td>(Use icacls / Set-Acl)</td>
+              <td><code>sudo chown user:group file</code></td>
+            </tr>
+            <tr>
+              <td>Print text</td>
+              <td>echo</td>
+              <td>Write-Output / echo</td>
+              <td><code>echo "Hello"</code></td>
+            </tr>
+            <tr>
+              <td>Show manual/help</td>
+              <td>man</td>
+              <td>Get-Help</td>
+              <td><code>man ls</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </SearchContainer>
+      <hr />
+
+
+      {/* <!-- NPM COMMANDS --> */}
+      <h3 className="section-header" id="npm">npm Commands</h3>
+      <SearchContainer placeholder="Search for commands..." searchSelector='tbody tr'>
+        <table className="npm-table">
+          <thead>
+            <tr>
+              <th>Command</th>
+              <th>Alias</th>
+              <th>Purpose</th>
+              <th>Example</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>npm init</code></td>
+              <td>—</td>
+              <td>Create a <code>package.json</code></td>
+              <td><code>npm init -y</code></td>
+              <td><code>-y</code> skips prompts with defaults.</td>
+            </tr>
+            <tr>
+              <td><code>npm --version</code></td>
+              <td>npm -v</td>
+              <td>Check installed version of npm</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code>npm install &lt;pkg&gt;</code></td>
+              <td><code>npm i</code></td>
+              <td>Install a dependency</td>
+              <td><code>npm i react</code></td>
+              <td>Saved to <code>dependencies</code> by default.</td>
+            </tr>
+            <tr>
+              <td><code>npm install --save-dev &lt;pkg&gt;</code></td>
+              <td><code>npm i -D</code></td>
+              <td>Install a dev dependency</td>
+              <td><code>npm i -D typescript</code></td>
+              <td>Saves under <code>devDependencies</code>.</td>
+            </tr>
+            <tr>
+              <td><code>npm install</code></td>
+              <td><code>npm i</code></td>
+              <td>Install from <code>package.json</code></td>
+              <td><code>npm install</code></td>
+              <td>Reads versions from <code>package.json</code>/<code>package-lock.json</code>.</td>
+            </tr>
+            <tr>
+              <td><code>npm uninstall &lt;pkg&gt;</code></td>
+              <td><code>npm remove</code>, <code>npm rm</code></td>
+              <td>Remove a dependency</td>
+              <td><code>npm uninstall lodash</code></td>
+              <td>Updates <code>package.json</code> and lockfile.</td>
+            </tr>
+            <tr>
+              <td><code>npm update</code></td>
+              <td><code>npm up</code></td>
+              <td>Update deps within semver ranges</td>
+              <td><code>npm up</code></td>
+              <td>Uses ranges in <code>package.json</code>.</td>
+            </tr>
+            <tr>
+              <td><code>npm outdated</code></td>
+              <td>—</td>
+              <td>Show available updates</td>
+              <td><code>npm outdated</code></td>
+              <td>Compares current, wanted, latest.</td>
+            </tr>
+            <tr>
+              <td><code>npm run &lt;script&gt;</code></td>
+              <td>—</td>
+              <td>Run a script from <code>package.json</code></td>
+              <td><code>npm run build</code></td>
+              <td>Scripts are under <code>"scripts"</code>.</td>
+            </tr>
+            <tr>
+              <td><code>npm start</code></td>
+              <td>—</td>
+              <td>Run <code>scripts.start</code></td>
+              <td><code>npm start</code></td>
+              <td>Shortcut for <code>npm run start</code>.</td>
+            </tr>
+            <tr>
+              <td><code>npm test</code></td>
+              <td><code>npm t</code></td>
+              <td>Run <code>scripts.test</code></td>
+              <td><code>npm test</code></td>
+              <td>Shortcut for <code>npm run test</code>.</td>
+            </tr>
+            <tr>
+              <td><code>npm exec &lt;bin&gt;</code></td>
+              <td><code>npm x</code></td>
+              <td>Run a package binary</td>
+              <td><code>npm exec eslint .</code></td>
+              <td>Uses local <code>node_modules/.bin</code> if present.</td>
+            </tr>
+            <tr>
+              <td><code>npx &lt;bin&gt;</code></td>
+              <td>—</td>
+              <td>Execute a package (no install)</td>
+              <td><code>npx create-vite@latest</code></td>
+              <td>Convenience tool bundled with npm.</td>
+            </tr>
+            <tr>
+              <td><code>npm list</code></td>
+              <td><code>npm ls</code></td>
+              <td>List installed packages</td>
+              <td><code>npm ls --depth=0</code></td>
+              <td>Add <code>--depth=0</code> for top-level only.</td>
+            </tr>
+            <tr>
+              <td><code>npm view &lt;pkg&gt;</code></td>
+              <td><code>npm v</code>, <code>npm info</code></td>
+              <td>Show package metadata</td>
+              <td><code>npm view react version</code></td>
+              <td>Great for checking latest versions.</td>
+            </tr>
+            <tr>
+              <td><code>npm audit</code></td>
+              <td>—</td>
+              <td>Scan for vulnerabilities</td>
+              <td><code>npm audit</code></td>
+              <td>Use <code>npm audit fix</code> to apply fixes.</td>
+            </tr>
+            <tr>
+              <td><code>npm cache clean --force</code></td>
+              <td>—</td>
+              <td>Clear npm cache</td>
+              <td><code>npm cache clean --force</code></td>
+              <td><code>--force</code> required for cleaning.</td>
+            </tr>
+            <tr>
+              <td><code>npm ci</code></td>
+              <td>—</td>
+              <td>Clean install from lockfile</td>
+              <td><code>npm ci</code></td>
+              <td>Faster, reproducible installs (CI).</td>
+            </tr>
+            <tr>
+              <td><code>npm link</code></td>
+              <td>—</td>
+              <td>Symlink a package for local dev</td>
+              <td><code>npm link</code></td>
+              <td>Use in package & consumer repos.</td>
+            </tr>
+            <tr>
+              <td><code>npm pack</code></td>
+              <td>—</td>
+              <td>Create a tarball of the package</td>
+              <td><code>npm pack</code></td>
+              <td>Useful to inspect what will publish.</td>
+            </tr>
+            <tr>
+              <td><code>npm publish</code></td>
+              <td>—</td>
+              <td>Publish to the registry</td>
+              <td><code>npm publish --access public</code></td>
+              <td>Requires login & proper settings.</td>
+            </tr>
+            <tr>
+              <td><code>npm login</code> / <code>logout</code></td>
+              <td>—</td>
+              <td>Authenticate with the registry</td>
+              <td><code>npm login</code></td>
+              <td>Stores credentials for publish, etc.</td>
+            </tr>
+            <tr>
+              <td><code>npm version &lt;type&gt;</code></td>
+              <td>—</td>
+              <td>Bump version & tag</td>
+              <td><code>npm version patch</code></td>
+              <td><code>patch</code> | <code>minor</code> | <code>major</code> or exact.</td>
+            </tr>
+            <tr>
+              <td><code>npm prune</code></td>
+              <td>—</td>
+              <td>Remove extraneous packages</td>
+              <td><code>npm prune</code></td>
+              <td>Keeps only what’s in <code>package.json</code>.</td>
+            </tr>
+            <tr>
+              <td><code>npm dedupe</code></td>
+              <td><code>npm ddp</code></td>
+              <td>Reduce duplicate dependencies</td>
+              <td><code>npm dedupe</code></td>
+              <td>Flattens dependency tree where possible.</td>
+            </tr>
+            <tr>
+              <td><code>npm config get/set</code></td>
+              <td>—</td>
+              <td>Manage npm config</td>
+              <td><code>npm config set registry &lt;url&gt;</code></td>
+              <td>Use <code>--global</code> for global config.</td>
+            </tr>
+            <tr>
+              <td><code>npm doctor</code></td>
+              <td>—</td>
+              <td>Diagnose common issues</td>
+              <td><code>npm doctor</code></td>
+              <td>Checks environment & configuration.</td>
+            </tr>
+            <tr>
+              <td><code>npm fund</code></td>
+              <td>—</td>
+              <td>Show funding info</td>
+              <td><code>npm fund</code></td>
+              <td>Lists packages seeking funding.</td>
+            </tr>
+            <tr>
+              <td><code>npm explain &lt;pkg&gt;</code></td>
+              <td>—</td>
+              <td>Explain why a pkg is installed</td>
+              <td><code>npm explain ansi-regex</code></td>
+              <td>Shows dependency path(s).</td>
+            </tr>
+          </tbody>
+        </table>
+      </SearchContainer>
+      <hr />
+    </>
+  );
+}

@@ -27,19 +27,27 @@
       <p>Next.js does not require an extension in import statements for files <code>.js .jsx .ts .tsx</code></p>
       <pre><code class="language-jsx">import MyComponent from '@/src/components/MyComponent.jsx';
 import MyComponent from '@/src/components/MyComponent'; // will also work            </code></pre>
-      <h4 class="sub-section-header">Root Alias @</h4>
+      <h4 class="sub-section-header">Import Alias @</h4>
       <p>Configure <code>jsconfig.json</code> or <code>tsconfig.json</code> to include the following line
-        <code>"@/*": ["./"]</code> in the <code>paths</code> object
+        <code>"@/*": ["./src/*"]</code> in the <code>paths</code> object so @ will still at the src/ folder
       </p>
+      <ul>
+        <li><code>"baseUrl": "./"</code> allows access to files in the root of the project like <code>import * from 'store.js'</code></li>
+        <ul>
+          <li>Root relative notation <code>/</code> is reserved for items in the public/ folder</li>
+        </ul>
+        <li><code>"@/*": ["src/*]</code> gives a shortcut to access the src/ folder like <code>import * from '@/components/web/TopBar'</code></li>
+      </ul>
       <pre><code class="language-jsx">// jsconfig.json / tsconfig.json
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
-      <mark>"@/*": ["./*"]</mark>
+      "@/*": ["src/*"],
+      "@/context/*": ["src/components/shared/context/*"]
     }
   }
-}    </code></pre>
+}  </code></pre>
       <h4 class="sub-section-header">Importing CSS</h4>
       <ul>
         <li>Next.js only allows regular (global) <code>.css</code> import in <code>app/layout.js</code> or
@@ -200,7 +208,11 @@ export default function BlogPage() {
 }</code></pre>
       <h4 class="sub-section-header">Navigating</h4>
       <ul>
-        <li>Use <code>&lt;a href="/about"</code> or <code>&lt;a href="/blog/1"</code> like normal</li>
+        <li>Use <code>&lt;Link></code> instead of <code>&lt;a></code></li>
+        <ul>
+          <li><code>import Link from 'next/link';</code></li>
+        </ul>
+        <li>Using <code>&lt;a href="></code> will cause the whole page to reload, including the root component</li>
         <li>Can also use <code>useRouter()</code> hook : <a
             href="https://nextjs.org/docs/pages/api-reference/functions/use-router">nextjs.org/docs/pages/api-reference/functions/use-router</a>
         </li>
