@@ -787,13 +787,47 @@ function Child(){
       {/*<!-- MEMO HOOKS & CALLBACK HOOKS -->*/}
       <section>
         <h3 className="section-header" id="useMemoCallback">Memo & Callback Hooks</h3>
-        <p>Memoization: optimizes expensive computations by caching results</p>
-        <p>Memoized functions: prevents unnecessary function re-creations</p>
-        <p>Useful for preventing the reference of an variable from changing if it's used in a dependency array</p>
+        <p><strong>Memo Hook</strong> : optimizes expensive computations by caching results/values so it doesn't have to be recalculated on re-render</p>
+        <ul>
+          <li>Can be used to memoize a component so that it doesn't re-render unless props changed</li>
+        </ul>
+        <p><strong>Callback Hook</strong>: prevents unnecessary function re-creations; same as memo except for saving function</p>
+        <ul>
+          <li>Use cases: if the function is used as a dependency or if it's passed to memorized children</li>
+        </ul>
+        <p>Useful for preventing the reference of an variable/function from changing if it's used in a dependency array</p>
+        <CodeBlock language='jsx'>{`
+import { useState, memo } from "react";
+
+// Child was memorized and won't re-render unless onFetch changes
+<mark>const Child = memo(({ onFetch }) => {</mark>
+  console.log("Child rendered");
+  return <button onClick={onFetch}>Fetch Data</button>;
+});
+
+export default function App() {
+  const [count, setCount] = useState(0);
+
+  // fetchData is a function and will be re-created on every render so the Child's prop will change with every render, causing infinite re-render unless a callback hook is used to memorize the fetchData 
+  <mark>const fetchData = useCallback(() => {</mark>
+    console.log("Fetching data...");
+  }, []); 
+
+  return (
+    <div>
+      <h2>Count: {count}</h2>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <mark><Child onFetch={fetchData} /></mark>
+    </div>
+  );
+}        
+        `}</CodeBlock>
         <hr />
       </section>
 
 
+
+      {/* TODO: work on reducer hook section */}
       {/* <!-- REDUCER HOOK--> */}
       <section>
         <h3 className="section-header" id="useReducer">Reducer Hook</h3>
@@ -935,7 +969,7 @@ function SubmitButton() {
         <hr />
       </section>
 
- {/* TODO: Move to When To Use What and expand on it with examples */}
+      {/* TODO: Move to When To Use What and expand on it with examples */}
       <section>
         {/* <!-- COMMUNICATING BETWEEN COMPONENTS--> */}
         <h3 className="section-header" id="portal">Communicating Between Components</h3>
@@ -945,7 +979,7 @@ function SubmitButton() {
           <li><strong>Using <code>context</code></strong>: as long as the components are wrapped around the context provider</li>
           <li><strong>Using <code>zustand store</code></strong>: global</li>
         </ul>
-        <hr/>
+        <hr />
       </section>
 
 

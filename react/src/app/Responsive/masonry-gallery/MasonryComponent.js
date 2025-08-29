@@ -1,17 +1,25 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { recalcAllGridItems, fetchMasonryImages } from './masonry-script';
+import { recalcAllGridItems, recalcLastBatch, fetchMasonryImages } from './masonry-script';
 import ScrollDetector from './ScrollDetector';
 import styles from './masonry-gallery.module.css';
 
 export default function MasonryGallery({ id }) {
     const [images, setImages] = useState([]);
+    const [isFetching, setIsFetching] = useState(false);
+    const numberToFetch = 20;
 
     const handleFetch = (id) => {
-        fetchMasonryImages(id).then((loaded) => {
+        if(isFetching) return;
+
+        setIsFetching(true);
+        fetchMasonryImages(id, numberToFetch)
+        .then((loaded) => {
             setImages((prev) => [...prev, ...loaded]);
-            // recalcAllGridItems(id); // Too expensive to run after every fetch
+            recalcLastBatch(id, numberToFetch);
+        }).finally(() => { 
+            setIsFetching(false);
         });
     }
     const saveGallery = () => {

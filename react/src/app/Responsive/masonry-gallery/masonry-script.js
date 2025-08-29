@@ -78,10 +78,17 @@ export async function loadMasonryImages(gridId, numberToShow = 20) {
 export function recalcAllGridItems(gridId) {
     console.log("recalcAllGridItems was called");
     const allItems = document.querySelectorAll(`#${gridId} > div`);
-    // const allItems = document.querySelectorAll(`#${gridId} img`);
     allItems.forEach(item => {
-        calcGridItem(gridId, item);
-        // calcGridItemReact(gridId, item); // inaccurate for recalculation
+        calcGridItem(gridId, item); // calculate using actual rendered height and width
+    });
+}
+export function recalcLastBatch(gridId, batchSize = 20) {
+    // console.log("recalcLastBatch was called");
+    const allItems = document.querySelectorAll(`#${gridId} > div`);
+    const gridSize = allItems.length;
+    allItems.forEach( (item, index) => {
+        if(index >= gridSize - batchSize)
+            calcGridItem(gridId, item); // calculate using actual rendered height and width
     });
 }
 
@@ -96,7 +103,6 @@ function calcGridItem(gridId, item) {
     const captionHeight = parseInt(window.getComputedStyle(span).getPropertyValue('height'));
     const imgHeight = getRenderedHeight(img, grid);
     // console.log('captionHeight ',captionHeight, itemBottomMargin);
-    // console.log('imgHeight ',imgHeight, 'img', img.src);
 
     // Getting values for total row-track height
     const rowTrackHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
@@ -134,7 +140,7 @@ function calcGridItem(gridId, item) {
 // If the image is not loaded into the DOM yet, it will calculate rendered height instead
 function getRenderedHeight(img, grid) {
     const imgHeight = img.getBoundingClientRect().height > 1 ? img.getBoundingClientRect().height : calcRenderedHeight(img, grid);
-    // console.log('img.getBoundingClientRect() ',img.getBoundingClientRect().height, 'imgHeight', imgHeight, img.src);
+    console.log('img.getBoundingClientRect() ', img.getBoundingClientRect().height, 'imgHeight', imgHeight, img.src);
     return imgHeight;
 }
 function calcRenderedHeight(img, grid) {
@@ -185,7 +191,7 @@ function calcGridItemReact(gridId, loadedImg) {
     const grid = document.getElementById(gridId);
     // const item = grid.querySelector(`#${gridId} > div`);
     // const span = item.querySelector('span');
- 
+
 
     // Getting all values for item's total height
     // const itemBottomMargin = parseInt(window.getComputedStyle(item).getPropertyValue('margin-bottom'));
@@ -193,12 +199,11 @@ function calcGridItemReact(gridId, loadedImg) {
     const itemBottomMargin = 5;
     const captionHeight = 35 - 15; // 35 is real value and 15 is to adjust for wrong estimate in imgHeight
     const imgHeight = getRenderedHeight(loadedImg, grid);
-    // console.log('imgHeight ',imgHeight, 'loadedImg', loadedImg.src);
 
     // Getting values for total row-track height
     const rowTrackHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
     const rowTrackGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
-    
+
 
     /*
     Goal: calculate how many row-track the item will span (S)
