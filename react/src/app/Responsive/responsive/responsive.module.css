@@ -210,11 +210,9 @@
 @media (max-width: 480px) {
    .grid {
         grid-template-columns: repeat(2, 1fr); 
+        margin: 0 -10px; /* To overwrite the padding of the .main-content in main-layout.css for mobile screen */
     }
     .item {
         margin-bottom: 2px;
-    }
-    :global(.main-content) {
-        padding: 0;
     }
 }

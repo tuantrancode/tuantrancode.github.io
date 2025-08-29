@@ -8,7 +8,7 @@ export default function Button({ className, children, functionName }) {
             case 'loadImgUsingColCount':
                 return loadImgUsingColCount();
             case 'loadImgUsingFlexBox':
-                loadImgUsingFlexBox();
+                return loadImgUsingFlexBox();
             case 'loadGridImages':
                 return loadGridImages();
         }

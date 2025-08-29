@@ -81,6 +81,7 @@ function Child() {
         <p>Write CSS rules in <code>*.module.css</code> file and scope styles to component automatically</p>
         <ul>
           <li>Do NOT use <code>id</code> selectors in <code>*/module.css</code></li>
+          <li>Class names should be camelCase otherwise assigning the hyphen will result in an error when assigning a class from a module.css file</li>
           <li>Syntax of CSS module files are exactly the same as normal CSS files</li>
           <li>Styles are automatically scoped so no naming conflicts</li>
           <li>Harder to share global styles unless combined with normal <code>.css</code> files</li>
@@ -110,7 +111,7 @@ function Button2() {
 `}
         </CodeBlock>
         <ul>
-          <li>The module.css will override any naming conflict with the global.css but only for the current page</li>
+          <li>The module.css will OVERRIDE any naming conflict with the global.css and will be persistent even after user leave the page</li>
         </ul>
         <hr />
       </section>

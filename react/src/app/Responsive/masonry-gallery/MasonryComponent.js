@@ -7,13 +7,17 @@ import styles from './masonry-gallery.module.css';
 
 export default function MasonryGallery({ id }) {
     const [images, setImages] = useState([]);
-    // TODO: test out images on first load without sessionstorage
+
     const handleFetch = (id) => {
         fetchMasonryImages(id).then((loaded) => {
             setImages((prev) => [...prev, ...loaded]);
             // recalcAllGridItems(id); // Too expensive to run after every fetch
         });
     }
+    const saveGallery = () => {
+        console.log("Saving Images");
+        sessionStorage.setItem(`${id}-images`, JSON.stringify(images));
+    };
 
     // Load images on mount or restore from sessionStorage if images exist already
     useEffect(() => {
@@ -38,13 +42,14 @@ export default function MasonryGallery({ id }) {
         } else {
             handleFetch(id);
         }
-        
+
         // Resize gallery when screen resize
         let resizeTimeoutId;
         const handleRecalcGrid = () => {
             if (resizeTimeoutId) clearTimeout(resizeTimeoutId);
             resizeTimeoutId = setTimeout(() => {
                 recalcAllGridItems(id);
+                saveGallery();
             }, 200);
         }
         window.addEventListener('resize', handleRecalcGrid);
@@ -56,10 +61,7 @@ export default function MasonryGallery({ id }) {
 
     // Save gallery state on unmount or page unload
     useEffect(() => {
-        const saveGallery = () => {
-            console.log("Saving Images");
-            sessionStorage.setItem(`${id}-images`, JSON.stringify(images));
-        };
+
         const saveScroll = () => {
             if (window.scrollY != 0) sessionStorage.setItem(`${id}-scroll`, window.scrollY);
         }
@@ -83,10 +85,10 @@ export default function MasonryGallery({ id }) {
                     // <div key={index} className={styles.item} style={{ gridRowEnd: `span ${gridRowEnd}` }}>
                     <div key={index} className={styles.item} style={{ gridRowEnd: `span ${gridRowEnd}` }}>
                         <a href={src}>
-                             {/*{ Next.js Image requires width, height, alt to be set*/}
-                            <Image 
-                                src={src} className={styles.img} alt={`Masonry Item ${index + 1}`} loading="lazy" 
-                                width={width || 500} height={height || 500} style={{ width: "100%", height: "auto" }}/> 
+                            {/*{ Next.js Image requires width, height, alt to be set*/}
+                            <Image
+                                src={src} className={styles.img} alt={`Masonry Item ${index + 1}`} loading="lazy"
+                                width={width || 500} height={height || 500} style={{ width: "100%", height: "auto" }} />
                             {/* <img  
                                     src={src} className={styles.img} alt={`Masonry Item ${index + 1}`} loading="lazy" 
                                     fetchpriority=“low” decoding=“async”/> */}

@@ -224,13 +224,36 @@ module.exports = nextConfig;
       <section>
         <h3 className='section-header' id='keyFiles'>Key Files</h3>
         <ul>
-          <li><code>package.json</code> : includes dependencies required, scripts, and other metadata about the project</li>
+          <li><code>package.json</code> : includes the scripts and dependencies of the project</li>
           <ul>
-            <li><code>dev</code> : script used when starting development server</li>
-            <li><code>build</code> : script used when creating a production-ready build</li>
-            <li><code>preview</code> : script for serving the production build locally for testing</li>
+            <li><code>homepage</code> : the URL for the homepage of the site</li>
+            <li><code>scripts</code> : the scripts to manage project</li>
+            <ul>
+              <li>Sample: <code>{`"script": { "scriptName": "cmd code", }`}</code></li>
+              <CodeBlock language='jsx'>{`
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "analyze": "cross-env ANALYZE=true next build",
+    "start": "next start",
+    "lint": "eslint"
+  },              
+              `}</CodeBlock>
+              <li><code>dev</code> : script used when starting development/testing server</li>
+              <li><code>build</code> : script for creating a production-ready build</li>
+              <li><code>analyze</code> : script to anaylyze build bundle</li>
+            </ul>
+
+
           </ul>
           <li><code>*.config.js</code> : configuration file for the tool you're using (Vite or Next)</li>
+          <li><code>next.config.mjs</code> : Next.js project configuration file to control development/production build by adding key-value pairs to the <code>nextConfig</code> object</li>
+          <ul>
+            <li><code>basePath</code> : to adjust the URL of of navigation links; used when deploying app under a sub-path of a domain</li>
+            <li><code>assetsPrefix</code> : to adjust the URL of the Javascript and CSS files that loads from <code>_next/</code> folder like <code>_next/static/</code></li>
+            <li><code>assetsPrefix</code> does NOT affect files in the <code>public/</code> folder</li>
+          <li>Reference: <a href="https://nextjs.org/docs/app/api-reference/config/next-config-js">nextjs.org/docs/app/api-reference/config/next-config-js</a></li>
+          </ul>
         </ul>
         <hr />
       </section>
@@ -311,19 +334,30 @@ export default function MasonryPage() {
         <h3 className='section-header' id='buildNotes'>Production Build</h3>
         <ul>
           <li>Make sure to add the homepage URL to <code>package.json</code> like so <code>{`"homepage": "https://<your-username>.github.io/<repo-name>/"`}</code></li>
+          <li>The only folder that is upload to the CDN is <code>_next/static/</code> folder as everything else should not be exposed to the public</li>
         </ul>
-        <p><strong>Deploying to Github Pages</strong></p>
+        <p><strong>Deploying Static Next.js app to Github Pages</strong></p>
         <ul>
           <li>Github Pages only supports static exports of React App, some extra requirements are needed to run Next.js app on Github</li>
           <ol>
-            <li>Update <code>package.json</code> scripts section to include <code>"export": "next export",</code></li>
-            <li>Update <code>next.config.js</code> <code>nextConfig</code> constant to contain the following <code>output: 'export'</code> and <code>distDir: 'out'</code></li>
-            <li>The static build for the Next.js site will be in the folder <code>out/</code> inside the root folder; this is what Github Page uses</li>
-            <ul>
-              <li>The static version will not have API routes, dynamic server rendering, middleware, and <code>getServerSideProps</code></li>
-            </ul>
-            <li>The normal Next.js app build for the  site will be in the folder <code>.next/</code> inside the root folder</li>
+            <li>Update <code>next.config.mjs</code> file so that <code>nextConfig</code> object so it has the following:</li>
+            <CodeBlock language='jsx'>{`
+/* For Deploying to GitHub Pages as a static site (SSG) */
+  output: 'export', // generate a static site
+  distDir: 'out',   // where to put the generated production build
+  images: {
+    unoptimized: true, // Next.js Images component will not load in Github pages if it uses Next.js image optimization
+  },              
+              `}</CodeBlock>
+            <li>Add a file named <code>.nojekyll</code> to the <code>public/</code> folder; this prevent Github from building a jekyll app</li>
           </ol>
+        </ul>
+        <ul>
+          <li>The static build for the Next.js site will be in the folder <code>out/</code> inside the root folder; this is what Github Page uses</li>
+          <ul>
+            <li>The static version will not have API routes, dynamic server rendering, middleware, and <code>getServerSideProps</code></li>
+          </ul>
+          <li>The normal Next.js app build for the  site will be in the folder <code>.next/</code> inside the root folder</li>
         </ul>
 
       </section>
