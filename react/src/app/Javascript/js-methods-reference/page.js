@@ -16,7 +16,7 @@ export default function JsMethods() {
       <SearchContainer searchSelector='tbody tr, thead:not(.firstHead) tr' placeholder="Search methods...">
         {/* <!-- Returns STRING --> */}
         <h4 className="sub-section-header">Return Type: String</h4>
-        <table className="string-table">
+        <table className={`${styles.jsMethods} "string-table"`}>
           <thead className='firstHead'>
             <tr>
               <th>Method</th>
@@ -124,7 +124,7 @@ export default function JsMethods() {
         {/* <!-- Returns NUMBER --> */}
         <h4 className="sub-section-header">Return Type: Number
         </h4>
-        <table className="string-table">
+        <table className={`${styles.jsMethods} "string-table"`}>
 
           <thead>
             <tr>
@@ -185,7 +185,7 @@ export default function JsMethods() {
         {/* <!-- Returns BOOLEAN --> */}
         <h4 className="sub-section-header">Return Type: Boolean
         </h4>
-        <table className="string-table">
+        <table className={`${styles.jsMethods} "string-table"`}>
           <thead>
             <tr>
               <th>Method</th>
@@ -219,7 +219,7 @@ export default function JsMethods() {
 
         {/* <!-- Returns ARRAY --> */}
         <h4 className="sub-section-header">Return Type: Array</h4>
-        <table className="string-table">
+        <table className={`${styles.jsMethods} "string-table"`}>
           <thead>
             <tr>
               <th>Method</th>
@@ -242,7 +242,7 @@ export default function JsMethods() {
         {/* <!-- Returns ITERATOR --> */}
         <h4 className="sub-section-header">Return Type: Iterator
         </h4>
-        <table className="string-table">
+        <table className={`${styles.jsMethods} "string-table"`}>
           <thead>
             <tr>
               <th>Method</th>
@@ -266,7 +266,7 @@ export default function JsMethods() {
         <h4 className="sub-section-header">Return Type: Array or
           <code>null</code>
         </h4>
-        <table className="string-table">
+        <table className={`${styles.jsMethods} "string-table"`}>
           <thead>
             <tr>
               <th>Method</th>
@@ -312,7 +312,7 @@ export default function JsMethods() {
       <SearchContainer searchSelector='tbody tr, thead:not(.firstHead) tr' placeholder="Search methods...">
         {/* <!-- Returns BOOLEAN --> */}
         <h4 className="sub-section-header">Return Type: Boolean</h4>
-        <table className="array-table">
+        <table className={`${styles.jsMethods} "array-table"`}>
           <thead className='firstHead'>
             <tr>
               <th>Method</th>
@@ -362,7 +362,7 @@ export default function JsMethods() {
 
         {/* <!-- Returns NUMBER --> */}
         <h4 className="sub-section-header">Return Type: Number</h4>
-        <table className="array-table">
+        <table className={`${styles.jsMethods} "array-table"`}>
           <thead>
             <tr>
               <th>Method</th>
@@ -422,7 +422,7 @@ export default function JsMethods() {
         {/* <!-- Returns STRING --> */}
         <h4 className="sub-section-header">Return Type: String
         </h4>
-        <table className="array-table">
+        <table className={`${styles.jsMethods} "array-table"`}>
           <thead>
             <tr>
               <th>Method</th>
@@ -456,7 +456,7 @@ export default function JsMethods() {
 
         {/* <!-- Returns ARRAY --> */}
         <h4 className="sub-section-header">Return Type: Array</h4>
-        <table className="array-table">
+        <table className={`${styles.jsMethods} "array-table"`}>
           <thead>
             <tr>
               <th>Method</th>
@@ -506,7 +506,7 @@ export default function JsMethods() {
 
         {/* <!-- Returns ELEMENT (any type) --> */}
         <h4 className="sub-section-header">Return Type: Element</h4>
-        <table className="array-table">
+        <table className={`${styles.jsMethods} "array-table"`}>
           <thead>
             <tr>
               <th>Method</th>
@@ -551,7 +551,7 @@ export default function JsMethods() {
         {/* <!-- Returns NUMBER (length modifying) --> */}
         <h4 className="sub-section-header">Return Type: Number
           (Length)</h4>
-        <table className="array-table">
+        <table className={`${styles.jsMethods} "array-table"`}>
           <thead>
             <tr>
               <th>Method</th>
@@ -579,7 +579,7 @@ export default function JsMethods() {
 
         {/* <!-- Returns undefined (no return) --> */}
         <h4 className="sub-section-header">Return Type: Undefined (no return)</h4>
-        <table className="array-table">
+        <table className={`${styles.jsMethods} "array-table"`}>
           <thead>
             <tr>
               <th>Method</th>
@@ -627,7 +627,7 @@ export default function JsMethods() {
         {/* <!-- Returns BOOLEAN --> */}
         <h4 className="sub-section-header">Return Type: Boolean
         </h4>
-        <table className="set-table">
+        <table className={`${styles.jsMethods} "set-table"`}>
           <thead className='firstHead'>
             <tr>
               <th>Method</th>
@@ -657,7 +657,7 @@ export default function JsMethods() {
         {/* <!-- Returns NUMBER --> */}
         <h4 className="sub-section-header">Return Type: Number
         </h4>
-        <table className="set-table">
+        <table className={`${styles.jsMethods} "set-table"`}>
           <thead>
             <tr>
               <th>Method</th>
@@ -678,7 +678,7 @@ export default function JsMethods() {
 
         {/* <!-- Returns SET (itself) --> */}
         <h4 className="sub-section-header">Return Type: Set (itself) or <code>undefined</code></h4>
-        <table className="set-table">
+        <table className={`${styles.jsMethods} "set-table"`}>
           <thead>
             <tr>
               <th>Method</th>
@@ -723,7 +723,7 @@ export default function JsMethods() {
         {/* <!-- Returns ITERATOR --> */}
         <h4 className="sub-section-header">Return Type: Iterator
         </h4>
-        <table className="set-table">
+        <table className={`${styles.jsMethods} "set-table"`}>
           <thead>
             <tr>
               <th>Method</th>
@@ -770,7 +770,7 @@ export default function JsMethods() {
       <SearchContainer searchSelector='tbody tr, thead:not(.firstHead) tr' placeholder="Search methods...">
         {/* <!-- Returns BOOLEAN --> */}
         <h4 className="sub-section-header">Return Type: Boolean</h4>
-        <table className="map-table">
+        <table className={`${styles.jsMethods} "map-table"`}>
           <thead className='firstHead'>
             <tr>
               <th>Method</th>
@@ -797,7 +797,7 @@ export default function JsMethods() {
 
         {/* <!-- Returns NUMBER --> */}
         <h4 className="sub-section-header">Return Type: Number</h4>
-        <table className="map-table">
+        <table className={`${styles.jsMethods} "map-table"`}>
           <thead>
             <tr>
               <th>Method</th>
@@ -818,7 +818,7 @@ export default function JsMethods() {
 
         {/* <!-- Returns MAP (itself) --> */}
         <h4 className="sub-section-header">Return Type: Map (itself) or <code>undefined</code></h4>
-        <table className="map-table">
+        <table className={`${styles.jsMethods} "map-table"`}>
           <thead>
             <tr>
               <th>Method</th>
@@ -845,7 +845,7 @@ export default function JsMethods() {
 
         {/* <!-- Returns ITERATOR --> */}
         <h4 className="sub-section-header">Return Type: Iterator</h4>
-        <table className="map-table">
+        <table className={`${styles.jsMethods} "map-table"`}>
           <thead>
             <tr>
               <th>Method</th>
@@ -914,7 +914,7 @@ export default function JsMethods() {
         {/* <!-- Returns BOOLEAN --> */}
         <h4 className="sub-section-header">Return Type: Boolean
         </h4>
-        <table className="object-table">
+        <table className={`${styles.jsMethods} "object-table"`}>
           <thead className='firstHead'>
             <tr>
               <th>Method</th>
@@ -941,7 +941,7 @@ export default function JsMethods() {
 
         {/* <!-- Returns ARRAY --> */}
         <h4 className="sub-section-header">Return Type: Array</h4>
-        <table className="object-table">
+        <table className={`${styles.jsMethods} "object-table"`}>
           <thead>
             <tr>
               <th>Method</th>
@@ -975,7 +975,7 @@ export default function JsMethods() {
         {/* <!-- Returns OBJECT --> */}
         <h4 className="sub-section-header">Return Type: Object
         </h4>
-        <table className="object-table">
+        <table className={`${styles.jsMethods} "object-table"`}>
           <thead>
             <tr>
               <th>Method</th>
@@ -1008,7 +1008,7 @@ export default function JsMethods() {
 
         {/* <!-- Returns STRING --> */}
         <h4 className="sub-section-header">Return Type: String or Primitive </h4>
-        <table className="object-table">
+        <table className={`${styles.jsMethods} "object-table"`}>
           <thead>
             <tr>
               <th>Method</th>
@@ -1048,7 +1048,7 @@ export default function JsMethods() {
         {/* <!-- Returns STRING --> */}
         <h4 className="sub-section-header">Return Type: String
         </h4>
-        <table className="json-table">
+        <table className={`${styles.jsMethods} "json-table"`}>
           <thead className='firstHead'>
             <tr>
               <th>Method</th>
@@ -1070,7 +1070,7 @@ export default function JsMethods() {
         {/* // <!-- Returns OBJECT --> */}
         <h4 className="sub-section-header">Return Type: Object
         </h4>
-        <table className="json-table">
+        <table className={`${styles.jsMethods} "json-table"`}>
           <thead>
             <tr>
               <th>Method</th>
@@ -1109,7 +1109,7 @@ export default function JsMethods() {
       <SearchContainer searchSelector='tbody tr, thead:not(.firstHead) tr' placeholder="Search methods...">
         {/* <!-- Returns NUMBER --> */}
         <h4 className="sub-section-header">Return Type: Number</h4>
-        <table className="math-table">
+        <table className={`${styles.jsMethods} "math-table"`}>
           <thead className='firstHead'>
             <tr>
               <th>Function</th>
@@ -1184,7 +1184,7 @@ export default function JsMethods() {
 
         {/* <!-- Returns BOOLEAN --> */}
         <h4 className="sub-section-header">Return Type: Boolean</h4>
-        <table className="math-table">
+        <table className={`${styles.jsMethods} "math-table"`}>
           <thead>
             <tr>
               <th>Method</th>

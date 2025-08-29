@@ -15,7 +15,6 @@ const nextConfig = {
   images: {
     unoptimized: true, // Important for GitHub Pages
   },
-
 };
 
 export default withBundleAnalyzer(nextConfig);

@@ -1,4 +1,4 @@
-:root {
+:global(:root) {
     --example-bg-color: #fafafa;
     --example-border-color: #aaa;
 }

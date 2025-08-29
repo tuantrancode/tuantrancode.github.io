@@ -1,4 +1,4 @@
-:root {
+:global(:root) {
     --contrastColor1: #295d97;
 }
 
