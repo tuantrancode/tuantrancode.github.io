@@ -98,6 +98,7 @@ export default function Git() {
                     <ul>
                         <li>Message standard: describe changes, be in present tense, and max of 50 characters</li>
                     </ul>
+                    <li><code>git clone URL</code> : clone the repo from the specified URL into the current directory</li>
                     <li><code>git push/pull</code> : sync changes between local and remote repo</li>
                     <li><code>git status</code> : view overview of changes</li>
                     <li><code>git log</code> : give history of repo</li>
