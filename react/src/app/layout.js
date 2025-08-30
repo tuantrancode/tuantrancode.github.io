@@ -1,6 +1,7 @@
 import "@/styles/common-styles.css";
 import "@/styles/main-layout.css";
 import Script from "next/script";
+import React from 'react';
 
 import MainContainer from "@/components/shared/MainContainer";
 import { ThemeProvider } from "@/context/ThemeContext";
@@ -15,12 +16,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="dark">
       <head>
+        <style>{`
+        `}</style>
+
         {/* Inline script to check for theme before React mounts and prevent dark theme flashing 
           * Perfectly safe because it's not user generated */}
         <Script id="theme-script" strategy="beforeInteractive">
           {`
             (function() {
               const theme = localStorage.getItem('data-theme') || 'dark';
+              document.documentElement.dataset.theme = theme;
               document.documentElement.setAttribute('data-theme', theme);
             })();
           `}

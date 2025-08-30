@@ -308,6 +308,9 @@ const withBundleAnalyzer = bundleAnalyzer({
 const nextConfig = {
   reactStrictMode: true,
   // swcMinify: true, // Next.js 14+ always minifies JS in production
+  compiler: {
+    // Remove console logs only in production
+    removeConsole: process.env.NODE_ENV === "production"
 };
 
 export default withBundleAnalyzer(nextConfig);

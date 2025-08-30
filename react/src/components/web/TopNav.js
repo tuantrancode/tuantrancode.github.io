@@ -45,6 +45,7 @@ export default function TopNav() {
                     ref={leftBtnRef} onClick={toggleLeftNav}
                 />
                 <div className="top-nav-scrollable">
+                    {/*TODO: create dropdown component*/}
                     {topLinks.map((item) => {
                         return <Link href={item.link} key={item.name}>{item.name}</Link>
                     })}

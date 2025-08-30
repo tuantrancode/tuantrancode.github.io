@@ -7,7 +7,6 @@ export const metadata = {
 };
 
 export default function HtmlBasics() {
-
   return (
     <>
       {/* <!-- HTML SETUP --> */}

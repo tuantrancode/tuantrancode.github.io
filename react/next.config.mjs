@@ -8,6 +8,11 @@ const withBundleAnalyzer = bundleAnalyzer({
 const nextConfig = {
   reactStrictMode: true,
   // swcMinify: true, // Next.js 14+ always minifies JS in production
+  compiler: {
+    // Remove console logs only in production
+    removeConsole: process.env.NODE_ENV === "production"
+  },
+  
 
   /* For Deploying to GitHub Pages as a static site (SSG)*/
   output: 'export', // generate a static site (SSG) from the Next.js project <-- Important for GitHub Pages

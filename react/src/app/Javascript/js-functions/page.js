@@ -21,7 +21,7 @@ export default function JsFunctions() {
           <ul>
             <li><code>addEventListener( &apos;click&apos;, () =&gt; myFunction(arg1))</code></li>
             <li><code>{`const handleFunc = () => myFunctino(arg1)`}</code> and then using it: <code>{`addEventListener('click', handleFunc)`}</code></li>
-            </ul>
+          </ul>
           <li>If you the result of the function immediately, put parenthesis in front of it</li>
           <ul>
             <li><code>if(!restoreState()) initialize();</code></li>
@@ -34,6 +34,11 @@ export default function JsFunctions() {
       {/*<!-- WRITING FUNCTIONS -->*/}
       <section>
         <h3 className="section-header" id="writingFunctions">Writing Javascript Functions</h3>
+        <p>In Javascript, all variables outside of the function are at the <strong>modular-level</strong>, i.e. if 2 files imported the same Javascript file, they both gain access to the same object</p>
+        <ul>
+          <li>Similar to static variables inside Java classes</li>
+        </ul>
+        <h4 className='sub-section-header'>Different Ways to Express a Function:</h4>
         <ul>
           <li><strong>Declaration</strong>: <code>function add(a, b) &#123; return a + b; &#125;</code></li>
           <li><strong>Expression</strong>: <code>const add = function(a, b) &#123; return a + b; &#125;</code></li>

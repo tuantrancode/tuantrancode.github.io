@@ -86,10 +86,13 @@ export function recalcLastBatch(gridId, batchSize = 20) {
     // console.log("recalcLastBatch was called");
     const allItems = document.querySelectorAll(`#${gridId} > div`);
     const gridSize = allItems.length;
-    allItems.forEach( (item, index) => {
-        if(index >= gridSize - batchSize)
+    allItems.forEach((item, index) => {
+        if (index >= gridSize - batchSize)
             calcGridItem(gridId, item); // calculate using actual rendered height and width
     });
+}
+export function recalcItem(gridId, item) {
+    calcGridItem(gridId, item); // calculate using actual rendered height and width
 }
 
 // Manually calculate the row span needed for each item using actual value from rendered element
@@ -140,7 +143,7 @@ function calcGridItem(gridId, item) {
 // If the image is not loaded into the DOM yet, it will calculate rendered height instead
 function getRenderedHeight(img, grid) {
     const imgHeight = img.getBoundingClientRect().height > 1 ? img.getBoundingClientRect().height : calcRenderedHeight(img, grid);
-    console.log('img.getBoundingClientRect() ', img.getBoundingClientRect().height, 'imgHeight', imgHeight, img.src);
+    // console.log('img.getBoundingClientRect() ', img.getBoundingClientRect().height, 'imgHeight', imgHeight, img.src);
     return imgHeight;
 }
 function calcRenderedHeight(img, grid) {
@@ -160,7 +163,6 @@ REACT PORTION
 -------------------------------------------------------------------------------*/
 
 export async function fetchMasonryImages(gridId, numberToShow = 20) {
-    console.log("Fetching images...");
     const totalImages = 30;
     let imgData = [];
 
@@ -168,16 +170,18 @@ export async function fetchMasonryImages(gridId, numberToShow = 20) {
         const imgNumber = getRandomInt(1, totalImages);
         // const imgNumber = getNextInt(i + 1, totalImages);
         const src = assetPath + `image${imgNumber}.jpg`;
-        const loadedImg = await preloadImage(src);
-        if (!loadedImg) return null;
+        const img = new Image();
+        img.src = src;
+        // const loadedImg = await preloadImage(src);
+        // if (!loadedImg) return null;
 
         // Calculating the row span for each item using estimate
         // FIXME: Estimation for rendered height is inaccurate for mobile screen when using Next.js Image component,
         // <img> seems to be more accurate
-        const data = calcGridItemReact(gridId, loadedImg)
+        const data = calcGridItemReact(gridId, img)
         imgData[i] = {
             src: src, gridRowEnd: data.gridRowEnd, spanBottom: data.spanBottom,
-            width: loadedImg.offsetWidth, height: loadedImg.offsetHeight
+            width: img.offsetWidth, height: img.offsetHeight
         };
 
         // imgData[i] = {src: src};

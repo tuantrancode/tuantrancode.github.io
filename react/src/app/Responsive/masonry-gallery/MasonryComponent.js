@@ -1,26 +1,32 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import { recalcAllGridItems, recalcLastBatch, fetchMasonryImages } from './masonry-script';
+import React, { useEffect, useState, useRef, Suspense } from 'react';
+import { recalcAllGridItems, recalcItem, fetchMasonryImages } from './masonry-script';
 import ScrollDetector from './ScrollDetector';
+import LazyImage from '@/components/shared/LazyImage';
 import styles from './masonry-gallery.module.css';
 
 export default function MasonryGallery({ id }) {
     const [images, setImages] = useState([]);
     const [isFetching, setIsFetching] = useState(false);
+    const itemRefs = useRef([]);
     const numberToFetch = 20;
 
+    // Fetch the image URL and estimated value
     const handleFetch = (id) => {
-        if(isFetching) return;
-
+        if (isFetching) return;
+        console.log(`Fetching ${numberToFetch} Images`);
         setIsFetching(true);
         fetchMasonryImages(id, numberToFetch)
-        .then((loaded) => {
-            setImages((prev) => [...prev, ...loaded]);
-            recalcLastBatch(id, numberToFetch);
-        }).finally(() => { 
-            setIsFetching(false);
-        });
+            .then((loaded) => {
+                setImages((prev) => [...prev, ...loaded]);
+            }).finally(() => {
+                setIsFetching(false);
+            });
+    }
+    // Recalculate the row span once the image has loaded
+    const handleImgLoaded = (index) => {
+        console.log('onLoad was called ', index, itemRefs.current[index]);
+        recalcItem(id, itemRefs.current[index])
     }
     const saveGallery = () => {
         console.log("Saving Images");
@@ -69,7 +75,6 @@ export default function MasonryGallery({ id }) {
 
     // Save gallery state on unmount or page unload
     useEffect(() => {
-
         const saveScroll = () => {
             if (window.scrollY != 0) sessionStorage.setItem(`${id}-scroll`, window.scrollY);
         }
@@ -85,27 +90,45 @@ export default function MasonryGallery({ id }) {
 
     return (
         <>
-            {/* <!-- USING GRID AND CALCULATING ROW SPAN OF EACH IMAGE TO MAKE MASONRY GALLERY 
-            * Next.js Image component can be inaccurate, compared to <img>, when estimating renderedHeight of image
-            --> */}
+            {/* <!-- USING GRID AND CALCULATING ROW SPAN OF EACH IMAGE TO MAKE MASONRY GALLERY */}
             <div id={id} className={styles.grid}>
                 {images.map(({ src, gridRowEnd, width, height, spanBottom }, index) => (
-                    // <div key={index} className={styles.item} style={{ gridRowEnd: `span ${gridRowEnd}` }}>
-                    <div key={index} className={styles.item} style={{ gridRowEnd: `span ${gridRowEnd}` }}>
-                        <a href={src}>
-                            {/*{ Next.js Image requires width, height, alt to be set*/}
-                            <Image
-                                src={src} className={styles.img} alt={`Masonry Item ${index + 1}`} loading="lazy"
-                                width={width || 500} height={height || 500} style={{ width: "100%", height: "auto" }} />
-                            {/* <img  
-                                    src={src} className={styles.img} alt={`Masonry Item ${index + 1}`} loading="lazy" 
-                                    fetchpriority=“low” decoding=“async”/> */}
-                            <span style={{ bottom: spanBottom }}>Masonry Item {index + 1}</span>
-                        </a>
-                    </div>
+                    <Suspense key={index} fallback={fallback}>
+                        <div
+                            className={styles.item}
+                            style={{ gridRowEnd: `span ${gridRowEnd}` }}
+                            ref={(el) => (itemRefs.current[index] = el)}
+                            onLoad={() => handleImgLoaded(index)}
+                        >
+                            <a href={src}>
+                                <LazyImage src={src} className={styles.img} alt={`Masonry Item ${index + 1}`} width={width} height={height} />
+                                <span style={{ bottom: spanBottom }}>Masonry Item {index + 1}</span>
+                            </a>
+                        </div>
+                    </Suspense>
                 ))}
-            </div>
+            </div >
+            {images.length === 0 && <h2>Loading Images...</h2>}
             <ScrollDetector checkpoint={0.9} onReachPoint={() => handleFetch(id)} />
         </>
     );
 }
+
+const fallback = (
+    <div
+        style={{
+            height: "250px",
+            gridRowEnd: 'span 26',
+            backgroundColor: "#c2c2c2b6",
+            borderRadius: "15px",
+            boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "16px",
+            color: "#000000ff",
+        }}
+    >
+    Loading...
+    </div>
+)

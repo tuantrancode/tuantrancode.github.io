@@ -835,6 +835,65 @@ export default function App() {
         <hr />
       </section>
 
+      {/* <!-- SUSPENSE API AND USE HOOK--> */}
+      <section>
+        <h3 className="section-header" id="suspense">Suspense API and use Hook</h3>
+        <p>The Suspense component in React lets you handle many nested async operations cleanly. Until the async functions finish, the component will show a subsitute using the attribute <code>fallback</code></p>
+        <ul>
+          <li>Primarily used with the <code>use</code> hook to tell when the async functions are finished</li>
+          <li>While in the suspended state (i.e. not finished/still loading), the children elements are not rendered yet</li>
+          <li>It stays suspended until all nested async functions are finished</li>
+          <li>Documentation: <a href='https://react.dev/reference/react/Suspense'>react.dev/reference/react/Suspense</a></li>
+        </ul>
+        <h4 className='sub-section-name'>The <code>use</code> Hook</h4>
+        <p><code>resolvedValue = use( Promise )</code></p>
+        <ul>
+          <li>As of React 18+, the hook only accepts <strong>cached</strong> Promise or Promises that came from a Server component</li>
+          <li>Documentation: <a href='https://react.dev/reference/react/use'>react.dev/reference/react/use</a></li>
+        </ul>
+        <CodeBlock language='jsx'>{`
+import { Suspense } from 'react';
+
+export default function MyPage(){
+  return (
+    <Suspense key={index} fallback={<div>Loading...</div>}>       
+      <LazyImage src={src} className={styles.img} />
+    </Suspense>
+  );
+}
+---------------------------------------------------------------
+// Using cached Promises with Suspense
+'use client';
+import React, { use } from 'react';
+
+<mark>const imgCache = new Map();</mark>
+
+function loadImage(src) {
+    if (!imgCache.has(src)) {
+        imgCache.set(
+            src,
+            new Promise((resolve, reject) => {
+                const img = new window.Image();
+                img.src = src;
+                img.onload = resolve;
+                img.onerror = reject;
+            })
+        );
+    }
+    return imgCache.get(src);
+}
+
+export default function LazyImage({ className, src }) {
+    use(loadImage(src));
+
+    return <img src={src} className={className}/>
+}
+`}</CodeBlock>
+
+
+        <hr />
+      </section >
+
       <section>
         {/* <!-- EVENT LISTENER AND HANDLER--> */}
         <h3 className="section-header" id="eventListener">Event Listener & Handler</h3>

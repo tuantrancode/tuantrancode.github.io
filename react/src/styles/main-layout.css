@@ -87,26 +87,29 @@ Also includes responsive styles for mobile devices.
 }
 
 .top-nav a:hover,
-.menu-btn:hover, 
+.menu-btn:hover,
 .right-nav-btn:hover,
-.theme-btn:hover  {
-  background-color: var(--hover-color) !important; /* To override MUI icon background */
+.theme-btn:hover {
+  background-color: var(--hover-color) !important;
+  /* To override MUI icon background */
 }
 
 .menu-btn,
-.right-nav-btn, 
+.right-nav-btn,
 .theme-btn {
   padding: 0.75rem;
   min-width: 50px;
   min-height: var(--top-nav-height);
 }
+
 .theme-btn {
   padding: 0.9rem;
 }
 
 .menu-btn,
 .right-nav-btn {
-  display: none !important; /*To override MUI icon display */
+  display: none !important;
+  /*To override MUI icon display */
 }
 
 /* CONTAINER */
