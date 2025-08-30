@@ -55,6 +55,7 @@ const navSections = [
             { name: "Browser DevTools", link: "/Tools/browser" },
             { name: "React DevTools", link: "/Tools/react-dev-tools" },
             { name: "Cmd / Terminal", link: "/Tools/cmd" },
+            { name: "Git", link: "/Tools/git" },
             { name: "Visual Studio Code", link: "/Tools/visual-studio-code" },
             { name: "Android Studio", link: "/Tools/android-studio" },
             { name: "Eclipse for Java", link: "/Tools/eclipse" },

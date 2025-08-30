@@ -252,12 +252,35 @@ module.exports = nextConfig;
             <li><code>basePath</code> : to adjust the URL of of navigation links; used when deploying app under a sub-path of a domain</li>
             <li><code>assetsPrefix</code> : to adjust the URL of the Javascript and CSS files that loads from <code>_next/</code> folder like <code>_next/static/</code></li>
             <li><code>assetsPrefix</code> does NOT affect files in the <code>public/</code> folder</li>
-          <li>Reference: <a href="https://nextjs.org/docs/app/api-reference/config/next-config-js">nextjs.org/docs/app/api-reference/config/next-config-js</a></li>
+            <li>Reference: <a href="https://nextjs.org/docs/app/api-reference/config/next-config-js">nextjs.org/docs/app/api-reference/config/next-config-js</a></li>
           </ul>
         </ul>
         <hr />
       </section>
 
+
+      {/*<!-- DYNAMIC VS STATIC -->*/}
+      <section>
+        <h3 className='section-header' id='dynamicStatic'>Dynamic Vs Static Sites</h3>
+        <ul>
+          <li><strong>Dynamic Site Features</strong></li>
+          <ul>
+            <li>Server Side Rendering (SSR)</li>
+            <li>API Routes</li>
+            <li>Dynamic Routing</li>
+            <li>Authenticatoion/Sessions : can use cookies, JWTs, or OAuth flows</li>
+            <li>Use cases: E-commerce, dashboards, social media feeds, requires authentication</li>
+          </ul>
+          <li><strong>Static Site Features</strong></li>
+          <ul>
+            <li>Pre-rendered HTML : fast rendering</li>
+            <li>Works on Static Host</li>
+            <li>Dynamic Routing</li>
+            <li>Use cases: Blogs, docs, marketing site, portfolio, gallery</li>
+          </ul>
+        </ul>
+        <hr />
+      </section>
 
       {/*<!-- OPTIMIZING PRODUCTION BUILD -->*/}
       <section>
@@ -336,7 +359,7 @@ export default function MasonryPage() {
           <li>Make sure to add the homepage URL to <code>package.json</code> like so <code>{`"homepage": "https://<your-username>.github.io/<repo-name>/"`}</code></li>
           <li>The only folder that is upload to the CDN is <code>_next/static/</code> folder as everything else should not be exposed to the public</li>
         </ul>
-        <p><strong>Deploying Static Next.js app to Github Pages</strong></p>
+        <h4 className='sub-section-header' id='buildNotes'>Deploying Static Next.js app to Github Pages</h4>
         <ul>
           <li>Github Pages only supports static exports of React App, some extra requirements are needed to run Next.js app on Github</li>
           <ol>
