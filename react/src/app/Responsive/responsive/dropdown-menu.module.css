@@ -43,7 +43,7 @@
 .nav a:active,
 .dropdownBtn:hover,
 .dropdownBtn:active {
-    background-color: var(--nav-hover-bg-color);
+    background-color: var(--nav-hover-bg-color) !important;
 }
 
 

@@ -1,12 +1,15 @@
 'use client';
 import React, { useRef, useEffect } from 'react';
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { useTheme } from "@/context/ThemeContext";
-import { useStore } from 'store';
 import ContrastIcon from '@mui/icons-material/Contrast';
 import MenuIcon from '@mui/icons-material/Menu';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+
+import { usePathname } from 'next/navigation'
+import { useTheme } from "@/context/ThemeContext";
+import { useStore } from 'store';
+import DropdownMenu from '@/components/shared/DropdownMenu';
+import navSections from '@/data/navigation';
 
 const topLinks = [
     { name: "HTML", link: "/" },
@@ -33,9 +36,12 @@ export default function TopNav() {
         setRightNavBtnRef(rightBtnRef);
     }, [setLeftNavBtnRef, setRightNavBtnRef]);
 
+    // Disable Right Nav for masonry gallery page
     const pathname = usePathname()
     let hasRightNav = true;
-    if(pathname === '/Responsive/masonry-gallery') hasRightNav = false;
+    if (pathname === '/Responsive/masonry-gallery') hasRightNav = false;
+
+    // TODO: add a search bar that can search through route names and subsection names (use a server for query)
 
     return (
         <div className="top-bar">
@@ -45,9 +51,12 @@ export default function TopNav() {
                     ref={leftBtnRef} onClick={toggleLeftNav}
                 />
                 <div className="top-nav-scrollable">
-                    {/*TODO: create dropdown component*/}
-                    {topLinks.map((item) => {
-                        return <Link href={item.link} key={item.name}>{item.name}</Link>
+                    {navSections.map(({ section, pages }) => {
+                        return (
+                            <DropdownMenu text={`${section} ▾`} key={section}>
+                                {pages.map( ({name, link}) => <Link href={link} key={link}>{name}</Link>)}            
+                            </DropdownMenu>
+                        );
                     })}
                     <ContrastIcon className="theme-btn" onClick={toggleTheme} />
                 </div>

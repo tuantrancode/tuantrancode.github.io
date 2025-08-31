@@ -40,6 +40,30 @@ export default function SpecialCharacters() {
               <td><code>&amp;#8942;</code></td>
             </tr>
             <tr>
+              <td>&#9662;</td>
+              <td>Small Down Caret</td>
+              <td>&amp;#9662;</td>
+              <td><code>&amp;#9662;</code></td>
+            </tr>
+            <tr>
+              <td>&#9652;</td>
+              <td>Small Up Caret</td>
+              <td>&amp;#9652;</td>
+              <td><code>&amp;#9652;</code></td>
+            </tr>
+            <tr>
+              <td>&#9656;</td>
+              <td>Small Right Caret</td>
+              <td>&amp;#9656;</td>
+              <td><code>&amp;#9656;</code></td>
+            </tr>
+            <tr>
+              <td>&#9666;</td>
+              <td>Small Left Caret</td>
+              <td>&amp;#9666;</td>
+              <td><code>&amp;#9656;</code></td>
+            </tr>
+            <tr>
               <td>&#9681;</td>
               <td>Circle Left Half Black (Theme/ Dark Mode)</td>
               <td>&amp;#9681;</td>
@@ -82,24 +106,12 @@ export default function SpecialCharacters() {
               <td><code>&amp;amp;</code></td>
             </tr>
             <tr>
-              <td>&#9660;</td>
-              <td>Down Caret</td>
-              <td>&amp;#9660;</td>
-              <td><code>&amp;#9660;</code></td>
-            </tr>
-            <tr>
-              <td>&#9650;</td>
-              <td>Up Caret</td>
-              <td>&amp;#9650;</td>
-              <td><code>&amp;#9650;</code></td>
-            </tr>
-            <tr>
               <td>&#123;</td>
               <td>Left Curly Brace</td>
               <td>&amp;#123;</td>
               <td><code>&amp;#123;</code></td>
             </tr>
-             <tr>
+            <tr>
               <td>&#125;</td>
               <td>Right Curly Brace</td>
               <td>&amp;#125;</td>
@@ -166,7 +178,7 @@ export default function SpecialCharacters() {
               <td>&amp;#123;</td>
               <td><code>&amp;#123;</code></td>
             </tr>
-             <tr>
+            <tr>
               <td>&#125;</td>
               <td>Right Curly Brace</td>
               <td>&amp;#125;</td>
@@ -403,6 +415,30 @@ export default function SpecialCharacters() {
             </tr>
           </thead>
           <tbody>
+            <tr>
+              <td>&#9662;</td>
+              <td>Small Down Caret</td>
+              <td>&amp;#9662;</td>
+              <td><code>&amp;#9662;</code></td>
+            </tr>
+            <tr>
+              <td>&#9652;</td>
+              <td>Small Up Caret</td>
+              <td>&amp;#9652;</td>
+              <td><code>&amp;#9652;</code></td>
+            </tr>
+            <tr>
+              <td>&#9656;</td>
+              <td>Small Right Caret</td>
+              <td>&amp;#9656;</td>
+              <td><code>&amp;#9656;</code></td>
+            </tr>
+            <tr>
+              <td>&#9666;</td>
+              <td>Small Left Caret</td>
+              <td>&amp;#9666;</td>
+              <td><code>&amp;#9656;</code></td>
+            </tr>
             <tr>
               <td>&#9660;</td>
               <td>Down Caret</td>

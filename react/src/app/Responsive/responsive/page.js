@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './responsive.module.css';
 import dropdownStyles from './dropdown-menu.module.css';
 import CodeBlock from '@/components/shared/CodeBlock';
-import DropdownBtn from '@/components/shared/DropdownBtn';
+import DropdownMenu from '@/components/shared/DropdownMenu';
 import Button from '@/components/shared/Button';
 
 
@@ -210,14 +210,12 @@ function toggleTheme() {
           <a href='#news'>News</a>
           <a href='#about'>About</a>
           <a href='#contact'>Contact</a>
-          <DropdownBtn className={dropdownStyles.dropdownBtn}>
-            <div className={`${dropdownStyles.dropdownContent}`} id='dropdownContent'>
+          <DropdownMenu className={dropdownStyles.dropdownBtn} contentClassName={dropdownStyles.dropdownContent} text='Dropdown Menu'>           
               <a href='#home'>Home</a>
               <a href='#news'>News</a>
               <a href='#about'>About</a>
               <a href='#contact'>Contact</a>
-            </div>
-          </DropdownBtn>
+          </DropdownMenu>
         </div>
 
         <CodeBlock language='html'>{`<div class='navbar'>

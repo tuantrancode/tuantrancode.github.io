@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState, useRef, Suspense } from 'react';
 import { recalcAllGridItems, recalcItem, fetchMasonryImages } from './masonry-script';
-import ScrollDetector from './ScrollDetector';
+import ScrollDetector from '@/components/shared/ScrollDetector';
 import LazyImage from '@/components/shared/LazyImage';
 import styles from './masonry-gallery.module.css';
 

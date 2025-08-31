@@ -1,23 +1,61 @@
 'use client';
-import React, { useRef, useMemo, useCallback } from 'react';
+import React, { useRef, useMemo, useCallback, useState, useEffect } from 'react';
 import Link from 'next/link'
+import { usePathname } from 'next/navigation';
 import { useStore } from 'store';
 import { useClickOutside } from '@/hooks/menu-functions';
 import navSections from '@/data/navigation';
 
 
 export default function LeftNav() {
-    const { isLeftNavOpen, setLeftNav, leftNavBtnRef, setLeftNavBtnRef } = useStore();
 
     // Add feature to close menu if clicked outside
+    const { isLeftNavOpen, setLeftNav, leftNavBtnRef } = useStore();
     const leftNavRef = useRef(null);
-    const leftRefs = useMemo( () => [leftNavRef, leftNavBtnRef], [leftNavRef, leftNavBtnRef]);
-    const handleClose = useCallback( () => setLeftNav(false), [setLeftNav]) ;
-    useClickOutside( leftRefs,  handleClose);
-    
-    return (
-        <>
-       
+    const leftRefs = useMemo(() => [leftNavRef, leftNavBtnRef], [leftNavRef, leftNavBtnRef]);
+    const handleClose = useCallback(() => setLeftNav(false), [setLeftNav]);
+    useClickOutside(leftRefs, handleClose);
+
+    // Check for mobile states
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(max-width: 1024px)");
+        setIsMobile(mediaQuery.matches);
+        const handleResize = (e) => {
+            setIsMobile(e.matches);
+        };
+
+        // Attach listener
+        mediaQuery.addEventListener("change", handleResize);
+        return () => {
+            mediaQuery.removeEventListener("change", handleResize);
+        };
+    }, [])
+
+
+    // Select the right category by matching the current route with any route in that category
+    const pathname = usePathname();
+    const catIndex = navSections.findIndex(({ pages }) => pages.some(({ link }) => pathname === link));
+    const cat = navSections[catIndex];
+
+
+    // Left nav layout on normal screen
+    const leftNav = (
+        <div className={`left-nav ${isLeftNavOpen ? "open" : ""}`} id="leftNav" ref={leftNavRef}>
+            <h3>{cat.section}</h3>
+            {cat.pages.map((item) => {
+                return (
+                    <Link
+                        href={item.link}
+                        key={item.link}
+                        onClick={handleClose}
+                    >{item.name}</Link>
+                )
+            })}
+        </div>
+    );
+    // Left nav layout on mobile screen
+    const leftNavMobile = (
         <div className={`left-nav ${isLeftNavOpen ? "open" : ""}`} id="leftNav" ref={leftNavRef}>
             {navSections.map(({ section, pages }) => {
                 return (
@@ -36,6 +74,15 @@ export default function LeftNav() {
                 );
             })}
         </div>
+    )
+
+    return (
+        <>
+            {isMobile ? leftNavMobile : leftNav}
         </>
     );
 }
+
+
+
+

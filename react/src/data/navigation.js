@@ -32,6 +32,7 @@ const navSections = [
         section: "React",
         pages: [
             { name: "React Basics", link: "/React/react-basics" },
+            { name: "Hooks", link: "/React/react-hooks" },
             { name: "When To Use What", link: "/React/when-to-use-what" },
             { name: "React Styling", link: "/React/react-styling" },
             { name: "Form in React", link: "/React/react-form" },

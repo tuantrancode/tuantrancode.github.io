@@ -70,23 +70,82 @@ Also includes responsive styles for mobile devices.
   width: 100%;
   max-width: var(--max-width);
   height: inherit;
-  overflow: hidden;
+  /* overflow-x: auto; */
+  /* overflow: hidden; */
 }
 
 .top-nav-scrollable {
   display: flex;
   width: 100%;
   align-items: center;
-  overflow: auto;
 }
 
-.top-nav a {
+/* Dropdown Menu */
+.dropdownBtn {
+  display: flex;
+  position: relative;
+  background-color: inherit;
+  color: inherit;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 12px 20px;
+  text-align: center;
+}
+
+/* Add a red background color to navbar links on hover ,and active for mobile */
+.dropdownBtn:hover {
+  background-color: var(--hover-color);
+}
+
+/* Dropdown content (hidden by default) */
+.dropdownContent {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  /*relative to .dropdownBtn */
+  left: 0;
+  right: 0;
+  top: 80%;
+  background-color: var(--container-bg-color);
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  padding: 4px 0;
+  border: 1px solid var(--container-font-color);
+  border-radius: 15px;
+  overflow-y: auto;
+  max-height: 500px;
+}
+
+.dropdownContent a {
+  margin: 4px 12px;
+  border-radius: 15px;
+  padding: 10px 15px;
+  text-align: left;
+  text-decoration: none;
+  color: var(--container-font-color)
+}
+
+.dropdownContent a:hover {
+  background-color: var(--hover-color);
+  color: var(--top-nav-font-color)
+}
+
+/* Show the dropdown-content when hovering/clicking dropdownBtn */
+/* .dropdownBtn:hover .dropdownContent, */
+.dropdownBtn:hover .dropdownContent,
+.dropdownContent[data-open='open'] {
+  display: flex;
+}
+
+/* Top-Nav Links */
+/* .top-nav a {
   color: inherit;
   padding: 12px 20px;
   text-decoration: none;
-}
+} */
 
-.top-nav a:hover,
+/* .top-nav a:hover, */
 .menu-btn:hover,
 .right-nav-btn:hover,
 .theme-btn:hover {
@@ -205,6 +264,10 @@ Also includes responsive styles for mobile devices.
     max-width: 100%;
   }
 
+  .dropdownBtn {
+    display: none;
+  }
+
   .menu-btn,
   .right-nav-btn {
     display: block !important;
@@ -248,10 +311,6 @@ Also includes responsive styles for mobile devices.
 
   .main-content {
     padding: 10px 10px;
-  }
-
-  .top-nav a {
-    display: none;
   }
 
   /* prevent button from sticking to hover state on mobile */
