@@ -44,6 +44,13 @@ const navSections = [
             { name: "Templates", link: "/React/react-templates" },
         ]
     },
+     {
+        section: "Java",
+        pages: [
+            { name: "Java Syntax", link: "/Java/java-syntax" },
+            { name: "Interface vs Inheritance", link: "/Java/java-comparison" },
+        ]
+    },
     {
         section: "Responsive",
         pages: [
@@ -65,4 +72,5 @@ const navSections = [
     }
 ];
 
+// TODO: Add an inheritence vs interface section
 export default navSections;
