@@ -33,53 +33,38 @@ export default function LeftNav() {
     }, [])
 
 
-    // Select the right category by matching the current route with any route in that category
+    // Select the current category by matching the current route with any route in that category
     const pathname = usePathname();
     const catIndex = navSections.findIndex(({ pages }) => pages.some(({ link }) => pathname === link));
-    const cat = navSections[catIndex];
+    const currentCategory = navSections[catIndex];
 
+    // Show all the categories if on mobile otherwise only show the current category
+    // if currentCategory is null/undefined then show nothing
+    const categoriesToShow = isMobile ? navSections : currentCategory ? [currentCategory] : [];
 
-    // Left nav layout on normal screen
-    const leftNav = (
-        <div className={`left-nav ${isLeftNavOpen ? "open" : ""}`} id="leftNav" ref={leftNavRef}>
-            <h3>{cat.section}</h3>
-            {cat.pages.map((item) => {
-                return (
-                    <Link
-                        href={item.link}
-                        key={item.link}
-                        onClick={handleClose}
-                    >{item.name}</Link>
-                )
-            })}
-        </div>
-    );
-    // Left nav layout on mobile screen
-    const leftNavMobile = (
-        <div className={`left-nav ${isLeftNavOpen ? "open" : ""}`} id="leftNav" ref={leftNavRef}>
-            {navSections.map(({ section, pages }) => {
-                return (
-                    <div key={section}>
-                        <h3>{section}</h3>
-                        {pages.map((item) => {
-                            return (
-                                <Link
-                                    href={item.link}
-                                    key={item.link}
-                                    onClick={handleClose}
-                                >{item.name}</Link>
-                            )
-                        })}
-                    </div>
-                );
-            })}
-        </div>
-    )
+    // Render a list of categories
+    const renderCategories = (categories) =>
+        categories.map((c) => (
+            <NavCategory key={c.section} section={c.section} pages={c.pages} onClick={handleClose} />
+    ));
 
     return (
-        <>
-            {isMobile ? leftNavMobile : leftNav}
-        </>
+        <div className={`left-nav ${isLeftNavOpen ? 'open' : ''}`} id="leftNav" ref={leftNavRef}>
+            {renderCategories(categoriesToShow)}
+        </div>
+    );
+}
+
+function NavCategory({ section, pages, onClick }) {
+    return (
+        <div key={section}>
+            <h3>{section}</h3>
+            {pages.map((item) => (
+                <Link href={item.link} key={item.link} onClick={onClick}>
+                    {item.name}
+                </Link>
+            ))}
+        </div>
     );
 }
 

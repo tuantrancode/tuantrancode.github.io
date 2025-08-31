@@ -40,6 +40,7 @@ const navSections = [
             { name: "Next.js", link: "/React/nextjs" },
             { name: "Libraries", link: "/React/react-libraries" },
             { name: "Programming Pattern", link: "/React/react-pattern" },
+            { name: "Mobile Ready React", link: "/React/react-mobile-ready" },
             { name: "Templates", link: "/React/react-templates" },
         ]
     },

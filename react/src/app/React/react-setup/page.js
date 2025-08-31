@@ -1,4 +1,3 @@
-import React from 'react';
 import CodeBlock from '@/components/shared/CodeBlock';
 
 export const metadata = {
@@ -253,6 +252,10 @@ module.exports = nextConfig;
             <li><code>assetsPrefix</code> : to adjust the URL of the Javascript and CSS files that loads from <code>_next/</code> folder like <code>_next/static/</code></li>
             <li><code>assetsPrefix</code> does NOT affect files in the <code>public/</code> folder</li>
             <li>Reference: <a href="https://nextjs.org/docs/app/api-reference/config/next-config-js">nextjs.org/docs/app/api-reference/config/next-config-js</a></li>
+          </ul>
+          <li><code>app/not-found.js</code> : the page that is shown for 404 error</li>
+          <ul>
+            <li>Use <code>notFound()</code> from <code>{`import { notFound } from "next/navigation";`}</code> to throw a 404 error for testing</li>
           </ul>
         </ul>
         <hr />

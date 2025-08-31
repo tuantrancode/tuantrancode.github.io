@@ -8,7 +8,7 @@ export const metadata = {
   description: "An example of masonry effect similar to Pinterest",
 };
 
-export default function MasonryGallery() {
+export default async function MasonryGallery() {
 
   return (
     <>
