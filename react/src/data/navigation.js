@@ -69,6 +69,12 @@ const navSections = [
             { name: "Android Studio", link: "/Tools/android-studio" },
             { name: "Eclipse for Java", link: "/Tools/eclipse" },
         ]
+    },
+     {
+        section: "Artificial Intelligence",
+        pages: [
+            { name: "AI Basics", link: "/AI/ai-basics" },
+        ]
     }
 ];
 

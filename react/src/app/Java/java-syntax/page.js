@@ -1,6 +1,11 @@
 import React from "react";
 import CodeBlock from "@/components/shared/CodeBlock";
 
+export const metadata = {
+    title: "Java Syntax Comparison",
+    description: "Reference page to compare Java and Javascript syntax differences",
+};
+
 export default function JavaSyntax() {
   return (
     <div>
