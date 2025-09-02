@@ -378,7 +378,7 @@ function toggleTheme() {
           <li>Cheaper than <code>grid</code>, but can have empty gaps in columns after resizing</li>
           <li>Good if not strict with responsiveness</li>
           <li>Number of &lt;div&gt; columns need to be calculated on page load, if the browser try to wrap the columns, then new images will load at the top columsn as well</li>
-          <li>If screen changes (switching orientation) after page load then columns will fail</li>
+          <li>If screen changes columns will need to be merged/split and items would need to be moved to maintain left to right ordering</li>
         </ul>
 
         <CodeBlock language='html'>

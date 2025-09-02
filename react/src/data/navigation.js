@@ -71,12 +71,13 @@ const navSections = [
         ]
     },
      {
-        section: "Artificial Intelligence",
+        section: "AI",
         pages: [
             { name: "AI Basics", link: "/AI/ai-basics" },
         ]
     }
 ];
 
+// TODO: Incorporate react-native-web components to test thing out
 // TODO: Add an inheritence vs interface section
 export default navSections;
