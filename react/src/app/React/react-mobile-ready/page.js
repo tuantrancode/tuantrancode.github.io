@@ -1,36 +1,48 @@
 import CodeBlock from '@/components/shared/CodeBlock';
 
 export const metadata = {
-  title: "Getting React App  Ready for React Native",
-  description: "Notes to keep in mind when planning a React app that will migrate to the mobile version, React Native",
+  title: 'Getting React App  Ready for React Native',
+  description: 'Notes to keep in mind when planning a React app that will migrate to the mobile version, React Native',
 };
 
 export default function MobileReadyReact() {
-  
   return (
     <>
       {/*<!-- MOBILE-READY -->*/}
       <section>
         <h2 className='page-header'>React Native Migration</h2>
         <p>
-          To help with mobile development, there are some areas to make note of while making the web version React.
-          It will allow more reusable code when starting the React Native project
+          To help with mobile development, there are some areas to make note of while making the web version React. It
+          will allow more reusable code when starting the React Native project
         </p>
         <ul>
-          <li><strong>Keep business logic independent</strong> : avoid putting it inside <code>pages</code>/</li>
-          <li><strong>Separate hooks, services, and state</strong> : these are fully reusable in React Native</li>
-          <li><strong>Use atomic components</strong> : reusable components that don’t depend on DOM APIs</li>
-          <li><strong>Limit CSS-in-JS to web-only components</strong> : since React Native uses <code>StyleSheet</code>/</li>
-          <li><strong>Avoid Next.js-specific APIs in your core logic</strong> : SSR/SSG code stays isolated</li>
+          <li>
+            <strong>Keep business logic independent</strong> : avoid putting it inside <code>pages</code>/
+          </li>
+          <li>
+            <strong>Separate hooks, services, and state</strong> : these are fully reusable in React Native
+          </li>
+          <li>
+            <strong>Use atomic components</strong> : reusable components that don’t depend on DOM APIs
+          </li>
+          <li>
+            <strong>Limit CSS-in-JS to web-only components</strong> : since React Native uses <code>StyleSheet</code>/
+          </li>
+          <li>
+            <strong>Avoid Next.js-specific APIs in your core logic</strong> : SSR/SSG code stays isolated
+          </li>
         </ul>
         <hr />
       </section>
 
       {/*<!-- FOLDER STRUCTURE -->*/}
       <section>
-        <h3 className='section-header' id='folderStructure'>Sample Structure to Make Next.js Project, Mobile-Ready</h3>
+        <h3 className='section-header' id='folderStructure'>
+          Sample Structure to Make Next.js Project, Mobile-Ready
+        </h3>
         <p>
-          Separate reusuable code from web-specific code to copy &amp; paste as much as possible over to the React Native project
+          Separate reusuable code from web-specific code to copy &amp; paste as much as possible over to the React
+          Native project
         </p>
         <CodeBlock language='jsx'>{`
 my-app/
@@ -96,14 +108,60 @@ my-app/
         <hr />
       </section>
 
+      {/*<!-- SAMPLE MONOREPO STRUCTURE WITH TURBOREPO -->*/}
+      <section>
+        <h3 className='section-header' id='monorepo'>
+          Sample Monorepo Structure with TurboRepo
+        </h3>
+        <CodeBlock language='jsx'>{`
+my-monorepo/
+├── apps/
+│   ├── mobile/					# where the MOBILE expo app will be
+│   │   ├── assets/				# holds the assets for MOBILE
+│   │   ├── app/
+│   │   │   ├── _layout.js		# Root layout for expo-router (like the layout.js of Next)
+│   │   │   ├── index.js		# mobile Home page (/)
+│   │   │   └── about.js		# mobile About page (/about)
+│   │   ├── app.json				# MOBILE manifest file
+│   │   ├── babel.config.js			# MOBILE babel config file
+│   │   ├── metro.config.js			# MOBILE metro bundler config file
+│   │   └── package.json 			# MOBILE scripts and dependencies
+│   └── web/					# where the WEB next.js app will be
+│       ├── public/				# holds static assets for WEB
+│       │   ├── _layout.js
+│       │   ├── sitemap.xml     # good for SEO (/sitemap.xml)
+│       │   └── robots.txt      # accessed from root (/robots.txt)
+│       ├── app/
+│       │   ├── page.js			# Home page (/) - normal entry point
+│       │   ├── layout.js		# Optional Global Layout - entry point if file exist
+│       │   ├── global.css
+│       │   └── About/
+│       │       └── page.js		# web About page (/about)
+│       ├── jsconfig.js				# WEB compiler options: import alias
+│       ├── next.config.js			# WEB next.js bundler config file
+│       └── package.json			# WEB scripts and dependencies 
+├── shared/						# Codes that will be shared between Next and Expo
+│   ├── assets/
+│   └── components/
+├── package.json				# turborepo and root dependencies, scripts, and overrides
+├── turbo.json					# turborepo config file
+└── eslint.config.mjs			# ESLint config file        
+        `}</CodeBlock>
+        <hr />
+      </section>
+
       {/*<!-- SHARED COMPONENTS -->*/}
       <section>
-        <h3 className='section-header' id='sharedComponents'>Shared Components &amp; Web-Only Components</h3>
+        <h3 className='section-header' id='sharedComponents'>
+          Shared Components &amp; Web-Only Components
+        </h3>
         <p>
-          Shared components will be React components that does NOT render JSX element and is NOT dependent on Next.js (like function that handle routing)
+          Shared components will be React components that does NOT render JSX element and is NOT dependent on Next.js
+          (like function that handle routing)
         </p>
         <p>
-          Web-only components will only render JSX elements, is where CSS modules are imported, or uses Next.js dependencies like routing
+          Web-only components will only render JSX elements, is where CSS modules are imported, or uses Next.js
+          dependencies like routing
         </p>
         <p>All React Native components are client-side</p>
         <CodeBlock language='jsx'>{`
@@ -126,18 +184,18 @@ export default function WebComponent(props) {
 
       {/*<!-- WHAT REACT NATIVE WILL NEED -->*/}
       <section>
-        <h3 className='section-header' id='rnRequirement'>What React Native will Need</h3>
+        <h3 className='section-header' id='rnRequirement'>
+          What React Native will Need
+        </h3>
         <ul>
-          <li>Redo routing on React Native using React Navigation</li>
+          <li>Redo routing on React Native using React Navigation or Expo Router for expo app</li>
           <li>Remake the UI components that makes use of JSX</li>
           <ul>
-            <li>Replace the HTML elements with React Native counterpart</li>
+            <li>Replace the HTML elements with React Native/ react-native-web counterpart</li>
           </ul>
           <li>Redo styling, because React Native does not support .css files</li>
         </ul>
       </section>
-
-
     </>
   );
 }
