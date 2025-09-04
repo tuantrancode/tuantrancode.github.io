@@ -27,7 +27,7 @@ Also includes responsive styles for mobile devices.
 }
 
 /* Dark Theme */
-[data-theme="dark"] {
+[data-theme='dark'] {
   --primary-color: #111;
   --secondary-color: #1b1b1b;
   --body-bg-color: #363636;
@@ -123,12 +123,12 @@ Also includes responsive styles for mobile devices.
   padding: 10px 15px;
   text-align: left;
   text-decoration: none;
-  color: var(--container-font-color)
+  color: var(--container-font-color);
 }
 
 .dropdownContent a:hover {
   background-color: var(--hover-color);
-  color: var(--top-nav-font-color)
+  color: var(--top-nav-font-color);
 }
 
 /* Show the dropdown-content when hovering/clicking dropdownBtn */
@@ -258,6 +258,10 @@ Also includes responsive styles for mobile devices.
 
 /* Responsive Styles */
 @media (max-width: 1024px) {
+  #root {
+    font-size: 14px;
+  }
+
   .main-content {
     min-width: 0;
     left: 0;
@@ -298,7 +302,6 @@ Also includes responsive styles for mobile devices.
 
 /* Responsive Styles */
 @media (max-width: 480px) {
-
   /* For phone where navigation buttons are part of screen 
   * This will change the phone's navigation panel to be slightly darker than the top-nav bar */
   :root {
