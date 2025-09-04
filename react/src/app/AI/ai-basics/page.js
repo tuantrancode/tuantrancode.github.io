@@ -210,6 +210,7 @@ export default function AIBasics() {
                     <li><strong>Addtional Information</strong> : adding constraints/context will lead to more relevant, personalized responses </li>
                     <ul>
                         <li>Give use cases/ scenarios to help AI understands the context</li>
+                        <li>Context like programming language, frameworks, project structure</li>
                         <li>Example: "If you don't know the answer, then response with idk"</li>
                         <li>Example: "If you have question about the prompt, ask."</li>
                     </ul>

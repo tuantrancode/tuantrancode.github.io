@@ -227,11 +227,81 @@ export default function VisualStudioCode() {
         </li>
         <ul>
           <li>
-            Requires the <code>eslint</code> npm package to be installed in the project to work: <Link href="/Tools/node#eslint">link</Link>
+            Requires the <code>eslint</code> npm package to be installed in the project to work:{' '}
+            <Link href='/Tools/node#eslint'>link</Link>
           </li>
           <li>It detect syntax error before compiling the code, enforce coding standards and best practices</li>
         </ul>
       </ul>
+
+
+      {/* <!-- GITHUB COPILOT --> */}
+      <h3 className='section-header' id='githubCopilot'>
+        GitHub Copilot
+      </h3>
+      <p>
+        AI assistant integrating with VS Code (<code>github.copilot</code>), Visual Studio, XCode, JetBrains, and Neovim through extensions. 
+      </p>
+      <ul>
+        <li><strong>Shortcut</strong> :</li>
+        <ul>
+          <li>Open inline chat in editor or terminal:  <code>Ctrl + I</code> for Windows/Linux or <code>Cmd + I</code> for Mac</li>
+          <li>Opens the chat view:  <code>Ctrl + Alt + I</code> for Windows/Linux or <code>Cmd + Alt + I</code> for Mac</li>
+          <li><code>Tab</code> accepts suggestion</li>
+          <li><code>Ctrl + Enter</code> cycles suggestions</li>
+        </ul>
+        <li><strong>Troubleshoot</strong> : <code>Ctrl + Shift + P</code> for Windows/Linux or <code>Cmd + Shift + P</code> for Mac and select Diagnostics &gt; GitHub Copilot</li>
+        <li><strong>Documentation on Copilot</strong> : <a href="https://docs.github.com/en/copilot">docs.github.com/en/copilot</a> </li>
+        <li><strong>Doc on Copilot integration with VS Code</strong> : <a href="https://code.visualstudio.com/docs/copilot/reference/copilot-vscode-features">code.visualstudio.com/docs/copilot/reference/copilot-vscode-features</a> </li>
+        <li><strong>Smart Actions</strong> : <a href="https://code.visualstudio.com/docs/copilot/copilot-smart-actions">code.visualstudio.com/docs/copilot/copilot-smart-actions</a> </li>
+        <li><strong>Features</strong> :</li>
+        <ul>
+          <li>Code autocompletion</li>
+          <li>Generating unit tests for functions; Copilot learns from context so well-documented code help</li>
+          <li>Generating code snippets; can suggest code based on comments</li>
+          <li>Explaining code snippets and bugs</li>
+          <li>Creating sample data</li>
+          <li>Making documentation, commits messages, alt text for images</li>
+        </ul>
+        <li><strong>Commands</strong> : right click and selecting Copilot will also list the commands; using these help give context</li>
+        <ul>
+          <li><code>/explain</code> : gives explanation for selected code</li>
+          <li><code>/suggest</code> : Offers code suggestions based on the current context</li>
+          <li><code>/comment</code> : Converts comments into code snippets</li>
+          <li><code>/docs</code> : Creates documentation for the selected function, class, or code block</li>
+          <li><code>/tests</code> : Generates unit tests for the selected function or class</li>
+          <li><code>/setupTests</code> : suggests appropriate testing frameworks</li>
+          <li><code>/fix</code> : fix code</li>
+          <li><code>/edit</code> : edit code</li>
+          <li><code>/optimize</code> : analyzeand improves runtime of the selected code block</li>
+          <li><code>/help</code> : get help on using Copilot</li>
+        </ul>
+        <li><strong>Chat Participants / Agents</strong> : acts as domain experts that provide Copilot the context of that domain</li>
+        <ul>
+          <li><code>@workspace</code> : give context about the code in your workspace so Copilot will consider the structure of your project, design patters, and how your code interacts</li>
+          <li><code>@file</code> : focus on content of specific file</li>
+          <li><code>@directory</code> : focus on content of specific directory</li>
+          <li><code>@terminal</code> : has context about VS code terminal shell and its contents; good for creating/ debugging terminal commands</li>
+          <li><code>@vscode</code> : has context about VS Code commands and features</li>
+          <li><code>@azure</code> : give context about Azure services and how to use, deploy and manage them.</li>
+          <li><code>@github</code> : allows you to use GitHub-specific Copilot skills: Details in <a href="https://docs.github.com/en/copilot/how-tos/use-chat/use-chat-in-ide#using-github-skills-for-copilot">link</a></li>
+        </ul>
+        <li><strong>Modes</strong> : </li>
+        <ul>
+          <li><strong>Ask Mode</strong> : fast, helpful, and focused on answering the question without touching your code; can ask any anything programming related even questions outside your project</li>
+          <li><strong>Edit Mode</strong> : allows Copilot to edit multiple files and then have you check which edits should be applied</li>
+          <ul>
+            <li>Drag all related files to the Copilot chat panel to tell it what to work on</li>
+            <li>The "Add Context" button lets you add file from outside the workspace</li>
+          </ul>
+          <li><strong>Agent Mode</strong> : a more powerful version of Edit mode except it's more automated and applies most edits without waiting for explicit approval</li>
+          <ul>
+            <li>The amount of context it can hold is limited so it might forget what it wrote at the beginning later on.</li>
+            <li>Writing specific custom instructions can help keep it consistent. <a href="https://github.blog/ai-and-ml/github-copilot/copilot-ask-edit-and-agent-modes-what-they-do-and-when-to-use-them/">Example here.</a></li>
+          </ul>
+        </ul>
+      </ul>
+      <hr />
     </>
   );
 }
