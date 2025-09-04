@@ -1,19 +1,21 @@
 import React from 'react';
 import SearchContainer from '@/components/shared/SearchContainer';
 import CodeBlock from '@/components/shared/CodeBlock';
+import Link from 'next/link';
 
 export const metadata = {
-  title: "Visual Studio Code",
-  description: "Tips for using VS Code",
+  title: 'Visual Studio Code',
+  description: 'Tips for using VS Code',
 };
 
 export default function VisualStudioCode() {
-
   return (
     <>
       {/* <!-- VS CODE SHORTCUTS --> */}
-      <h3 className="section-header" id="shortcuts">Common Visual Studio Shortcuts</h3>
-      <SearchContainer placeholder="Search actions, shortcuts, or extensions..." searchSelector='tbody tr'>
+      <h3 className='section-header' id='shortcuts'>
+        Common Visual Studio Shortcuts
+      </h3>
+      <SearchContainer placeholder='Search actions, shortcuts, or extensions...' searchSelector='tbody tr'>
         <table>
           <thead>
             <tr>
@@ -64,7 +66,11 @@ export default function VisualStudioCode() {
               <td>Select current word or expand selection </td>
               <td>Ctrl + W</td>
               <td>Shift + Option + Right</td>
-              <td>Very useful.<br />Default keybinding was Shift + Alt + Right</td>
+              <td>
+                Very useful.
+                <br />
+                Default keybinding was Shift + Alt + Right
+              </td>
             </tr>
             <tr>
               <td>Select whole line</td>
@@ -124,7 +130,11 @@ export default function VisualStudioCode() {
               <td>Toggle Terminal/ Console</td>
               <td>Ctrl + ` (backtick)</td>
               <td>Cmd + ` (backtick)</td>
-              <td>Very useful.<br />Right clicking a file/folder will also give the option to open the terminal at that location</td>
+              <td>
+                Very useful.
+                <br />
+                Right clicking a file/folder will also give the option to open the terminal at that location
+              </td>
             </tr>
             <tr>
               <td>Toggle Sidebar</td>
@@ -138,56 +148,88 @@ export default function VisualStudioCode() {
       <hr />
 
       {/* <!-- LOREM IPSUM --> */}
-      <h3 className="section-header" id="lorem">Using Lorem Ipsum</h3>
-      <p>You can use <code>lorem</code> followed by a number in Visual Studio Code to generate placeholder text
-        quickly inside an HTML document.</p>
-      <pre><code className="language-html">&lt;p&gt;lorem20&lt;/p&gt;</code></pre>
+      <h3 className='section-header' id='lorem'>
+        Using Lorem Ipsum
+      </h3>
+      <p>
+        You can use <code>lorem</code> followed by a number in Visual Studio Code to generate placeholder text quickly
+        inside an HTML document.
+      </p>
+      <pre>
+        <code className='language-html'>&lt;p&gt;lorem20&lt;/p&gt;</code>
+      </pre>
       <p>This expands to generate 20 filler words:</p>
-      <pre><code className="language-html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit...&lt;/p&gt;</code></pre>
+      <pre>
+        <code className='language-html'>
+          &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit...&lt;/p&gt;
+        </code>
+      </pre>
       <hr />
 
-
       {/* <!-- EXTENSIONS --> */}
-      <h3 className="section-header" id="extensions">Extensions</h3>
+      <h3 className='section-header' id='extensions'>
+        Extensions
+      </h3>
       <ul>
-
-        <li><strong>Live Server</strong> : allow for the website to auto-reload the changes made in code</li>
+        <li>
+          <strong>Live Server</strong> <code>ritwickdey.liveserver</code> : allow for the website to auto-reload the
+          changes made in code
+        </li>
         <ul>
-          <li>Mobile testing Setup: in Live Server setting, check the option to "Use Local Ip"; this will allow mobile devices to access the same website by putting in the same url, but make sure the phone is connected to the same Wifi</li>
+          <li>
+            Mobile testing Setup: in Live Server setting, check the option to "Use Local Ip"; this will allow mobile
+            devices to access the same website by putting in the same url, but make sure the phone is connected to the
+            same Wifi
+          </li>
         </ul>
 
-        <li><strong>Document This</strong> : create a quick documentation template for a Javascript or Typescript function</li>
+        <li>
+          <strong>Document This</strong> <code>oouo-diogo-perdigao.docthis</code> : create a quick documentation
+          template for a Javascript or Typescript function
+        </li>
         <ul>
-          <li>Right click the function name and select 'Document This'. Another shortcut is Ctrl + Alt + D, then Ctrl + Alt + D again</li>
+          <li>
+            Right click the function name and select 'Document This'. Another shortcut is Ctrl + Alt + D, then Ctrl +
+            Alt + D again
+          </li>
         </ul>
 
-        <li><strong>Todo Tree</strong> : highlight <code>TODO</code> and <code>FIXME</code> tags, and give a view of all those tags in a project</li>
+        <li>
+          <strong>Prettier - Code formatter</strong> <code>esbenp.prettier-vscode</code> : extremely useful code
+          formatter for a variety of language
+        </li>
+        <ul>
+          <li>
+            Formats JavaScript , TypeScript , Flow , JSX , JSON , CSS , SCSS , Less , HTML , Vue , Angular , HANDLEBARS
+            , Ember , Glimmer , GraphQL , Markdown , YAML
+          </li>
+        </ul>
+
+        <li>
+          <strong>Pretty TypeScript Errors</strong> <code>yoavbls.pretty-ts-errors</code> : makes typescript error
+          easier to read
+        </li>
+
+        <li>
+          <strong>Todo Tree</strong> <code>gruntfuggly.todo-tree</code> : highlight <code>TODO</code> and{' '}
+          <code>FIXME</code> tags, and give a view of all those tags in a project
+        </li>
         <ul>
           <li>The Todo Tree can be viewed in the left side panel.</li>
         </ul>
 
-         <li><strong>ESLint</strong> : code analysis tool for Javascript and Typescript</li>
+        <li>
+          <strong>GitHub Copilot</strong> <code>github.copilot</code> : AI assistant
+        </li>
+
+        <li>
+          <strong>ESLint</strong> <code>dbaeumer.vscode-eslint</code> : code analysis tool for Javascript and Typescript
+        </li>
         <ul>
-          <li>It detect Syntax error before running the code, enforce coding standards and best practices</li>
-          <li>Normally come pre-installed with Next.js project</li>
-          <li>Configurable inside the <code>eslint.config</code> file</li>
-          <CodeBlock language='jsx'>{`
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals"),
-  {
-    ignores: [
-      "node_modules/**",
-      ".next/**",
-      "out/**",
-      "build/**",
-      "next-env.d.ts",
-    ],
-    rules: {
-      'react/no-unescaped-entities': 'off', // disable the rule globally
-    },
-  },
-];          
-          `}</CodeBlock>
+          <li>
+            Requires the <code>eslint</code> npm package to be installed in the project to work: <Link href="/Tools/node#eslint">link</Link>
+          </li>
+          <li>It detect syntax error before compiling the code, enforce coding standards and best practices</li>
         </ul>
       </ul>
     </>
