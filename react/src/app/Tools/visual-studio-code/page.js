@@ -1,6 +1,5 @@
 import React from 'react';
 import SearchContainer from '@/components/shared/SearchContainer';
-import CodeBlock from '@/components/shared/CodeBlock';
 import Link from 'next/link';
 
 export const metadata = {
@@ -301,7 +300,6 @@ export default function VisualStudioCode() {
           </ul>
         </ul>
       </ul>
-      <hr />
     </>
   );
 }

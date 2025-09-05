@@ -25,7 +25,13 @@ const prismDictionary = {
 // server side running the highlighting
 export default function CodeBlock({ children, language = 'jsx' }) {
     const codeString = typeof children === "string" ? children.trim() : React.Children.toArray(children).join("").trim();
-    let highlighted = Prism.highlight(codeString, Prism.languages[language], language);
+    let highlighted;
+    try {
+        highlighted = Prism.highlight(codeString, Prism.languages[language], language);
+    } catch(e) {
+        highlighted = Prism.highlight(codeString, Prism.languages['jsx'], 'jsx');
+    }
+    
     // console.log('Highlighting codes!');
 
     // keeping mark down from before
