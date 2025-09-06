@@ -52,6 +52,12 @@ const navSections = [
     ],
   },
   {
+    section: 'C++',
+    pages: [
+      { name: 'C++ Syntax', link: '/Cpp/cpp-syntax' },
+    ],
+  },
+  {
     section: 'Responsive',
     pages: [
       { name: 'CSS Responsive Styles', link: '/Responsive/responsive' },
