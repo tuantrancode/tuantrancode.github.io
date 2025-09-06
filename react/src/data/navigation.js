@@ -55,6 +55,7 @@ const navSections = [
     section: 'C++',
     pages: [
       { name: 'C++ Syntax', link: '/Cpp/cpp-syntax' },
+      { name: 'C++ Methods', link: '/Cpp/cpp-methods' },
     ],
   },
   {
