@@ -1,0 +1,436 @@
+1:"$Sreact.fragment"
+2:I[79520,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/6403d6ff943fee62.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],""]
+3:I[35974,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/6403d6ff943fee62.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"ThemeProvider"]
+4:I[20908,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/6403d6ff943fee62.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"default"]
+5:I[39756,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/6403d6ff943fee62.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"default"]
+6:I[37457,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/6403d6ff943fee62.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"default"]
+17:I[68027,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/6403d6ff943fee62.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"default"]
+:HL["/_next/static/chunks/152b8b3f0ab272fa.css","style"]
+0:{"P":null,"b":"RZL8bA8efBq8jk9xDjzxs","p":"","c":["","Cpp","cpp-syntax"],"i":false,"f":[[["",{"children":["Cpp",{"children":["cpp-syntax",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/152b8b3f0ab272fa.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/f3af76091b908de4.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/6403d6ff943fee62.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/7dd66bdf8a7e5707.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"dark","children":[["$","head",null,{"children":[["$","style",null,{"children":"\n        "}],["$","$L2",null,{"id":"theme-script","strategy":"beforeInteractive","children":"\n            (function() {\n              const theme = localStorage.getItem('data-theme') || 'dark';\n              document.documentElement.dataset.theme = theme;\n              document.documentElement.setAttribute('data-theme', theme);\n            })();\n          "}]]}],["$","body",null,{"id":"root","children":["$","$L3",null,{"children":["$","$L4",null,{"children":["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}]]}],{"children":["Cpp",["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["cpp-syntax",["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[[["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"introduction","children":"Introduction"}],["$","p",null,{"children":"C++ is a general-purpose, high-performance, object-oriented programming language. It extends the C language with features like classes, templates, and the Standard Template Library (STL)."}],["$","h4",null,{"className":"sub-section-header","children":"Memory Regions: Heap/Stack"}],["$","ul",null,{"children":[["$","li",null,{"children":[["$","strong",null,{"children":"Code"}]," - region where the program instructions are stored"]}],["$","li",null,{"children":[["$","strong",null,{"children":"Static memory "}]," - region where global and static local variables are allocated"]}],["$","li",null,{"children":[["$","strong",null,{"children":"The stack "}]," - region where a function's local variables are allocated"]}],["$","li",null,{"children":[["$","strong",null,{"children":"The heap "}]," - region where the ",["$","code",null,{"children":"new"}]," operator allocates memory, and where"," ",["$","code",null,{"children":"delete"}]," operator deallocates memory"]}]]}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"#include <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>iostream</span><span class=\"token punctuation\">></span></span><span class=\"token plain-text\">\nusing namespace std;\n\nint main() </span><span class=\"token punctuation\">{</span>\n    cout <span class=\"token operator\">&lt;&lt;</span> <span class=\"token string\">\"Hello, World!\"</span> <span class=\"token operator\">&lt;&lt;</span> endl<span class=\"token punctuation\">;</span>\n    <span class=\"token keyword\">return</span> <span class=\"token number\">0</span><span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>"}}]}],"$L7"]}],"$L8","$L9","$La","$Lb","$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14"],null,"$L15"]}],{},null,false]},null,false]},null,false]},null,false],"$L16",false]],"m":"$undefined","G":["$17",["$L18"]],"s":false,"S":true}
+49:I[97367,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/6403d6ff943fee62.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"OutletBoundary"]
+4b:I[11533,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/6403d6ff943fee62.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"AsyncMetadataOutlet"]
+4d:I[97367,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/6403d6ff943fee62.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"ViewportBoundary"]
+4f:I[97367,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/6403d6ff943fee62.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"MetadataBoundary"]
+50:"$Sreact.suspense"
+7:["$","hr",null,{}]
+19:T6f7,<span class="token keyword">const</span> int age <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">;</span>       <span class="token comment">// declaring constant</span>
+int age <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">;</span>       <span class="token comment">// Integer: maximum int value is roughly 2 billion (32-bit)</span>
+float price <span class="token operator">=</span> <span class="token number">9.99</span><span class="token punctuation">;</span> <span class="token comment">// Floating point</span>
+char grade <span class="token operator">=</span> <span class="token string">'A'</span><span class="token punctuation">;</span>   <span class="token comment">// Character</span>
+bool isHappy <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span class="token comment">// Boolean</span>
+string name <span class="token operator">=</span> <span class="token string">"Bob"</span><span class="token punctuation">;</span> <span class="token comment">// String (&lt;string> header required)</span>
+
+<span class="token keyword">enum</span> ErrorCode <span class="token punctuation">{</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment">// Enumeration; only consists of a set of defined constants</span>
+ErrorCode codeVariable <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>8:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"variables","children":"Variables & Data Types"}],["$","h4",null,{"className":"sub-section-header","children":"Basic Types"}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$19"}}]}],["$","hr",null,{}]]}]
+1a:T41e,#include <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iostream</span><span class="token punctuation">></span></span><span class="token plain-text">
+using namespace std;
+
+int main() </span><span class="token punctuation">{</span>
+    string name<span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Enter your name: "</span><span class="token punctuation">;</span>
+    cin <span class="token operator">>></span> name<span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Hello, "</span> <span class="token operator">&lt;&lt;</span> name <span class="token operator">&lt;&lt;</span> <span class="token string">"!"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>9:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"io","children":"Input & Output"}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$1a"}}]}],["$","hr",null,{}]]}]
+1b:Ta4d,int x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">{</span>condition<span class="token punctuation">}</span> <span class="token operator">?</span> <span class="token boolean">true</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Positive"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Negative"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Zero"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">switch</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> <span class="token number">0</span><span class="token operator">:</span>
+     <span class="token comment">// Print "zero"</span>
+     <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>
+     <span class="token comment">// Print "one"</span>
+     <span class="token keyword">break</span><span class="token punctuation">;</span>
+   <span class="token keyword">default</span><span class="token operator">:</span>
+     <span class="token comment">// Print "unknown"</span>
+     <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>a:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"conditionals","children":"Conditionals"}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$1b"}}]}],["$","hr",null,{}]]}]
+b:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"loops","children":"Loops"}],["$","h4",null,{"className":"sub-section-header","children":"For Loop"}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"<span class=\"token keyword\">for</span> <span class=\"token punctuation\">(</span>int i <span class=\"token operator\">=</span> <span class=\"token number\">0</span><span class=\"token punctuation\">;</span> i <span class=\"token operator\">&lt;</span> <span class=\"token number\">5</span><span class=\"token punctuation\">;</span> i<span class=\"token operator\">++</span><span class=\"token punctuation\">)</span> <span class=\"token punctuation\">{</span>\n    cout <span class=\"token operator\">&lt;&lt;</span> i <span class=\"token operator\">&lt;&lt;</span> <span class=\"token string\">\" \"</span><span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>"}}]}],["$","h4",null,{"className":"sub-section-header","children":"While Loop"}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"int i <span class=\"token operator\">=</span> <span class=\"token number\">0</span><span class=\"token punctuation\">;</span>\n<span class=\"token keyword\">while</span> <span class=\"token punctuation\">(</span>i <span class=\"token operator\">&lt;</span> <span class=\"token number\">5</span><span class=\"token punctuation\">)</span> <span class=\"token punctuation\">{</span>\n    cout <span class=\"token operator\">&lt;&lt;</span> i <span class=\"token operator\">&lt;&lt;</span> <span class=\"token string\">\" \"</span><span class=\"token punctuation\">;</span>\n    i<span class=\"token operator\">++</span><span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>"}}]}],["$","h4",null,{"className":"sub-section-header","children":"Do-While Loop"}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"int i <span class=\"token operator\">=</span> <span class=\"token number\">0</span><span class=\"token punctuation\">;</span>\n<span class=\"token keyword\">do</span> <span class=\"token punctuation\">{</span>\n    cout <span class=\"token operator\">&lt;&lt;</span> i <span class=\"token operator\">&lt;&lt;</span> <span class=\"token string\">\" \"</span><span class=\"token punctuation\">;</span>\n    i<span class=\"token operator\">++</span><span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span> <span class=\"token keyword\">while</span> <span class=\"token punctuation\">(</span>i <span class=\"token operator\">&lt;</span> <span class=\"token number\">5</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>"}}]}],["$","hr",null,{}]]}]
+1c:T47d,#include <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iostream</span><span class="token punctuation">></span></span><span class="token plain-text">
+#include "filename.h"
+using namespace std;
+
+int add(int a, int b = 9) </span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token plain-text">
+
+int main() </span><span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 7</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>c:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"functions","children":"Functions"}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$1c"}}]}],["$","hr",null,{}]]}]
+1d:T941,int numbers<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span>int i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> numbers<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+vector<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>int</span><span class="token punctuation">></span></span><span class="token plain-text"> orderedList(5) = </span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">}</span><span class="token plain-text">;
+orderList.push_back(77); // appends 77
+orderList.at(6); // access/set value at index 6, return 77
+orderList.size(); // return size of vector, return 6
+orderList.reszie(10); // resize vector to have 10 elements
+orderList.back(); // return the last element (w/o changing vector)
+orderList.pop_back(); // removes the last element'</span>d:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"arrays","children":"Arrays & Vectors"}],["$","p",null,{"children":["Vectors are safer to use than arrays. Arrays are fixed references ",["$","code",null,{"children":"arr1 = arr2"}]," is not allowed"]}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$1d"}}]}],["$","hr",null,{}]]}]
+e:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"headerFileGuard","children":"Header File Guards"}],["$","p",null,{"children":"Prevent the preprocessor to include the file only once. Useful for making libraries or project headers/utils"}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"#ifndef <span class=\"token constant\">MY_HEADER_H</span>   <span class=\"token comment\">// If not defined</span>\n#define <span class=\"token constant\">MY_HEADER_H</span>   <span class=\"token comment\">// Define it</span>\n\n<span class=\"token comment\">// Your declarations here</span>\n<span class=\"token keyword\">void</span> <span class=\"token function\">myFunction</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\n<span class=\"token keyword\">class</span> <span class=\"token class-name\">MyClass</span> <span class=\"token punctuation\">{</span> <span class=\"token punctuation\">}</span><span class=\"token punctuation\">;</span>\n\n#endif <span class=\"token comment\">// MY_HEADER_H</span>"}}]}],["$","h4",null,{"className":"sub-section-header","children":"Modern Alternative: #pragma once"}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"#pragma once\n\n<span class=\"token keyword\">void</span> <span class=\"token function\">myFunction</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\n<span class=\"token keyword\">class</span> <span class=\"token class-name\">MyClass</span> <span class=\"token punctuation\">{</span> <span class=\"token punctuation\">}</span><span class=\"token punctuation\">;</span>"}}]}],["$","hr",null,{}]]}]
+1e:T1f5e,int x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+int y<span class="token punctuation">;</span>
+int<span class="token operator">*</span> ptr <span class="token operator">=</span> <span class="token entity named-entity" title="&x;">&amp;x;</span> <span class="token comment">// Pointer stores the address of x</span>
+ptr <span class="token operator">=</span> nullptr<span class="token punctuation">;</span> <span class="token comment">// Pointer points to nothing now</span>
+ptr <span class="token operator">=</span> <span class="token entity named-entity" title="&x;">&amp;x;</span>
+cin <span class="token operator">>></span> y<span class="token punctuation">;</span>
+int<span class="token operator">*</span> arrPtr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// dynamically allocate memory for new array</span>
+
+cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Value: "</span> <span class="token operator">&lt;&lt;</span> x <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>       <span class="token comment">// 10</span>
+cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Address: "</span> <span class="token operator">&lt;&lt;</span> ptr <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>   <span class="token comment">// Memory address</span>
+cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Dereferenced: "</span> <span class="token operator">&lt;&lt;</span> <span class="token operator">*</span>ptr <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// Access the data the ptr points to; 10</span>
+
+<span class="token keyword">delete</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arrPtr<span class="token punctuation">;</span> to deallocate the memory used by the array
+arrPtr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// now it's safe to have the pointer reference a new array</span>
+
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+<span class="token comment">// Overview</span>
+
+int normal<span class="token punctuation">;</span> <span class="token comment">// holds data value</span>
+int<span class="token operator">*</span> ptr<span class="token punctuation">;</span> <span class="token comment">// holds memory address</span>
+<span class="token entity named-entity" title="&normal;">&amp;normal;</span> <span class="token comment">// return address of variable</span>
+<span class="token operator">*</span>ptr<span class="token punctuation">;</span> <span class="token comment">// * dereferences ptr and access data value of ptr</span>
+<span class="token entity named-entity" title="&ptr;">&amp;ptr;</span> <span class="token comment">// address of pointer</span>
+
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+<span class="token comment">// Pointers and objects</span>
+
+int<span class="token operator">*</span> arrPtr<span class="token punctuation">;</span>
+MyClass <span class="token operator">*</span>objPtr<span class="token punctuation">,</span> <span class="token operator">*</span>objArrPtr<span class="token punctuation">;</span>
+arrPtr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>size<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// points to address of new int array </span>
+objPtr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// points to MyClass object;</span>
+<span class="token comment">// objPtr is pointer to MyClass object;</span>
+objArrPtr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyClass</span><span class="token punctuation">[</span>size<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// points to dynamically allocated array of MyClass objects;</span>
+<span class="token comment">// objArrPtr[0] is a MyClass object</span>
+
+objPtr<span class="token operator">-</span><span class="token operator">></span><span class="token function">someMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+objArrPtr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">someMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Risk of memory leak below</span>
+Object<span class="token operator">&amp;</span> obj <span class="token operator">=</span> <span class="token operator">*</span><span class="token punctuation">(</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// obj is a reference, not a pointer, to an object</span>
+<span class="token keyword">delete</span> obj<span class="token punctuation">;</span> <span class="token comment">// ❌ ERROR because obj is not a pointer</span>
+obj <span class="token operator">=</span> <span class="token operator">*</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Causes memory leak</span>f:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"pointers","children":"Pointers"}],["$","p",null,{"children":["Pointers store the ",["$","strong",null,{"children":"memory address"}]," of a variable. You can use them to access and modify data directly."]}],["$","ul",null,{"children":[["$","li",null,{"children":[["$","code",null,{"children":"new"}]," operator allocate memory to create an object/ array and return a pointer to that object"]}],["$","li",null,{"children":[["$","code",null,{"children":"delete"}]," operator deallocate memory"]}],["$","li",null,{"children":["Dynmamically allocated objects need to have ",["$","code",null,{"children":"delete"}]," call on it at the end to avoid memory leak"]}],["$","li",null,{"children":"Use smart pointers to avoid having to manual delete"}]]}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$1e"}}]}],"$L1f","$L20","$L21","$L22","$L23"]}]
+24:T73a,#include <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>memory</span><span class="token punctuation">></span></span><span class="token plain-text">
+#include </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iostream</span><span class="token punctuation">></span></span><span class="token plain-text">
+using namespace std;
+
+auto obj = make_unique</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>int</span><span class="token punctuation">></span></span><span class="token plain-text">(42); // preferred way
+cout &lt;&lt; *obj &lt;&lt; endl;
+
+// Move ownership
+auto obj2 = move(obj); // obj is now null
+
+-------------------------------------
+// Passing by const reference to avoid transfer of ownership
+void useObject(const unique_ptr</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">MyClass</span></span><span class="token punctuation">></span></span><span class="token plain-text">&amp; obj) </span><span class="token punctuation">{</span>
+    obj<span class="token operator">-</span><span class="token operator">></span><span class="token function">method</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token plain-text">
+
+int main() </span><span class="token punctuation">{</span>
+    auto obj <span class="token operator">=</span> make_unique<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">MyClass</span></span><span class="token punctuation">></span></span><span class="token plain-text">();
+    useObject(obj);
+}</span>10:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"smart-pointers","children":"Smart Pointers"}],["$","p",null,{"children":["Smart pointers are C++ objects that manage dynamic memory automatically, reducing the risk of memory leaks. The main types are",["$","code",null,{"children":"unique_ptr"}],", ",["$","code",null,{"children":"shared_ptr"}],", and ",["$","code",null,{"children":"weak_ptr"}],"."]}],["$","p",null,{"children":"Smart pointers are used the same way as normal pointer"}],["$","ul",null,{"children":[["$","li",null,{"children":["$","code",null,{"children":"obj->someMethod()"}]}],["$","li",null,{"children":["$","code",null,{"children":"(*obj).someMethod()"}]}]]}],["$","h4",null,{"className":"sub-section-header","children":"1. unique_ptr"}],["$","p",null,{"children":["- Owns a dynamically allocated object exclusively.",["$","br",null,{}],"- Cannot be copied, only moved.",["$","br",null,{}],"- Automatically deletes the object when it goes out of scope."]}],["$","ul",null,{"children":[["$","li",null,{"children":"obj1 = obj2 is not allowed"}],["$","li",null,{"children":"obj2 = move(obj1) is allowed; it transfer ownership to obj2 so now obj1 points to nullptr"}]]}],["$","pre",null,{"className":"language-cpp","children":["$","code",null,{"className":"language-cpp","dangerouslySetInnerHTML":{"__html":"$24"}}]}],["$","h4",null,{"className":"sub-section-header","children":"2. shared_ptr"}],["$","p",null,{"children":["- Allows multiple pointers to share ownership of an object.",["$","br",null,{}],"- Object is destroyed when the last ",["$","code",null,{"children":"shared_ptr"}]," goes out of scope.",["$","br",null,{}],"- Keeps a reference count internally."]}],["$","pre",null,{"className":"language-cpp","children":["$","code",null,{"className":"language-cpp","dangerouslySetInnerHTML":{"__html":"#include <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>memory</span><span class=\"token punctuation\">></span></span><span class=\"token plain-text\">\n#include </span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>iostream</span><span class=\"token punctuation\">></span></span><span class=\"token plain-text\">\nusing namespace std;\n\nauto obj1 = make_shared</span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>int</span><span class=\"token punctuation\">></span></span><span class=\"token plain-text\">(10);\nauto obj2 = obj1;  // copy allowed\ncout &lt;&lt; obj1.use_count() &lt;&lt; endl; // 2\ncout &lt;&lt; *obj2 &lt;&lt; endl;</span>"}}]}],"$L25","$L26","$L27","$L28","$L29","$L2a","$L2b","$L2c","$L2d"]}]
+2e:T185f,#include <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iostream</span><span class="token punctuation">></span></span><span class="token plain-text">
+using namespace std;
+
+class Person </span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    string name<span class="token punctuation">;</span>
+    int age<span class="token punctuation">;</span>
+    OtherObject dataObject<span class="token punctuation">;</span>
+    <span class="token keyword">static</span> int planet<span class="token punctuation">;</span>
+
+    <span class="token comment">// constructor</span>
+    <span class="token function">Person</span><span class="token punctuation">(</span><span class="token parameter">string name</span><span class="token punctuation">)</span><span class="token punctuation">{</span> 
+        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+     <span class="token comment">// destructor (called when 'delete' operator is used on object)</span>
+    <span class="token operator">~</span><span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    
+        <span class="token comment">// cleanup</span>
+    <span class="token punctuation">}</span>
+
+     <span class="token comment">// copy constructor (called when a new object is created)</span>
+    <span class="token function">Person</span><span class="token punctuation">(</span><span class="token parameter"><span class="token keyword">const</span> Person<span class="token operator">&amp;</span> origObj</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+        <span class="token comment">// copy all neccessary properties to make a deep copy</span>
+        <span class="token keyword">return</span> copyObj<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// assignment operator (called when assigning an old object)</span>
+    Person<span class="token operator">&amp;</span> operator<span class="token operator">=</span><span class="token punctuation">(</span>Person other<span class="token punctuation">)</span><span class="token punctuation">{</span>
+          <span class="token function">swap</span><span class="token punctuation">(</span>dataObject<span class="token punctuation">,</span> other<span class="token punctuation">.</span>dataObject<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token keyword">void</span> <span class="token function">introduce</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Hi, I'm "</span> <span class="token operator">&lt;&lt;</span> name <span class="token operator">&lt;&lt;</span> <span class="token string">" and I'm "</span> <span class="token operator">&lt;&lt;</span> age <span class="token operator">&lt;&lt;</span> <span class="token string">" years old."</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+   <span class="token keyword">void</span> <span class="token function">helperFunc</span><span class="token punctuation">(</span>int n<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span><span class="token plain-text">
+
+void Person::helperFunc(int n)</span><span class="token punctuation">{</span>
+   <span class="token comment">// do something</span>
+<span class="token punctuation">}</span><span class="token plain-text">
+
+int main() </span><span class="token punctuation">{</span>
+    Person p1<span class="token punctuation">;</span>
+    p1<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"Bob"</span><span class="token punctuation">;</span>
+    p1<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">21</span><span class="token punctuation">;</span>
+    p1<span class="token punctuation">.</span><span class="token function">introduce</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Person p2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// make new Person obj</span>
+    Person p3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span>p2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// copy p2 obj into p3, but needs to define a copy constructor (deep copy)</span>
+    Person p4 <span class="token operator">=</span> p2<span class="token punctuation">;</span> <span class="token comment">// also copy p2 to p4 using the copy constructor (deep copy)</span>
+
+    p4 <span class="token operator">=</span> p3<span class="token punctuation">;</span> <span class="token comment">// does NOT call the copy constructor, it will use the assignment operator instead</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>11:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"classes","children":"Classes & Objects"}],["$","p",null,{"children":[["$","strong",null,{"children":"Rule of Three"}]," : if any of the destructor, copy constructor, or copy assignment operator is defined, then all 3 should be explicitly define as well"]}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$2e"}}]}],"$L2f","$L30","$L31","$L32","$L33","$L34","$L35"]}]
+12:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"c-stdlib","children":"Common C Standard Library Functions"}],["$","p",null,{"children":["The C standard library (",["$","code",null,{"children":"<cstdlib>"}],", ",["$","code",null,{"children":"<cstdio>"}],","," ",["$","code",null,{"children":"<cstring>"}],", ",["$","code",null,{"children":"<cmath>"}],", etc.) provides many utility functions for I/O, string manipulation, math, memory management, and more."]}],["$","h4",null,{"className":"sub-section-header","children":"Input / Output"}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"#include <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>cstdio</span><span class=\"token punctuation\">></span></span><span class=\"token plain-text\">\n\n\nprintf(\"Hello %s!\\n\", \"World\"); // Print formatted string\nscanf(\"%d\", &amp;num); // Read an integer</span>"}}]}],["$","h4",null,{"className":"sub-section-header","children":"String Functions"}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"#include <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>cstring</span><span class=\"token punctuation\">></span></span><span class=\"token plain-text\">\n\n.find(item); returns the first index where item is at\n.substr(index, length); returns a substring starting at index having length characters\n.push_back(char); appends character to end of string\n.insert(index, subStr); insert substring starting at index\n.replace(index, num, subStr); replaces characters at indices index to index+num-1 with a copy of substring\n\nstrlen(str); // Returns length of string\nstrchr(sourceStr, searchChar); // return null if searchChar does not exist, else return address\nstrcpy(dest, src); // Copy string\nstrcat(dest, src); // Concatenate strings\nstrncat(destStr, sourceStr, numChars); // Copies up to numChars characters to destStr's end, then appends null character.\nstrcmp(a, b); // Compare two strings (0 if equal)</span>"}}]}],["$","h4",null,{"className":"sub-section-header","children":"Math Functions"}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"#include <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>cmath</span><span class=\"token punctuation\">></span></span><span class=\"token plain-text\">\n\n\nsqrt(16); // 4\npow(2, 3); // 8\nfabs(-3.5); // 3.5\nfloor(3.7); // 3\nceil(3.2); // 4</span>"}}]}],["$","h4",null,{"className":"sub-section-header","children":"Memory Management"}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"#include <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>cstdlib</span><span class=\"token punctuation\">></span></span><span class=\"token plain-text\">\n\n\nint *arr = (int*)malloc(5 * sizeof(int)); // Allocate memory\nfree(arr); // Free memory\n\n\nint *arr2 = (int*)calloc(5, sizeof(int)); // Allocate and zero-initialize\narr2 = (int*)realloc(arr2, 10 * sizeof(int)); // Resize memory block</span>"}}]}],["$","h4",null,{"className":"sub-section-header","children":"Random Numbers"}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"#include <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>cstdlib</span><span class=\"token punctuation\">></span></span><span class=\"token plain-text\">\n#include </span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>ctime</span><span class=\"token punctuation\">></span></span><span class=\"token plain-text\">\n\n\nsrand(time(0)); // Seed random generator\nint num = rand() % 100; // Random number between 0 and 99</span>"}}]}],"$L36","$L37","$L38"]}]
+39:T475,#include <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>vector</span><span class="token punctuation">></span></span><span class="token plain-text">
+#include </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iostream</span><span class="token punctuation">></span></span><span class="token plain-text">
+using namespace std;
+
+
+vector</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>int</span><span class="token punctuation">></span></span><span class="token plain-text"> v = </span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token plain-text">;
+v.push_back(4); // Add element at the end
+v.pop_back(); // Remove last element
+v.size(); // Number of elements
+v[0] = 10; // Access element by index
+for (int x : v) cout &lt;&lt; x &lt;&lt; " "; // Range-based loop</span>3a:T455,#include <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>set</span><span class="token punctuation">></span></span><span class="token plain-text">
+#include </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iostream</span><span class="token punctuation">></span></span><span class="token plain-text">
+using namespace std;
+
+
+set</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>int</span><span class="token punctuation">></span></span><span class="token plain-text"> s = </span><span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">}</span><span class="token plain-text">;
+s.insert(2); // Add element (automatically sorted)
+s.erase(3); // Remove element
+s.find(4) != s.end(); // Check if element exists
+for (int x : s) cout &lt;&lt; x &lt;&lt; " "; // Iteration</span>13:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"stl-types","children":"STL Data Types & Common Functions"}],["$","p",null,{"children":"The C++ Standard Template Library (STL) provides containers, iterators, and algorithms that make it easier to work with data. Below are the most common STL data types and frequently used functions."}],["$","h4",null,{"className":"sub-section-header","children":"Vector (<vector>)"}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$39"}}]}],["$","h4",null,{"className":"sub-section-header","children":"String (<string>)"}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"#include <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>string</span><span class=\"token punctuation\">></span></span><span class=\"token plain-text\">\n#include </span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>iostream</span><span class=\"token punctuation\">></span></span><span class=\"token plain-text\">\nusing namespace std;\n\n\nstring s = \"Hello\";\ns += \" World\"; // Concatenate strings\ns.size(); // Length of string\ns.substr(0, 5); // Substring\ns.find(\"World\"); // Find substring\ns.replace(0, 5, \"Hi\"); // Replace portion</span>"}}]}],["$","h4",null,{"className":"sub-section-header","children":"Set (<set>)"}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$3a"}}]}],"$L3b","$L3c","$L3d","$L3e","$L3f","$L40"]}]
+41:Tc0c,<span class="token comment">// auditorium.h</span>
+namespace auditorium <span class="token punctuation">{</span>
+   <span class="token keyword">class</span> <span class="token class-name">Seat</span> <span class="token punctuation">{</span> 
+      <span class="token operator">...</span> 
+   <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+<span class="token comment">// airplane.h</span>
+namespace airplane <span class="token punctuation">{</span>
+   <span class="token keyword">class</span> <span class="token class-name">Seat</span> <span class="token punctuation">{</span> 
+      <span class="token operator">...</span> 
+   <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+<span class="token comment">// main.cpp</span>
+#include <span class="token string">"auditorium.h"</span>
+#include <span class="token string">"airplane.h"</span>
+
+int <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token literal-property property">auditorium</span><span class="token operator">:</span><span class="token operator">:</span>Seat concertSeat<span class="token punctuation">;</span> 
+   <span class="token literal-property property">airplane</span><span class="token operator">:</span><span class="token operator">:</span>Seat flightSeat<span class="token punctuation">;</span>
+
+   <span class="token comment">// ...</span>
+
+   <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>14:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"namespaces","children":"Namespaces"}],["$","p",null,{"children":"Namespaces in C++ are used to organize code and prevent name collisions between variables, functions, or classes with the same name."}],["$","h4",null,{"className":"sub-section-header","children":"Basic Usage"}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$41"}}]}],"$L42","$L43","$L44","$L45","$L46","$L47","$L48"]}]
+15:["$","$L49",null,{"children":["$L4a",["$","$L4b",null,{"promise":"$@4c"}]]}]
+16:["$","$1","h",{"children":[null,[["$","$L4d",null,{"children":"$L4e"}],null],["$","$L4f",null,{"children":["$","div",null,{"hidden":true,"children":["$","$50",null,{"fallback":null,"children":"$L51"}]}]}]]}]
+18:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/152b8b3f0ab272fa.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+1f:["$","h4",null,{"className":"sub-section-header","children":"Pointer Arithmetic"}]
+52:T621,int arr<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+int<span class="token operator">*</span> p <span class="token operator">=</span> arr<span class="token punctuation">;</span>
+
+cout <span class="token operator">&lt;&lt;</span> <span class="token operator">*</span>p <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>     <span class="token comment">// 10</span>
+cout <span class="token operator">&lt;&lt;</span> <span class="token operator">*</span><span class="token punctuation">(</span>p <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 20</span>
+cout <span class="token operator">&lt;&lt;</span> <span class="token operator">*</span><span class="token punctuation">(</span>p <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 30</span>20:["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$52"}}]}]
+21:["$","h4",null,{"className":"sub-section-header","children":"Passing by reference"}]
+53:T5de,<span class="token keyword">void</span> <span class="token function">ComputeChange</span><span class="token punctuation">(</span><span class="token parameter">int totCents<span class="token punctuation">,</span> int<span class="token operator">&amp;</span> numQuarters</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   numQuarters <span class="token operator">=</span> totCents <span class="token operator">/</span> <span class="token number">25</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+int <span class="token function">main</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    int numQuarters<span class="token punctuation">;</span>
+    int totCents <span class="token operator">=</span> <span class="token number">99</span><span class="token punctuation">;</span>
+
+    <span class="token function">ComputeChange</span><span class="token punctuation">(</span>totCents<span class="token punctuation">,</span> numQuarters<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Number of Quarters: "</span> <span class="token operator">&lt;&lt;</span> numQuarters
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>22:["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$53"}}]}]
+23:["$","hr",null,{}]
+25:["$","h4",null,{"className":"sub-section-header","children":"3. weak_ptr"}]
+26:["$","p",null,{"children":["- Non-owning pointer to an object managed by ",["$","code",null,{"children":"shared_ptr"}],".",["$","br",null,{}],"- Does not increase reference count.",["$","br",null,{}],"- Used to break cyclic references."]}]
+54:T547,#include <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>memory</span><span class="token punctuation">></span></span><span class="token plain-text">
+#include </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iostream</span><span class="token punctuation">></span></span><span class="token plain-text">
+using namespace std;
+
+auto sp = make_shared</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>int</span><span class="token punctuation">></span></span><span class="token plain-text">(50);
+weak_ptr</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>int</span><span class="token punctuation">></span></span><span class="token plain-text"> wp = sp;      // weak_ptr does not increase ref count
+cout &lt;&lt; sp.use_count() &lt;&lt; endl; // 1
+
+if (auto temp = wp.lock()) </span><span class="token punctuation">{</span> <span class="token comment">// convert weak_ptr to shared_ptr temporarily</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token operator">*</span>temp <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>  <span class="token comment">// 50</span>
+<span class="token punctuation">}</span>27:["$","pre",null,{"className":"language-cpp","children":["$","code",null,{"className":"language-cpp","dangerouslySetInnerHTML":{"__html":"$54"}}]}]
+28:["$","h4",null,{"className":"sub-section-header","children":"4. make_unique & make_shared"}]
+29:["$","p",null,{"children":["- Preferred way to create smart pointers.",["$","br",null,{}],"- Safer than manually using ",["$","code",null,{"children":"new"}],".",["$","br",null,{}],"- Ensures exception safety and cleaner code."]}]
+2a:["$","pre",null,{"className":"language-cpp","children":["$","code",null,{"className":"language-cpp","dangerouslySetInnerHTML":{"__html":"auto uPtr <span class=\"token operator\">=</span> make_unique<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span><span class=\"token class-name\">MyClass</span></span><span class=\"token punctuation\">></span></span><span class=\"token plain-text\">();\nauto sPtr = make_shared</span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span><span class=\"token class-name\">MyClass</span></span><span class=\"token punctuation\">></span></span><span class=\"token plain-text\">();</span>"}}]}]
+2b:["$","h4",null,{"className":"sub-section-header","children":"5. When to Use Each"}]
+2c:["$","ul",null,{"children":[["$","li",null,{"children":[["$","code",null,{"children":"unique_ptr"}],": Exclusive ownership, no copying needed."]}],["$","li",null,{"children":[["$","code",null,{"children":"shared_ptr"}],": Shared ownership among multiple objects."]}],["$","li",null,{"children":[["$","code",null,{"children":"weak_ptr"}],": Break cycles, observe ",["$","code",null,{"children":"shared_ptr"}]," without owning."]}],["$","li",null,{"children":["Always prefer ",["$","code",null,{"children":"make_unique"}]," or ",["$","code",null,{"children":"make_shared"}]," over raw ",["$","code",null,{"children":"new"}],"."]}]]}]
+2d:["$","hr",null,{}]
+2f:["$","h4",null,{"className":"sub-section-header","children":"Separate Files for One Class"}]
+30:["$","p",null,{"children":["Dev will keep a className.h file for class definitions and a className.cpp that contains the member functions definitions. The main.cpp file will ",["$","code",null,{"children":"#include \"className.h\""}]," only"]}]
+55:T15a1,<span class="token comment">// StoreItem.h</span>
+#ifndef <span class="token constant">STOREITEM_H</span>
+#define <span class="token constant">STOREITEM_H</span>
+
+<span class="token keyword">class</span> <span class="token class-name">StoreItem</span> <span class="token punctuation">{</span>
+   <span class="token keyword">public</span><span class="token operator">:</span>
+      <span class="token function">StoreItem</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// constructor</span>
+      <span class="token function">StoreItem</span><span class="token punctuation">(</span>int n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token operator">~</span><span class="token function">StoreItem</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// destructor</span>
+      <span class="token function">StoreItem</span><span class="token punctuation">(</span><span class="token keyword">const</span> StoreItem<span class="token operator">&amp;</span> origObj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// copy constructor</span>
+      <span class="token keyword">void</span> <span class="token function">SetWeightOunces</span><span class="token punctuation">(</span>int ounces<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">void</span> <span class="token function">Print</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span><span class="token punctuation">;</span>
+   <span class="token keyword">private</span><span class="token operator">:</span>
+      int weightOunces<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+#endif
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>
+<span class="token comment">// StoreItem.cpp</span>
+#include <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iostream</span><span class="token punctuation">></span></span><span class="token plain-text">
+using namespace std;
+
+#include "StoreItem.h"
+
+StoreItem::StoreItem() </span><span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span><span class="token plain-text">
+
+StoreItem::StoreItem(int n)</span><span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span><span class="token plain-text">
+
+void StoreItem::SetWeightOunces(int ounces) </span><span class="token punctuation">{</span>
+   weightOunces <span class="token operator">=</span> ounces<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token plain-text">
+
+void StoreItem::Print() const </span><span class="token punctuation">{</span>
+   cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Weight (ounces): "</span> <span class="token operator">&lt;&lt;</span> weightOunces <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token plain-text">
+------------------------------------------------------------
+// main.cpp
+#include </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iostream</span><span class="token punctuation">></span></span><span class="token plain-text">
+using namespace std;
+
+#include "StoreItem.h"
+
+int main() </span><span class="token punctuation">{</span>
+   StoreItem item1<span class="token punctuation">;</span>
+
+   item1<span class="token punctuation">.</span><span class="token function">SetWeightOunces</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   item1<span class="token punctuation">.</span><span class="token function">Print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+   <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>31:["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$55"}}]}]
+32:["$","h4",null,{"className":"sub-section-header","children":"Operator Overloading"}]
+33:["$","p",null,{"children":["Allows operations on classes like ",["$","code",null,{"children":"obj1 + obj2"}]," or ",["$","code",null,{"children":"obj1 == obj2"}]]}]
+56:T732,#include <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iostream</span><span class="token punctuation">></span></span><span class="token plain-text">
+using namespace std;
+
+class TimeHrMn </span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+   <span class="token function">TimeHrMn</span><span class="token punctuation">(</span>int timeHours <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> int timeMinutes <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword">void</span> <span class="token function">Print</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span><span class="token punctuation">;</span>
+   <mark><span class="token plain-text">TimeHrMn operator+(TimeHrMn rhs) ;</span></mark>
+<span class="token keyword">private</span><span class="token operator">:</span>
+   int hours<span class="token punctuation">;</span>
+   int minutes<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token plain-text">;
+
+// Overload + operator for TimeHrMn
+</span><mark><span class="token plain-text">TimeHrMn TimeHrMn::operator+(TimeHrMn rhs) </span></mark><span class="token plain-text">
+   TimeHrMn timeTotal;
+   
+   timeTotal.hours   = hours   + rhs.hours;
+   timeTotal.minutes = minutes + rhs.minutes;
+   
+   return timeTotal;
+}
+
+TimerHrMn timer1, timer2, timer3
+timer3 = timer1 + timer2;   // shortway to write below
+timer3.hours = timer1.hours + timer2.hours;
+timer3.minutes = timer1.minutes + timer2.minutes;</span>34:["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$56"}}]}]
+35:["$","hr",null,{}]
+36:["$","h4",null,{"className":"sub-section-header","children":"Character Classification"}]
+37:["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"#include <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>cctype</span><span class=\"token punctuation\">></span></span><span class=\"token plain-text\">\n\n\nisdigit('5'); // 1 (true)\nisalpha('A'); // 1 (true)\nisspace(c);\nisupper('G'); // 1 (true)\ntoUpper('a'); // A\ntolower('X'); // 'x'</span>"}}]}]
+38:["$","hr",null,{}]
+3b:["$","h4",null,{"className":"sub-section-header","children":"Map (<map>)"}]
+3c:["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"#include <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>map</span><span class=\"token punctuation\">></span></span><span class=\"token plain-text\">\n#include </span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>iostream</span><span class=\"token punctuation\">></span></span><span class=\"token plain-text\">\nusing namespace std;\n\n\nmap&lt;string, int> m;\nm[\"Alice\"] = 25;\nm[\"Bob\"] = 30;\ncout &lt;&lt; m[\"Alice\"]; // Access value\nm.erase(\"Bob\"); // Remove key-value pair\nfor (auto &amp;[k, v] : m) cout &lt;&lt; k &lt;&lt; \":\" &lt;&lt; v &lt;&lt; endl;</span>"}}]}]
+3d:["$","h4",null,{"className":"sub-section-header","children":"Algorithms (<algorithm>)"}]
+57:T567,#include <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>algorithm</span><span class="token punctuation">></span></span><span class="token plain-text">
+#include </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>vector</span><span class="token punctuation">></span></span><span class="token plain-text">
+#include </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iostream</span><span class="token punctuation">></span></span><span class="token plain-text">
+using namespace std;
+
+
+vector</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>int</span><span class="token punctuation">></span></span><span class="token plain-text"> v = </span><span class="token punctuation">{</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token plain-text">;
+sort(v.begin(), v.end()); // Sort ascending
+reverse(v.begin(), v.end()); // Reverse elements
+int mx = *max_element(v.begin(), v.end());
+int mn = *min_element(v.begin(), v.end());</span>3e:["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$57"}}]}]
+3f:["$","h4",null,{"className":"sub-section-header","children":"Stack (<stack>) and Queue (<queue>)"}]
+58:T454,#include <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>stack</span><span class="token punctuation">></span></span><span class="token plain-text">
+#include </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>queue</span><span class="token punctuation">></span></span><span class="token plain-text">
+#include </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iostream</span><span class="token punctuation">></span></span><span class="token plain-text">
+using namespace std;
+
+
+stack</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>int</span><span class="token punctuation">></span></span><span class="token plain-text"> st;
+st.push(1);
+st.push(2);
+st.top(); // 2
+st.pop();
+
+
+queue</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>int</span><span class="token punctuation">></span></span><span class="token plain-text"> q;
+q.push(1);
+q.push(2);
+q.front(); // 1
+q.pop();</span>40:["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$58"}}]}]
+42:["$","h4",null,{"className":"sub-section-header","children":"Using Namespace"}]
+43:["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"#include <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>iostream</span><span class=\"token punctuation\">></span></span><span class=\"token plain-text\">\nusing namespace std; // Brings all std names into global scope\n\n\nint main() </span><span class=\"token punctuation\">{</span>\ncout <span class=\"token operator\">&lt;&lt;</span> <span class=\"token string\">\"Hello World\"</span> <span class=\"token operator\">&lt;&lt;</span> endl<span class=\"token punctuation\">;</span> <span class=\"token comment\">// No need for std:: prefix</span>\n<span class=\"token keyword\">return</span> <span class=\"token number\">0</span><span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>"}}]}]
+44:["$","h4",null,{"className":"sub-section-header","children":"Nested Namespaces (C++17+)"}]
+59:T640,namespace <span class="token constant">A</span><span class="token operator">:</span><span class="token operator">:</span><span class="token constant">B</span> <span class="token punctuation">{</span>
+<span class="token keyword">void</span> <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token literal-property property">std</span><span class="token operator">:</span><span class="token operator">:</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Hello from A::B"</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">:</span><span class="token operator">:</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+int <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token constant">A</span><span class="token operator">:</span><span class="token operator">:</span><span class="token constant">B</span><span class="token operator">:</span><span class="token operator">:</span><span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>45:["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$59"}}]}]
+46:["$","h4",null,{"className":"sub-section-header","children":"Best Practices"}]
+47:["$","ul",null,{"children":[["$","li",null,{"children":["Avoid ",["$","code",null,{"children":"using namespace std;"}]," in header files."]}],["$","li",null,{"children":"Use namespaces to avoid naming collisions in large projects or libraries."}],["$","li",null,{"children":"Use nested namespaces for better code organization."}]]}]
+48:["$","hr",null,{}]
+4e:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+4a:null
+4c:{"metadata":[["$","title","0",{"children":"My Notes & Reference"}],["$","meta","1",{"name":"description","content":"Generated by create next app"}]],"error":null,"digest":"$undefined"}
+51:"$4c:metadata"
