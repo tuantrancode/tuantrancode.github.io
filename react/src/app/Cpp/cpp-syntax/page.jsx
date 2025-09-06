@@ -161,28 +161,130 @@ int main() {
         `}</CodeBlock>
         <hr />
       </section>
-      {/* Arrays */}
+
+{/* Array Section */}
+<section>
+<h3 className="section-header" id="array-basics">Arrays in C++</h3>
+
+
+<h4 className="sub-section-header">1. Declaring Arrays</h4>
+<ul>
+<li><b>Syntax:</b> <code>type arrayName[size]</code></li>
+<li>Example:
+<CodeBlock language='jsx'>{`
+int numbers[5]; // Array of 5 integers
+char letters[10]; // Array of 10 characters
+double scores[3]; // Array of 3 doubles
+`}</CodeBlock>
+</li>
+</ul>
+
+
+<h4 className="sub-section-header">2. Initializing Arrays</h4>
+<ul>
+<li><b>Method 1:</b> Inline initialization
+<CodeBlock language='jsx'>{`
+int numbers[5] = {1, 2, 3, 4, 5};
+char letters[] = {'A', 'B', 'C'}; // Size deduced automatically
+`}</CodeBlock>
+</li>
+<li><b>Method 2:</b> Partial initialization (rest will be 0)
+<CodeBlock language='jsx'>{`
+int nums[5] = {10, 20}; // nums = {10, 20, 0, 0, 0}
+`}</CodeBlock>
+</li>
+</ul>
+
+
+<h4 className="sub-section-header">3. Accessing Array Elements</h4>
+<ul>
+<li><b>Syntax:</b> <code>arrayName[index]</code></li>
+<li>Index starts at <code>0</code> and goes up to <code>size - 1</code>.</li>
+<li>Example:
+<CodeBlock language='jsx'>{`
+int numbers[5] = {10, 20, 30, 40, 50};
+cout << numbers[0]; // 10
+cout << numbers[3]; // 40
+`}</CodeBlock>
+</li>
+</ul>
+
+
+<h4 className="sub-section-header">4. Modifying Array Elements</h4>
+<ul>
+<li><b>Syntax:</b> <code>arrayName[index] = newValue;</code></li>
+<li>Example:
+<CodeBlock language='jsx'>{`
+int numbers[3] = {1, 2, 3};
+numbers[1] = 99; // Change second element to 99
+cout << numbers[1]; // Outputs 99
+`}</CodeBlock>
+</li>
+</ul>
+
+
+<h4 className="sub-section-header">5. Looping Through Arrays</h4>
+<ul>
+<li><b>Using for-loop:</b>
+<CodeBlock language='jsx'>{`
+int arr[5] = {10, 20, 30, 40, 50};
+for (int i = 0; i < 5; i++) {
+cout << arr[i] << " ";
+}
+// Output: 10 20 30 40 50
+`}</CodeBlock>
+</li>
+<li><b>Using range-based for-loop (C++11+):</b>
+<CodeBlock language='jsx'>{`
+int arr[5] = {10, 20, 30, 40, 50};
+for (int num : arr) {
+cout << num << " ";
+}
+// Output: 10 20 30 40 50
+`}</CodeBlock>
+</li>
+</ul>
+
+
+<h4 className="sub-section-header">6. Getting Array Size</h4>
+<ul>
+<li>Use <code>sizeof</code> operator:
+<CodeBlock language='jsx'>{`
+int arr[5] = {1, 2, 3, 4, 5};
+int size = sizeof(arr) / sizeof(arr[0]);
+cout << "Size: " << size; // 5
+`}</CodeBlock>
+</li>
+</ul>
+
+
+<hr />
+</section>
+
+      {/* Vectors */}
       <section>
-        <h3 className='section-header' id='arrays'>
-          Arrays & Vectors
+        <h3 className='section-header' id='vectors'>
+          Vectors
         </h3>
         <p>
           Vectors are safer to use than arrays. Arrays are fixed references <code>arr1 = arr2</code> is not allowed
         </p>
+        <ul>
+          <li>Vector can be dynamically created, but arrays need a fixed size on build</li>
+        </ul>
         <CodeBlock language='jsx'>{`
-int numbers[5] = {1, 2, 3, 4, 5};
-
-for (int i = 0; i < 5; i++) {
-    cout << numbers[i] << " ";
-}
-
 vector<int> orderedList(5) = {1, 2, 3, 4, 5};
+vector<int> dynamicArr[]; 
+
 orderList.push_back(77); // appends 77
-orderList.at(6); // access/set value at index 6, return 77
-orderList.size(); // return size of vector, return 6
-orderList.reszie(10); // resize vector to have 10 elements
 orderList.back(); // return the last element (w/o changing vector)
 orderList.pop_back(); // removes the last element'
+
+orderList[5]; // access/set value at index 6, return 77
+orderList.at(5); // access/set value at index 6, return 77
+
+orderList.size(); // return size of vector, return 6
+orderList.reszie(10); // resize vector to have 10 elements
         `}</CodeBlock>
         <hr />
       </section>
