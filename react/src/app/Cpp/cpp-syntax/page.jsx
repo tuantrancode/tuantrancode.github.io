@@ -488,9 +488,9 @@ int main() {
     p1.name = "Bob";
     p1.age = 21;
     p1.introduce();
-    Person p2 = new Person(); // make new Person obj
-    Person p3 = new Person(p2); // copy p2 obj into p3, but needs to define a copy constructor (deep copy)
-    Person p4 = p2; // also copy p2 to p4 using the copy constructor (deep copy)
+    Person* p2 = new Person(); // make new Person obj
+    Person* p3 = new Person(p2); // copy p2 obj into p3, but needs to define a copy constructor (deep copy)
+    Person* p4 = p2; // also copy p2 to p4 using the copy constructor (deep copy)
 
     p4 = p3; // does NOT call the copy constructor, it will use the assignment operator instead
     return 0;
