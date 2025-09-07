@@ -26,6 +26,7 @@ const navSections = [
       { name: 'Functions', link: '/Javascript/js-functions' },
       { name: 'Methods Reference', link: '/Javascript/js-methods-reference' },
       { name: 'Working with DOM', link: '/Javascript/js-dom' },
+      { name: 'Typescript', link: '/Javascript/js-typescript' },
     ],
   },
   {
