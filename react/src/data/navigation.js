@@ -83,6 +83,10 @@ const navSections = [
     section: 'AI',
     pages: [{ name: 'AI Basics', link: '/AI/ai-basics' }],
   },
+    {
+    section: 'Assembly',
+    pages: [{ name: 'LEGv8 Instructions', link: '/Assembly/legv8' }],
+  },
 ];
 
 // TODO: Incorporate react-native-web components to test thing out
