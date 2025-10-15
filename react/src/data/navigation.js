@@ -49,6 +49,8 @@ const navSections = [
     section: 'Java',
     pages: [
       { name: 'Java Syntax', link: '/Java/java-syntax' },
+      { name: 'Java Core Packages', link: '/Java/java-core' },
+      { name: 'Java Collections', link: '/Java/java-collections' },
       { name: 'Interface vs Inheritance', link: '/Java/java-comparison' },
     ],
   },
