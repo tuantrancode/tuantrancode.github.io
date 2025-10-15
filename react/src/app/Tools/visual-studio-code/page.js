@@ -233,6 +233,16 @@ export default function VisualStudioCode() {
         </ul>
       </ul>
 
+      <h4 className="sub-section-header">Java</h4>
+      <ul>
+        <li><b>Extension Pack for Java</b> <code>vscjava.vscode-java-pack</code> : provides Java IntelliSense, debugging, testing, Maven/Gradle support</li>
+        <li><b>Spring Boot Extension Pack</b> <code>vmware.vscode-boot-dev-pack</code> : collection of extensions to develop Spring Boot projects</li>
+        <ul>
+          <li><a href="https://spring.io/tools">https://spring.io/tools</a></li>
+        </ul>
+      </ul>
+      <hr/>
+
 
       {/* <!-- GITHUB COPILOT --> */}
       <h3 className='section-header' id='githubCopilot'>
