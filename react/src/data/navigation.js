@@ -51,6 +51,7 @@ const navSections = [
       { name: 'Java Syntax', link: '/Java/java-syntax' },
       { name: 'Java Core Packages', link: '/Java/java-core' },
       { name: 'Java Collections', link: '/Java/java-collections' },
+      { name: 'Java Multithreading', link: '/Java/java-multithread' },
       { name: 'Interface vs Inheritance', link: '/Java/java-comparison' },
     ],
   },

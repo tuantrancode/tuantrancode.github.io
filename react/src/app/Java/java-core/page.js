@@ -8,13 +8,6 @@ export const metadata = {
 export default function JavaCore() {
   return (
     <>
-      {/* Overview */}
-      <section>
-        <h2 className='page-header' id='collections-overview'>
-          Overview
-        </h2>
-      </section>
-
       {/* Java Lang */}
       <section>
         <h3 className='section-header' id='lang'>
