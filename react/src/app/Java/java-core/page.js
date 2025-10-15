@@ -497,7 +497,243 @@ export default function JavaCore() {
     </table>
 
   </SearchContainer>
+  <hr/>
 </section>
+
+{/* <!-- Random --> */}
+<section>
+  <h3 className='section-header' id='random'>
+    Random
+  </h3>
+  <SearchContainer
+    searchSelector='tbody tr, thead:not(.firstHead) tr'
+    placeholder='Search methods...'
+  >
+
+    {/* <!-- CONSTRUCTORS --> */}
+    <h4 className='sub-section-header'>Constructors</h4>
+    <table>
+      <thead className='firstHead'>
+        <tr>
+          <th>Constructor</th>
+          <th>Description</th>
+          <th>Example</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>Random()</code></td>
+          <td>
+            Creates a new random number generator using a
+            time-based seed. Each instance will produce different
+            sequences.
+          </td>
+          <td><code>Random rand = new Random();</code></td>
+          <td>
+            Default constructor; uses current time as seed.
+          </td>
+        </tr>
+        <tr>
+          <td><code>Random(long seed)</code></td>
+          <td>
+            Creates a new random number generator using the given
+            seed. Seeding ensures reproducible results.
+          </td>
+          <td><code>Random rand = new Random(12345L);</code></td>
+          <td>
+            Same seed ⇒ same random sequence.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    {/* <!-- Returns BOOLEAN --> */}
+    <h4 className='sub-section-header'>Return Type: Boolean</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Description</th>
+          <th>Example</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>nextBoolean()</code></td>
+          <td>Returns a random boolean value (true or false).</td>
+          <td><code>rand.nextBoolean()</code></td>
+          <td><code>true</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    {/* <!-- Returns INT --> */}
+    <h4 className='sub-section-header'>Return Type: int</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Description</th>
+          <th>Example</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>nextInt()</code></td>
+          <td>Returns a random integer (can be negative).</td>
+          <td><code>rand.nextInt()</code></td>
+          <td><code>-123456789</code></td>
+        </tr>
+        <tr>
+          <td><code>nextInt(int bound)</code></td>
+          <td>Returns a random integer between <code>0</code> (inclusive) and <code>bound</code> (exclusive).</td>
+          <td><code>rand.nextInt(10)</code></td>
+          <td><code>7</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    {/* <!-- Returns LONG --> */}
+    <h4 className='sub-section-header'>Return Type: long</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Description</th>
+          <th>Example</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>nextLong()</code></td>
+          <td>Returns a random long value.</td>
+          <td><code>rand.nextLong()</code></td>
+          <td><code>-3456789012345L</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    {/* <!-- Returns FLOAT --> */}
+    <h4 className='sub-section-header'>Return Type: float</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Description</th>
+          <th>Example</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>nextFloat()</code></td>
+          <td>Returns a random float between <code>0.0</code> (inclusive) and <code>1.0</code> (exclusive).</td>
+          <td><code>rand.nextFloat()</code></td>
+          <td><code>0.57293</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    {/* <!-- Returns DOUBLE --> */}
+    <h4 className='sub-section-header'>Return Type: double</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Description</th>
+          <th>Example</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>nextDouble()</code></td>
+          <td>Returns a random double between <code>0.0</code> (inclusive) and <code>1.0</code> (exclusive).</td>
+          <td><code>rand.nextDouble()</code></td>
+          <td><code>0.93527</code></td>
+        </tr>
+        <tr>
+          <td><code>nextGaussian()</code></td>
+          <td>Returns a random value from a standard normal distribution (mean 0, std dev 1).</td>
+          <td><code>rand.nextGaussian()</code></td>
+          <td><code>-0.3725</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    {/* <!-- Returns VOID --> */}
+    <h4 className='sub-section-header'>Return Type: void</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Description</th>
+          <th>Example</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>setSeed(long seed)</code></td>
+          <td>Sets the seed for this random number generator, restarting its sequence.</td>
+          <td><code>rand.setSeed(12345L)</code></td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+
+    {/* <!-- Returns STREAM (Java 8+) --> */}
+    <h4 className='sub-section-header'>Return Type: Stream</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Description</th>
+          <th>Example</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ints()</code></td>
+          <td>Returns an infinite stream of random integers.</td>
+          <td><code>rand.ints().limit(3).forEach(System.out::println)</code></td>
+          <td><code>e.g. 12 93 47</code></td>
+        </tr>
+        <tr>
+          <td><code>ints(int streamSize)</code></td>
+          <td>Returns a stream with the specified number of random integers.</td>
+          <td><code>rand.ints(5)</code></td>
+          <td><code>[87, 64, 21, 95, 13]</code></td>
+        </tr>
+        <tr>
+          <td><code>ints(int origin, int bound)</code></td>
+          <td>Returns an infinite stream of random integers within the specified range.</td>
+          <td><code>rand.ints(0, 10).limit(3)</code></td>
+          <td><code>[2, 7, 9]</code></td>
+        </tr>
+        <tr>
+          <td><code>longs()</code></td>
+          <td>Returns an infinite stream of random long values.</td>
+          <td><code>rand.longs().limit(2)</code></td>
+          <td><code>[3487347, -8327493]</code></td>
+        </tr>
+        <tr>
+          <td><code>doubles()</code></td>
+          <td>Returns an infinite stream of random doubles.</td>
+          <td><code>rand.doubles().limit(2)</code></td>
+          <td><code>[0.234, 0.894]</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </SearchContainer>
+</section>
+
 
     </>
   );

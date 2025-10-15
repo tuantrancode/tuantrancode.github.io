@@ -294,6 +294,24 @@ if (x > 0) {
             <li>Contain useful utility methods</li>
             <li>Java has autoboxing/unboxing which allow auto converting of primitive and wrapper between each other</li>
           </ul>
+          <hr/>
+      </section>
+
+      <section>
+        <h3 className="section-header" id='memoryRegion'>
+          Memory Regions
+        </h3>
+        <ul>
+          <li><b>Code:</b> has programs instruction</li>
+          <li><b>Static Memory:</b> has static fields</li>
+          <li><b>Stack (automatic memory):</b> has local variables during method call</li>
+          <ul>
+            <li>Method calls add local variable to the stack and a return removes them (revert the stack state to before the method was called)</li>
+            <li>Memory is automatically allocated and deallocated</li>
+          </ul>
+          <li><b>Heap (free store):</b> where objects are stored; where <code>new</code> operator allocates memory for objects</li>
+        </ul>
+
       </section>
     </div>
   );
