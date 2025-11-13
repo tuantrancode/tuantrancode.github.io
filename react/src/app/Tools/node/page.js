@@ -19,6 +19,7 @@ export default function Node() {
           <code>npm</code> is a node package manager that install and update node packages
         </p>
         <ul>
+          <li>Build config and dependencies management file is <code>package.json</code></li>
           <li>
             <code>npm</code> : command to install packages or run scripts from the <u>local</u>{' '}
             <code>node_modules</code> or <code>package.json</code>

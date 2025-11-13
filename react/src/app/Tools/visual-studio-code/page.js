@@ -236,6 +236,9 @@ export default function VisualStudioCode() {
       <h4 className="sub-section-header">Java</h4>
       <ul>
         <li><b>Extension Pack for Java</b> <code>vscjava.vscode-java-pack</code> : provides Java IntelliSense, debugging, testing, Maven/Gradle support</li>
+          <ul>
+            <li>To create a project, type in VS Code command palette: <code>Sprint Initializr: create Gradle project</code> or  <code>Sprint Initializr: create Maven project</code> </li>
+          </ul>
         <li><b>Spring Boot Extension Pack</b> <code>vmware.vscode-boot-dev-pack</code> : collection of extensions to develop Spring Boot projects</li>
         <ul>
           <li><a href="https://spring.io/tools">https://spring.io/tools</a></li>

@@ -53,6 +53,8 @@ const navSections = [
       { name: 'Java Collections', link: '/Java/java-collections' },
       { name: 'Java Multithreading', link: '/Java/java-multithread' },
       { name: 'OOP', link: '/Java/java-oop' },
+      { name: 'REST API', link: '/Java/java-rest-api' },
+      { name: 'Spring Boot', link: '/Java/java-spring' },
     ],
   },
   {
@@ -77,6 +79,7 @@ const navSections = [
       { name: 'Cmd / Terminal', link: '/Tools/cmd' },
       { name: 'Git', link: '/Tools/git' },
       { name: 'Node.js', link: '/Tools/node' },
+      { name: 'Maven and Gradle', link: '/Tools/maven-gradle' },
       { name: 'Visual Studio Code', link: '/Tools/visual-studio-code' },
       { name: 'Android Studio', link: '/Tools/android-studio' },
       { name: 'Eclipse for Java', link: '/Tools/eclipse' },
