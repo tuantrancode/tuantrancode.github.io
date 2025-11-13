@@ -297,6 +297,24 @@ if (x > 0) {
           <hr/>
       </section>
 
+      
+      {/* Enum*/}
+      <section>
+        <h3 className="section-header" id='enum'>
+          Enum
+        </h3>
+        <p><code>enum</code> is a special class that defines a fixed set of constants</p>
+         <CodeBlock>{`// Java
+public enum Direction {
+    NORTH, SOUTH, EAST, WEST
+}
+---------------------------------
+// use as Direction.NORTH, etc.
+`}</CodeBlock>
+
+      </section>
+
+      {/* Memory Region*/}
       <section>
         <h3 className="section-header" id='memoryRegion'>
           Memory Regions
