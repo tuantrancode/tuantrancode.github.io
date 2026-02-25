@@ -83,6 +83,7 @@ const navSections = [
       { name: 'Visual Studio Code', link: '/Tools/visual-studio-code' },
       { name: 'Android Studio', link: '/Tools/android-studio' },
       { name: 'Eclipse for Java', link: '/Tools/eclipse' },
+      { name: 'Security Tools', link: '/Tools/security' },
     ],
   },
   {
