@@ -8,7 +8,7 @@ export const metadata = {
 export default function RestAPI() {
   return (
     <>
-      <h2 className='section-header'>REST API</h2>
+      <h2 className='section-header'>REST API with Spring Boot</h2>
 
       {/* BASIC  */}
       <section>

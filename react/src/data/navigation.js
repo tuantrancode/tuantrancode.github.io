@@ -53,8 +53,8 @@ const navSections = [
       { name: 'Java Collections', link: '/Java/java-collections' },
       { name: 'Java Multithreading', link: '/Java/java-multithread' },
       { name: 'OOP', link: '/Java/java-oop' },
-      { name: 'REST API', link: '/Java/java-rest-api' },
       { name: 'Spring Boot', link: '/Java/java-spring' },
+      { name: 'REST API w/ Spring Boot', link: '/Java/java-rest-api' },
     ],
   },
   {
