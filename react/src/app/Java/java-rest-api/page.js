@@ -122,8 +122,18 @@ export default function RestAPI() {
             <li>GenerationType.IDENTITY: auto-incremented primary key</li>
           </ul>
           <li><code>@Column</code>: specifies the column name in the database or else it maps to the field name</li>
-          <li><code>@ManyToOne</code>: specifies a many-to-one relationship</li>
-          <li><code>@OneToMany</code>: specifies a one-to-many relationship</li>
+          <li>Relationships:</li>
+          <ul>
+            <li><code>@ManyToOne</code>: specifies a many-to-one relationship</li>
+            <li><code>@OneToMany</code>: specifies a one-to-many relationship</li>
+            <li>Cascade: specifies what operations are cascaded from the parent entity to the child entities</li>
+            <ul>
+              <li><code>CascadeType.ALL</code>: all operations are cascaded</li>
+              <li><code>CascadeType.PERSIST</code>: persist operation is cascaded</li>
+              <li><code>CascadeType.MERGE</code>: merge operation is cascaded</li>
+              <li><code>CascadeType.REMOVE</code>: remove operation is cascaded</li>
+            </ul>
+          </ul>
           <li><code>@JoinColumn</code>: specifies the foreign key column</li>
           <li><code>@CreatedDate</code>: marks a field to be automatically set to the current date when an entity is created</li>
           <li><code>@CreationTimestamp</code>: marks a field to be automatically set to the current timestamp when an entity is created</li>
@@ -141,7 +151,7 @@ export default function RestAPI() {
          |                           ^
          |                           |
          +---------------------------+
-          (1)     "belongs to"   (M)          
+          (M)     "belongs to"   (1)          
         `}</code></pre>
         <CodeBlock language="java">{`
 @Entity
