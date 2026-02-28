@@ -473,6 +473,9 @@ List<User> findUsersOlderThanNative(@Param("age") int age);
           <ul>
             <li>Holds, business rules and validations logic</li>
             <li><code>@Transactional</code>: marks a method, ensuring that all database operations within the method are part of a single transaction. Once marked, Spring make sure the all operations in the method succeeds or fails together and roll back the DB</li>
+            <ul>
+              <li><code>repository.save(entity)</code> or <code>repository.saveAll(entities)</code>: methods to save entities to the database</li>
+            </ul>
             <CodeBlock language="java">{`
 @Service
 public class OrderService {
@@ -487,6 +490,8 @@ public class OrderService {
     public void placeOrder(Purchase purchase) {
         purchase.getItems();
         ... // other business logic and validations
+        orderRepository.save(purchase.getOrder());    // save order to the database
+        orderRepository.saveAll(purchase.getOrders()); // save all orders in the purchase to the database in batch 
     }
 
     @Transactional(readOnly = true)
