@@ -116,7 +116,7 @@ export default function RestAPI() {
           <li>Converting To JSON keys: converted to camelCase</li>
           <ul>
             <li>Entity: <code>EmailAddress</code> &rarr; <code>emailAddress</code></li>
-            <li>Field: <code>first_name</code> &rarr; <code>firstName</code></li>
+            <li>Field: <code>firstName</code> &rarr; <code>firstName</code></li>
             <ul>
               <li>Alter with <code>@JsonProperty("first-name")</code></li>
             </ul>
@@ -194,6 +194,7 @@ logging.level.org.springframework=INFO
           <ul>
             <li>GenerationType.IDENTITY: auto-incremented primary key</li>
           </ul>
+          <li><code>@Enumerated(EnumType.STRING)</code>: specifies that a field is an enum and will be sent as a string to SQL and in the JSON response</li>
           <li><code>@Column</code>: specifies the column name in the database or else it maps to the field name</li>
           <ul>
             <li>JPA maps the field name to the column name by converting CamelCase to snake_case: <code>{`firstName > first_name`}</code>, but the JSON will use the field name as is</li>
@@ -228,7 +229,27 @@ private Long id;
             </ul>
             <li><code>@ManyToMany</code>: specifies a many-to-many relationship</li>
             <ul>
-              <li><code>@JoinTable</code>: in many-to-many relationships, <code>@JoinTable</code> is used on one side to specify the join table that links the two entities while the other side uses <code>mappedBy</code> with <code>@ManyToMany</code></li>
+              <li><code>@JoinTable</code>: in many-to-many relationships, <code>@JoinTable</code> is used on one side to specify the join table that owns the relation while the other side uses only <code>@ManyToMany</code></li>
+              <ul>
+                <li><b><u>IMPORTANT</u></b>:annotation should be given to the entity side that gets updated/inserted</li>
+                <li>For many-to-many relationships, cascade options:</li>
+                <ul>
+                  <li>No cascade options if the relation is reference-lookup relation or shared entities</li>
+                  <li>Use <code>{`cascade = { CascadeType.PERSIST, CascadeType.MERGE }`}</code> if dynamically creating relations</li>
+                  <ul>
+                    <li>In both cases, JPA will automatically delete the entries in the row table if the row in the parent table is deleted</li>
+                    <ul>
+                      <li>Example: in images-tags join table, if an image is deleted, the associated rows in the join table are automatically deleted regardless of cascade setting</li>
+                    </ul>
+                    <li>However, when JPA tries to insert in one side and the other side is missing the entry, then JPA will not create a row in the join table </li>
+                    <ul>
+                      <li>Example: in images-tags join table, if a tag is missing when inserting an image, JPA will not create a row in the join table unless <code>CascadeType.PERSIST</code> is true</li>
+                    </ul>
+                    
+                  </ul>
+                </ul>
+               
+              </ul>
               <li><code>name</code>: specifies the name of the join table</li>
               <li><code>joinColumns</code>: specifies the columns in the join table that reference the parent entity</li>
               <li><code>inverseJoinColumns</code>: specifies the columns in the join table that reference the child entity</li>
@@ -398,6 +419,20 @@ public interface OrderRepository extends JpaRepository<Order, Long> { }
           <li>Method Name Queries:</li>
           <ul>
             <li>JPA uses a base name + the entity's field name and certain keywords to generate SQL queries</li>
+            <li>The default endpoints created are base + <code>/{`plural-repository-name`}/search/{`{method-name}`}</code></li>
+            <ul>
+              <li>Example endpoints of a <code>UserRepository</code>:</li>
+              <ul>
+                <li>Method: <code>findByEmailAddressContaining(String emailAddress)</code></li>
+                <ul>
+                  <li>URL: <code>/users/search/findByEmailAddressContaining?emailAddress=example@example.com</code></li>
+                </ul>
+                <li>Method: <code>countByIsActiveFalse()</code>:</li>
+                <ul>
+                  <li>URL: <code>/users/search/countByIsActiveFalse</code></li>
+                </ul>
+              </ul>
+            </ul>
             <li><b><u>Base</u></b>: <code>findBy | readBy | getBy | queryBy | countBy | existsBy | deleteBy</code></li>
             <li><b><u>Keywords</u></b>: <code>And | Or | Not | IsNull | IsNotNull | Between | LessThan | GreaterThan | Like | True | False</code></li>
             <li>For nested fields, JPA can also figure out based on the method name</li>
@@ -520,6 +555,7 @@ public class OrderService {
             <CodeBlock language="java">{`
 @RestController
 @RequestMapping("/api/order")
+@Cross-Origin("*")
 public class OrderController {
     private final OrderService orderService;
 
@@ -597,6 +633,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 @RestController
 @RequestMapping("/api/users")
+@Cross-Origin("*")
 public class UserController {
 
     private final UserRepository userRepository;
@@ -641,6 +678,106 @@ public class OrderService {
         </ul>
         <hr/>
       </section>
+
+
+       {/* CommandLineRunner  */}
+      <section>
+        <h3 className='section-header' id='command-line-runner'>CommandLineRunner</h3>
+        <p>CommandLineRunner is a Spring interface that allows you to run code when the application starts up, after Spring finishes initializing. It behaves similarly to Runnable.</p>
+        <ul>
+          <li>To make use of it, have a <code>Component</code> implements <code>CommandLineRunner</code> and override the <code>run</code> method.</li>
+          <li>Prep/admin tasks can be done in <code>run()</code> method</li>
+        </ul>
+        <CodeBlock language="java">{`
+@Component
+public class DataInitializer implements CommandLineRunner {
+
+    private final UserRepository userRepository;
+
+    public DataInitializer(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Override
+    @Transactional
+    public void run(String... args) {
+        if (userRepository.count() == 0) {
+           User admin = new User("admin");
+           User user = new User("user");
+
+           List<User> users = List.of(admin, user);
+           userRepository.saveAll(users);
+        }
+    }
+}
+        `}</CodeBlock>
+        <hr/>
+      </section>
+
+
+       {/* ENABLE HTTPS  */}
+      <section>
+        <h3 className='section-header' id='enable-https'>Enable HTTPS</h3>
+        <h4 className='subsection-header'><u>Securing Front-End and Spring Boot server communication</u>:</h4>
+        <ol>
+          <li>Get the cert and key: <code>yourdomain.crt/fullchain.pem</code>, <code>yourdomain.key</code>, and possibly <code>intermediate.pem</code></li>
+          <li>Create a PKCS12 keystore that contains the cert and key for Spring Boot</li>
+          <ul>
+            <li>The keystore can be replaced if using self-signed</li>
+          </ul>
+          <CodeBlock language="bash">{`
+openssl pkcs12 -export
+  -in yourdomain.crt
+  -inkey yourdomain.key
+  -certfile intermediate.pem
+  -name springboot
+  -out keystore.p12          
+        `}</CodeBlock>
+          <li>Configure Spring Boot to use the keystore in <code>application.properties</code> or <code>application.yml</code>:</li>
+          <CodeBlock language="java">{`
+server.port=8443
+server.ssl.enabled=true
+server.ssl.key-store=classpath:keystore.p12
+server.ssl.key-store-password=yourpassword
+server.ssl.key-store-type=PKCS12
+server.ssl.key-alias=springboot
+        `}</CodeBlock>
+        <li>Change the front-end urls to HTTPS</li>
+        </ol>
+
+        <h4 className='subsection-header'><u>Securing Spring Boot and MySQL server communication</u>:</h4>
+        <ol>
+          <li>Enable SSL in Spring Boot <code>application.properties</code> or <code>application.yml</code>:</li>
+          <li>Keypoints:</li>
+          <ul>
+            <li><code>useSSL=true</code>: enables SSL for the connection</li>
+            <li><code>requireSSL=true</code>: requires SSL for the connection</li>
+            <li><code>verifyServerCertificate=true</code>: enables server certificate verification</li>
+          </ul>
+          <CodeBlock language="java">{`
+spring.datasource.url=jdbc:mysql://localhost:3306/mydb?useSSL=true&requireSSL=true&verifyServerCertificate=true
+
+spring.datasource.username=user
+spring.datasource.password=pass
+          `}</CodeBlock>
+          
+          <li>Obtain cert and keys for MySQL server: <code>ca.pem</code>, <code>server-cert.pem</code>, and <code>server-key.pem</code></li>
+          <li>Edit <code>my.cnf</code> or <code>my.ini</code> and add under <code>{`[mysqld]`}</code> to enable SSL and restart server:</li>
+          <CodeBlock language="bash">{`
+[mysqld]
+ssl-ca=/path/to/ca.pem
+ssl-cert=/path/to/server-cert.pem
+ssl-key=/path/to/server-key.pem
+require_secure_transport=ON   # forces TLS connections
+          `}</CodeBlock>
+        </ol>
+
+        <h4 className='subsection-header'><u>Generating self-signed certificates for development</u>:</h4>
+        <p>Instruction to generate self-signed cert for keystores: <a href="https://github.com/darbyluv2code/fullstack-angular-and-springboot/blob/master/bonus-content/secure-https-communication/keytool-steps.md" target="_blank">Keystore Steps</a></p>
+        <hr/>
+      </section>
+
+
 
        {/* CONFIGURATION  */}
       <section>
@@ -688,6 +825,83 @@ config.getExposureConfiguration()
         <ul>
           <li><code>@Data</code> annotation of Lombok can generate error when placed on Entity classes so it should be replaced with <code>@Getter</code> and <code>@Setter</code> annotations individually.</li>
         </ul>
+        <hr/>
+      </section>
+
+       {/* PRODUCTION  */}
+      <section>
+        <h3 className='section-header' id='production'>Production</h3>
+        <p>Steps to bring Spring Boot to deployment in server:</p>
+        <ol>
+          <li>Compile/Build the Spring Boot project into a JAR file</li>
+          <ul>
+            <li>Using Maven: <code>mvn clean package</code></li>
+            <ul>
+              <li>the <code>.jar</code> file is generated in the <code>target</code> directory like <code>springboot-0.0.1-SNAPSHOT.jar</code></li>
+            </ul>
+            <li>Using Gradle: <code>./gradlew build</code></li>
+            <ul>
+              <li>the <code>.jar</code> file is generated in the <code>build/libs</code> directory like <code>springboot-0.0.1-SNAPSHOT.jar</code></li>
+            </ul> 
+          </ul>
+          <li>Setup the server and copy JAR file over:</li>
+          <ul>
+            <li>Install Java 17 on the server: <code>sudo apt install openjdk-17-jdk -y</code></li>
+            <li>Copy the JAR file to a non-root directory on the server:<br/> <code>scp target/springboot-0.0.1-SNAPSHOT.jar user@server-ip:/home/user/</code></li>
+          </ul>
+          <li>Setup a service to run the JAR file:</li>
+          <ul>
+            <li>Create a service file: <code>sudo nano /etc/systemd/system/springboot.service</code> with the following content</li>
+            <CodeBlock language="ini">{`
+[Unit]
+Description=My Spring Boot Application
+After=network.target
+
+[Service]
+User=youruser
+ExecStart=/usr/bin/java -jar /home/youruser/springboot-0.0.1-SNAPSHOT.jar
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+            `}</CodeBlock>
+            <li>Reload the config file: <code>sudo systemctl daemon-reload</code></li>
+            <li>Start the service: <code>sudo systemctl start springboot.service</code></li>
+            <li>Enable the service to start on boot: <code>sudo systemctl enable springboot.service</code></li>
+            <li>Check the status of the service: <code>sudo systemctl status springboot.service</code></li>
+            <li>Check the logs of the service: <code>sudo journalctl -u springboot.service</code></li>
+            <li>By default, the spring boot app runs on port 8080</li>
+          </ul>
+          <li>Optional: set up reverse proxy with Nginx or Apache to access app on a different port or domain</li>
+          <ul>
+            <li>Install Nginx: <code>sudo apt install nginx -y</code></li>
+            <li>Create the config file: <code>sudo nano /etc/nginx/sites-available/springboot.conf</code></li>
+        
+          <CodeBlock language="bash">{`
+# Nginx sample configuration
+server {
+    listen 80;
+    server_name mydomain.com;
+
+    # define the API endpoints that this block handles
+    location / {
+        # apply rate limit only if $limit_bypass is 1
+        limit_req zone=api_limit burst=10 nodelay if=$limit_bypass;
+
+        # Forward requests to port 8080
+        proxy_pass http://127.0.0.1:8080;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}        `}</CodeBlock>
+          <li>Test the Nginx configuration for errors: <code>sudo nginx -t</code></li>
+          <li>Enable the Nginx site: <br/><code>sudo ln -s /etc/nginx/sites-available/springboot.conf /etc/nginx/sites-enabled/</code></li>
+          <li>Reload Nginx: <code>sudo systemctl reload nginx</code></li>
+         </ul>
+        </ol>
       </section>
     </>
   );

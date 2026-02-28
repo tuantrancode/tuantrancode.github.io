@@ -56,6 +56,7 @@ const navSections = [
       { name: 'Useful Libraries', link: '/Java/java-libraries' },
       { name: 'Spring Boot', link: '/Java/java-spring' },
       { name: 'REST API w/ Spring Boot', link: '/Java/java-rest-api' },
+      { name: 'Login / Authorization', link: '/Java/java-login' },
     ],
   },
   {
