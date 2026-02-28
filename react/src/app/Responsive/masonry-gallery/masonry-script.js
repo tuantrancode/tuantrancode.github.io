@@ -8,7 +8,7 @@ const cardTemplateHTML = `
     </div>
 `;
 
-const assetPath = '/assets/images/';
+const assetPath = '/assets/masonry/';
 let imgCount = 0;
 let myGridId;
 export function updateImageCount(n) {

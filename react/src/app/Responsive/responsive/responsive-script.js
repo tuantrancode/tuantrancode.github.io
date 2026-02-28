@@ -8,7 +8,7 @@ const cardTemplateHTML = `
         <span></span>
     </div>
 `;
-let assetPath = '/assets/images/';
+let assetPath = '/assets/masonry/';
 let colCountImg = 1;
 let flexBoxCountImg = 1;
 let gridCountImg = 1;

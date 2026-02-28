@@ -311,7 +311,55 @@ public enum Direction {
 ---------------------------------
 // use as Direction.NORTH, etc.
 `}</CodeBlock>
+      <hr/>
+      </section>
 
+
+       {/* LAMBDA */}
+      <section>
+        <h3 className="section-header" id='lambda'>
+          Lambda Expressions
+        </h3>
+        <p>Lambda expressions are a shorthand way to simplifying inline methods</p>
+        <ul>
+          <li>Syntax: <code>(parameters) -&gt; expression</code> or <code>(parameters) -&gt; statements</code></li>
+          <li>Used with Functional Interface</li>
+          <CodeBlock language="java">{`
+// Setting up new interface with only one method
+button.setOnClickListener(new OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        System.out.println("Clicked!");
+    }
+});
+----------------------------------------------------------------
+// Using lambda expression to simplify the above code
+button.setOnClickListener(v -> System.out.println("Clicked!"));
+          `}</CodeBlock>
+          <li>For iterating collections</li>
+          <CodeBlock language="java">{`
+List<String> names = List.of("Naruto", "Luffy", "Ichigo");
+----------------------------------------------------------------
+// Old way
+for (String name : names) {
+    System.out.println(name);
+}
+----------------------------------------------------------------
+// Lambda way
+names.forEach(name -> System.out.println(name));
+          `}</CodeBlock>
+          <li>Used with Streams (filter, map, reduce) to act on collections</li>
+          <CodeBlock language="java">{`
+List<Integer> nums = List.of(1, 2, 3, 4, 5);
+
+List<Integer> evens = nums.stream()
+    .filter(n -> n % 2 == 0)   // keep even numbers
+    .map(n -> n * 10)         // multiply by 10
+    .toList();
+          `}</CodeBlock>
+        </ul>
+        
+      <hr/>
       </section>
 
       {/* Memory Region*/}

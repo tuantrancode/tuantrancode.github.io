@@ -39,8 +39,41 @@ export default function Spring() {
           <li>
             <b>View</b> : responsible for rendering data into HTML
           </li>
+         
+        </ul>
+        <hr/>
+        
+        
+        {/* BEAN AND @AUTOWIRED */}
+        <h3 className='section-header' id='beanAndAutowired'>Bean and @Autowired</h3>
+        <p>Beans are classes that have been labeled <code>@Component</code>, <code>@Service</code>, <code>@Repository</code>, <code>@Controller</code>, or etc.</p>
+        <ul>
+          <li>Spring will automatically create and manage those classes/beans on startup unless specified otherwise</li>
+          <li>For any bean that needs another bean, use <code>@Autowired</code> annotation to inject the needed bean</li>
+          <ul>
+            <li>Reduces code to create and manage classes</li>
+            <li><code>@Autowired</code>: can be omitted if there is only one constructor</li>
+          </ul>
+          <CodeBlock lang='java'>{`
+@Service
+public class UserService { } // Spring will create a new UserService() bean at startup
+----------------------------------------------------------------------------
+@Service
+public class OrderService { // Spring will create a new OrderService(UserService) bean at startup
+    private final UserService userService;
+
+    @Autowired
+    public OrderService(UserService userService) { // The required userService bean will be injected from what Spring created at startup 
+        this.userService = userService;
+    }
+}
+          `}</CodeBlock>
         </ul>
 
+        <hr/>
+
+
+        {/* SETUP */}
         <h3 className='section-header' id='setup'>
           Setup
         </h3>
@@ -632,66 +665,8 @@ public class HomeControllerTest {
         <p>
           Ch 5 and 12 of <u>Spring in Action</u>
         </p>
-        <hr />
       </section>
 
-       {/* View Templates  */}
-      <section>
-        <h3 className='section-header' id='viewTemplates'>
-          View Templates Libraries
-        </h3>
-        <ul>
-          <li>Thymeleaf</li>
-          <li>FreeMarker</li>
-          <li>Groovy templates</li>
-          <li>JavaServer Pages (JSP)</li>
-          <li>Mustache</li>
-        </ul>
-        <hr />
-      </section>
-
-        {/* View Templates  */}
-      <section>
-        <h3 className='section-header' id='testing'>
-          Testing
-        </h3>
-        <p>JUnit : popular unit testing framework</p>
-        <ul>
-          <li><code>{`@Test`}</code> : identifies a method as a test method</li>
-          <li><code>{`@BeforeEach`}</code> : Executed before each test. Used to prepare the test environment(e.g. read input data, initialize the class)</li>
-          <li><code>{`@AfterEach`}</code> : Executed after each test. Used to cleanup test environment</li>
-          <li><code>{`@BeforeAll`}</code> : Executed once, before the start of all tests. Methods marked with this annotation need to be defined as static to work with JUnit</li>
-          <li><code>{`@AfterAll`}</code> : Executed once, after all tests have been finished. Methods need to be static to work with JUnit</li>
-          <li><code>{`@@Test(expected = Exception.class)`}</code> : Fails if the method does not throw the named exception</li>
-          <li><code>{`@Test(timeout = 10)`}</code> : Fails if the method takes longer than 100 miliseconds</li>
-        </ul>
-        <p>JUnit Built-In Assertion Methods</p>
-        <ul>
-          <li><code>assertEquals(expected, actual)</code></li>
-          <li><code>assertNotEquals(unexpected, actual)</code></li>
-          <li><code>assertTrue(condition)</code></li>
-          <li><code>assertFalse(condition)</code></li>
-          <li><code>assertNull(object)</code></li>
-          <li><code>assertNotNull(object)</code></li>
-          <li><code>assertSame(expected, actual)</code></li>
-          <li><code>assertNotSame(unexpected, actual)</code></li>
-          <li><code>assertArrayEquals(expected, actual)</code></li>
-          <li><code>assertIterableEquals(expected, actual)</code></li>
-          <li><code>{`assertThrows(Exception.class, () -> code)`}</code></li>
-          <li><code>{`assertDoesNotThrow(() -> code)`}</code></li>
-        </ul>
-        <p>Spring Boot Annotations :</p>
-        <ul>
-          <li><code>{`@RunWith(SpringRunner.class)`}</code>Run test with Spring Context</li>
-          <li><code>{`@SpringBootTest`}</code>Search for Spring Boot Application for configuration</li>
-          <li><code>{`@TestConfiguration`}</code>Specify a Spring configuration for your test</li>
-          <li><code>{`@MockBean`}</code>Injects Mockito Mock</li>
-          <li><code>{`@SpyBean`}</code>Injects Mockito Spy</li>
-          <li><code>{`@JsonTest`}</code>Creates a Jackson or Gson object mapper</li>
-          <li><code>{`@@DataJpaTest`}</code>Used to test data layer with embedded database</li>
-        </ul>
-        <hr />
-      </section>
     </>
   );
 }
