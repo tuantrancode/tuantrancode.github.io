@@ -16,6 +16,11 @@ export default function CmdTools() {
       <li>Setup:</li>
       <ul>
       <li><code>ssh -i [private key] [user]@[host]</code>: connect to a remote host using SSH</li>
+      <li>Reading logs live:</li>
+      <ul>
+        <li><code>sudo tail -f /var/log/nginx/access.log</code></li>
+        <li><code>sudo tail -f /var/log/nginx/error.log</code></li>
+      </ul>
       <li><code>q / exit</code>: quit the current session</li>
       <li><code>Ctrl + L</code>: clear the terminal screen</li>
       <li><code>sudo apt update && sudo apt upgrade -y</code>: update and upgrade packages</li>
@@ -72,16 +77,18 @@ export default function CmdTools() {
       </ul>
       <hr/>
 
+      <li>File Edit, Extract/Compress, and Firewall:</li>
       <li><code>cat -n [file]</code>: display the contents of a file with line numbers</li>
       <ul>
         <li><code>cat [file] | grep [pattern]</code>: search for a pattern in a file</li>
         <li><code>{`cat [file1] [file2]> [combined file]`}</code>: concatentate file1 and file2 into a combined file</li>
       </ul>
-      <li><code>nano [file]</code>: text editor</li>
+      <li><code>nano -l [file]</code>: edit file with line numbers on left</li>
       <ul>
         <li><code>Ctrl + O</code>: save the current file</li>
         <li><code>Ctrl + X</code>: exit the editor</li>
         <li><code>Ctrl + W</code>: search within the file</li>
+        <li><code>Ctrl + _</code>: jump to specific line #</li>
       </ul>
       <li><code>tar</code>: compress and extract <code>.tar.gz</code> files</li>
       <ul>

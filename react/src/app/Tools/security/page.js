@@ -66,6 +66,19 @@ export default function Security() {
         <hr/>
       </section>
 
+       {/* SYSTEM HARDENING */}
+       <section>
+         <h3 className="section-header" id="System-Hardening">System Hardening</h3>
+        <ul>
+            <li>Update OS: <code>sudo apt update && sudo apt upgrade -y   # Ubuntu/Debian</code></li>
+            <li>Only allow needed ports in firewall: <code>sudo ufw allow 443</code></li>
+            <li>Add rate limit</li>
+            <li>Add concurrent connections limit</li>
+        </ul>
+        <hr/>
+      </section>
+      
+
        {/* LAWS */}
        <section>
          <h3 className="section-header" id="laws">Laws</h3>
