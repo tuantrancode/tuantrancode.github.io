@@ -364,15 +364,16 @@ public class Course {
         <hr/>
       </section>
 
-      {/* JPA REPOSITORY  */}  
+      {/* JPA & Rest REPOSITORY  */}  
       <section>
-        <h3 className='section-header' id='JPA'>JPA Repository</h3>
+        <h3 className='section-header' id='repository'>JPA & REST Repository</h3>
         <p>When combined with spring-boot-data-rest, JPA repositories are automatically exposed as REST endpoints.</p>
         <ul>
           <li>To use the JPA repository, an interface must extends the <code>{`JpaRepository<{entity class},{primary key type}>`}</code> while following the {`{entity}Repository`} naming convention</li>
           <li><code>@RepositoryRestResource</code>: marks a JPA repository to be exposed as a REST endpoint by the spring-boot-data-rest; the following endpoints are exposed:</li>
           <ul>
             <li>The endpoints will be the repository name, but lowercase and in plural form (Ex: CountryRepository {`>`} countries)</li>
+            <li>Setting <code>@RepositoryRestResource(exported = false) prevent endpoints from being auto-generated so this repository can only be used to connect to the DB</code></li>
             <li><code>{`GET /{entities}`}</code>: returns all entries in the table</li>
             <li><code>{`GET /{entities}/{id}`}</code>: returns a specific entry by ID</li>
             <li><code>{`POST /{entities}`}</code>: creates a new entry in the table</li>

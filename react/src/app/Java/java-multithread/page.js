@@ -1,3 +1,4 @@
+import CodeBlock from '@/components/shared/CodeBlock';
 import SearchContainer from '@/components/shared/SearchContainer';
 
 export const metadata = {
@@ -195,7 +196,284 @@ export default function JavaMultithread() {
       </ul>
     </li>
   </ul>
+  <hr/>
 </section>
+
+      {/* DATA STRUCTURE */}
+       <section>
+         <h3 className="section-header" id="data-structures">Data Structures</h3>
+         <p>Common data structures for blocking queue:</p>
+        <ul>
+          <li>BlockingQueue</li>
+          <ul>
+            <li><code>ArrayBlockingQueue | LinkedBlockingQueue | PriorityBlockingQueue | DelayQueue | SynchronousQueue (zero capacity queue)</code></li>
+          </ul>
+          <li>BlockingDeque: double-ended queue</li>
+          <ul>
+            <li><code>LinkedBlockingDeque</code></li>
+          </ul>
+          <li>Concurrent Collections: allow non-blocking reads</li>
+          <ul>
+            <li><code>ConcurrentHashMap</code></li>
+            <li><code>ConcurrentLinkedQueue | ConcurrentLinkedDeque</code></li>
+          </ul>
+          <li>Atomic Structures</li>
+          <ul>
+            <li><code>AtomicInteger | AtomicLong | AtomicReference</code></li>
+          </ul>
+        </ul>
+        <hr/>
+      </section>
+
+       {/* SYNCHRONIZED */}
+       <section>
+         <h3 className="section-header" id="synchronized-monitor">Synchronized/Monitor Blocks</h3>
+         <p>Use to enforce mutual exclusion in an encapsulated manner</p>
+         <ul>
+          <li>Manages a lock object to determine which thread can enter <code>synchronized</code> block</li>
+          <ul>
+            <li>lock object should be <code>private final Object</code>, but Java accept any object</li>
+            <li>Calling <code>lock.wait()</code> suspend the current thread, release the lock, and free-up resources used by the now-waiting thread</li>
+            <ul>
+              <li>Always call <code>lock.wait()</code> inside a <code>while</code> loop because multiple threads generally wake up at the same time, and threads are not allowed to immediately run after waking because the lock has not been released by the notifying thread</li>
+            </ul>
+            <li>Calling <code>lock.notifyAll()</code> wake up all waiting threads, but the notifying thread still has the lock</li>
+          </ul>
+          <li>Also, uses a conditional variable to check it's alright to run the critical section code</li>
+          <ul>
+            <li>Conditional variable do not have to be atomic if only accessed inside the <code>synchronized</code> block</li>
+          </ul>
+          </ul>
+          <p><b><u>Key Methods</u></b>:</p>
+          <ul>
+            <li><code>synchronized(lock)</code>: acquire the lock to enter <code>syncrhonized</code> block</li>
+            <ul>
+              <li>lock is released automatically after leaving <code>syncrhonized</code> block</li>
+            </ul>
+            <li><code>lock.wait()</code>: releases lock and suspend thread to free up resources</li>
+            <ul>
+              <li><code>lock.sleep()</code>: pause thread and does NOT release lock</li>
+            </ul>
+            <li><code>lock.notifyAll()</code>: keep lock while waking up all waiting threads</li>
+            <ul>
+              <li><code>lock.notify(): wake up a random thread</code></li>
+            </ul>
+          </ul>
+        <CodeBlock language="java">{`
+private final Object lock = new Object();
+private final boolean isFull = false;
+
+public void put(item){
+  synchronized(lock){
+    while(isFull){
+      lock.wait();
+    }
+    // critical section
+    enqueue(item);
+
+    // Make sure to wake up all waiting threads
+    lock.notifyAll();
+  }
+}
+        `}</CodeBlock>
+
+        <br/>
+        <p><b><u>Synchronized Method & Static</u></b></p>
+        <p>If <code>synchronized</code> is used on the whole method, then the lock is <code>this</code> - the current instance of the class</p>
+          <ul>
+            <li>Eliminate needs for a <code>lock</code> object</li>
+            <li><code>static synchronized</code> method would use the class, <code>MyClass.class</code>, itself as the lock causing all <code>MyClass</code> instance to be locked</li>
+            <ul>
+              <li><code>static</code> variable behave similarly</li>
+            </ul>
+          </ul> 
+          <CodeBlock language="java">{`
+private final boolean isFull = false;
+
+public synchronized void put(item){
+  while(isFull){
+     lock.wait();
+  }
+  // critical section
+  enqueue(item);
+
+  // Make sure to wake up all waiting threads
+  lock.notifyAll();
+}
+        `}</CodeBlock>
+            <hr/>
+      </section>
+          
+      {/* CLASS DESIGN TIPS */}
+       <section>
+       <h3 className="section-header" id="class-design-tips">Class Design Tips</h3>
+        <p>Rule of thumb: share objects, not static state</p>
+        <CodeBlock language="java">{`
+// GOOD DESIGN
+
+public class TaskQueue{
+  private queue;
+  public synchronized void put() {}
+}
+====================================
+// BAD DESIGN
+
+public class TaskQueue{
+  private static queue;
+  public static synchronized void put() {}
+}
+        `}</CodeBlock>
+          <p>Non-static version allows multiple <code>TaskQueue</code> of different types to be created like <code>Queue A (CPU tasks)</code> and <code>Queue B (I/O tasks)</code></p>
+          <hr/>
+      </section>
+
+       {/* SEMAPHORE */}
+       <section>
+         <h3 className="section-header" id="semaphore">Semaphore</h3>
+         <p>Semaphores are low-level objects to synchronize threads, but offer more flexibility like handling N instances of a limited resource</p>
+         <p><b><u>Key Methods</u></b>:</p>
+          <ul>
+            <li><code>emptySlots.acquire()</code>: request if there are available resources</li>
+            <ul>
+              <li>Check if <code>{`emptySlots > 0`}</code> and if is then permit the thread to continue and at the same time decrement <code>emptySlots--</code>, else cause thread to wait/block it</li>
+            </ul>
+            <li><code>emptySlots.release()</code>: wake up all waiting threads that were caused by <code>emptySlots.acquire()</code> and at the same time increment <code>emptySlots++</code></li>
+          </ul>
+          <CodeBlock language='java'>{`
+private final Semaphore mutex = new Semaphore(1); -> mutual exclusion lock
+private final Semaphore emptySlots = new Semaphore(10); -> capacity or N resources
+private final Semaphore usedSlots = new Semaphore(0); 
+
+public void put(item) {
+  emptySlots.acquire();
+  mutex.acquire();
+
+  // critical section
+  enqueue(item);
+
+  mutex.release();
+  usedSlots.release();
+}
+
+public T pop() {
+  usedSlots.acquire();
+  mutex.acquire();
+
+  // critical section
+  T = pop(item);
+
+  mutex.release();
+  emptySlots.release();
+
+  return T;
+}
+          `}</CodeBlock>
+        <hr/>
+      </section>
+
+       {/* REENTRANTLOCK */}
+       <section>
+         <h3 className="section-header" id="ReentrantLock">ReentrantLock</h3>
+         <p>Similar to <code>synchronized</code> block, but offer more flexibility like interruptible lock, first-come-first-served lock, and allow finer control of which thread wake up like <code>semaphore</code></p>
+          <p><b><u>Key Methods</u></b>:</p>
+          <ul>
+            <li><code>lock.lock()</code>: acquire the <code>lock</code></li>
+            <li><code>lock.unlock()</code>: release the <code>lock</code></li>
+            <ul>
+              <li>Should always be put in <code>final</code> block in case thread throws Exception</li>
+            </ul>
+            <li><code>notFull.await()</code>: wait and suspend thread until <code>notFull.signal()</code> is called</li>
+            <li><code>notFull.signal()</code>: wake up a thread that is waiting because of <code>notFull.await()</code> is called</li>
+            <ul>
+              <li><code>notFull.signalAll()</code>: wake up all threads tied to the condition <code>notFull</code></li>
+            </ul>
+          </ul>
+          <CodeBlock language='java'>{`
+private final ReentrantLock lock = new ReentrantLock();
+
+private final Condition notFull = lock.newCondition();
+private final Condition notEmpty = lock.newCondition();
+
+public void put(item) {
+    lock.lock();
+    try {
+        while (isFull) {
+            notFull.await();   // while Full, will wait until notFull
+         }
+
+        // critical section
+        enqueue(item);
+
+        notEmpty.signal(); // equivalent to notifyAll()
+     } finally {
+        lock.unlock();
+     }
+}         
+
+public T pop() {
+    lock.lock();
+    try {
+      while (isEmpty) {
+           notEmpty.await();  // while Empty, will wait until notEmpty
+      }
+
+      // critical section
+      enqueue(item);
+
+      notFull.signal(); 
+    } finally {
+      lock.unlock();
+    }
+}      
+          `}</CodeBlock>
+        <hr/>
+      </section>
+
+             {/* REENTRANT READ AND WRITE LOCK */}
+       <section>
+         <h3 className="section-header" id="ReentrantReadWriteLock">ReentrantReadWriteLock</h3>
+         <p>This lock separates readers and writers, and allow multiple readers in the critical section unless a writer is in it</p>
+         <p><b><u>Key Methods</u></b>:</p>
+          <ul>
+            <li><code>lock.readLock().lock()</code>: acquire the <code>lock</code> for the purpose of reading, blocking any writer from entering</li>
+            <ul>
+              <li><code>lock.readlock().unlock()</code>: release the lock; should be placed in <code>final</code> block</li>
+            </ul>
+            <li><code>lock.writeLock().lock()</code>: acquire the <code>lock</code> for the purpose of writing, blocking both readers and writer from entering</li>
+            <ul>
+              <li><code>lock.writeLock().unlock()</code>: release the lock; should be placed in <code>final</code> block</li>
+            </ul>
+          </ul>
+          <CodeBlock language='java'>{`
+class Cache {
+
+    private final ReentrantReadWriteLock rwLock =
+        new ReentrantReadWriteLock();
+
+    public int read() {
+
+        rwLock.readLock().lock();
+        try {
+            //critical section
+            return value;
+        } finally {
+            rwLock.readLock().unlock();
+        }
+    }
+
+    public void write(int newValue) {
+
+        rwLock.writeLock().lock();
+        try {
+            //critical section
+            value = newValue;
+        } finally {
+            rwLock.writeLock().unlock();
+        }
+    }
+}    
+          `}</CodeBlock>
+      </section>
 
     </>
   );
