@@ -473,8 +473,14 @@ class Cache {
     }
 }    
           `}</CodeBlock>
+          <hr/>
       </section>
 
+      {/* DIAGRAM */}
+      <section>
+        <h3 className='section-header' id='diagram'>RAG & Wait-Graph Diagram</h3>
+        <p>Resource Allocation Graph (RAG) and wait-graph can be used to identify deadlocks in a system: <a href='/Tools/diagram'>Diagram Section</a></p>
+      </section>
     </>
   );
 }

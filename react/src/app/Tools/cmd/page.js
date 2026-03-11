@@ -13,14 +13,61 @@ export default function CmdTools() {
     {/* <!-- QUICK REFERENCE --> */}
     <h3 className="section-header" id="quick">Quick Reference</h3>
     <ul>
+      <li>Admin:</li>
+        <ul>
+        <li>Reading logs:</li>
+        <ul>
+          <li>Authentication Logs:</li>
+          <ul>
+            <li><code>sudo grep "Accepted" /var/log/auth.log*</code>: show all successful login, even in past log rotations </li>
+            <li><code>sudo grep "Failed password" /var/log/auth.log</code>: list failed login attempts</li>
+            <li><code>sudo tail -n 20 -f /var/log/auth.log</code>: read most recent 20 entries in ssh/authentication log</li>
+            <ul>
+              <li><code>{`sudo grep "Failed password" /var/log/auth.log | awk '{print $11}' | sort | uniq -c | sort -nr | head`}</code>: see top IPs attempting SSH attacks</li>
+              <li><code>sudo grep sshd /var/log/auth.log</code>: show all SSH-related events in authentication log</li>
+            </ul>
+          </ul>
+          <li><code>sudo tail -f /var/log/nginx/access.log</code>: reading nginx logs live</li>
+          <li><code>sudo tail -n 20 -f /var/log/nginx/access.log</code>: show the most recent 20 entries in log</li>
+          <li><code>sudo tail -f /var/log/nginx/error.log</code>: reading logs live</li>
+           <li><code>sudo tail -n 20 -f /var/log/nginx/error.log</code>: show the most recent 20 entries in log</li>
+        </ul>
+        <li><code>cat /etc/passwd | sort</code>: list all users</li>
+        <li><code>who</code>: show all logged in users</li>
+        <li><code>getent group sudo</code>: see who has admin privileges</li>
+        <li>Users control:</li>
+        <ul>
+            <li><code>sudo useradd -m [username]</code>: add a new user and make a home directory</li>
+            <li><code>sudo passwd [username]</code>: set password for a user</li>
+            <li><code>sudo usermod [username] sudo</code>: add a user to the sudo group</li>
+            <li><code>sudo userdel -r [username]</code>: delete user and their home directory</li>
+            <li><code>sudo nano /etc/ssh/sshd_config</code>: edit SSH access permission for users</li>
+            <ul>
+              <li><code>AllowUsers [username1 username2 ...] deploy</code>: allow certain users to ssh and deny everyone else</li>
+              <li><code>DenyUsers [username1 username2 ...] deploy</code>: deny certain users ssh; Deny rules will override allow rules</li>
+              <li><code>AllowGroups [group ...] deploy</code></li>
+              <li><code>DenyGroups [group ...] deploy</code></li>
+              <ul>
+                <li>Priority:</li>
+                <ul>
+                  <li>DenyUsers</li>
+                  <li>AllowUsers</li>
+                  <li>DenyGroups</li>
+                  <li>AllowGroups</li>
+                </ul>
+              </ul>
+            </ul>
+            <li><code>sudo systemctl restart ssh</code>: restart ssh</li>
+        </ul>
+      </ul>
+    </ul>
+    <hr/>
+
+    <ul>
       <li>Setup:</li>
       <ul>
       <li><code>ssh -i [private key] [user]@[host]</code>: connect to a remote host using SSH</li>
-      <li>Reading logs live:</li>
-      <ul>
-        <li><code>sudo tail -f /var/log/nginx/access.log</code></li>
-        <li><code>sudo tail -f /var/log/nginx/error.log</code></li>
-      </ul>
+      
       <li><code>q / exit</code>: quit the current session</li>
       <li><code>Ctrl + L</code>: clear the terminal screen</li>
       <li><code>sudo apt update && sudo apt upgrade -y</code>: update and upgrade packages</li>
@@ -34,9 +81,6 @@ export default function CmdTools() {
         <li>unzip: extract <code>.zip</code> files since Linux only handle <code>.tar.gz</code> files</li>
         <li>git: version control system</li>
       </ul>
-      <li><code>sudo useradd -m [username]</code>: add a new user and make a home directory</li>
-      <li><code>sudo passwd [username]</code>: set password for a user</li>
-      <li><code>sudo usermod [username] sudo</code>: add a user to the sudo group</li>
       <li><code>VARIABLE=value</code>: set an environment variable</li>
       <li><code>export VARIABLE=value</code>: export an environment variable to make it available to child processes/subshells</li>
       <li><code>sudo apt install nginx -y</code>: install Nginx web server</li>

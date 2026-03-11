@@ -79,6 +79,7 @@ const navSections = [
       { name: 'Browser DevTools', link: '/Tools/browser' },
       { name: 'React DevTools', link: '/Tools/react-dev-tools' },
       { name: 'Cmd / Terminal', link: '/Tools/cmd' },
+      { name: 'Ansible', link: '/Tools/ansible'},
       { name: 'Git', link: '/Tools/git' },
       { name: 'Node.js', link: '/Tools/node' },
       { name: 'Maven and Gradle', link: '/Tools/maven-gradle' },

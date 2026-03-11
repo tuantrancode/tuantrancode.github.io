@@ -27,7 +27,7 @@ export default function JavaLogin() {
         <hr/>
       </section>
 
-       {/* AUTHORIZATION SERVER  */}
+      {/* AUTHORIZATION SERVER  */}
       <section>
         <h3 className='section-header' id='authorization-server'>Authorization Server</h3>
         <p>An authorization server is a component that handles both authentication and authorization, and create an access token and ID token for the user</p>
