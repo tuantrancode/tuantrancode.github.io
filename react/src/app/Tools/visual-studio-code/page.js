@@ -169,6 +169,8 @@ export default function VisualStudioCode() {
       <h3 className='section-header' id='extensions'>
         Extensions
       </h3>
+
+      <h4 className="sub-section-header">General</h4>
       <ul>
         <li>
           <strong>Live Server</strong> <code>ritwickdey.liveserver</code> : allow for the website to auto-reload the
@@ -179,17 +181,6 @@ export default function VisualStudioCode() {
             Mobile testing Setup: in Live Server setting, check the option to "Use Local Ip"; this will allow mobile
             devices to access the same website by putting in the same url, but make sure the phone is connected to the
             same Wifi
-          </li>
-        </ul>
-
-        <li>
-          <strong>Document This</strong> <code>oouo-diogo-perdigao.docthis</code> : create a quick documentation
-          template for a Javascript or Typescript function
-        </li>
-        <ul>
-          <li>
-            Right click the function name and select 'Document This'. Another shortcut is Ctrl + Alt + D, then Ctrl +
-            Alt + D again
           </li>
         </ul>
 
@@ -205,11 +196,6 @@ export default function VisualStudioCode() {
         </ul>
 
         <li>
-          <strong>Pretty TypeScript Errors</strong> <code>yoavbls.pretty-ts-errors</code> : makes typescript error
-          easier to read
-        </li>
-
-        <li>
           <strong>Todo Tree</strong> <code>gruntfuggly.todo-tree</code> : highlight <code>TODO</code> and{' '}
           <code>FIXME</code> tags, and give a view of all those tags in a project
         </li>
@@ -220,7 +206,22 @@ export default function VisualStudioCode() {
         <li>
           <strong>GitHub Copilot</strong> <code>github.copilot</code> : AI assistant
         </li>
+      </ul>
+      
+       <h4 className="sub-section-header">Ansible / YAML</h4>
+      <ul>
+          <li>Ansible: (<code>redhat.ansible</code>)</li>
+          <ul>
+            <li>Has autocomplete for modules, syntax validation, and hover a module to see its documentation</li>
+          </ul>
+            <li>YAML: (<code>redhat.vscode-yaml</code>)</li>
+          <ul>
+            <li>Has YAML validation, autocomplete, and built-in Kubernetes syntax support</li>
+          </ul>
+      </ul>
 
+       <h4 className="sub-section-header">Javascript / Typescript</h4>
+       <ul>
         <li>
           <strong>ESLint</strong> <code>dbaeumer.vscode-eslint</code> : code analysis tool for Javascript and Typescript
         </li>
@@ -231,7 +232,24 @@ export default function VisualStudioCode() {
           </li>
           <li>It detect syntax error before compiling the code, enforce coding standards and best practices</li>
         </ul>
-      </ul>
+
+         <li>
+          <strong>Document This</strong> <code>oouo-diogo-perdigao.docthis</code> : create a quick documentation
+          template for a Javascript or Typescript function
+        </li>
+        <ul>
+          <li>
+            Right click the function name and select 'Document This'. Another shortcut is Ctrl + Alt + D, then Ctrl +
+            Alt + D again
+          </li>
+        </ul>
+
+         <li>
+          <strong>Pretty TypeScript Errors</strong> <code>yoavbls.pretty-ts-errors</code> : makes typescript error
+          easier to read
+        </li>
+       </ul>
+     
 
       <h4 className="sub-section-header">Java</h4>
       <ul>

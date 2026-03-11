@@ -44,9 +44,13 @@ export default function Ansible() {
             </ul>
             <li>VS Code has extensions that are useful for ansible files</li>
             <ul>
-                <li>Ansible VS Code Extension</li>
+                <li>Ansible: (<code>redhat.ansible</code>)</li>
                 <ul>
-                    <li>Has autocomplete for modules, syntax validation, and Ctrl-click a module to see its documentation</li>
+                    <li>Has autocomplete for modules, syntax validation, and hover a module to see its documentation</li>
+                </ul>
+                <li>YAML: (<code>redhat.vscode-yaml</code>)</li>
+                <ul>
+                    <li>Has YAML validation, autocomplete, and built-in Kubernetes syntax support</li>
                 </ul>
             </ul>
         </ul>
