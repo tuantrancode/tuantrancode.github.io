@@ -71,9 +71,15 @@ export default function Security() {
          <h3 className="section-header" id="System-Hardening">System Hardening</h3>
         <ul>
             <li>Update OS: <code>sudo apt update && sudo apt upgrade -y   # Ubuntu/Debian</code></li>
+            <li>Set up automatic security updates with <code>unattended-upgrades</code></li>
+            <li>Install <code>fail2ban</code></li>
+            <li>Only allow certain users SSH access</li>
+            <li>Change default ports</li>
             <li>Only allow needed ports in firewall: <code>sudo ufw allow 443</code></li>
             <li>Add rate limit</li>
             <li>Add concurrent connections limit</li>
+            <li>Internal communication should be through private network</li>
+            <li>Be wary of keys and secrets location</li>
         </ul>
         <hr/>
       </section>
