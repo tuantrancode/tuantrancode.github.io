@@ -44,12 +44,21 @@ export default function Ansible() {
             </ul>
             <li>VS Code has extensions that are useful for ansible files</li>
             <ul>
+                <li>WSL: (<code>ms-vscode-remote.remote-wsl</code>)</li>
+                <ul>
+                    <li>Allow VS Code to connect to WSL OS and run command through the Linux shell, mainly python commands</li>
+                    <li>After opening ansible project in VS Code, press <code>Ctrl + Shift + P</code> and type <code>WSL: Reopen Folder in WSL</code></li>
+                    <li>Allow cmd like <code>ansible-galaxy role init [role-name]</code></li>
+                    <li>Allow cmd like <code>ansible-playbook -i tests/inventory.ini tests/test.yml</code></li>
+                </ul>
                 <li>Ansible: (<code>redhat.ansible</code>)</li>
                 <ul>
+                    <li>Need to install in VS Code while it's in WSL mode as well</li>
                     <li>Has autocomplete for modules, syntax validation, and hover a module to see its documentation</li>
                 </ul>
                 <li>YAML: (<code>redhat.vscode-yaml</code>)</li>
                 <ul>
+                    <li>Need to install in VS Code while it's in WSL mode as well</li>
                     <li>Has YAML validation, autocomplete, and built-in Kubernetes syntax support</li>
                 </ul>
             </ul>
@@ -78,13 +87,21 @@ export default function Ansible() {
 {host1}
 {host2}
 
+[solr-nodes:vars]
+webhhook="xxx"
+
 [solr-zk]
 zk1 ansible_host=10.0.0.5
 zk2 ansible_host=10.0.0.6
 
+[solr-zk:vars]
+webhhook="xxx"
+
 [all:vars]
 ansible_user={username} 
 ansible_ssh_private_key_file={private key}
+
+ssh_port=22
             `}</CodeBlock>
             <ul>
                 <li><code>[solr-nodes]</code>: the name of the group</li>
@@ -107,18 +124,32 @@ ansible_ssh_private_key_file={private key}
             `}</CodeBlock>
          </ul>
         <p><u><b>Running Ansible</b></u></p>
+         <p>Prep:</p>
+         <ul>
+          <li>Export the env variable: <code>export ANSIBLE_HOST_KEY_CHECKING=False</code> so ansible would accept password protected ssh key</li>
+          <li>If ssh key is on Windows, then copy it over to WSL system at "~/.ssh/" and change permission to 600</li>
+          <li>Ansible does not allow ssh login as root, so a user need to be created on the server beforehand</li>
+          <ul>
+            <li><code>sudo adduser [user]</code></li>
+            <li><code>sudo usermod -aG sudo [user]</code></li>
+            <li><code>sudo apt update && sudo apt upgrade -y</code>: apt should also be updated and upgraded</li>
+            <li><code>sudo apt install python3-passlib -y</code>: to hash password in vault</li>
+
+          </ul>
+         </ul>
          <p>To run the playbook:</p>
          <ul>
             <li><code>ansible-playbook -i inventory playbook.yml</code></li>
             <li><code>ansible-playbook -i inventory playbook.yml --check --diff</code>: dry run that show the exact file differences</li>
             <li><code>ansible-playbook playbook.yml --ask-vault-pass</code>: run playbook with value secrets inserted</li>
-            <li><code>ansible-playbook -i inventory playbook.yml -u [username] --private-key [private key]</code>: include SSH info if not in inventory</li>
-            <li><code>ansible-playbook -i inventory playbook.yml -u [username] --private-key [private key] -K</code>: ask for sudo password</li>
+            <li><code>ansible-playbook -i inventory playbook.yml -u [username] --private-key [private key] --ask-pass</code>: include SSH info if not in inventory</li>
+            <li><code>ansible-playbook -i inventory playbook.yml -u [username] --private-key [private key] --ask-pass -K</code>: ask for sudo password</li>
             <br/>
             <li><code>ansible-playbook -i inventory playbook.yml --limit zk1,zk2</code>: limit tasks to zk1 and zk2 servers label in inventory</li>
             <li><code>ansible-playbook -i inventory playbook.yml --limit 10.0.0.5</code>: limit task to specific IP</li>
             <br/>
-            <li><code>ansible-playbook -i inventory playbook.yml -u [username] --private-key [private key] -K --ask-vault-pass</code>: main overall</li>
+            <li><code> ansible-playbook -i inventory playbook.yml --ask-vault-pass --ask-pass -K --check --diff --limit zk2</code>: main check</li>
+            <li><code> ansible-playbook -i inventory playbook.yml --ask-vault-pass --ask-pass -K --limit zk2</code>: main overall</li>
          </ul>
         <hr/>
       </section>
@@ -542,6 +573,7 @@ ssl_key: /etc/ssl/private/example.key
                     </ul>
                     <li>Run playbook as <code>ansible-playbook playbook.yml --ask-vault-pass</code></li>
                     <li><code>ansible-vault view vault.yml</code>: check the vault</li>
+                    <li><code>ansible-vault edit vault.yml</code>: edit the vault</li>
                 </ul>
             </ul>
         </ul>      
