@@ -38,6 +38,7 @@ export default function Ansible() {
         </ul>
         <p><u><b>Useful</b></u></p>
         <ul>
+            <li>Ansible uses indentation instead of brackets to determine the code level/block</li>
             <li>To access files in Windows partition while running WSL Linux shell, use <code>mtn/</code> to access any file drives</li>
             <ul>
                 <li><code>C:\Users\Tran\Desktop</code> translate to <code>/mnt/c/Users/Tran/Desktop</code> in Linux shell</li>
@@ -142,14 +143,14 @@ ssh_port=22
             <li><code>ansible-playbook -i inventory playbook.yml</code></li>
             <li><code>ansible-playbook -i inventory playbook.yml --check --diff</code>: dry run that show the exact file differences</li>
             <li><code>ansible-playbook playbook.yml --ask-vault-pass</code>: run playbook with value secrets inserted</li>
-            <li><code>ansible-playbook -i inventory playbook.yml -u [username] --private-key [private key] --ask-pass</code>: include SSH info if not in inventory</li>
+            <li><code>ansible-playbook -i inventory playbook.yml -u [username] --private-key [private key] -k</code>: include SSH info if not in inventory</li>
             <li><code>ansible-playbook -i inventory playbook.yml -u [username] --private-key [private key] --ask-pass -K</code>: ask for sudo password</li>
             <br/>
             <li><code>ansible-playbook -i inventory playbook.yml --limit zk1,zk2</code>: limit tasks to zk1 and zk2 servers label in inventory</li>
             <li><code>ansible-playbook -i inventory playbook.yml --limit 10.0.0.5</code>: limit task to specific IP</li>
             <br/>
-            <li><code> ansible-playbook -i inventory playbook.yml --ask-vault-pass --ask-pass -K --check --diff --limit zk2</code>: main check</li>
-            <li><code> ansible-playbook -i inventory playbook.yml --ask-vault-pass --ask-pass -K --limit zk2</code>: main overall</li>
+            <li><code>ansible-playbook -i inventory playbook.yml --ask-vault-pass -k -K --check --diff --limit zk2</code>: main check</li>
+            <li><code>ansible-playbook -i inventory playbook.yml --ask-vault-pass -k -K --limit zk2</code>: main overall</li>
          </ul>
         <hr/>
       </section>
@@ -159,6 +160,7 @@ ssh_port=22
          <h3 className="section-header" id="directory-structure">Directory Structure</h3>
          <p>In an ansible folder, the roles/ directory is used to organize reusable server configuration</p>
          <ul>
+            <li><code>defaults/</code>: contain the default variables as backup if they were not specified</li>
             <li><code>tasks/</code>: the main playbook</li>
             <li><code>files/</code>: static files copied to servers</li>
             <li><code>templates/</code>: Jinja2 templates (dynamic configs)</li>
@@ -167,6 +169,7 @@ ssh_port=22
          </ul>
          <CodeBlock>{`
 ansible/
+├── group_vars/all/vault.yml
 ├── inventory
 ├── playbook.yml
 └── roles/
@@ -207,6 +210,18 @@ Ansible automatically loads:
         <hr/>
       </section>
 
+      {/* DEFAULTS DIRECTORY */}
+      <section>
+         <h3 className="section-header" id="defaults-directory">Defaults Directory</h3>
+         <p>The <code>defaults/</code> folder has a <code>main.yml</code> file, containing a list of default variables for the role; they are backup if these parameters were not specified</p>
+         <CodeBlock>{`
+# defaults/main.yml
+ssh_port: 22
+solr_port: 8983     
+         `}</CodeBlock>
+        <hr/>
+      </section>
+
       {/* TASKS DIRECTORY */}
       <section>
          <h3 className="section-header" id="tasks-directory">Tasks Directory</h3>
@@ -226,7 +241,6 @@ Ansible automatically loads:
     state: started
     enabled: true         
          `}</CodeBlock>
-       
         <hr/>
       </section>
 
@@ -381,6 +395,12 @@ ssl_key: /etc/ssl/private/example.key
          <ul>
             <li>Commonly used to <code>restart services | reload service | restart daemons after config changes</code></li>
             <li>Handlers are run AFTER all tasks in the playbook finish so even if a handler is triggered multiple times, it'll only run once</li>
+            <li><CodeBlock>{`
+# This task will force any pending handlers to run immediately
+- name: Flush handlers to restart Solr before proceeding
+  meta: flush_handlers            
+            `}</CodeBlock>
+            </li>
          </ul>
          <CodeBlock>{`
 # handlers/main.yml
@@ -432,11 +452,15 @@ ssl_key: /etc/ssl/private/example.key
     - { src: "nginx.conf", dest: "/etc/nginx/nginx.conf" }
     - { src: "site.conf", dest: "/etc/nginx/sites-enabled/site.conf" }
          `}</CodeBlock>
-            <li><code>become_user: root</code>: set the user per task</li>
+            <li><code>become: true</code>: run task/playbook as sudo</li>
+            <li><code>vars:</code> set variable block for task/playbook level</li>
+            <li><code>register: [variable]</code>: store the result of the task into the variable</li>
             <ul>
-                <li><code>become: yes</code>: required for it to work</li>
+              <li><code>[variable].stdout</code>: output what was stored</li>
+              <li><code>[variable].stdout_lines</code>: output what was stored into an array/ as multi-lines</li>
             </ul>
-            <li><code>remote_user: root</code>: set the user per playbook</li>
+            <li><code>when: [variable].changed</code>: run the task only if the registered variable's task was changed</li>
+            <li><code>{`ignore_errors: "{{ ansible_check_mode | default(false) }}"`}</code>: ignore the task if it gave error during --check</li>
          </ul>
          <hr/>
 
@@ -543,6 +567,7 @@ ssl_key: /etc/ssl/private/example.key
         <ul>
             <li><code>state: present</code>: Ensure archive is extracted</li>
             <li><code>state: absent</code>: Remove extracted files</li>
+            <li><code>remote-src: yes</code>: src is from remote server</li>
         </ul>      
          <CodeBlock>{`
 - name: Extract Solr
@@ -567,6 +592,7 @@ ssl_key: /etc/ssl/private/example.key
                 <li>Setting up ansible-vault</li>
                 <ul>
                     <li><code>ansible-vault create vault.yml</code>: create the value file and open a text editor</li>
+                    <li><code>vault.yml</code> should go in <code>ansible/group_vars/all/vault.yml</code> to be accessible by all roles</li>
                     <li>Inside <code>vault.yml</code>, add <code>userPassword: "MyVerySecurePassword123!"</code></li>
                     <ul>
                       <li><code>vault.yml</code> is encrypted on disk after</li>
@@ -630,7 +656,16 @@ ssl_key: /etc/ssl/private/example.key
          `}</CodeBlock>
          <hr/>
 
-         <p><b><u>command</u></b>: run commands</p>    
+         <p><b><u>command</u></b>: run commands</p>
+         <ul>
+          <li><code>command: {`>`}</code>: allow the command to be written on multiple lines and ansible will treat it as a single-line command</li>
+          <li><code>args</code>: extra arguement for the task</li>
+            <ul>
+              <li><code>chdir: /path/to/run/task</code>: run the task in the specified directory</li>
+              <li><code>creates: /path</code>: if /path already exists, then this task will not be run</li>
+            </ul>    
+         </ul>
+        
          <CodeBlock>{`
 - name: Check solr version
   command: solr --version
@@ -644,6 +679,34 @@ ssl_key: /etc/ssl/private/example.key
     cd /tmp
     bash install_solr.sh
          `}</CodeBlock>
+        <hr/>
+
+      <p><b><u>debug</u></b>: for debug purposes: like outputting messages</p>    
+      <ul>
+        <li><code>msg: {`>`}-</code>: write multi-line strings</li>
+        <ul>
+          <li>Ansible will print each [.....] in its own line</li>
+        </ul>
+      </ul>
+         <CodeBlock>{`
+- name: Show multiple outputs
+  debug:
+    msg: >-
+      {{
+        ['=== Zookeeper Status ==='] + zk_status.stdout_lines +
+        ['"==================================================================",'] +
+        ['=== Zookeeper myid: ' + (myid | string) + ' ==='] 
+      }}
+   `}</CodeBlock>
+   <br/>
+   <CodeBlock>{`
+// Sample Output
+ "=== Zookeeper Status ===",
+        "● zookeeper.service - Apache ZooKeeper",
+        "     Loaded: loaded ..."
+        "========================================================================",
+        "=== Zookeeper myid: 1 ==="
+    `}</CodeBlock>
       </section>
     </>
   )
