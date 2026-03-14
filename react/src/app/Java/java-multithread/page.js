@@ -57,13 +57,14 @@ export default function JavaMultithread() {
       {/* RUNNABLE */}
       <section>
         <h3 className='section-header' id='runnable'>
-          Runnable
+          Runnable / Callable
         </h3>
         <p>Represents a task that can be executed by a thread.</p>
         <ul>
           <li>
             <code>Runnable</code> is a functional interface with a single method: <code>void run()</code>.
           </li>
+          <li><code>Callable</code> is the same as <code>Runnable</code> but is able to return the result once finished</li>
           <li>It does not represent a thread itself, only the code that a thread will execute.</li>
           <li>
             Create a Runnable task by:
@@ -142,7 +143,64 @@ export default function JavaMultithread() {
               </li>
             </ul>
           </li>
+          <li>Useful to know:</li>
+          <ul>
+            <li><code>Runtime rt = Runtime.getRuntime(); int cpus = rt.availableProcessors();</code>: to get number of available resource on system</li>
+          </ul>
+          <li>Shutting down ExecutorService:</li>
+          <ul>
+            <li><code>.shutdown()</code>: wait for existing tasks to finish without allowing new tasks and threads terminate when work is done</li>
+            <li><code>.awaitTermination(x, TimeUnit.SECONDS)</code>: wait for x seconds before executing next</li>
+            <li><code>.shutdownNow()</code>: forced termination and return a list containing tasks that never started execution</li>
+            <ul>
+              <li>It can only interrupts threads that respond to interrupts</li>
+              <li>If the thread is blocked when it gets interrupted then it will throw an <code>InterruptedException</code> and need to be handle properly</li>
+              <li>Do not use <code>while(true)</code> or the thread will ignore the interrupt</li>
+              <CodeBlock language='java'>{`
+// interrupt-aware task
+ while (!Thread.currentThread().isInterrupted()) {
+    doWork();
+} 
+
+// ===========================================
+// Handling InteruptedException    
+
+while (!Thread.currentThread().isInterrupted()) {
+    try {
+        blockingQueue.take();               // blocking method will cause InterruptedException if thread is blocked when it gets interrupted
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt(); // restore flag to properly end thread
+        break; // exit loop
+    }
+    doWork();
+}        
+              `}</CodeBlock>
+            </ul>
+          </ul>
+          <br/>
+           <li>Typical Shutdown Flow:</li>
         </ul>
+        <CodeBlock language='java'>{`
+// soft shutdown start
+executor.shutdown();
+
+try {
+    // wait 60s before calling hard shutdown
+    if (!executor.awaitTermination(60, TimeUnit.SECONDS)) {
+        executor.shutdownNow();
+    }
+} catch (InterruptedException e) {
+    // Thread responsible for awaitingTermination got interrupted while waiting so we want to stop all tasks NOW instead of wait
+    executor.shutdownNow();
+    Thread.currentThread().interrupt();
+} finally {
+    if(!ex.isTerminated()) {
+      // a collection of the unfinished tasks
+      List<Runnable> unfinished = ex.shutdownNow();
+      System.err.println("Pool did not terminate");  
+    }
+}       
+        `}</CodeBlock> 
         <hr />
       </section>
 
@@ -202,24 +260,109 @@ export default function JavaMultithread() {
       {/* DATA STRUCTURE */}
        <section>
          <h3 className="section-header" id="data-structures">Data Structures</h3>
-         <p>Common data structures for blocking queue:</p>
+         <p>Common data structures for synchronization:</p>
         <ul>
+          <li>CopyOnWrite Collections:</li>
+          <ul>
+            <li>Strongly consistent collection; iterators will take snapshot of a CopyOnWrite collections</li>
+            <li>Ideals for...</li>
+            <ul>
+              <li>{`Reads >> Writes`}</li>
+              <li>Many threads read concurrently</li>
+              <li>iteration must be safe without locks</li>
+            </ul>
+            <li>Examples:</li>
+            <ul>
+              <li>eveny listener lists</li>
+              <li>configuration lists</li>
+              <li>routing tables</li>
+              <li>plugin registries</li>
+            </ul>
+            <li>Avoid if...</li>
+            <ul>
+              <li>Frequent writes</li>
+              <li>Large collection</li>
+              <li>Memory sensitive systems</li>
+            </ul>
+          </ul>
+          <br/>
+          <li>Concurrent Collections: allow non-blocking reads</li>
+          <ul>
+            <li>Weakly consistent collection</li>
+            <li><code>ConcurrentHashMap</code></li>
+            <li><code>ConcurrentLinkedQueue | ConcurrentLinkedDeque</code></li>
+            <li>Also has method <code>.poll(x)</code> to have consumer wait x sec before checking again instead of infinite wait</li>
+            <li>Examples:</li>
+            <ul>
+              <li>Web servers</li>
+              <li>Message queues</li>
+              <li>Caches</li>
+              <li>Event systems</li>
+            </ul>
+          <br/>
           <li>BlockingQueue</li>
           <ul>
             <li><code>ArrayBlockingQueue | LinkedBlockingQueue | PriorityBlockingQueue | DelayQueue | SynchronousQueue (zero capacity queue)</code></li>
+            <li>Methods:</li>
+            <ul>
+               <li><code>put(E e)</code>: waits until space becomes available, then inserts element</li>
+               <li><code>take()</code>: waits until an element is available, then removes it</li>
+               <li><code>offer(E e, long timeout, TimeUnit unit)</code>: waits up to the timeout for space to become available</li>
+               <li><code>poll(long timeout, TimeUnit unit)</code>: waits up to the timeout for an element</li>
+               <br/>
+               <li><code>add(E e)</code>: inserts element, throws <code>IllegalStateException</code> if the queue is full</li>
+               <li><code>remove()</code>: removes and returns the head element, throws exception if the queue is empty</li>
+               <li><code>element()</code>: returns the head element without removing it, throws exception if the queue is empty</li>
+               <li><code>offer(E e)</code>: inserts element, returns <code>false</code> if the queue is full</li>
+               <li><code>poll()</code>: removes and returns the head element, returns <code>null</code> if the queue is empty</li>
+               <li><code>peek()</code>: returns the head element without removing it, returns <code>null</code> if the queue is empty</li>
+            </ul>
           </ul>
           <li>BlockingDeque: double-ended queue</li>
           <ul>
             <li><code>LinkedBlockingDeque</code></li>
           </ul>
-          <li>Concurrent Collections: allow non-blocking reads</li>
-          <ul>
-            <li><code>ConcurrentHashMap</code></li>
-            <li><code>ConcurrentLinkedQueue | ConcurrentLinkedDeque</code></li>
+          <br/>
+           <li>SynchronousQueue: zero-capacity queue</li>
+           <br/>
+           <li>LinkedTransferQueue: same as normal queue but allow for direct transfer of item to a waiting consumer without storing the item first</li>
+           <ul>
+            <li>reduces latency</li>
+            <li>Methods:</li>
+            <ul>
+              <li><code>transfer(E e)</code>: transfers the element to a waiting consumer, blocking until the consumer receives it</li>
+              <li><code>tryTransfer(E e)</code>: immediately transfers the element if a consumer is already waiting; returns <code>false</code> otherwise</li>
+              <li><code>tryTransfer(E e, long timeout, TimeUnit unit)</code>: waits up to the specified timeout for a consumer to receive the element</li>
+              <li><code>hasWaitingConsumer()</code>: returns <code>true</code> if there is at least one consumer waiting to receive an element</li>
+              <li><code>getWaitingConsumerCount()</code>: returns an estimate of the number of consumers waiting to receive elements</li>
+            </ul>
+           </ul>
           </ul>
+          <br/>
           <li>Atomic Structures</li>
           <ul>
             <li><code>AtomicInteger | AtomicLong | AtomicReference</code></li>
+          </ul>
+          <br/>
+          <li>CyclicBarrier</li>
+          <ul>
+            <li>synchronization tool that let a group of threads wait for each other to reach a common point before continuing</li>
+            <li>Methods:</li>
+            <ul>
+              <li><code>await()</code>: waits until all parties reach the barrier</li>
+              <li><code>await(long timeout, TimeUnit unit)</code>: waits until all parties reach the barrier or the timeout expires</li>
+              <li><code>getParties()</code>: returns the number of threads required to trip the barrier</li>
+              <li><code>getNumberWaiting()</code>: returns the number of threads currently waiting at the barrier</li>
+              <li><code>isBroken()</code>: returns <code>true</code> if the barrier is in a broken state</li>
+              <li><code>reset()</code>: resets the barrier to its initial state</li>
+            </ul>
+            <li>Examples:</li>
+            <ul>
+              <li>Physics simulation</li>
+              <li>Game engine</li>
+              <li>Matrix calculations</li>
+              <li>Parallel algorithms</li>
+            </ul>
           </ul>
         </ul>
         <hr/>
@@ -307,7 +450,11 @@ public synchronized void put(item){
       {/* CLASS DESIGN TIPS */}
        <section>
        <h3 className="section-header" id="class-design-tips">Class Design Tips</h3>
-        <p>Rule of thumb: share objects, not static state</p>
+       <ul>
+        <li>Rule of thumb: share objects, not static state</li>
+        <ul>
+          <li>Non-static version allows multiple <code>TaskQueue</code> of different types to be created like <code>Queue A (CPU tasks)</code> and <code>Queue B (I/O tasks)</code></li>
+        </ul>
         <CodeBlock language="java">{`
 // GOOD DESIGN
 
@@ -323,9 +470,256 @@ public class TaskQueue{
   public static synchronized void put() {}
 }
         `}</CodeBlock>
-          <p>Non-static version allows multiple <code>TaskQueue</code> of different types to be created like <code>Queue A (CPU tasks)</code> and <code>Queue B (I/O tasks)</code></p>
+        <li>Separation of concerns:</li>
+        <ul>
+          <li>In multithreading, there are 2 needs:</li>
+          <ul>
+            <li>Creating and scheduling some Java code for execution</li>
+            <li>Optimizing the execution of that code for the hardware resources you have available</li>
+          </ul>
+          <li><code>Executors</code> was designed to deal with number 2</li>
+        </ul>
+       </ul>
           <hr/>
       </section>
+
+         {/* FORK/JOIN FRAMEWORK */}
+       <section>
+       <h3 className="section-header" id="fork-join-framework">Fork / Join Framework</h3>
+       <p>The Fork / Join framework provide a way for programmers to do with one BIG problem utilizing threads; like filling a 100mil elements array with randomly generated value</p>
+       <ul>
+        <li>Any problem that can be recursively divided can be solved using <code>ForkJoinPool</code></li>
+        <li>The problem is broken down into subtask using <u>divide-and-conquer</u></li>
+        <li>If the problem is broken into too many subtasks, then the overhead can cause sequential work to be better than parallel work</li>
+        <ul>
+          <li><code>ForkJoinPool</code>: thread pool that manages <code>ForkJoinTask</code></li>
+          <ul>
+            <li><code>ForkJoinPool pool = new ForkJoinPool()</code>: create the pool to manage threads</li>
+            <li><code>pool.invoke(ForkJoinTask)</code>: perform the task and return the value if it's a <code>RecursiveTask</code></li>
+          </ul>
+          <li><code>ForkJoinTask</code>: abstract class for task with the following concrete subclasses</li>
+          <ul>
+            <li><code>RecursiveAction</code>: returns nothing</li>
+            <li><code>{`RecursiveTask<V>`}</code>: returns a value of type <code>V</code></li>
+          </ul>
+          <li>Methods of <code>ForkJoinTask</code>:</li>
+          <ul>
+            <li><code>[ForkJoinTask].fork()</code>: submit a subtask to the pool for parallel execution</li>
+            <li><code>[ForkJoinTask].join()</code>: wait for a subtask to finish and get the result; normally called at the end of compute on the subtask that was forked</li>
+            <li><code>compute()</code>: abstract method that must be implemented and where you define how the task is divided</li>
+            <li><code>invokeAll(task1, task2)</code>: shorthand way to use the 3 methods above</li>
+            <ul>
+              <li>Slightly less efficient because <code>invokeAll</code> fork both tasks so it creates more threads and then wait</li>
+            </ul>
+          </ul>
+        </ul>
+        <br/>
+        <li>RecursiveAction Example:</li>
+            <CodeBlock language='java'>{`
+// RecursiveAction (no return value)
+
+@Override
+protected void compute() {
+  ...
+  MyRecursiveAction a1 = new MyRecursiveAction(data, start, halfWay);
+  MyRecursiveAction a2 = new MyRecursiveAction(data, halfWay, end);
+
+  a1.fork();       // queue left half of task
+  a2.compute();    // work on right half of task
+  a1.join();       // wait for queued task to be completed
+}     
+
+// ============================================================
+// Using invokeAll
+
+MyRecursiveAction a1 = new MyRecursiveAction(data, start, halfWay);
+MyRecursiveAction a2 = new MyRecursiveAction(data, halfWay, end);
+invokeAll(a2, a1);
+            `}</CodeBlock>
+          
+       <br/>
+       <li>{`RecursiveTask<Integer>`} Example:</li>
+            <CodeBlock language='java'>{`
+// RecursiveTask (returning int)
+
+@Override
+protected Integer compute() {
+  ...
+  FindMaxTask a1 = new FindMaxTask(data, start, halfWay);
+  FindMaxTask a2 = new FindMaxTask(data, halfWay, end);
+
+  a1.fork();                     // queue left half of task
+  int result2 = a2.compute();    // work on right half of task
+  int result1 = a1.join();       // wait for queued task to be completed
+
+  return result2 > result1 ? result2 : result1;
+}     
+
+// ============================================================
+// Using invokeAll
+
+FindMaxTask a1 = new FindMaxTask(data, start, halfWay);
+FindMaxTask a2 = new FindMaxTask(data, halfWay, end);
+
+invokeAll(a2, a1);
+int result2 = a2.join();
+int result1 = a1.join();
+
+return result2 > result1 ? result2 : result1;
+            `}</CodeBlock>
+             <br/>
+          <li>Overall Example:</li>
+          <CodeBlock language='java'>{`
+ public class SumTask extends RecursiveTask<Long> {
+      private final long[] array;
+        private final int start, end;
+        private final int THRESHOLD = 1000; // adjust for optimal performance
+
+        SumTask(long[] array, int start, int end) {
+            this.array = array;
+            this.start = start;
+            this.end = end;
+        }
+
+        @Override
+        protected Long compute() {
+            int length = end - start;
+            if (length <= THRESHOLD) {
+                long sum = 0;
+                for (int i = start; i < end; i++) sum += array[i];
+                return sum;
+            } else {
+                int mid = start + length / 2;
+                SumTask left = new SumTask(array, start, mid);
+                SumTask right = new SumTask(array, mid, end);
+
+                // Fork left task to run asynchronously
+                left.fork();
+
+                // Compute right task in current thread
+                long rightResult = right.compute();
+
+                // Wait for left task to finish and get result
+                long leftResult = left.join();
+
+                // Combine results
+                return leftResult + rightResult;
+            }
+        }
+}
+
+// ================================================================
+// in main()
+
+public static void main(String[] args) {
+        // Create a large array
+        long[] array = new long[10_000_000];
+        for (int i = 0; i < array.length; i++) array[i] = i + 1;
+
+        // Create a ForkJoinPool
+        ForkJoinPool pool = new ForkJoinPool();
+
+        // Submit the main task and get the result
+        long sum = pool.invoke(new SumTask(array, 0, array.length));
+
+        System.out.println("Sum = " + sum);
+} 
+          `}</CodeBlock>
+       </ul>
+          <hr/>
+      </section>
+
+        {/* PARALLEL STREAM */}
+       <section>
+       <h3 className="section-header" id="parallel-streams">Parallel Streams</h3>
+       <p>Parallel Streams is an abstraction of Fork/Join framework, but only work on streams/collections</p>
+       <ul>
+        <li>Allows for parallel processing of collection data</li>
+        <li><code>.parallel()</code> for <code>IntStream | LongStream | DoubleStream</code></li>
+        <CodeBlock language='java'>{`
+Arrays.stream(array)
+      .parallel()
+      .average();   // returns OptionalDouble        
+        `}</CodeBlock>
+        <li><code>.parallelStream()</code> and <code>.collect()</code> for collections</li>
+        <CodeBlock language='java'>{`
+List<String> result = list.parallelStream()
+                          .filter(s -> s.length() > 3)
+                          .collect(Collectors.toList());     
+        `}</CodeBlock>
+        <br/>
+        <li>Transformative Methods</li>
+        <ul>
+          <li><code>map()</code>: Transform each element</li>
+          <li><code>mapToInt()</code>, <code>mapToLong()</code>, <code>mapToDouble()</code>: Transform to primitive streams for numeric operations</li>
+          <li><code>filter()</code>: Keep only elements matching a predicate</li>
+          <li><code>distinct()</code>: Remove duplicates</li>
+          <li><code>sorted()</code>: Sort the elements (parallel sort internally)</li>
+          <li><code>limit(n)</code> / <code>skip(n)</code>: Truncate or skip elements</li>
+          <li><code>flatMap()</code>: Flatten nested streams</li>
+          <li><code>peek()</code>: Inspect elements without modifying them</li>
+        </ul>
+        <br/>
+        <li>Terminal Methods: return a final result</li>
+        <ul>
+          <li><code>forEach()</code>: Apply an action to each element (order not guaranteed in parallel)</li>
+          <li><code>forEachOrdered()</code>: Apply action in encounter order (slower in parallel)</li>
+          <li><code>collect()</code>: Gather elements into a collection or map (e.g., <code>Collectors.toList()</code>, <code>toSet()</code>, <code>groupingBy()</code>)</li>
+          <li><code>reduce()</code>: Combine elements to a single value using a binary operator</li>
+          <li><code>min()</code>, <code>max()</code>: Get the minimum or maximum element</li>
+          <li><code>count()</code>: Count elements matching the pipeline</li>
+          <li><code>anyMatch()</code>, <code>allMatch()</code>, <code>noneMatch()</code>: Boolean checks over elements</li>
+          <li><code>findAny()</code>, <code>findFirst()</code>: Return one element (<code>findAny</code> can be faster in parallel)</li>
+          <li><code>sum()</code>, <code>average()</code>, <code>summaryStatistics()</code>: Numeric aggregations for primitive streams</li>
+        </ul>
+        <br/>
+        <li>Gotchas:</li>
+        <ul>
+          <li>When using transformative methods (<code>map or filter</code>), <u>racing condition</u> can be a problem if the method perform write on a shared variable/object</li>
+          <li>Methods that are order-sensitive (<code>sorted() | limit() | skip() | distinct() | forEachOrdered() | findFirst()</code>) can be slower in parallel</li>
+          <ul>
+            <li>Ordering can be removed from the above by calling <code>.unordered()</code> and can improve performance, but cause random result</li>
+          </ul>
+        </ul>
+       <CodeBlock language='java'>{`
+List<Integer> nums = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+long sum = nums.stream()
+             .unordered()     // make the stream unordered
+             .parallel()  
+             .sum()     
+       `}</CodeBlock>
+       </ul>
+        <hr/>
+        <p><b><u>If Collecting Items into a List</u></b></p>
+       <ul>
+        <li>Do NOT use <code>.add(item)</code> to add item to a list because it will cause racing condition</li>
+        <li>Instead use <code>.collect(Collectors.toList())</code> or a synchronized list (but synchronization will impact performance)</li>
+        <CodeBlock language='java'>{`
+// Bad way that will cause racing condition
+
+List<Dog> dogsOlderThan7 = new ArrayList<>();
+long count = dogs.stream()                // stream the dogs
+    .unordered()                          // make the stream unordered
+    .parallel()                           // make the stream parallel
+    .filter(d -> d.getAge() > 7)          // filter the dogs
+    .peek(d -> dogsOlderThan7.add(d))     // save... with a side effect -> cause racing condition
+    .count();
+
+//====================================================================
+// Good way using collect()
+
+List<Dog> dogsOlderThan7 =
+    dogs.stream()                       // stream the dogs
+        .unordered()                    // make the stream unordered
+        .parallelo                      // make the stream parallel
+        .filter(d -> d.getAge() > 7)    // filter dogs older than 7
+        .collect(Collectors.toList());  // collect older dogs into a List -> safer       
+        `}</CodeBlock>
+       </ul>
+       
+       <hr/>
+       </section>
+
 
        {/* SEMAPHORE */}
        <section>
