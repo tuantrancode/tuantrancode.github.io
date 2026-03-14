@@ -41,6 +41,8 @@ export default function JavaMultithread() {
               <code>join()</code> : Causes the current thread to wait until the thread on which <code>join()</code> is
               called completes execution.
             </li>
+            <li><code>thread1.join(thread2)</code>: thread2 can only start after thread1 finishes</li>
+            <li><code>thread1.join()</code>: the current thread must wait for thread1 to finish</li>
             <li>
               <code>interrupt()</code> : Interrupts a thread, signaling it to stop its current operation (commonly used
               with <code>sleep()</code> or blocking operations).
