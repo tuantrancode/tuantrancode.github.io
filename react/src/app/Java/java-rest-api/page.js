@@ -133,7 +133,10 @@ export default function RestAPI() {
         </ul>
         <li>SQL Naming Conventions</li>
         <ul>
-          <li>Entity/Tables are normally singular; <code>user | image</code></li>
+          <li>Entity/Tables are normally singular; <code>title | image</code></li>
+          <ul>
+            <li>The user table is an exception and should be <code>users</code> because user is an sql keyword</li>
+          </ul>
           <li>Relation Tables are defined by their relation</li>
           <ul>
             <li>One-to-Many: <code>title_translation</code></li>
