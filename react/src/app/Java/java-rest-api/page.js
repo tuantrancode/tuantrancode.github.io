@@ -131,6 +131,15 @@ export default function RestAPI() {
             </ul>
           </ul>
         </ul>
+        <li>SQL Naming Conventions</li>
+        <ul>
+          <li>Entity/Tables are normally singular; <code>user | image</code></li>
+          <li>Relation Tables are defined by their relation</li>
+          <ul>
+            <li>One-to-Many: <code>title_translation</code></li>
+            <li>Many-to-Many: <code>images_tags</code></li>
+          </ul>
+        </ul>
         <hr/>
       </section>
 

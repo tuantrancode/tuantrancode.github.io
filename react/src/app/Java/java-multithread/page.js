@@ -121,12 +121,19 @@ export default function JavaMultithread() {
             </ul>
           </li>
           <li>
+            Provides advanced configuration:
+          <ul>
+            <li><code>corePoolSize</code> : Minimum number of threads to keep alive</li>
+            <li><code>maximumPoolSize</code> : Maximum number of threads allowed in the pool</li>
+            <li><code>keepAliveTime</code> : Time excess idle threads wait for new tasks before terminating</li>
+            <li><code>workQueue</code> : Queue for holding tasks before they are executed</li>
+          </ul>
+        </li>
+          <li>
             Important methods:
             <ul>
-              <li>
-                <code>submit(Runnable/Callable task)</code> : Submits a task for execution and returns a{' '}
-                <code>Future</code>.
-              </li>
+              <li><code>execute(Runnable task)</code> : Submits a task for execution without returning a result.</li>
+              <li><code>submit(Runnable/Callable task)</code> : Submits a task for execution and returns a{' '}<code>Future</code>.</li>
               <li>
                 <code>invokeAll(Collection&lt;Callable&gt; tasks)</code> : Executes a collection of tasks and waits for
                 all to complete.
@@ -143,6 +150,8 @@ export default function JavaMultithread() {
                 <code>awaitTermination(long timeout, TimeUnit unit)</code> : Blocks until all tasks have completed after
                 a shutdown request, or the timeout occurs.
               </li>
+              <li><code>getPoolSize()</code> : Returns the current number of threads in the pool.</li>
+              <li><code>getActiveCount()</code> : Returns the approximate number of threads that are actively executing tasks.</li>
             </ul>
           </li>
           <li>Useful to know:</li>
@@ -205,59 +214,6 @@ try {
         `}</CodeBlock> 
         <hr />
       </section>
-
-    {/* THREAD POOL EXECUTOR SERVICE */}
-      <section>
-  <h3 className='section-header' id='threadpoolexecutor'>
-    ThreadPoolExecutor
-  </h3>
-  <p>A concrete implementation of <code>ExecutorService</code> that uses a pool of threads to execute tasks.</p>
-  <ul>
-    <li>
-      Manages a pool of threads to improve performance and resource utilization by reusing threads instead of creating new ones for each task.
-    </li>
-    <li>
-      Provides advanced configuration:
-      <ul>
-        <li><code>corePoolSize</code> : Minimum number of threads to keep alive</li>
-        <li><code>maximumPoolSize</code> : Maximum number of threads allowed in the pool</li>
-        <li><code>keepAliveTime</code> : Time excess idle threads wait for new tasks before terminating</li>
-        <li><code>workQueue</code> : Queue for holding tasks before they are executed</li>
-      </ul>
-    </li>
-    <li>
-      Commonly created via <code>Executors</code> factory methods:
-      <ul>
-        <li><code>Executors.newFixedThreadPool(int n)</code></li>
-        <li><code>Executors.newCachedThreadPool()</code></li>
-      </ul>
-    </li>
-    <li>
-      Important methods:
-      <ul>
-        <li>
-          <code>execute(Runnable task)</code> : Submits a task for execution without returning a result.
-        </li>
-        <li>
-          <code>submit(Runnable/Callable task)</code> : Submits a task and returns a <code>Future</code> representing its result.
-        </li>
-        <li>
-          <code>shutdown()</code> : Initiates an orderly shutdown where previously submitted tasks are executed but no new tasks are accepted.
-        </li>
-        <li>
-          <code>shutdownNow()</code> : Attempts to stop all actively executing tasks and halts processing of waiting tasks.
-        </li>
-        <li>
-          <code>getPoolSize()</code> : Returns the current number of threads in the pool.
-        </li>
-        <li>
-          <code>getActiveCount()</code> : Returns the approximate number of threads that are actively executing tasks.
-        </li>
-      </ul>
-    </li>
-  </ul>
-  <hr/>
-</section>
 
       {/* DATA STRUCTURE */}
        <section>
