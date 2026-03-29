@@ -143,14 +143,13 @@ ssh_port=22
             <li><code>ansible-playbook -i inventory playbook.yml</code></li>
             <li><code>ansible-playbook -i inventory playbook.yml --check --diff</code>: dry run that show the exact file differences</li>
             <li><code>ansible-playbook playbook.yml --ask-vault-pass</code>: run playbook with value secrets inserted</li>
-            <li><code>ansible-playbook -i inventory playbook.yml -u [username] --private-key [private key] -k</code>: include SSH info if not in inventory</li>
             <li><code>ansible-playbook -i inventory playbook.yml -u [username] --private-key [private key] --ask-pass -K</code>: ask for sudo password</li>
             <br/>
             <li><code>ansible-playbook -i inventory playbook.yml --limit zk1,zk2</code>: limit tasks to zk1 and zk2 servers label in inventory</li>
             <li><code>ansible-playbook -i inventory playbook.yml --limit 10.0.0.5</code>: limit task to specific IP</li>
             <br/>
-            <li><code>ansible-playbook -i inventory playbook.yml --ask-vault-pass -k -K --check --diff --limit zk2</code>: main check</li>
-            <li><code>ansible-playbook -i inventory playbook.yml --ask-vault-pass -k -K --limit zk2</code>: main overall</li>
+            <li><code>ansible-playbook -i inventory playbook.yml --ask-vault-pass -K --check --diff --limit zk2</code>: main check</li>
+            <li><code>ansible-playbook -i inventory playbook.yml --ask-vault-pass -K --limit zk2</code>: main overall</li>
          </ul>
         <hr/>
       </section>
