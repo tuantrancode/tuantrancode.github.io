@@ -122,6 +122,9 @@
 
   .sub-section-header {
       font-style: italic;
+      color: var(--sectionHeader-color);
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
   }
 
   /* Search Input Bar */

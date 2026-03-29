@@ -87,6 +87,8 @@ const navSections = [
       { name: 'Android Studio', link: '/Tools/android-studio' },
       { name: 'Eclipse for Java', link: '/Tools/eclipse' },
       { name: 'Security Tools', link: '/Tools/security' },
+      { name: 'Data Structures', link: '/Tools/data-structures' },
+      { name: 'Algorithm', link: '/Tools/algorithm' },
       { name: 'Diagrams', link: '/Tools/diagram' },
     ],
   },
