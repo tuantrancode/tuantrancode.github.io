@@ -12,8 +12,83 @@ export default function DataStructres() {
 {/* QUICK REF DATA STRUCTURES */}
 <section>
   <h3 className='section-header' id='quick-ds'>Quick DS Reference</h3> 
-  
-    <img src="/assets/images/ds-time-complexity.jpg" alt="data structure time complexity" style={{display: 'block', width: '100%', padding: '5px 0px'}}/> 
+<table>
+  <thead>
+    <tr>
+      <th>Data Structure</th>
+      <th>Search</th>
+      <th>Insert</th>
+      <th>Delete</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Linked List</td>
+      <td>O(n)</td>
+      <td>O(1)*</td>
+      <td>O(1)*</td>
+      <td>Fast insert/delete if node reference is known; no random access</td>
+    </tr>
+    <tr>
+      <td>Array</td>
+      <td>O(n)</td>
+      <td>O(n)</td>
+      <td>O(n)</td>
+      <td>O(1) index access but requires shifting on insert/delete</td>
+    </tr>
+    <tr>
+      <td>Hash Table</td>
+      <td>O(1) avg / O(n) worst</td>
+      <td>O(1) avg / O(n) worst</td>
+      <td>O(1) avg / O(n) worst</td>
+      <td>Depends on hash quality and collision handling</td>
+    </tr>
+    <tr>
+      <td>BST</td>
+      <td>O(log n) avg / O(n) worst</td>
+      <td>O(log n) avg / O(n) worst</td>
+      <td>O(log n) avg / O(n) worst</td>
+      <td>Can become skewed (degenerates into linked list)</td>
+    </tr>
+    <tr>
+      <td>AVL Tree</td>
+      <td>O(log n)</td>
+      <td>O(log n)</td>
+      <td>O(log n)</td>
+      <td>Strictly balanced → faster lookup</td>
+    </tr>
+    <tr>
+      <td>Red-Black Tree</td>
+      <td>O(log n)</td>
+      <td>O(log n)</td>
+      <td>O(log n)</td>
+      <td>Less strict balance → faster insert/delete than AVL</td>
+    </tr>
+    <tr>
+      <td>B-Tree</td>
+      <td>O(log n)</td>
+      <td>O(log n)</td>
+      <td>O(log n)</td>
+      <td>Optimized for disk/database systems (low I/O)</td>
+    </tr>
+    <tr>
+      <td>Heap (Binary Heap)</td>
+      <td>O(n)</td>
+      <td>O(log n)</td>
+      <td>O(log n)</td>
+      <td>Efficient for min/max only, not full search</td>
+    </tr>
+    <tr>
+      <td>Treap</td>
+      <td>O(log n) avg / O(n) worst</td>
+      <td>O(log n) avg / O(n) worst</td>
+      <td>O(log n) avg / O(n) worst</td>
+      <td>Randomized balancing (BST + heap property)</td>
+    </tr>
+  </tbody>
+</table>
+    
     <ul>
         <li><b><Link href="/Tools/data-structures#linked-list">Linked List</Link>:</b> efficient for head/tail access and fast insertion/deletion.</li>
         <li><b><Link href="/Tools/data-structures#basic-ds">Array</Link>:</b> O(1) access to any element, good for indexed data.</li>

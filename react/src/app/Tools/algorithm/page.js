@@ -12,10 +12,68 @@ export default function Algorithm() {
 {/* GOOD DATA STRUCTURES & ALGORITHMS */}
 <section>
   <h3 className='section-header' id='quick-algorithms'>Quick Algorithms Refence</h3>
-    <figure>
-        <img src="/assets/images/sorting-algorithms-complexity.jpg" alt="Bellman-Ford Algorithm" style={{display: 'block', width: '100%', padding: '5px 0px'}}/>
-        <figcaption style={{ textAlign: "center", fontSize: "14px", marginTop: "6px" }}></figcaption>
-    </figure>
+<table>
+  <thead>
+    <tr>
+      <th>Algorithm</th>
+      <th>Best Case</th>
+      <th>Average Case</th>
+      <th>Worst Case</th>
+      <th>Notes / Stability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bubble Sort</td>
+      <td>O(n)</td>
+      <td>O(n²)</td>
+      <td>O(n²)</td>
+      <td>Stable, simple</td>
+    </tr>
+    <tr>
+      <td>Selection Sort</td>
+      <td>O(n²)</td>
+      <td>O(n²)</td>
+      <td>O(n²)</td>
+      <td>Not stable (unless modified)</td>
+    </tr>
+    <tr>
+      <td>Insertion Sort</td>
+      <td>O(n)</td>
+      <td>O(n²)</td>
+      <td>O(n²)</td>
+      <td>Stable, efficient for small / nearly sorted arrays</td>
+    </tr>
+    <tr>
+      <td>Merge Sort</td>
+      <td>O(n log n)</td>
+      <td>O(n log n)</td>
+      <td>O(n log n)</td>
+      <td>Stable, requires extra space</td>
+    </tr>
+    <tr>
+      <td>Quick Sort</td>
+      <td>O(n log n)</td>
+      <td>O(n log n)</td>
+      <td>O(n²)</td>
+      <td>Not stable, in-place; pivot choice matters</td>
+    </tr>
+    <tr>
+      <td>Quickselect</td>
+      <td>O(n)</td>
+      <td>O(n)</td>
+      <td>O(n²)</td>
+      <td>In-place selection of k-th element; pivot choice matters</td>
+    </tr>
+    <tr>
+      <td>Radix Sort</td>
+      <td>O(nk)</td>
+      <td>O(nk)</td>
+      <td>O(nk)</td>
+      <td>Stable, non-comparison sort; k = number of digits</td>
+    </tr>
+  </tbody>
+</table>
       <ul>
         <li><b><Link href="/Tools/data-structures#graph-traversal">DFS (Depth-First Search)</Link>:</b> explores graph nodes deeply/per branch before backtracking.</li>
         <li><b><Link href="/Tools/data-structures#graph-traversal">BFS (Breadth-First Search)</Link>:</b> explores graph nodes level by level.</li>
