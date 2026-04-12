@@ -9,6 +9,270 @@ export const metadata = {
 export default function JavaMultithread() {
   return (
     <>
+     {/* Java Concurrency Core Concepts */}
+<section>
+  <h3 className="section-header" id="java-concurrency">Java Concurrency Core Concepts</h3>
+  
+
+  <h4 className="sub-section-header">Monitors</h4>
+   <p>Monitors are <code>synchronized</code> blocks or methods that ensure only one thread can execute a section of code at a time</p>
+  <ul>
+    <li><code>wait()</code>, <code>notify()</code>, and <code>notifyAll()</code> can only be used inside monitor blocks</li>
+    <li><code>wait()</code> releases the lock of the monitor and waits for notification</li>
+    <ul>
+      <li>Because <code>wait()</code> releases the lock, other threads can enter the monitor and also wait</li>
+      <li>When multiple threads are waiting, only one random one will wake up from <code>notify()</code> or <code>notifyAll()</code></li>
+      <li>That's why it's important to use <code>while</code> to check inside monitor instead of <code>if</code></li>
+    </ul>
+  </ul>
+  <CodeBlock language='java'>{`
+synchronized(queue) {
+  while (queue.isEmpty()) {
+    queue.wait();
+  }
+  // critical section
+  item = queue.pop();
+
+  queue.notifyAll();
+}
+ `}</CodeBlock>
+
+
+  <h4 className="sub-section-header">Concurrency Collections</h4>
+  <p>Collections that guarantee thread-safety but may not provide atomic operations across multiple steps</p>
+  <ul>
+    <li><code>ConcurrentHashMap | ArrayBlockingQueue | PriorityBlockingQueue | SynchronousQueue | ConcurrentLinkedDeque</code></li>
+    <li>Blocking methods: <code>put()</code>, <code>take()</code></li>
+    <li>Return special values: <code>offer() - return false</code>, <code>poll() - return null</code></li>
+    <li>Non-blocking methods: <code>add</code>, <code>remove()</code></li>
+    <li><a href="https://stackoverflow.com/questions/58720109/does-thread-safe-mean-no-race-conditions" target="_blank" rel="noopener noreferrer">Read more about thread safety</a></li>
+  </ul>
+  <CodeBlock language='java'>{`
+// Will cause race condition
+
+List<Integer> list = IntStream.range(0, 10000).boxed().collect(Collectors.toList());
+Map<Integer, Integer> map = new HashMap<>();
+list.parallelStream().forEach(i -> {
+  map.put(i, i);
+});
+
+System.out.println("List size "+list.size());   // print out 10000
+System.out.println("Map size "+map.size());     // print out < 10000
+
+// ===========================================================
+// Thread-safe
+
+List<Integer> list = IntStream.range(0, 10000).boxed().collect(Collectors.toList());
+Map<Integer, Integer> map = new ConcurrentHashMap<>();
+list.parallelStream().forEach(i -> {
+  map.put(i, i);
+});
+
+System.out.println("List size "+list.size());   // print out 10000
+System.out.println("Map size "+map.size());     // print out 10000
+ `}</CodeBlock>
+
+  <h4 className="sub-section-header">Stream</h4>
+  <p>Parallel streams and Collectors can be used in Java to handle concurrent operations safely</p>
+  <ul>
+    <li>Using <code>parallelStream()</code></li>
+    <ul>
+      <li><code>stream()</code> can be switched to <code>parallelStream()</code>, but it does not automatically ensure thread safety</li>
+      <li><code>parallelStream</code> operations should NOT access any shared mutable field/state</li>
+    </ul>
+    <CodeBlock language='java'>{`
+// Below is safe only if r.getTotalDistance() is a pure function (return this.value) without modifying shared states
+double sum = list.parallelStream().mapToDouble(r -> r.getTotalDistance()).sum();
+
+ // safe (unless this.totalDistance is mutable and can be modified by other thread)
+double getTotalDistance() {
+  return this.totalDistance; // if immutable field
+}
+  
+// unsafe
+double getTotalDistance() {
+  return routingService.compute(this);
+}
+    `}</CodeBlock>
+    <li>Using <code>Collectors</code></li>
+<ul>
+  <li><code>{`.toConcurrentMap`}</code>: returns a <code>{`ConcurrentHashMap<K, V>`}</code></li>
+  <ul>
+    <li><code>{`Map<K, V> map = stream.parallel()...collect(Collectors.toConcurrentMap(...))`}</code></li>
+  </ul>
+
+  <li><code>{`.groupingByConcurrent`}</code>: returns a <code>{`ConcurrentHashMap<K, List<V>>`}</code></li>
+  <ul>
+    <li><code>{`Map<K, List<V>> grouped = stream.parallel()...collect(Collectors.groupingByConcurrent(...))`}</code></li>
+  </ul>
+
+  <li><code>{`.toList`}</code>: returns a <code>{`List<T>`}</code></li>
+  <ul>
+    <li><code>{`List<T> list = stream.parallel()...collect(Collectors.toList())`}</code></li>
+  </ul>
+
+  <li><code>{`.toSet`}</code>: returns a <code>{`Set<T>`}</code></li>
+  <ul>
+    <li><code>{`Set<T> set = stream.parallel()...collect(Collectors.toSet())`}</code></li>
+  </ul>
+
+  <li><code>{`.joining`}</code>: returns a <code>{`String`}</code></li>
+  <ul>
+    <li><code>{`String joined = stream.parallel()...collect(Collectors.joining())`}</code></li>
+  </ul>
+</ul>
+    <li>Common Stream Operations</li>
+<ul>
+  <li><code>{`map`}</code>: transforms each element of the stream</li> 
+  <ul>
+    <li><code>{`.map(i -> i.getValue())`}</code>: applies a function to each element</li>
+    <li><code>{`.mapToDouble(i -> i.getValue()).sum()`}</code>: maps to double and aggregates using sum</li>
+  </ul>
+
+  <li><code>{`forEach`}</code>: performs an action on each element (side effects)</li>
+  <ul>
+    <li><code>{`.forEach(x -> System.out.println(x))`}</code>: executes an action for each element</li>
+  </ul>
+
+  <li><code>{`collect`}</code>: transforms the stream into a collection or result container</li>
+  <ul>
+    <li><code>{`.collect(Collectors.toList())`}</code>: collects elements into a list</li>
+  </ul>
+
+  <li><code>{`filter`}</code>: selects elements based on a condition</li>
+  <ul>
+    <li><code>{`.filter(x -> x > 10)`}</code>: keeps elements that match the predicate</li>
+  </ul>
+
+  <li><code>{`reduce`}</code>: combines elements into a single result</li>
+  <ul>
+    <li><code>{`.reduce(0, (a, i) -> a + i)`}</code>: sums elements using a reduction function</li>
+    <ul>
+      <li><code>a</code>: the accumulated value</li>
+      <li><code>i</code>: the current element in the stream</li>
+    </ul>
+  </ul>
+</ul>
+  </ul>
+  
+    <CodeBlock language='java'>{`
+// Thread-safe with Concurrent Collection
+
+List<Integer> list = IntStream.range(0, 10000).boxed().collect(Collectors.toList());
+Map<Integer, Integer> map = new ConcurrentHashMap<>();
+list.parallelStream().forEach(i -> {
+  map.put(i, i);
+});
+
+// ==============================================================
+// Thread-safe with Collector
+
+// Use Collectors.toMap to safely put into Map; faster and safer than ConcurrentMap
+List<Integer> list = IntStream.range(0, 10000).boxed().collect(Collectors.toList());
+Map<Integer, Integer> map = list.parallelStream().collect(Collectors.toMap(k -> k, v -> v));
+
+ `}</CodeBlock>
+
+  <hr/>
+</section>
+
+
+    {/* THREAD SAFETY VS ATOMICITY */}
+<section>
+  <h3 className="section-header" id="thread-safety-atomicity">Thread Safety vs Atomicity</h3>
+
+  <h4 className="sub-section-header">Thread Safety</h4>
+  <p>
+    A piece of code or data structure is <strong>thread-safe</strong> if it behaves correctly when accessed by multiple threads at the same time,
+    without causing data corruption or inconsistent state. (does not promise atomicity and no race conditions)
+  </p>
+  <a href="https://stackoverflow.com/questions/58720109/does-thread-safe-mean-no-race-conditions" target="_blank" rel="noopener noreferrer">Read more about thread safety</a>
+
+  <p><strong>Example:</strong></p>
+  <CodeBlock language='java'>{`
+counter++; // NOT thread-safe (race condition)
+  `}</CodeBlock>
+
+  <h4 className="sub-section-header">Atomicity</h4>
+  <p>
+    An operation is <strong>atomic</strong> if it happens completely or not at all (no partial state). It does not allow other thread to interleave inside that operation
+  </p>
+
+  <p><strong>Example:</strong></p>
+  <CodeBlock language='java'>{`
+AtomicInteger counter = new AtomicInteger(0);
+counter.incrementAndGet(); // atomic operation
+  `}</CodeBlock>
+
+  <h4>Key Difference</h4>
+  <ul>
+    <li><strong>Thread Safety</strong> = overall correctness in a multi-threaded environment</li>
+    <li><strong>Atomicity</strong> = a single operation cannot be interrupted</li>
+  </ul>
+
+  <p>
+    A system can be thread-safe without every individual operation being atomic, as long as it ensures correctness through coordination.
+  </p>
+
+  <h4 className="sub-section-header">Concurrent Data Structures</h4>
+  <p>
+    Most concurrent data structures in Java (like <code>ConcurrentHashMap</code>) guarantee <strong>thread safety</strong>,
+    but <strong>not atomicity across multiple operations</strong>.
+  </p>
+
+  <p><strong>Example:</strong></p>
+  <CodeBlock language='java'>{`
+if (!map.containsKey(key)) {
+    map.put(key, value); // NOT atomic as a whole
+}
+  `}</CodeBlock>
+
+  <p>
+    The above is thread-safe at the method level, but the combination of operations is <strong>not atomic</strong> and can lead to race conditions.
+  </p>
+
+  <p><strong>Correct atomic alternative:</strong></p>
+  <CodeBlock language='java'>{`
+map.putIfAbsent(key, value); // atomic
+
+// ====================================
+
+E item = blockingQueue.poll(); // atomic
+if (item != null) {
+    process(item); // atomic
+}
+
+// ====================================
+
+E item = blockingQueue.poll(); // atomic
+if (item != null) {
+    sharedList.add(item); // not thread safe
+}
+
+// ====================================
+
+// Block to get item from queue atomically
+synchronized(lock) {
+  // atomic using monitor pattern
+  while (queue.isEmpty()) {
+    queue.wait();
+  }
+  // critical section
+  item = queue.pop();
+
+  lock.notifyAll();
+}
+  `}</CodeBlock>
+
+  <h4>Summary</h4>
+  <ul>
+    <li>Thread-safe ≠ atomic</li>
+    <li>Atomic operations are building blocks for thread safety</li>
+    <li>Most concurrent collections guarantee safe access, but not multi-step atomicity</li>
+  </ul>
+    <hr/>
+</section>
+
       {/* THREAD */}
       <section>
         <h3 className='section-header' id='thread'>
@@ -248,6 +512,9 @@ try {
           <ul>
             <li>Weakly consistent collection</li>
             <li><code>ConcurrentHashMap</code></li>
+            <ul>
+              <li>Guarantees <b>thread safety</b> for read and write operations, but does not guarantee <b>atomicity</b></li>
+            </ul>
             <li><code>ConcurrentLinkedQueue | ConcurrentLinkedDeque</code></li>
             <li>Also has method <code>.poll(x)</code> to have consumer wait x sec before checking again instead of infinite wait</li>
             <li>Examples:</li>
