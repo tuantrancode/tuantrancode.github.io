@@ -89,6 +89,8 @@ const navSections = [
       { name: 'Security Tools', link: '/Tools/security' },
       { name: 'Data Structures', link: '/Tools/data-structures' },
       { name: 'Algorithm', link: '/Tools/algorithm' },
+      { name: 'Design Principles', link: '/Tools/design-principles' },
+      { name: 'Design Patterns', link: '/Tools/design-patterns' },
       { name: 'Diagrams', link: '/Tools/diagram' },
     ],
   },
