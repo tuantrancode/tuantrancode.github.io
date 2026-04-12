@@ -25,6 +25,12 @@ export default function JavaMultithread() {
       <li>That's why it's important to use <code>while</code> to check inside monitor instead of <code>if</code></li>
     </ul>
   </ul>
+  <p>Other useful tools:  </p>
+  <ul>
+    <li><code>ReentrantReadWriteLock</code>: allow multiple readers and only block if writer is active</li>
+    <li><code>Fork / Join</code>: framework for parallel execution of tasks that can be divided into subtasks (fork) and then merged (join)</li>
+  </ul>
+
   <CodeBlock language='java'>{`
 synchronized(queue) {
   while (queue.isEmpty()) {
@@ -148,9 +154,24 @@ double getTotalDistance() {
   <ul>
     <li><code>{`.reduce(0, (a, i) -> a + i)`}</code>: sums elements using a reduction function</li>
     <ul>
-      <li><code>a</code>: the accumulated value</li>
-      <li><code>i</code>: the current element in the stream</li>
+      <li><code>{`a`}</code>: the accumulated value</li>
+      <li><code>{`i`}</code>: the current element in the stream</li>
     </ul>
+  </ul>
+
+  <li><code>{`anyMatch`}</code>: checks if any element matches a condition</li>
+  <ul>
+    <li><code>{`.anyMatch(x -> x > 10)`}</code>: returns true if at least one element matches</li>
+  </ul>
+
+  <li><code>{`allMatch`}</code>: checks if all elements match a condition</li>
+  <ul>
+    <li><code>{`.allMatch(x -> x > 10)`}</code>: returns true only if all elements match</li>
+  </ul>
+
+  <li><code>{`noneMatch`}</code>: checks if no elements match a condition</li>
+  <ul>
+    <li><code>{`.noneMatch(x -> x > 10)`}</code>: returns true if no elements match</li>
   </ul>
 </ul>
   </ul>
