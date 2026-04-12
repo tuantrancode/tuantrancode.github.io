@@ -10,6 +10,37 @@ export const metadata = {
 export default function Security() {
   return (
     <>
+       {/* GENERAL SECURITY TOOLS */}
+       <section>
+         <h3 className="section-header" id="general-security-tools">General Security Tools</h3>
+
+         <li>SAST: static code testing - scan code for vulnerabilities</li>
+         <ul>
+          <li>Trivy (config mode): Analyzes Dockerfiles, docker-compose, IaC files for misconfigurations</li>
+          <li>GitLeaks: Scans source code and git history for hardcoded secrets, API keys, tokens</li>
+         </ul>
+         <li>SCA: scan dependencies for known vulnerabitlities</li>
+         <ul>
+          <li>Trivy (fs mode): Scans dependency files (package.json, pom.xml) against CVE databases</li>
+          <li>Trivy (image mode): Scans OS packages and app deps inside Docker images for known CVEs</li>
+          <li>Snyk (test mode): Resolves your dependency tree and checks each package against Snyk's vuln DB</li>
+          <li>Snyk (container mode): Same as above but for packages installed inside a container image</li>
+         </ul>
+         <li>ZAP: pentest for running application</li>
+         <ul>
+          <li><a href="https://www.zaproxy.org/" target="_blank" rel="noopener noreferrer">OWASP ZAP</a></li>
+          <ul>
+            <li>Outside-In testing: test running application with SQL injections, XSS, etc.</li>
+          </ul>
+         </ul>
+        <ul>
+            <li>Nessus: a vulnerability scanner for servers, network, and devices security testing</li>
+            <li>Fuzzers: tool to test input validation by sending random inputs</li>
+            <li>Binscope: analyses binary files and source code for security issues</li>
+        </ul>
+        <hr/>
+      </section>
+
       {/* NETWORK SCANNERS */}
       <section>
          <h3 className="section-header" id="network-scanners">Network Scanners</h3>
@@ -30,17 +61,6 @@ export default function Security() {
             <ul>
                 <li>Also has a sample vulnernable project</li>
             </ul>
-        </ul>
-        <hr/>
-      </section>
-
-        {/* GENERAL SECURITY TOOLS */}
-       <section>
-         <h3 className="section-header" id="general-security-tools">General Security Tools</h3>
-        <ul>
-            <li>Nessus: a vulnerability scanner for servers, network, and devices security testing</li>
-            <li>Fuzzers: tool to test input validation by sending random inputs</li>
-            <li>Binscope: analyses binary files and source code for security issues</li>
         </ul>
         <hr/>
       </section>
