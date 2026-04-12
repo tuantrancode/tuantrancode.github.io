@@ -99,6 +99,13 @@ double getTotalDistance() {
 double getTotalDistance() {
   return routingService.compute(this);
 }
+
+// =======================================================================
+// Below is not safe because arr is shared between the threads
+list.parallelStream().reduce(new ArrayList<>(), (arr, b) -> {
+  arr.add(b);
+  return arr;
+});
     `}</CodeBlock>
     <li>Using <code>Collectors</code></li>
 <ul>
