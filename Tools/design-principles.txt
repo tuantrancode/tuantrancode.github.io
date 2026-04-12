@@ -1,0 +1,466 @@
+1:"$Sreact.fragment"
+2:I[79520,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/68a9e035b0ce489a.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],""]
+3:I[35974,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/68a9e035b0ce489a.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"ThemeProvider"]
+4:I[20908,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/68a9e035b0ce489a.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"default"]
+5:I[39756,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/68a9e035b0ce489a.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"default"]
+6:I[37457,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/68a9e035b0ce489a.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"default"]
+1c:I[68027,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/68a9e035b0ce489a.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"default"]
+:HL["/_next/static/chunks/01ccb2bdd09c7699.css","style"]
+7:Ta1d,<span class="token keyword">class</span> <span class="token class-name">Invoice</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> double <span class="token function">calculateTotal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token number">100</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// BAD: multiple responsibilities</span>
+<span class="token keyword">class</span> <span class="token class-name">InvoicePrinter</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token parameter">Invoice invoice</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">saveToDB</span><span class="token punctuation">(</span><span class="token parameter">Invoice invoice</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// GOOD: separate responsibilities</span>
+<span class="token keyword">class</span> <span class="token class-name">InvoiceRepository</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">save</span><span class="token punctuation">(</span><span class="token parameter">Invoice invoice</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">InvoicePrinter</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token parameter">Invoice invoice</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>0:{"P":null,"b":"eQQMZx1esXb6jLK4qIqoE","p":"","c":["","Tools","design-principles"],"i":false,"f":[[["",{"children":["Tools",{"children":["design-principles",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/01ccb2bdd09c7699.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/f3af76091b908de4.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/68a9e035b0ce489a.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/7dd66bdf8a7e5707.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"dark","children":[["$","head",null,{"children":[["$","style",null,{"children":"\n        "}],["$","$L2",null,{"id":"theme-script","strategy":"beforeInteractive","children":"\n            (function() {\n              const theme = localStorage.getItem('data-theme') || 'dark';\n              document.documentElement.dataset.theme = theme;\n              document.documentElement.setAttribute('data-theme', theme);\n            })();\n          "}]]}],["$","body",null,{"id":"root","children":["$","$L3",null,{"children":["$","$L4",null,{"children":["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}]]}],{"children":["Tools",["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["design-principles",["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[[["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"solid","children":"SOLID"}],["$","ul",null,{"children":[["$","li",null,{"children":[["$","b",null,{"children":"S"}],": Single Responsibility Principle (SRP): A class should have only one reason to change"]}],["$","li",null,{"children":[["$","b",null,{"children":"O"}],": Open/Closed Principle (OCP): Open for extension, closed for modification"]}],["$","li",null,{"children":[["$","b",null,{"children":"L"}],": Liskov Substitution Principle (LSP): Subtypes must be replaceable for their base types"]}],["$","li",null,{"children":[["$","b",null,{"children":"I"}],": Interface Segregation Principle (ISP): No client should depend on methods it does not use"]}],["$","li",null,{"children":[["$","b",null,{"children":"D"}],": Dependency Inversion Principle (DIP): Depend on abstractions, not concrete implementations"]}]]}],["$","hr",null,{}],["$","li",null,{"children":[["$","b",null,{"children":"S"}]," - Single Responsibility Principle (SRP): A class should have only one reason to change"]}],["$","ul",null,{"children":[["$","li",null,{"children":"Each class should focus on a single responsibility"}],["$","li",null,{"children":"Improves readability, testability, and maintainability"}]]}],["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$7"}}]}],"$L8","$L9","$La","$Lb","$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14"]}],"$L15","$L16","$L17","$L18","$L19"],null,"$L1a"]}],{},null,false]},null,false]},null,false]},null,false],"$L1b",false]],"m":"$undefined","G":["$1c",["$L1d"]],"s":false,"S":true}
+43:I[97367,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/68a9e035b0ce489a.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"OutletBoundary"]
+45:I[11533,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/68a9e035b0ce489a.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"AsyncMetadataOutlet"]
+47:I[97367,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/68a9e035b0ce489a.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"ViewportBoundary"]
+49:I[97367,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/68a9e035b0ce489a.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"MetadataBoundary"]
+4a:"$Sreact.suspense"
+8:["$","li",null,{"children":[["$","b",null,{"children":"O"}]," - Open/Closed Principle (OCP): Open for extension, closed for modification"]}]
+9:["$","ul",null,{"children":["$","li",null,{"children":"You should be able to add new behavior without changing existing code"}]}]
+1e:T17fa,<span class="token comment">// BAD: Every new discount requires modifying this class</span>
+<span class="token keyword">class</span> <span class="token class-name">DiscountCalculator</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> double <span class="token function">applyDiscount</span><span class="token punctuation">(</span><span class="token parameter">String type<span class="token punctuation">,</span> double price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>type<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"SILVER"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> price<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>type<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"GOLD"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> price <span class="token operator">*</span> <span class="token number">0.9</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>type<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"PLATINUM"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> price <span class="token operator">*</span> <span class="token number">0.8</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> price<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Adding a new discount means editing this class → violates OCP</span>
+
+
+<span class="token comment">// GOOD: Extend behavior without modifying existing code</span>
+<span class="token keyword">interface</span> <span class="token class-name">Discount</span> <span class="token punctuation">{</span>
+  double <span class="token function">apply</span><span class="token punctuation">(</span>double price<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">SilverDiscount</span> <span class="token keyword">implements</span> <span class="token class-name">Discount</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> double <span class="token function">apply</span><span class="token punctuation">(</span><span class="token parameter">double price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> price<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">GoldDiscount</span> <span class="token keyword">implements</span> <span class="token class-name">Discount</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> double <span class="token function">apply</span><span class="token punctuation">(</span><span class="token parameter">double price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> price <span class="token operator">*</span> <span class="token number">0.9</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">PlatinumDiscount</span> <span class="token keyword">implements</span> <span class="token class-name">Discount</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> double <span class="token function">apply</span><span class="token punctuation">(</span><span class="token parameter">double price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> price <span class="token operator">*</span> <span class="token number">0.8</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">DiscountCalculator</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> double <span class="token function">applyDiscount</span><span class="token punctuation">(</span><span class="token parameter">Discount discount<span class="token punctuation">,</span> double price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">discount</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// New discounts = new classes (no modification needed)</span>a:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$1e"}}]}]
+b:["$","li",null,{"children":[["$","b",null,{"children":"L"}]," - Liskov Substitution Principle (LSP): Subtypes must be replaceable for their base types"]}]
+c:["$","ul",null,{"children":["$","li",null,{"children":"Child classes should behave like parent classes without breaking functionality"}]}]
+1f:T793,<span class="token keyword">class</span> <span class="token class-name">Bird</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">fly</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// BAD: Penguin can't fly</span>
+<span class="token keyword">class</span> <span class="token class-name">Penguin</span> <span class="token keyword">extends</span> <span class="token class-name">Bird</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">fly</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">UnsupportedOperationException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// GOOD: separate behaviors</span>
+<span class="token keyword">interface</span> <span class="token class-name">Bird</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">FlyingBird</span> <span class="token punctuation">{</span>
+  <span class="token keyword">void</span> <span class="token function">fly</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>d:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$1f"}}]}]
+e:["$","li",null,{"children":[["$","b",null,{"children":"I"}]," - Interface Segregation Principle (ISP): No client should depend on methods it does not use"]}]
+f:["$","ul",null,{"children":["$","li",null,{"children":"Prefer smaller, specific interfaces over large, general ones"}]}]
+20:T8ea,<span class="token keyword">interface</span> <span class="token class-name">Worker</span> <span class="token punctuation">{</span>
+  <span class="token keyword">void</span> <span class="token function">work</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">void</span> <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// BAD: Robot doesn't eat</span>
+<span class="token keyword">class</span> <span class="token class-name">Robot</span> <span class="token keyword">implements</span> <span class="token class-name">Worker</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">work</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// GOOD: split interfaces</span>
+<span class="token keyword">interface</span> <span class="token class-name">Workable</span> <span class="token punctuation">{</span>
+  <span class="token keyword">void</span> <span class="token function">work</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">Eatable</span> <span class="token punctuation">{</span>
+  <span class="token keyword">void</span> <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>10:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$20"}}]}]
+11:["$","li",null,{"children":[["$","b",null,{"children":"D"}]," - Dependency Inversion Principle (DIP): Depend on abstractions, not concrete implementations"]}]
+12:["$","ul",null,{"children":["$","li",null,{"children":"High-level modules should not depend on low-level modules directly"}]}]
+21:Tfc6,<span class="token comment">// BAD: High-level class depends on concrete implementation</span>
+<span class="token keyword">class</span> <span class="token class-name">MySQLDatabase</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Application</span> <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> MySQLDatabase db<span class="token punctuation">;</span>
+
+  <span class="token keyword">public</span> <span class="token function">Application</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>db <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MySQLDatabase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// tightly coupled</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Hard to switch to Postgres, MongoDB, etc.</span>
+
+
+<span class="token comment">// GOOD: Depend on abstraction (interface)</span>
+<span class="token keyword">interface</span> <span class="token class-name">Database</span> <span class="token punctuation">{</span>
+  <span class="token keyword">void</span> <span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MySQLDatabase</span> <span class="token keyword">implements</span> <span class="token class-name">Database</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">PostgresDatabase</span> <span class="token keyword">implements</span> <span class="token class-name">Database</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Application</span> <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> Database db<span class="token punctuation">;</span>
+
+  <span class="token keyword">public</span> <span class="token function">Application</span><span class="token punctuation">(</span><span class="token parameter">Database db</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>db <span class="token operator">=</span> db<span class="token punctuation">;</span> <span class="token comment">// injected dependency</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Easy to swap implementations without changing Application</span>13:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$21"}}]}]
+14:["$","hr",null,{}]
+22:T106c,<span class="token comment">// BAD: duplicated logic in multiple places</span>
+<span class="token keyword">class</span> <span class="token class-name">OrderService</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> double <span class="token function">calculateTotal</span><span class="token punctuation">(</span><span class="token parameter">double price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    double tax <span class="token operator">=</span> price <span class="token operator">*</span> <span class="token number">0.1</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> price <span class="token operator">+</span> tax<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">InvoiceService</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> double <span class="token function">calculateTotal</span><span class="token punctuation">(</span><span class="token parameter">double price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    double tax <span class="token operator">=</span> price <span class="token operator">*</span> <span class="token number">0.1</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> price <span class="token operator">+</span> tax<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// If tax logic changes, you must update multiple places</span>
+
+
+<span class="token comment">// GOOD: extract shared logic into a single reusable class</span>
+<span class="token keyword">class</span> <span class="token class-name">TaxCalculator</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> double <span class="token function">applyTax</span><span class="token punctuation">(</span><span class="token parameter">double price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> price <span class="token operator">+</span> <span class="token punctuation">(</span>price <span class="token operator">*</span> <span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">OrderService</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> double <span class="token function">calculateTotal</span><span class="token punctuation">(</span><span class="token parameter">double price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> TaxCalculator<span class="token punctuation">.</span><span class="token function">applyTax</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">InvoiceService</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> double <span class="token function">calculateTotal</span><span class="token punctuation">(</span><span class="token parameter">double price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> TaxCalculator<span class="token punctuation">.</span><span class="token function">applyTax</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>15:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"dry","children":"DRY"}],["$","li",null,{"children":[["$","b",null,{"children":"DRY"}]," - Don't Repeat Yourself: Avoid duplicating logic; centralize reusable code"]}],["$","ul",null,{"children":[["$","li",null,{"children":"Duplication increases bugs and maintenance cost"}],["$","li",null,{"children":"Change in one place should not require multiple updates"}]]}],["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$22"}}]}],"$L23"]}]
+24:Ta9f,<span class="token comment">// BAD: overly complex logic for a simple check</span>
+<span class="token keyword">class</span> <span class="token class-name">UserService</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> boolean <span class="token function">isAdult</span><span class="token punctuation">(</span><span class="token parameter">int age</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>age <span class="token operator">></span> <span class="token number">18</span> <span class="token operator">&amp;&amp;</span> age <span class="token operator">&lt;</span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token operator">||</span> age <span class="token operator">==</span> <span class="token number">18</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>age <span class="token operator">></span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// GOOD: simple and readable</span>
+<span class="token keyword">class</span> <span class="token class-name">UserService</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> boolean <span class="token function">isAdult</span><span class="token punctuation">(</span><span class="token parameter">int age</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> age <span class="token operator">>=</span> <span class="token number">18</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>16:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"kiss","children":"KISS"}],["$","li",null,{"children":[["$","b",null,{"children":"KISS"}]," - Keep It Simple, Stupid: Prefer simple, clear solutions over complex ones"]}],["$","ul",null,{"children":[["$","li",null,{"children":"Avoid unnecessary abstractions and over-engineering"}],["$","li",null,{"children":"Simple code is easier to read, debug, and maintain"}]]}],["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$24"}}]}],["$","hr",null,{}]]}]
+25:Tc94,<span class="token comment">// ❌ BAD: multiple responsibilities</span>
+<span class="token keyword">class</span> <span class="token class-name">UserService</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">processUser</span><span class="token punctuation">(</span><span class="token parameter">User user</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">validate</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">saveToDatabase</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">sendEmail</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// ✅ GOOD: split responsibilities</span>
+<span class="token keyword">class</span> <span class="token class-name">UserService</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">processUser</span><span class="token punctuation">(</span><span class="token parameter">User user</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">validate</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">save</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">notify</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">validate</span><span class="token punctuation">(</span><span class="token parameter">User user</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">save</span><span class="token punctuation">(</span><span class="token parameter">User user</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">notify</span><span class="token punctuation">(</span><span class="token parameter">User user</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>17:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"clean-code-practices","children":"Clean Code Practices"}],["$","ul",null,{"children":[["$","li",null,{"children":[["$","b",null,{"children":["$","u",null,{"children":"Avoid Deep Nesting:"}]}]," Use early returns to simplify logic"]}],["$","li",null,{"children":[["$","b",null,{"children":["$","u",null,{"children":"Avoid duplicate code:"}]}]," extract duplicate logic into separate method to be reused"]}],["$","li",null,{"children":[["$","b",null,{"children":"Meaningful Naming:"}]," Use clear, descriptive names"]}],["$","li",null,{"children":[["$","b",null,{"children":"Limit Function Arguments:"}]," Prefer fewer parameters (ideally ≤ 3)"]}],["$","li",null,{"children":[["$","b",null,{"children":"Small Functions:"}]," Functions should do one thing"]}],["$","li",null,{"children":[["$","b",null,{"children":"Avoid Magic Numbers:"}]," Replace hardcoded values with named constants"]}],["$","li",null,{"children":[["$","b",null,{"children":"Consistent Formatting:"}]," Keep code style uniform"]}],["$","li",null,{"children":[["$","b",null,{"children":"Single Level of Abstraction:"}]," Keep methods at one level of detail"]}]]}],["$","hr",null,{}],["$","li",null,{"children":[["$","b",null,{"children":"Meaningful Naming:"}]," Use clear, descriptive names"]}],["$","ul",null,{"children":["$","li",null,{"children":"Names should reveal intent and avoid ambiguity"}]}],["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"<span class=\"token comment\">// ❌ BAD: unclear naming</span>\nint d<span class=\"token punctuation\">;</span> <span class=\"token comment\">// what is d?</span>\n\n<span class=\"token comment\">// ✅ GOOD: descriptive naming</span>\nint daysSinceLastLogin<span class=\"token punctuation\">;</span>"}}]}],["$","li",null,{"children":[["$","b",null,{"children":"Small Functions:"}]," Functions should do one thing"]}],["$","ul",null,{"children":["$","li",null,{"children":"Improves readability and testability"}]}],["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$25"}}]}],"$L26","$L27","$L28","$L29","$L2a","$L2b","$L2c","$L2d","$L2e","$L2f","$L30","$L31","$L32","$L33"]}]
+34:T853,<span class="token comment">// ❌ BAD: mutable object</span>
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> String name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+User user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+user<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"Alice"</span><span class="token punctuation">;</span>
+user<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"Bob"</span><span class="token punctuation">;</span> <span class="token comment">// changed unexpectedly</span>
+
+
+<span class="token comment">// ✅ GOOD: immutable object</span>
+final <span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> final String name<span class="token punctuation">;</span>
+
+  <span class="token keyword">public</span> <span class="token function">User</span><span class="token punctuation">(</span><span class="token parameter">String name</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> name<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>35:T452,<span class="token comment">// ❌ BAD: modifies external state</span>
+int total <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+int <span class="token function">add</span><span class="token punctuation">(</span><span class="token parameter">int x</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  total <span class="token operator">+=</span> x<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> total<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// ✅ GOOD: pure function</span>
+int <span class="token function">add</span><span class="token punctuation">(</span><span class="token parameter">int a<span class="token punctuation">,</span> int b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>18:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"advanced-clean-code","children":"Advanced Clean Code Practices"}],["$","li",null,{"children":[["$","b",null,{"children":"Immutability:"}]," Prefer immutable objects to avoid unintended side effects"]}],["$","ul",null,{"children":["$","li",null,{"children":"Safer in concurrent systems and easier to reason about"}]}],["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$34"}}]}],["$","li",null,{"children":[["$","b",null,{"children":"Pure Functions:"}]," Avoid side effects; same input → same output"]}],["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$35"}}]}],"$L36","$L37","$L38","$L39","$L3a","$L3b","$L3c","$L3d","$L3e","$L3f","$L40","$L41"]}]
+42:Tab2,<span class="token comment">// ❌ BAD: non-idempotent operation</span>
+<span class="token keyword">class</span> <span class="token class-name">PaymentService</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">charge</span><span class="token punctuation">(</span><span class="token parameter">String userId<span class="token punctuation">,</span> double amount</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// calling this twice will double charge</span>
+    <span class="token function">processPayment</span><span class="token punctuation">(</span>userId<span class="token punctuation">,</span> amount<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// ✅ GOOD: idempotent using unique transaction ID</span>
+<span class="token keyword">class</span> <span class="token class-name">PaymentService</span> <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> Set<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">String</span></span><span class="token punctuation">></span></span><span class="token plain-text"> processedTransactions = new HashSet</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span></span><span class="token punctuation">></span></span><span class="token plain-text">();
+
+  public void charge(String userId, double amount, String transactionId) </span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>processedTransactions<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>transactionId<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token function">processPayment</span><span class="token punctuation">(</span>userId<span class="token punctuation">,</span> amount<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    processedTransactions<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>transactionId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token plain-text">
+}</span>19:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"idempotency","children":"Idempotency"}],["$","li",null,{"children":[["$","b",null,{"children":"Definition:"}]," Operations can be safely repeated without changing the result"]}],["$","ul",null,{"children":["$","li",null,{"children":"Important for APIs, payment systems, and distributed operations"}]}],["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$42"}}]}],["$","hr",null,{}]]}]
+1a:["$","$L43",null,{"children":["$L44",["$","$L45",null,{"promise":"$@46"}]]}]
+1b:["$","$1","h",{"children":[null,[["$","$L47",null,{"children":"$L48"}],null],["$","$L49",null,{"children":["$","div",null,{"hidden":true,"children":["$","$4a",null,{"fallback":null,"children":"$L4b"}]}]}]]}]
+1d:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/01ccb2bdd09c7699.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+23:["$","hr",null,{}]
+26:["$","li",null,{"children":[["$","b",null,{"children":"Avoid Magic Numbers:"}]," Replace hardcoded values with named constants"]}]
+4c:T4ae,<span class="token comment">// ❌ BAD</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">18</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment">// ✅ GOOD</span>
+<span class="token keyword">static</span> final int <span class="token constant">ADULT_AGE</span> <span class="token operator">=</span> <span class="token number">18</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token constant">ADULT_AGE</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>27:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$4c"}}]}]
+28:["$","li",null,{"children":[["$","b",null,{"children":"Consistent Formatting:"}]," Keep code style uniform"]}]
+29:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"<span class=\"token comment\">// ❌ BAD</span>\n<span class=\"token keyword\">if</span><span class=\"token punctuation\">(</span>x<span class=\"token operator\">></span><span class=\"token number\">10</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">{</span><span class=\"token function\">doSomething</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span><span class=\"token punctuation\">}</span>\n\n<span class=\"token comment\">// ✅ GOOD</span>\n<span class=\"token keyword\">if</span> <span class=\"token punctuation\">(</span>x <span class=\"token operator\">></span> <span class=\"token number\">10</span><span class=\"token punctuation\">)</span> <span class=\"token punctuation\">{</span>\n  <span class=\"token function\">doSomething</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>"}}]}]
+2a:["$","li",null,{"children":[["$","b",null,{"children":"Avoid Deep Nesting:"}]," Use early returns to simplify logic"]}]
+4d:Ta84,<span class="token comment">// ❌ BAD: deeply nested</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>user <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">isActive</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">hasPermission</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">process</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// ✅ GOOD: early returns</span>
+<span class="token comment">// Uses inversion of conditions to reduce nesting</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>user <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>user<span class="token punctuation">.</span><span class="token function">isActive</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>user<span class="token punctuation">.</span><span class="token function">hasPermission</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+
+<span class="token function">process</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>2b:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$4d"}}]}]
+2c:["$","li",null,{"children":[["$","b",null,{"children":"Single Level of Abstraction:"}]," Keep methods at one level of detail"]}]
+4e:T13c3,<span class="token comment">// ❌ BAD: mixed abstraction levels</span>
+<span class="token keyword">class</span> <span class="token class-name">OrderService</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">processOrder</span><span class="token punctuation">(</span><span class="token parameter">Order order</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">validate</span><span class="token punctuation">(</span>order<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    double total <span class="token operator">=</span> order<span class="token punctuation">.</span><span class="token function">getItems</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">mapToDouble</span><span class="token punctuation">(</span>item <span class="token operator">-</span><span class="token operator">></span> item<span class="token punctuation">.</span><span class="token function">getPrice</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> item<span class="token punctuation">.</span><span class="token function">getQty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">saveToDatabase</span><span class="token punctuation">(</span>order<span class="token punctuation">,</span> total<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// ✅ GOOD: consistent abstraction</span>
+<span class="token comment">// Extracts nested logic into a separate method to make it easier to read</span>
+<span class="token keyword">class</span> <span class="token class-name">OrderService</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">processOrder</span><span class="token punctuation">(</span><span class="token parameter">Order order</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">validate</span><span class="token punctuation">(</span>order<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    double total <span class="token operator">=</span> <span class="token function">calculateTotal</span><span class="token punctuation">(</span>order<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">save</span><span class="token punctuation">(</span>order<span class="token punctuation">,</span> total<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">private</span> double <span class="token function">calculateTotal</span><span class="token punctuation">(</span><span class="token parameter">Order order</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> order<span class="token punctuation">.</span><span class="token function">getItems</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">mapToDouble</span><span class="token punctuation">(</span>item <span class="token operator">-</span><span class="token operator">></span> item<span class="token punctuation">.</span><span class="token function">getPrice</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> item<span class="token punctuation">.</span><span class="token function">getQty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>2d:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$4e"}}]}]
+2e:["$","li",null,{"children":[["$","b",null,{"children":"Limit Function Arguments:"}]," Prefer fewer parameters (ideally ≤ 3)"]}]
+4f:T494,<span class="token comment">// ❌ BAD: too many parameters</span>
+<span class="token function">createUser</span><span class="token punctuation">(</span><span class="token parameter">String name<span class="token punctuation">,</span> int age<span class="token punctuation">,</span> String email<span class="token punctuation">,</span> String address<span class="token punctuation">,</span> String phone</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+
+<span class="token comment">// ✅ GOOD: use object</span>
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token punctuation">{</span>
+  String name<span class="token punctuation">;</span>
+  int age<span class="token punctuation">;</span>
+  String email<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">createUser</span><span class="token punctuation">(</span><span class="token parameter">User user</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>2f:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$4f"}}]}]
+30:["$","li",null,{"children":["$","b",null,{"children":"Use Early Abstraction (But Not Over-Engineering):"}]}]
+31:["$","ul",null,{"children":["$","li",null,{"children":"Extract reusable logic, but avoid unnecessary complexity"}]}]
+50:T426,<span class="token comment">// ❌ BAD: duplicated logic</span>
+double finalPrice1 <span class="token operator">=</span> price <span class="token operator">+</span> price <span class="token operator">*</span> <span class="token number">0.1</span><span class="token punctuation">;</span>
+double finalPrice2 <span class="token operator">=</span> anotherPrice <span class="token operator">+</span> anotherPrice <span class="token operator">*</span> <span class="token number">0.1</span><span class="token punctuation">;</span>
+
+
+<span class="token comment">// ✅ GOOD: reusable method</span>
+double <span class="token function">applyTax</span><span class="token punctuation">(</span><span class="token parameter">double price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> price <span class="token operator">+</span> price <span class="token operator">*</span> <span class="token number">0.1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>32:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$50"}}]}]
+33:["$","hr",null,{}]
+36:["$","li",null,{"children":[["$","b",null,{"children":"Fail Fast & Validate Early:"}]," Catch errors as soon as possible"]}]
+51:T6b9,<span class="token comment">// ❌ BAD: error shows up later</span>
+<span class="token keyword">void</span> <span class="token function">process</span><span class="token punctuation">(</span><span class="token parameter">User user</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// assume user is valid</span>
+  <span class="token function">save</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// ✅ GOOD: validate early</span>
+<span class="token keyword">void</span> <span class="token function">process</span><span class="token punctuation">(</span><span class="token parameter">User user</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>user <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalArgumentException</span><span class="token punctuation">(</span><span class="token string">"User cannot be null"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">save</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>37:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$51"}}]}]
+38:["$","li",null,{"children":[["$","b",null,{"children":"Law of Demeter (LoD):"}]," Don't talk to strangers (limit chaining)"]}]
+39:["$","ul",null,{"children":["$","li",null,{"children":"Avoid deep object navigation (train wrecks)"}]}]
+52:T73c,<span class="token comment">// ❌ BAD: deep chaining</span>
+String city <span class="token operator">=</span> order<span class="token punctuation">.</span><span class="token function">getCustomer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getCity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+<span class="token comment">// ✅ GOOD: delegate responsibility</span>
+<span class="token keyword">class</span> <span class="token class-name">Order</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> String <span class="token function">getCustomerCity</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> customer<span class="token punctuation">.</span><span class="token function">getAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getCity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+String city <span class="token operator">=</span> order<span class="token punctuation">.</span><span class="token function">getCustomerCity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>3a:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$52"}}]}]
+3b:["$","li",null,{"children":[["$","b",null,{"children":"Composition Over Inheritance:"}]," Prefer combining behaviors over extending classes"]}]
+53:T9e6,<span class="token comment">// ❌ BAD: rigid inheritance</span>
+<span class="token keyword">class</span> <span class="token class-name">Bird</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">FlyingBird</span> <span class="token keyword">extends</span> <span class="token class-name">Bird</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">fly</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// ✅ GOOD: composition</span>
+<span class="token keyword">interface</span> <span class="token class-name">FlyBehavior</span> <span class="token punctuation">{</span>
+  <span class="token keyword">void</span> <span class="token function">fly</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">CanFly</span> <span class="token keyword">implements</span> <span class="token class-name">FlyBehavior</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">fly</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Bird</span> <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> FlyBehavior flyBehavior<span class="token punctuation">;</span>
+
+  <span class="token keyword">public</span> <span class="token function">Bird</span><span class="token punctuation">(</span><span class="token parameter">FlyBehavior flyBehavior</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>flyBehavior <span class="token operator">=</span> flyBehavior<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>3c:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$53"}}]}]
+3d:["$","li",null,{"children":[["$","b",null,{"children":"Avoid Side Effects:"}]," Functions should not unexpectedly modify shared state"]}]
+54:T533,<span class="token comment">// ❌ BAD: hidden side effect</span>
+<span class="token keyword">void</span> <span class="token function">applyDiscount</span><span class="token punctuation">(</span><span class="token parameter">Order order</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  order<span class="token punctuation">.</span><span class="token function">setPrice</span><span class="token punctuation">(</span>order<span class="token punctuation">.</span><span class="token function">getPrice</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">0.9</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// ✅ GOOD: return new value instead</span>
+double <span class="token function">applyDiscount</span><span class="token punctuation">(</span><span class="token parameter">double price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> price <span class="token operator">*</span> <span class="token number">0.9</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>3e:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$54"}}]}]
+3f:["$","li",null,{"children":[["$","b",null,{"children":"Use Value Objects Instead of Primitives:"}]," Add meaning to data"]}]
+55:T715,<span class="token comment">// ❌ BAD: primitive obsession</span>
+<span class="token keyword">void</span> <span class="token function">pay</span><span class="token punctuation">(</span><span class="token parameter">double amount</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+
+<span class="token comment">// ✅ GOOD: value object</span>
+<span class="token keyword">class</span> <span class="token class-name">Money</span> <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> final double amount<span class="token punctuation">;</span>
+
+  <span class="token keyword">public</span> <span class="token function">Money</span><span class="token punctuation">(</span><span class="token parameter">double amount</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>amount <span class="token operator">=</span> amount<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> double <span class="token function">getAmount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> amount<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">pay</span><span class="token punctuation">(</span><span class="token parameter">Money money</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>40:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$55"}}]}]
+41:["$","hr",null,{}]
+48:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+44:null
+46:{"metadata":[["$","title","0",{"children":"Design Principles"}],["$","meta","1",{"name":"description","content":"Notes on software design principles and best practices"}]],"error":null,"digest":"$undefined"}
+4b:"$46:metadata"
