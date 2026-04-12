@@ -297,7 +297,7 @@ if (x > 0) {
           <hr/>
       </section>
 
-      
+    
       {/* Enum*/}
       <section>
         <h3 className="section-header" id='enum'>
@@ -310,10 +310,30 @@ public enum Direction {
 }
 ---------------------------------
 // use as Direction.NORTH, etc.
+
+=================================
+public enum Size {
+  SMALL(5), MEDIUM(6), LARGE(7);
+
+  private final double value;
+
+  Size(double value) { this.value = value; }
+  public double getValue() { return value; }
+
+  public static Size parse(String str) {
+      return Size.valueOf(str.toUpperCase());
+  }
+}
+---------------------------------
+// Use as Size.SMALL
+// Size.parse("small")
+
+// can also do 
+// Size size = Size.SMALL
+// size.getValue() or Size.SMALL.getValue() to get the value
 `}</CodeBlock>
       <hr/>
       </section>
-
 
        {/* LAMBDA */}
       <section>
