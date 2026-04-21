@@ -39,6 +39,7 @@ export default function DesignPatterns() {
             <ul>
               <li>Similar to Strategy pattern by switching implementations at runtime</li>
             </ul>
+            <li><b>Memento</b>: save / restore snapshots of object's state</li>
             <li><b>Retry-Safe Design</b>: Prevent duplicate retries by giving each request a unique identifier and keep track of sent requests</li>
             <li><b>Object Pool</b>: Reuse objects that are expensive to create or destroy</li>
           </ul>
