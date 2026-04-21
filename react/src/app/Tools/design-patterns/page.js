@@ -158,6 +158,410 @@ class EmailSubscriber implements Subscriber {
   <hr/>
 </section>
 
+
+{/* SINGLETON PATTERN */}
+<section>
+  <h3 className="section-header" id="singleton-pattern">Singleton Pattern</h3>
+
+  <li><b>Definition:</b> Ensure a class has only one instance and provide global access</li>
+  <ul>
+    <li><a href="https://refactoring.guru/design-patterns/singleton" target="_blank" rel="noopener noreferrer">Singleton Pattern - Refactoring Guru</a></li>
+    <li>Answers: How do we ensure only one shared instance exists?</li>
+    <ul>
+        <li>Restricts object creation to a single instance</li>
+        <li>Provides controlled global access point</li>
+        <li>Useful for shared resources/state</li>
+    </ul>
+    <li>Be careful: can introduce global state and tight coupling</li>
+    <li>Use cases:</li>
+    <ul>
+        <li>Logging systems</li>
+        <li>Configuration managers</li>
+        <li>Shared caches or connection pools</li>
+    </ul>
+  </ul>
+
+  <CodeBlock language="java">{`
+
+class Logger {
+  private static Logger instance;
+
+  private Logger() {}
+
+  public static Logger getInstance() {
+    if (instance == null) {
+      instance = new Logger();
+    }
+    return instance;
+  }
+
+  public void log(String message) {
+    // log message
+  }
+}
+`}</CodeBlock>
+
+  <hr/>
+</section>
+
+{/* FACTORY PATTERN */}
+<section>
+  <h3 className="section-header" id="factory-pattern">Factory Pattern</h3>
+
+  <li><b>Definition:</b> Encapsulate object creation to reduce coupling</li>
+  <ul>
+    <li><a href="https://refactoring.guru/design-patterns/factory-method" target="_blank" rel="noopener noreferrer">Factory Pattern - Refactoring Guru</a></li>
+    <li>Answers: How do we create objects without exposing creation logic?</li>
+    <li>Client should NOT use <code>new</code> directly</li>
+    <li>Use cases:</li>
+    <ul>
+        <li>Object creation when not knowing type until runtime</li>
+        <li>Strategy creation</li>
+        <li>Save system resources by reusing existing objects instead of rebuilding them</li>
+        <ul>
+          <li>Uses an object pool to keep track of available objects</li>
+        </ul>
+    </ul>
+  </ul>
+
+  <CodeBlock language="java">{`
+// ❌ BAD: scattered object creation
+class ShapeService {
+  public void drawShape(String type) {
+    if (type.equals("circle")) {
+      Circle c = new Circle();
+    } else if (type.equals("rectangle")) {
+      Rectangle r = new Rectangle();
+    }
+  }
+}
+
+// ✅ GOOD: factory pattern
+interface Shape { void draw(); }
+
+class Circle implements Shape { public void draw() {} }
+class Rectangle implements Shape { public void draw() {} }
+
+class ShapeFactory {
+
+  public static Shape createShape(Enum type) {
+    switch (type) {
+      case CIRCLE: return new Circle();
+      case RECTANGLE: return new Rectangle();
+      default: throw new IllegalArgumentException("Unknown shape");
+    }
+  }
+
+}
+
+// Client
+Shape s = ShapeFactory.createShape("circle");
+s.draw();
+`}</CodeBlock>
+
+  <hr/>
+</section>
+
+{/* ABSTRACT FACTORY PATTERN */}
+<section>
+  <h3 className="section-header" id="abstract-factory-pattern">Abstract Factory Pattern</h3>
+
+  <li><b>Definition:</b> Encapsulate a family of objects creation</li>
+  <ul>
+    <li><a href="https://refactoring.guru/design-patterns/abstract-factory" target="_blank" rel="noopener noreferrer">Abstract Factory Pattern - Refactoring Guru</a></li>
+    <li>Instead of creating one object like in Factory pattern, Abstract Factory creates a group of related objects</li>
+    <li>Use cases:</li>
+    <ul>
+        <li>To enforce consistency when the family of objects require each other to work properly</li>
+        <li>When you don't know the type of objects to create until runtime</li>
+    </ul>
+  </ul>
+
+  <CodeBlock language="java">{`
+// FAST Mode:
+// Fast Simulation, Fast Algorithm, Simple Validation
+// ACCURATE Mode:
+// Accurate Simulation, Brute Force Algorithm, Strict Validation
+
+public interface SimulationFactory {
+    Simulator createSimulator();
+    Algorithm createAlgorithm();
+    Validator createValidator();
+}
+// --------------------------------------------------------
+
+public class FastSimulationFactory implements SimulationFactory {
+    public Simulator createSimulator() { return new FastSimulator(); }
+    public Algorithm createAlgorithm() { return new FastAlgorithm(); }
+    public Validator createValidator() { return new SimpleValidator(); }
+}
+
+// --------------------------------------------------------
+// Using the abstract factory
+SimulationFactory factory = new FastSimulationFactory();
+
+RoutePlanner planner = factory.createPlanner();
+DistanceGraph graph = factory.createGraph();
+PackageValidator validator = factory.createValidator();
+
+`}</CodeBlock>
+
+  <hr/>
+</section>
+
+
+{/* BUILDER PATTERN */}
+<section>
+  <h3 className="section-header" id="builder-pattern">Builder Pattern</h3>
+
+  <li><b>Definition:</b> Separate the construction of a complex object from its representation</li>
+  <ul>
+    <li><a href="https://refactoring.guru/design-patterns/builder" target="_blank" rel="noopener noreferrer">Builder Pattern - Refactoring Guru</a></li>
+    <li>How Lombok <code>@Builder</code> works</li>
+    <li>Use cases:</li>
+    <ul>
+        <li>When the construction of an object is complex and involves numerous parameters</li>
+    </ul>
+  </ul>
+
+  <CodeBlock language="java">{`
+public class Route {
+
+    private double totalDistance;
+    private int startLocation;
+
+    private Route(RouteBuilder builder) {
+        this.totalDistance = builder.totalDistance;
+        this.startLocation = builder.startLocation;
+    }
+
+    public static RouteBuilder builder() {
+        return new RouteBuilder();
+    }
+
+    public static class RouteBuilder {
+        private double totalDistance;
+        private int startLocation;
+
+        public RouteBuilder totalDistance(double totalDistance) {
+            this.totalDistance = totalDistance;
+            return this;
+        }
+
+        public RouteBuilder startLocation(int startLocation) {
+            this.startLocation = startLocation;
+            return this;
+        }
+
+        public Route build() {
+            return new Route(this);
+        }
+    }
+}
+
+// =========================================================
+// Usage
+Route route = Route.builder()
+    .totalDistance(100.0)
+    .startLocation(1)
+    .build();
+
+`}</CodeBlock>
+
+  <hr/>
+</section>
+
+
+{/* STATE PATTERN */}
+<section>
+  <h3 className="section-header" id="state-pattern">State Pattern</h3>
+
+  <li><b>Definition:</b> Allow an object to alter its behavior when its internal state changes</li>
+  <ul>
+    <li><a href="https://refactoring.guru/design-patterns/state" target="_blank" rel="noopener noreferrer">State Pattern - Refactoring Guru</a></li>
+    <li>Answers: How do we allow an object to change its behavior based on its state?</li>
+    <li>Use cases:</li>
+    <ul>
+      <li>When the object behaves differently depending on its state (Ex: Video Player - LockedState, ReadyState, PlayingState)</li>
+      <li>When a class contains massive conditionals that greatly changes how the class behave according to a class's field</li>
+      <li>When an object has an enormous amount of states and the behavior of the object changes with each state</li>
+    </ul>
+  </ul>
+
+  <CodeBlock language="java">{`
+// ❌ BAD: Chain of conditionals
+class Route {
+  private ENUM Result { FAILED_DEADLINE, UNFINISHED_DELIVERY };
+  public void setResult(Route.Result result) {
+    this.result = result;
+  }
+}
+
+class RouteService {
+  public void validateRoute(Route route) {
+  
+    // Validate simulation result
+    switch(route.getResult()){
+        case Route.Result.FAILED_DEADLINE:
+            algo.onFailDeadline();
+            break;
+        case Route.Result.UNFINISHED_DELIVERY:
+            break;
+    }
+
+  }
+}
+route.setResult(Route.Result.FAILED_DEADLINE); // Set the flag for route
+
+// =========================================================
+
+// ✅ GOOD: Extract conditonal states into separate classes
+
+interface RouteState {
+  void handleResult(RouteService service);
+}
+
+class FailedDeadlineState implements RouteState {
+  public void handleResult(RouteService service) {
+    service.getAlgorithm().onFailDeadline();
+  }
+}
+
+class UnfinishedDeliveryState implements RouteState {
+    public void handleResult(RouteService service) { // do nothing }
+}
+
+class Route {
+  private RouteState state;
+  public void setState(RouteState state) {
+    this.state = state;
+  }
+  public void handleResult(RouteService service) {
+    state.handleResult(service);
+  }
+}
+
+class RouteService {
+
+  public void validateRoute(Route route) {
+  
+    // Validate simulation result
+    route.handleResult(this);
+
+  }
+}
+route.setState(new FailedDeadlineState()); // Set the state for route
+`}</CodeBlock>
+
+  <hr/>
+</section>
+
+
+
+{/* OBJECT POOL */}
+<section>
+  <h3 className="section-header" id="objects-pool">Objects Pool</h3>
+
+  <li><b>Definition:</b> Object pool allow the reuse of objects that are expensive to create or destroy</li>
+  <ul>
+    <li>Proper synchronization when getting and releasing the objects are needed</li>
+    <li>Use cases:
+      <ul>
+        <li>When creating objects is expensive in terms of resources or time</li>
+        <li>DB connections</li>
+      </ul>
+    </li>
+  </ul>
+
+ <CodeBlock language="java">{`
+public class ConnectionPoolFactory {
+
+    private final Queue<DbConnection> available = new LinkedList<>();
+    private final Set<DbConnection> inUse = new HashSet<>();
+
+    private int counter = 0;
+    private final int MAX_POOL_SIZE = 1;
+
+    // Factory method (acquire)
+    public synchronized DbConnection acquire() {
+
+          while (available.isEmpty() && inUse.size() >= MAX_POOL_SIZE) {
+            wait();   // block until someone releases
+        }
+
+        if (!available.isEmpty()) {
+            DbConnection conn = available.poll();
+            inUse.add(conn);
+            return conn;
+        }
+
+        if (inUse.size() < MAX_POOL_SIZE) {
+            DbConnection conn = new DbConnection(++counter);
+            inUse.add(conn);
+            return conn;
+        }
+
+        throw new RuntimeException("No available connections");
+    }
+
+    // Return to pool
+    public synchronized void release(DbConnection conn) {
+        if (conn == null) return;
+
+        inUse.remove(conn);
+        available.offer(conn);
+
+        notifyAll(); // wake up waiting threads
+    }
+}
+
+// =========================================================
+// Usage
+
+ConnectionPoolFactory pool = new ConnectionPoolFactory();
+DbConnection c1 = pool.acquire();
+pool.release(c1); // return to pool
+DbConnection c2 = pool.acquire(); // reuses c1
+
+DbConnection c3 = pool.acquire(); // Causes infinite wait since pool size is 1 and c2 is still in use
+pool.release(c3); 
+
+`}</CodeBlock>
+
+  <hr/>
+</section>
+
+
+{/* RETRY-SAFE DESIGN */}
+<section>
+  <h3 className="section-header" id="retry-safe">Retry-Safe Design</h3>
+
+  <li><b>Definition:</b> Design operations to safely retry in case of failure</li>
+  <ul>
+    <li>Duplicate requests should not be retried</li>
+    <li>Retries should not introduce inconsistent state</li>
+  </ul>
+
+  <CodeBlock language="java">{`
+// ❌ BAD: retry will duplicate side effects
+void sendEmail(User user) {
+  emailServer.send(user.getEmail());
+}
+
+// ✅ GOOD: retry-safe with idempotency key or check
+// Uses id to ensure the same message isn't sent multiple times
+void sendEmail(User user, String messageId) {
+  if (sentMessages.contains(messageId)) return;
+  emailServer.send(user.getEmail());
+  sentMessages.add(messageId);
+}
+`}</CodeBlock>
+
+  <hr/>
+</section>
+
+
+
 {/* DECORATOR PATTERN */}
 <section>
   <h3 className="section-header" id="decorator-pattern">Decorator Pattern</h3>
@@ -175,12 +579,12 @@ class EmailSubscriber implements Subscriber {
     <li>Can be used with Factory pattern to build complex objects with many decorators</li>
     <li>Use cases:</li>
     <ul>
+        <li>Allow combinations of add-ons without class explosions</li>
         <li>Add-ons (coffee toppings, UI components)</li>
         <li>Logging, caching wrappers</li>
         <li>Auth / Security wrappers</li>
         <li>Retry-Fault tolerance wrappers</li>
         <li>Input vaidation wrappers</li>
-        <li>Feature extensions without subclass explosion</li>
     </ul>
   </ul>
    <figure>
@@ -365,134 +769,6 @@ RoutingService service = new LoggingRoutingService( new BaseRoutingService() );
     <hr/>
 </section>
 
-{/* SINGLETON PATTERN */}
-<section>
-  <h3 className="section-header" id="singleton-pattern">Singleton Pattern</h3>
-
-  <li><b>Definition:</b> Ensure a class has only one instance and provide global access</li>
-  <ul>
-    <li><a href="https://refactoring.guru/design-patterns/singleton" target="_blank" rel="noopener noreferrer">Singleton Pattern - Refactoring Guru</a></li>
-    <li>Answers: How do we ensure only one shared instance exists?</li>
-    <ul>
-        <li>Restricts object creation to a single instance</li>
-        <li>Provides controlled global access point</li>
-        <li>Useful for shared resources/state</li>
-    </ul>
-    <li>Be careful: can introduce global state and tight coupling</li>
-    <li>Use cases:</li>
-    <ul>
-        <li>Logging systems</li>
-        <li>Configuration managers</li>
-        <li>Shared caches or connection pools</li>
-    </ul>
-  </ul>
-
-  <CodeBlock language="java">{`
-// ❌ BAD: uncontrolled instantiation
-class Logger {
-  public Logger() {}
-}
-
-// ✅ GOOD: singleton
-class Logger {
-  private static Logger instance;
-
-  private Logger() {}
-
-  public static Logger getInstance() {
-    if (instance == null) {
-      instance = new Logger();
-    }
-    return instance;
-  }
-}
-`}</CodeBlock>
-
-  <hr/>
-</section>
-
-{/* FACTORY PATTERN */}
-<section>
-  <h3 className="section-header" id="factory-pattern">Factory Pattern</h3>
-
-  <li><b>Definition:</b> Encapsulate object creation to reduce coupling</li>
-  <ul>
-    <li><a href="https://refactoring.guru/design-patterns/factory-method" target="_blank" rel="noopener noreferrer">Factory Pattern - Refactoring Guru</a></li>
-    <li>Answers: How do we create objects without exposing creation logic?</li>
-    <ul>
-        <li>Centralizes object creation</li>
-        <li>Removes direct dependency on concrete classes</li>
-        <li>Encapsulates creation logic and rules</li>
-    </ul>
-    <li>Client should NOT use <code>new</code> directly</li>
-    <li>Use cases:</li>
-    <ul>
-        <li>Object creation based on input (type, config)</li>
-        <li>Strategy creation</li>
-        <li>Decoupling service from implementations</li>
-    </ul>
-  </ul>
-
-  <CodeBlock language="java">{`
-// ❌ BAD: scattered object creation
-class ShapeService {
-  public void drawShape(String type) {
-    if (type.equals("circle")) {
-      Circle c = new Circle();
-    } else if (type.equals("rectangle")) {
-      Rectangle r = new Rectangle();
-    }
-  }
-}
-
-// ✅ GOOD: factory pattern
-interface Shape { void draw(); }
-
-class Circle implements Shape { public void draw() {} }
-class Rectangle implements Shape { public void draw() {} }
-
-class ShapeFactory {
-  public static Shape createShape(String type) {
-    if (type.equals("circle")) return new Circle();
-    if (type.equals("rectangle")) return new Rectangle();
-    throw new IllegalArgumentException("Unknown shape");
-  }
-}
-
-// Client
-Shape s = ShapeFactory.createShape("circle");
-s.draw();
-`}</CodeBlock>
-
-  <hr/>
-</section>
-
-{/* RETRY-SAFE DESIGN */}
-<section>
-  <h3 className="section-header" id="retry-safe">Retry-Safe Design</h3>
-
-  <li><b>Definition:</b> Design operations to safely retry in case of failure</li>
-  <ul>
-    <li>Retries should not introduce duplicates or inconsistent state</li>
-  </ul>
-
-  <CodeBlock language="java">{`
-// ❌ BAD: retry will duplicate side effects
-void sendEmail(User user) {
-  emailServer.send(user.getEmail());
-}
-
-// ✅ GOOD: retry-safe with idempotency key or check
-// Uses id to ensure the same message isn't sent multiple times
-void sendEmail(User user, String messageId) {
-  if (sentMessages.contains(messageId)) return;
-  emailServer.send(user.getEmail());
-  sentMessages.add(messageId);
-}
-`}</CodeBlock>
-
-  <hr/>
-</section>
     </>
   );
 }
