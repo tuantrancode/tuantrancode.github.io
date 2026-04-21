@@ -16,24 +16,172 @@ export default function DesignPatterns() {
     <li><b>Definition:</b> Reusable solutions to common software design problems. Provide standard approaches to structure code for readability, maintainability, and scalability</li> 
     <ul> 
         <li><a href="https://refactoring.guru/design-patterns" target="_blank" rel="noopener noreferrer">Refactoring Guru - Design Patterns</a></li> 
-        <li><b>Singleton</b>: Ensure a class has only one instance and provide global access</li> 
-        <li><b>Factory</b>: Encapsulate object creation to reduce coupling</li> 
-        <li><b>Strategy</b>: Encapsulate interchangeable behaviors and make them pluggable</li> 
-        <li><b>Observer</b>: Define a one-to-many dependency so that when one object changes, all dependents are notified</li> 
-        <li><b>Decorator</b>: Add behavior to objects dynamically without affecting other objects</li>
+        <li><u>Creation Patterns</u>:
+          <ul>
+            <li><b>Singleton</b>: ensure a class has only one instance and provide global access</li> 
+            <li><b>Factory</b>: abstract the object creation process</li> 
+            <li><b>Abstract Factory</b>: same as Factory but for families of objects</li>
+            <li><b>Builder</b>: simplify construction of complex classes with many parameters</li>
+          </ul>
+        </li>
+        <li><u>Behavioral Patterns</u>:
+          <ul>
+            <li><b>Strategy</b>: Abstract the core process idea into an interface so it can be swappable with other implementations</li> 
+            <li><b>Observer</b>: Define a one-to-many dependency so that when one object changes, all dependents are notified</li>
+            <ul>
+              <li>Same structure as Strategy pattern, but with a different intent and uses a <code>{`List<Observer> observers`}</code></li>
+            </ul>
+            <li><b>Chain of Responsibility</b>: Pass a request along a chain of handlers until one of them handles it</li>
+            <ul>
+              <li>Same structure as Observer pattern, but an order can be enforced at runtime by adding a <code>next</code> pointer</li>
+            </ul>
+            <li><b>State</b>: Extract the the object's states / conditionals into separate classes</li>
+            <ul>
+              <li>Similar to Strategy pattern by switching implementations at runtime</li>
+            </ul>
+            <li><b>Retry-Safe Design</b>: Prevent duplicate retries by giving each request a unique identifier and keep track of sent requests</li>
+            <li><b>Object Pool</b>: Reuse objects that are expensive to create or destroy</li>
+          </ul>
+        </li>
+         <li><u>Structural Patterns</u>:
+          <ul>
+            <li><b>Decorator</b>: wrap an object to add additional behavior on a base object</li>
+            <ul>
+              <li>Like adding cached, security, validation layers on top of the base case</li>
+            </ul>
+          </ul>
+        </li>
     </ul>
     <hr/>
 </section>
 
-{/* Architectural Layers */} 
+{/* Project Structure */} 
 <section> 
-    <h3 className="section-header" id="architectural-layers">Architectural Layers</h3> 
+    <h3 className="section-header" id="project-structure">Project Structure</h3> 
     <ul>
-        <li>Model</li>
-        <li>DTO</li>
-        <li>Controller</li>
-        <li>Service</li>
-        <li>Repository/DAO/Store</li>
+        <li>Model: represents real life business logic items (Package, Leg, Order, etc.)</li>
+        <li>DTO: Data Transfer Object</li>
+        <li>Controller: handles user input and acts as the gateway between request and service</li>
+        <li>Service: contains core business logic</li>
+        <li>Repository/Store: manages data persistence and access</li>
+    </ul>
+   
+    <hr/>
+</section>
+
+{/* Design Patterns Structural Skeleton */} 
+<section> 
+    <h3 className="section-header" id="design-patterns-structural-skeleton">Design Patterns Structural Skeleton</h3> 
+    <ul>
+        <li><u>Encapsulate Callable</u>: allow runtime swapping of implementation
+          <ul>
+            <li>Patterns: Strategy, State, Observer, Command</li>
+            <CodeBlock language="java">{`
+interface Role { 
+  void execute(ctx); 
+}
+class Context { 
+  Role role;
+  void setRole(Role r) { this.role = r; }
+  void run() { this.role.execute(this); } 
+}            
+            `}</CodeBlock>
+            <li>Context holds a reference to an abstract role; runtime swaps the implementation.</li>
+          </ul>
+        </li>
+
+        <li><u>Observer + <code>next</code> pointer</u>: enforces order of execution at runtime
+          <ul>
+            <li>Patterns: Chain of Responsibility, Middleware / Pipeline</li>
+            <CodeBlock language="java">{`
+interface Handler {
+  Handler next; // ← added vs Observer
+  void handle(req);
+} 
+// each impl calls this.next.handle(req) or stops         
+            `}</CodeBlock>
+            <li>Observer with each handler also holding a reference to the next handler. The request either stops or propagates.</li>
+          </ul>
+        </li>
+
+        <li><u>Wrapper</u>: allow runtime swapping of implementation
+          <ul>
+            <li>Patterns: Decorator, Proxy, Adapter</li>
+            <CodeBlock language="java">{`
+interface Component { 
+  void op(); 
+}
+class Wrapper implements Component {
+  Component inner;
+  void op() { /* extra work */ this.inner.op(); } 
+}          
+            `}</CodeBlock>
+            <li>All three hold a reference to a component of the same interface and delegate to it. The difference is intent and how many layers are stacked.</li>
+          </ul>
+        </li>
+
+         <li><u>Factory</u>: centralise construction
+          <ul>
+            <li>Patterns: Factory, Abstract Factory, Prototype</li>
+            <CodeBlock language="java">{`
+abstract class Creator {
+  abstract Product create(); // factory method
+  use() { return this.create().op(); } 
+}
+
+// Abstract Factory: same but for N product types
+interface Factory { 
+  TypeA makeA();
+  TypeB makeB();
+} 
+            `}</CodeBlock>
+            <li>Concrete class decided at runtime. Abstract Factory scales this to a family of related products.</li>
+          </ul>
+        </li>
+
+         <li><u>Controlled Construction</u>: other creation patterns
+          <ul>
+            <li>Patterns: Singleton, Builder</li>
+            <CodeBlock language="java">{`
+// Singleton: private ctor + static accessor
+class S { 
+  static S inst;
+  private constructor() {}
+  static get() { return S.inst == null ? S.inst = new S() : S.inst; } 
+}
+
+// Builder: fluent step-by-step assembly
+class Builder { 
+  void setA(v){ this.a = v; return this; }
+  Product build(){ return new Product(a,b,…); } 
+  }       
+            `}</CodeBlock>
+            <li>These don't share a skeleton with each other or the factory group, but are often lumped with creational patterns.</li>
+          </ul>
+        </li>
+
+          <li><u>Memento</u>: create memento (snapshots) of the originator (object with states) and restore from caretaker (history)
+          <ul>
+            <li>Patterns: Memento</li>
+            <CodeBlock language="java">{`
+class Originator {
+  State state;
+  Memento save() { return new Memento(state); }
+  void restore(Memento m) { this.state = m.getState(); } 
+}
+class Memento { 
+  private State state; 
+  State getState() { return this.state; } 
+}
+class Caretaker { 
+  List<Memento> history; 
+  addMemento(Memento m) { history.add(m); } 
+  void restore(int i, Originator o) { o.restore(history.get(i)); } 
+}      
+            `}</CodeBlock>
+            <li>Originator creates mementos of its state and can restore from them. Caretaker manages the history of mementos.</li>
+          </ul>
+        </li>
     </ul>
    
     <hr/>
@@ -71,15 +219,15 @@ class PaymentService {
 interface PaymentStrategy {
   void pay(double amount);
 }
-
+// --------------------------------------------------------
 class CreditCardPayment implements PaymentStrategy {
   public void pay(double amount) {}
 }
-
+// --------------------------------------------------------
 class PaypalPayment implements PaymentStrategy {
   public void pay(double amount) {}
 }
-
+// --------------------------------------------------------
 class PaymentService {
   private PaymentStrategy strategy;
 
@@ -92,6 +240,7 @@ class PaymentService {
   }
 }
 
+// --------------------------------------------------------
 // Usage
 PaymentService service = new PaymentService(new PaypalPayment());
 service.pay(100);
@@ -130,11 +279,13 @@ class NewsPublisher {
   }
 }
 
+// =========================================================
+
 // ✅ GOOD: observer pattern
 interface Subscriber {
   void update(String news);
 }
-
+// --------------------------------------------------------
 class NewsPublisher {
   private List<Subscriber> subscribers = new ArrayList<>();
 
@@ -147,7 +298,7 @@ class NewsPublisher {
     }
   }
 }
-
+// --------------------------------------------------------
 class EmailSubscriber implements Subscriber {
   public void update(String news) {
     System.out.println("Email: " + news);
@@ -157,6 +308,101 @@ class EmailSubscriber implements Subscriber {
 
   <hr/>
 </section>
+
+
+{/* CHAIN OF RESPONSIBILITY */}
+<section>
+  <h3 className="section-header" id="chain-of-responsibility-pattern">Chain of Responsibility Pattern</h3>
+
+  <li><b>Definition:</b> Pass a request along a chain of handlers until one of them handles it</li>
+  <ul>
+    <li><a href="https://refactoring.guru/design-patterns/chain-of-responsibility" target="_blank" rel="noopener noreferrer">Chain of Responsibility Pattern - Refactoring Guru</a></li>
+    <li>Same structure as Observer pattern except an order can be enforced at runtime by adding a <code>next</code> pointer in the observer/handler</li>
+    <li>A request is passed to the handler chain:</li>
+    <ul>
+      <li>Each handler can process it / pass it on if not possible</li>
+    </ul>
+    <li>Use cases:</li>
+    <ul>
+        <li>If program process different kind of requests, but the exac types of requests and hteir sequences are unknown until runtime</li>
+        <li>When several handlers have to execute in a particular order</li>
+    </ul>
+  </ul>
+
+  <CodeBlock language="java">{`
+interface Validator {
+    boolean validate(Route route);
+    void setNext(Validator next);
+}
+// --------------------------------------------------------
+public abstract class AbstractValidator implements Validator {
+
+    private Validator next;
+
+    @Override
+    public void setNext(Validator next) {
+        this.next = next;
+    }
+
+    protected boolean next(Route route) {
+        if (next == null) return true;
+        return next.validate(route);
+    }
+}
+// --------------------------------------------------------
+public class PackageGroupingValidator extends AbstractValidator {
+
+    @Override
+    public boolean validate(Route route) {
+        if (!checkPackageGrouping(route)) {
+            return false;
+        }
+        return next(route);
+    }
+
+    private boolean checkPackageGrouping(Route route) { // logic to check package grouping }
+}
+
+// =========================================================
+// Useage
+
+Validator v1 = new PackageGroupingValidator();
+Validator v2 = new TruckGroupingValidator();
+
+v1.setNext(v2);
+boolean valid = v1.validate(route); // Validate PackageGrouping -> TruckGrouping
+`}</CodeBlock>
+
+<p>If order is known before runtime, then Chain of Responsibility can be simplify to Observer pattern by removing the <code>next</code> pointer like below:</p>
+
+  <CodeBlock language="java">{`
+interface Validator {
+    boolean validate(Route route);
+}
+
+public class PackageGroupingValidator implements Validator {
+
+    @Override
+    public boolean validate(Route route) {
+        return checkPackageGrouping(route);
+    }
+
+    private boolean checkPackageGrouping(Route route) { // logic to check package grouping }
+}
+
+// =========================================================
+// Useage
+
+List<Validator> validators = List.of(new PackageGroupingValidator(), new TruckGroupingValidator());
+for (Validator v : validators) {
+    if (!v.validate(route)) {
+        return false;
+    }
+}
+`}</CodeBlock>
+  <hr/>
+</section>
+
 
 
 {/* SINGLETON PATTERN */}
@@ -235,7 +481,7 @@ class ShapeService {
     }
   }
 }
-
+// --------------------------------------------------------
 // ✅ GOOD: factory pattern
 interface Shape { void draw(); }
 
@@ -383,6 +629,9 @@ Route route = Route.builder()
     <li>Use cases:</li>
     <ul>
       <li>When the object behaves differently depending on its state (Ex: Video Player - LockedState, ReadyState, PlayingState)</li>
+      <ul>
+        <li>Otherwise, each method of the class would have similar switch-case statements</li>
+      </ul>
       <li>When a class contains massive conditionals that greatly changes how the class behave according to a class's field</li>
       <li>When an object has an enormous amount of states and the behavior of the object changes with each state</li>
     </ul>
@@ -420,17 +669,17 @@ route.setResult(Route.Result.FAILED_DEADLINE); // Set the flag for route
 interface RouteState {
   void handleResult(RouteService service);
 }
-
+// --------------------------------------------------------
 class FailedDeadlineState implements RouteState {
   public void handleResult(RouteService service) {
     service.getAlgorithm().onFailDeadline();
   }
 }
-
+// --------------------------------------------------------
 class UnfinishedDeliveryState implements RouteState {
     public void handleResult(RouteService service) { // do nothing }
 }
-
+// --------------------------------------------------------
 class Route {
   private RouteState state;
   public void setState(RouteState state) {
@@ -440,17 +689,20 @@ class Route {
     state.handleResult(service);
   }
 }
-
+// --------------------------------------------------------
 class RouteService {
 
+  // Validate simulation result
   public void validateRoute(Route route) {
-  
-    // Validate simulation result
     route.handleResult(this);
-
   }
 }
+// --------------------------------------------------------
+// Usage
+
 route.setState(new FailedDeadlineState()); // Set the state for route
+...
+service.validateRoute(route); 
 `}</CodeBlock>
 
   <hr/>
@@ -577,11 +829,17 @@ void sendEmail(User user, String messageId) {
     </ul>
     <li>Do NOT use to change core identity ("what it is")</li>
     <li>Can be used with Factory pattern to build complex objects with many decorators</li>
+    <li>The order of calling <code>super</code> methods matters</li>
+    <ul>
+      <li>Calling <code>super</code> first means the base case is run first and moves toward the final decorator</li>
+      <li>Calling <code>super</code> last means the final decorator is run first and moves toward the base case</li>
+    </ul>
     <li>Use cases:</li>
     <ul>
         <li>Allow combinations of add-ons without class explosions</li>
+        <li>Add Logging wrappers</li>
+        <li>Add Caching wrappers</li>
         <li>Add-ons (coffee toppings, UI components)</li>
-        <li>Logging, caching wrappers</li>
         <li>Auth / Security wrappers</li>
         <li>Retry-Fault tolerance wrappers</li>
         <li>Input vaidation wrappers</li>
@@ -625,7 +883,7 @@ interface DataSource {
   void writeData(String data);
   String readData();
 }
-
+// --------------------------------------------------------
 // Concrete component
 class FileDataSource implements DataSource {
   private String filename;
@@ -642,24 +900,24 @@ class FileDataSource implements DataSource {
     return "data_from_" + filename;
   }
 }
-
+// --------------------------------------------------------
 // Abstract decorator
 abstract class DataSourceDecorator implements DataSource {
-  protected DataSource wrappee;
+  protected DataSource inner;
 
   public DataSourceDecorator(DataSource source) {
-    this.wrappee = source;
+    this.inner = source;
   }
 
   public void writeData(String data) {
-    wrappee.writeData(data);
+    inner.writeData(data);
   }
 
   public String readData() {
-    return wrappee.readData();
+    return inner.readData();
   }
 }
-
+// --------------------------------------------------------
 // Concrete decorators
 class EncryptionDecorator extends DataSourceDecorator {
   public EncryptionDecorator(DataSource source) {
@@ -676,7 +934,7 @@ class EncryptionDecorator extends DataSourceDecorator {
     return "DECRYPT(" + data + ")";
   }
 }
-
+// --------------------------------------------------------
 class CompressionDecorator extends DataSourceDecorator {
   public CompressionDecorator(DataSource source) {
     super(source);
@@ -738,7 +996,8 @@ System.out.println(ds.readData());
         <li>The order <code>super.writeData()</code> and <code>super.readData()</code> in the decorator methods affects the final behavior</li>
     </ul>
 </ul>
-<li>Example of Adding Logging</li>
+
+<p>Example of Adding Logging</p>
 <CodeBlock language="java">{`
 public interface RoutingService {
   void findRoute();
@@ -766,7 +1025,189 @@ public class LoggingRoutingService {
 // --------------------------------------------------------
 RoutingService service = new LoggingRoutingService( new BaseRoutingService() );
 `}</CodeBlock>
+
+<p>Example of Adding a Cache Layer</p>
+<CodeBlock language="java">{`
+public interface DatabaseService {
+    String getData(String key);
+}
+// --------------------------------------------------------
+public class BaseDBService implements DatabaseService {
+  @Override
+  public String getData(String key) {
+    // Simulate fetching data from a database
+    return "Data for " + key;
+  }
+}
+// --------------------------------------------------------
+public class CachedDBService implements DatabaseService {
+
+  private DatabaseService inner;
+  private Map<String, String> cache = new HashMap<>();
+
+  public CachedDBService(DatabaseService inner) {
+    this.inner = inner;
+  }
+
+  @Override
+  public String getData(String key) {
+    if (cache.containsKey(key)) {
+      return cache.get(key);
+    }
+
+    String result = inner.getData(key);
+    cache.put(key, result);
+    return result;
+  }
+}
+
+// --------------------------------------------------------
+// Usage
+DatabaseService service = new CachedDBService(new BaseDBService());
+
+System.out.println(service.getData("A")); // slow
+System.out.println(service.getData("A")); // fast (cached)
+`}</CodeBlock>
+
+<p>Example of Adding a Security Layer</p>
+<CodeBlock language="java">{`
+public interface DatabaseService {
+    String getData(String key);
+}
+// --------------------------------------------------------
+public class BaseDBService implements DatabaseService {
+  @Override
+  public String getData(String key) {
+    // Simulate fetching data from a database
+    return "Data for " + key;
+  }
+}
+// --------------------------------------------------------
+public class SecuredDBService implements DatabaseService {
+
+    private DatabaseService inner;
+    private final User user;
+
+    public SecuredDataService(DatabaseService inner, User user) {
+        this.inner = inner;
+        this.user = user;
+    }
+
+    @Override
+    public String getData(String key) {
+        if (!hasAccess(key)) {
+            throw new SecurityException(
+                "User " + user.getName() + " not authorized for key: " + key
+            );
+        }
+
+        return inner.getData(key);
+    }
+
+    private boolean hasAccess(String key) {
+        return user.getAllowedKeys().contains(key);
+    }
+}
+
+// --------------------------------------------------------
+// Usage
+User user = new User("Alice");
+DatabaseService service =
+            new SecuredDBService(
+                new BaseDBService(), user
+            );
+`}</CodeBlock>
     <hr/>
+</section>
+
+{/* MEMENTO PATTERN */}
+<section>
+  <h3 className="section-header" id="memento-pattern">Memento Pattern</h3>
+
+  <li><b>Definition:</b> create snapshots (mementos) of the object (originator) through a caretaker (history)</li>
+  <ul>
+    <li><a href="https://refactoring.guru/design-patterns/memento" target="_blank" rel="noopener noreferrer">Memento Pattern - Refactoring Guru</a></li>
+    <li>Use cases:</li>
+    <ul>
+        <li>Produce snapshots of object's state and restore them later</li>
+        <li>When direct access to object's fields/getters/setters violates its encapsulation</li>
+    </ul>
+  </ul>
+
+  <CodeBlock language="java">{`
+// Snapshot of the originator's state
+public class Memento {
+    private final String content;
+
+    public Memento(String content) {
+        this.content = content;
+    }
+
+    public String getSavedContent() {
+        return content;
+    }
+}
+// --------------------------------------------------------
+// Originator object with state (content)
+public class TextEditor {
+    private String content = "";
+
+    public void type(String text) {
+        content += text;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    // Create snapshot
+    public Memento save() {
+        return new Memento(content);
+    }
+
+    // Restore snapshot
+    public void restore(Memento memento) {
+        this.content = memento.getSavedContent();
+    }
+}
+// --------------------------------------------------------
+// Caretaker that manages the history of mementos
+public class History {
+    private final Stack<Memento> history = new Stack<>();
+
+    public void save(TextEditor editor) {
+        history.push(editor.save());
+    }
+
+    public void undo(TextEditor editor) {
+        if (!history.isEmpty()) {
+            editor.restore(history.pop());
+        }
+    }
+}
+
+// --------------------------------------------------------
+// Useage
+TextEditor editor = new TextEditor();
+History history = new History();
+
+editor.type("Hello ");
+history.save(editor);
+
+editor.type("World");
+history.save(editor);
+
+editor.type("!!!");
+System.out.println(editor.getContent()); // Hello World!!!
+
+history.undo(editor);
+System.out.println(editor.getContent()); // Hello World
+
+history.undo(editor);
+System.out.println(editor.getContent()); // Hello 
+`}</CodeBlock>
+
+  <hr/>
 </section>
 
     </>
