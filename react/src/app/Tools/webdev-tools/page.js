@@ -60,6 +60,22 @@ export default function BrowserTools() {
             <li>The Sensors tab can be found under the Kebab menu &gt; "More Tools"</li>
             <li>It allow for simulation of GPS location and accelerometer data</li>
         </ul>
+        <hr />
+
+
+          {/* <!-- POSTMAN --> */}
+         <h3 className="section-header" id="postman">Postman</h3>
+        <p>Postman is a powerful API client that allows you to test and debug REST APIs.</p>
+        <ul>
+            <li>Able to test various HTTP methods (GET, POST, PUT, DELETE)</li>
+            <li>Can add headers, authorization, and parameters to requests</li>
+            <li>Can view and analyze the responses/cookies from the API endpoints</li>
+        </ul>
+        <p><b><u>Debugging Tips:</u></b></p>
+        <ul>
+          <li><code>{`View -> Show Postman Console`}</code> : This will display the Postman Console where you can see the request and response complete details.</li>
+        </ul>
+        <hr />
 
     </>
   );

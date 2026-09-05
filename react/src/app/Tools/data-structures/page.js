@@ -1588,7 +1588,50 @@ dfsRecursive(node, visited) {
           <li>Space: O(V)</li>
         </ul>
       </ul>
+      <hr/>
 </section>
+
+
+    {/* OTHER */}
+    <section>
+      <h3 className='section-header' id='others'>Other</h3>
+      <ul>
+          <li><u>Interval Tree</u>: A data structure that stores intervals and allows for efficient querying of overlapping intervals.
+            <ul>
+              <li>Efficient overlap checking</li>
+              <li>Used in calendar scheduling, booking systems, collision detection</li>
+            </ul>
+          </li>
+
+           <li><u>KD-Tree</u>: A data structure for organizing points in k-dimensional space.
+            <ul>
+              <li>Use for spatial queries</li>
+              <li>Used in nearest neighbor search, maps/gps, ML clustering</li>
+            </ul>
+          </li>
+
+          <li><u>LRU Cache</u>: A data structure that evicts the least recently used item when capacity is exceeded.
+            <ul>
+              <li>Kick out the least recently used item</li>
+              <ul>
+                <li>Use hashmap to keep cache data and a doubly-linked list to keep track of oldest used item</li>
+              </ul>
+              <li>Used in web caching, database systems</li>
+            </ul>
+          </li>
+
+           <li><u>Bloom Filter</u>: A probabilistic data structure that tests whether an element is a member of a set.
+            <ul>
+              <li>Use for probabilistic membership testing</li>
+              <ul>
+                <li>Used over hash sets when memory efficiency is more important than accuracy</li>
+              </ul>
+              <li>Used in caching systems, databases (avoid disk lookup), and web crawlers</li>
+            </ul>
+          </li>
+          
+      </ul>
+    </section>
     </>
   );
 }

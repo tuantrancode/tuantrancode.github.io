@@ -58,6 +58,7 @@ const navSections = [
       { name: 'Spring Boot', link: '/Java/java-spring' },
       { name: 'REST API w/ Spring Boot', link: '/Java/java-rest-api' },
       { name: 'Login / Authorization', link: '/Java/java-login' },
+      { name: 'Spring Security', link: '/Java/java-spring-security' },
     ],
   },
   {
@@ -77,7 +78,7 @@ const navSections = [
   {
     section: 'Tools',
     pages: [
-      { name: 'Browser DevTools', link: '/Tools/browser' },
+      { name: 'WebDev Tools', link: '/Tools/webdev-tools' },
       { name: 'React DevTools', link: '/Tools/react-dev-tools' },
       { name: 'Cmd / Terminal', link: '/Tools/cmd' },
       { name: 'Ansible', link: '/Tools/ansible'},
