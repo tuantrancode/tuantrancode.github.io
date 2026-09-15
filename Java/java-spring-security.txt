@@ -1,0 +1,567 @@
+1:"$Sreact.fragment"
+2:I[79520,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/8df098a924712bdd.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],""]
+3:I[35974,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/8df098a924712bdd.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"ThemeProvider"]
+4:I[20908,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/8df098a924712bdd.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"default"]
+5:I[39756,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/8df098a924712bdd.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"default"]
+6:I[37457,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/8df098a924712bdd.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"default"]
+1e:I[68027,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/8df098a924712bdd.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"default"]
+:HL["/_next/static/chunks/01ccb2bdd09c7699.css","style"]
+0:{"P":null,"b":"SgZ7U1uS1VVFnlM47y67M","p":"","c":["","Java","java-spring-security"],"i":false,"f":[[["",{"children":["Java",{"children":["java-spring-security",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/01ccb2bdd09c7699.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/f3af76091b908de4.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/8df098a924712bdd.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/7dd66bdf8a7e5707.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"dark","children":[["$","head",null,{"children":[["$","style",null,{"children":"\n        "}],["$","$L2",null,{"id":"theme-script","strategy":"beforeInteractive","children":"\n            (function() {\n              const theme = localStorage.getItem('data-theme') || 'dark';\n              document.documentElement.dataset.theme = theme;\n              document.documentElement.setAttribute('data-theme', theme);\n            })();\n          "}]]}],["$","body",null,{"id":"root","children":["$","$L3",null,{"children":["$","$L4",null,{"children":["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}]]}],{"children":["Java",["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["java-spring-security",["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[[["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"spring-security","children":"Spring Security"}],["$","p",null,{"children":"Spring Security provides a robust framework for handling authorization in Spring applications."}],["$","p",null,{"children":"It is able to handle various authentication mechanisms like OAuth2, JWT, mTLS, OpenID Connect, Basic and custom authentication."}],["$","p",null,{"children":"There are also several authorization approaches to handle permissions such as roles, authorities, scopes, url-based authorization."}],["$","hr",null,{}]]}],["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"spring-application","children":"Spring Application File"}],["$","p",null,{"children":["Spring can be configured inside the ",["$","code",null,{"children":"application.properties"}]," or ",["$","code",null,{"children":"application.yml"}]," file."]}],["$","p",null,{"children":["$","b",null,{"children":["$","u",null,{"children":"Top-Level Configurations"}]}]}],["$","ul",null,{"children":[["$","li",null,{"children":[["$","code",null,{"children":"spring"}]," : hold configuration for spring application"]}],["$","ul",null,{"children":[["$","li",null,{"children":[["$","code",null,{"children":"spring.application.name"}]," : set the name of the spring application"]}],["$","li",null,{"children":["$L7"," : hold configuration for the data source (MySQL, PostgreSQL, etc.)"]}],"$L8","$L9"]}],"$La","$Lb","$Lc","$Ld"]}],"$Le","$Lf","$L10","$L11"]}],"$L12","$L13","$L14","$L15","$L16","$L17","$L18","$L19","$L1a","$L1b"],null,"$L1c"]}],{},null,false]},null,false]},null,false]},null,false],"$L1d",false]],"m":"$undefined","G":["$1e",["$L1f"]],"s":false,"S":true}
+52:I[97367,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/8df098a924712bdd.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"OutletBoundary"]
+54:I[11533,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/8df098a924712bdd.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"AsyncMetadataOutlet"]
+56:I[97367,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/8df098a924712bdd.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"ViewportBoundary"]
+58:I[97367,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/8df098a924712bdd.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"MetadataBoundary"]
+59:"$Sreact.suspense"
+7:["$","code",null,{"children":"spring.datasource"}]
+8:["$","li",null,{"children":[["$","code",null,{"children":"spring.jpa"}]," : hold configuration for JPA (Java Persistence API)"]}]
+9:["$","li",null,{"children":[["$","code",null,{"children":"spring.security"}]," : hold configuration for Spring Security"]}]
+a:["$","li",null,{"children":[["$","code",null,{"children":"server"}]," : hold configuration for the embedded server"]}]
+b:["$","ul",null,{"children":["$","li",null,{"children":[["$","code",null,{"children":"server.port"}]," : set the port for the embedded server"]}]}]
+c:["$","li",null,{"children":[["$","code",null,{"children":"logging"}]," : hold configuration for logging"]}]
+d:["$","ul",null,{"children":["$","li",null,{"children":[["$","code",null,{"children":"logging.level"}]," : set the logging level for server. Default is ",["$","code",null,{"children":"INFO"}],". ",["$","code",null,{"children":"DEBUG"}]," and ",["$","code",null,{"children":"TRACE"}]," are useful for debugging"]}]}]
+e:["$","p",null,{"children":["Sample ",["$","code",null,{"children":"application.yml"}]," file with Spring Data JPA and Spring Security"]}]
+f:["$","ul",null,{"children":["$","li",null,{"children":["Development and production configurations can be separated based on separate ",["$","code",null,{"children":"application-dev.yml"}]," and ",["$","code",null,{"children":"application-prod.yml"}]," files"]}]}]
+20:T1b45,# application<span class="token punctuation">.</span>yml
+  <span class="token literal-property property">spring</span><span class="token operator">:</span>
+    <span class="token literal-property property">application</span><span class="token operator">:</span>
+      <span class="token literal-property property">name</span><span class="token operator">:</span> spring<span class="token operator">-</span>security<span class="token operator">-</span>sample
+
+    <span class="token literal-property property">datasource</span><span class="token operator">:</span>
+      <span class="token literal-property property">username</span><span class="token operator">:</span> $<span class="token punctuation">{</span><span class="token constant">POSTGRES_USER</span><span class="token punctuation">}</span>
+      <span class="token literal-property property">password</span><span class="token operator">:</span> $<span class="token punctuation">{</span><span class="token constant">POSTGRES_PASS</span><span class="token punctuation">}</span>
+      driver<span class="token operator">-</span><span class="token keyword">class</span><span class="token operator">-</span>name<span class="token operator">:</span> org<span class="token punctuation">.</span>postgresql<span class="token punctuation">.</span>Driver
+
+    <span class="token literal-property property">jpa</span><span class="token operator">:</span>
+      <span class="token literal-property property">hibernate</span><span class="token operator">:</span>
+        # Tell Hibernate to check <span class="token keyword">if</span> the entities mappings are compatible <span class="token keyword">with</span> the existing database instead <span class="token keyword">of</span> creating<span class="token operator">/</span>modifying it
+        ddl<span class="token operator">-</span>auto<span class="token operator">:</span> validate
+      show<span class="token operator">-</span>sql<span class="token operator">:</span> <span class="token boolean">true</span>
+      <span class="token literal-property property">properties</span><span class="token operator">:</span>
+        <span class="token literal-property property">hibernate</span><span class="token operator">:</span>
+          <span class="token literal-property property">format_sql</span><span class="token operator">:</span> <span class="token boolean">true</span>
+
+    <span class="token literal-property property">security</span><span class="token operator">:</span>
+      <span class="token literal-property property">oauth2</span><span class="token operator">:</span>
+        <span class="token literal-property property">client</span><span class="token operator">:</span>
+          <span class="token literal-property property">registration</span><span class="token operator">:</span>
+            <span class="token literal-property property">google</span><span class="token operator">:</span>
+              client<span class="token operator">-</span>id<span class="token operator">:</span> $<span class="token punctuation">{</span><span class="token constant">GOOGLE_CLIENT_ID</span><span class="token punctuation">}</span>
+              client<span class="token operator">-</span>secret<span class="token operator">:</span> $<span class="token punctuation">{</span><span class="token constant">GOOGLE_CLIENT_SECRET</span><span class="token punctuation">}</span>
+              <span class="token literal-property property">scope</span><span class="token operator">:</span>
+                <span class="token operator">-</span> openid
+                <span class="token operator">-</span> profile
+                <span class="token operator">-</span> email
+
+  <span class="token literal-property property">server</span><span class="token operator">:</span>
+    <span class="token literal-property property">port</span><span class="token operator">:</span> <span class="token number">8080</span>  
+
+  <span class="token literal-property property">logging</span><span class="token operator">:</span>
+    <span class="token literal-property property">level</span><span class="token operator">:</span>
+      org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token operator">:</span> <span class="token constant">INFO</span>
+
+# <span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">==</span>
+# application<span class="token operator">-</span>dev<span class="token punctuation">.</span>yml
+<span class="token literal-property property">spring</span><span class="token operator">:</span>
+  <span class="token literal-property property">datasource</span><span class="token operator">:</span>
+    <span class="token literal-property property">url</span><span class="token operator">:</span> jdbc<span class="token operator">:</span>postgresql<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token operator">:</span><span class="token number">5432</span><span class="token operator">/</span>spring_security_test
+
+# <span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">==</span>
+# application<span class="token operator">-</span>prod<span class="token punctuation">.</span>yml
+<span class="token literal-property property">spring</span><span class="token operator">:</span>
+  <span class="token literal-property property">datasource</span><span class="token operator">:</span>
+    <span class="token literal-property property">url</span><span class="token operator">:</span> jdbc<span class="token operator">:</span>postgresql<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">10.0</span><span class="token number">.0</span><span class="token number">.5</span><span class="token operator">:</span><span class="token number">5432</span><span class="token operator">/</span>spring_security_test10:["$","pre",null,{"className":"language-yaml","children":["$","code",null,{"className":"language-yaml","dangerouslySetInnerHTML":{"__html":"$20"}}]}]
+11:["$","hr",null,{}]
+21:Tb75,spring<span class="token operator">-</span>security<span class="token operator">-</span>sample<span class="token operator">/</span>
+│
+├── pom<span class="token punctuation">.</span>xml
+│
+├── src<span class="token operator">/</span>
+│   ├── main<span class="token operator">/</span>
+│   │   ├── java<span class="token operator">/</span>
+│   │   │   └── com<span class="token operator">/</span>
+│   │   │       └── tuantran<span class="token operator">/</span>
+│   │   │           └── springsecuritysample<span class="token operator">/</span>
+│   │   │
+│   │   │               ├── SpringSecuritySampleApplication<span class="token punctuation">.</span>java
+│   │   │               │
+│   │   │               ├── config<span class="token operator">/</span>
+│   │   │               │   └── SecurityConfig<span class="token punctuation">.</span>java
+│   │   │               │
+│   │   │               ├── controller<span class="token operator">/</span>
+│   │   │               │   └── HomeController<span class="token punctuation">.</span>java
+│   │   │               │
+│   │   │               ├── entity<span class="token operator">/</span>
+│   │   │               │   ├── User<span class="token punctuation">.</span>java
+│   │   │               │   ├── Role<span class="token punctuation">.</span>java
+│   │   │               │   ├── ProviderAccount<span class="token punctuation">.</span>java
+│   │   │               │   ├── RefreshToken<span class="token punctuation">.</span>java
+│   │   │               │   └── ApiKey<span class="token punctuation">.</span>java
+│   │   │               │
+│   │   │               ├── repository<span class="token operator">/</span>
+│   │   │               │   ├── UserRepository<span class="token punctuation">.</span>java
+│   │   │               │   ├── RoleRepository<span class="token punctuation">.</span>java
+│   │   │               │   ├── ProviderAccountRepository<span class="token punctuation">.</span>java
+│   │   │               │   ├── RefreshTokenRepository<span class="token punctuation">.</span>java
+│   │   │               │   └── ApiKeyRepository<span class="token punctuation">.</span>java
+│   │   │               │
+│   │   │               └── service<span class="token operator">/</span>
+│   │   │                   └── OAuth2UserService<span class="token punctuation">.</span>java
+│   │   │
+│   │   └── resources<span class="token operator">/</span>
+│   │       └── application<span class="token punctuation">.</span>yml
+│   │
+│   └── test<span class="token operator">/</span>12:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"project-structure","children":"Project Structure"}],["$","p",null,{"children":"Sample project structure for a Spring Security application:"}],["$","pre",null,{"className":"language-yaml","children":["$","code",null,{"className":"language-yaml","dangerouslySetInnerHTML":{"__html":"$21"}}]}],["$","hr",null,{}]]}]
+13:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"spring-config","children":"Spring Security Rules Configuration"}],["$","p",null,{"children":["Spring Security rules can be changed in a class that's been annotated with ",["$","code",null,{"children":"@Configuration"}]," and ",["$","code",null,{"children":"@EnableMethodSecurity"}],"."]}],["$","p",null,{"children":["This class can implement the ",["$","code",null,{"children":"SecurityFilterChain"}]," interface to customize which endpoints need authentication and other security rules"]}],["$","p",null,{"children":"Sample configuration class"}],["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"@Configuration\n@EnableMethodSecurity\n<span class=\"token keyword\">public</span> <span class=\"token keyword\">class</span> <span class=\"token class-name\">SecurityConfig</span> <span class=\"token punctuation\">{</span>\n\n    @Bean\n    SecurityFilterChain <span class=\"token function\">securityFilterChain</span><span class=\"token punctuation\">(</span>HttpSecurity http<span class=\"token punctuation\">)</span>\n            throws Exception <span class=\"token punctuation\">{</span>\n\n        <span class=\"token comment\">// Security rules for the app</span>\n        <span class=\"token operator\">...</span>\n\n        <span class=\"token keyword\">return</span> http<span class=\"token punctuation\">.</span><span class=\"token function\">build</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\n    <span class=\"token punctuation\">}</span>\n<span class=\"token punctuation\">}</span>"}}]}],["$","hr",null,{}]]}]
+22:T828,# SecurityConfig<span class="token punctuation">.</span>java
+
+@Configuration
+@EnableMethodSecurity
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SecurityConfig</span> <span class="token punctuation">{</span>
+          <span class="token operator">...</span> 
+<span class="token punctuation">}</span>
+<span class="token comment">// ===========================</span>
+# HomeController<span class="token punctuation">.</span>java
+
+@Controller
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HomeController</span> <span class="token punctuation">{</span>
+
+  @<span class="token function">PreAuthorize</span><span class="token punctuation">(</span><span class="token string">"hasRole('ADMIN')"</span><span class="token punctuation">)</span>
+  @<span class="token function">GetMapping</span><span class="token punctuation">(</span><span class="token string">"/admin"</span><span class="token punctuation">)</span>
+  <span class="token keyword">public</span> String <span class="token function">adminPage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token string">"Admin page"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  @<span class="token function">PreAuthorize</span><span class="token punctuation">(</span><span class="token string">"hasAuthority('READ_USERS')"</span><span class="token punctuation">)</span>
+  <span class="token keyword">public</span> List<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">User</span></span><span class="token punctuation">></span></span><span class="token plain-text"> getUsers() </span><span class="token punctuation">{</span>
+      <span class="token operator">...</span>
+  <span class="token punctuation">}</span><span class="token plain-text">
+
+}</span>14:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"method-security","children":"@EnableMethodSecurity"}],["$","p",null,{"children":["The class annotation ",["$","code",null,{"children":"@EnableMethodSecurity"}]," enables method-level security in the application and the use of method annotations on the controllers"]}],["$","ul",null,{"children":[["$","li",null,{"children":[["$","code",null,{"children":"@PreAuthorize"}],": Controls access to methods based on the user's roles or other conditions before the method is invoked"]}],["$","ul",null,{"children":[["$","li",null,{"children":["Example: ",["$","code",null,{"children":"@PreAuthorize(\"hasRole('ADMIN')\")"}],": only users with the 'ADMIN' role can invoke the method"]}],["$","li",null,{"children":["Example: ",["$","code",null,{"children":"@PreAuthorize(\"hasAuthority('READ_USERS')\")"}],": only users with the 'READ_USERS' authority can invoke the method"]}]]}],["$","li",null,{"children":[["$","code",null,{"children":"@PostAuthorize"}],": Controls access to methods based on the user's roles or other conditions after the method is invoked"]}],["$","li",null,{"children":[["$","code",null,{"children":"@Secured"}],": Specifies a list of roles that are allowed to access a method"]}],["$","li",null,{"children":[["$","code",null,{"children":"@RolesAllowed"}],": Specifies a list of roles that are allowed to access a method (similar to @Secured)"]}]]}],["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$22"}}]}],"$L23"]}]
+24:T9e9,@Bean
+SecurityFilterChain <span class="token function">securityFilterChain</span><span class="token punctuation">(</span>HttpSecurity http<span class="token punctuation">)</span>
+      throws Exception <span class="token punctuation">{</span>
+
+    http
+        <span class="token punctuation">.</span><span class="token function">authorizeHttpRequests</span><span class="token punctuation">(</span>auth <span class="token operator">-</span><span class="token operator">></span> auth
+            <span class="token punctuation">.</span><span class="token function">requestMatchers</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token string">"/error"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">permitAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">anyRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">authenticated</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">oauth2Login</span><span class="token punctuation">(</span>Customizer<span class="token punctuation">.</span><span class="token function">withDefaults</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">logout</span><span class="token punctuation">(</span>logout <span class="token operator">-</span><span class="token operator">></span> logout
+            <span class="token punctuation">.</span><span class="token function">logoutSuccessUrl</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+          
+
+    <span class="token keyword">return</span> http<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>15:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"security-filter-chain","children":"Security Filter Chain"}],["$","p",null,{"children":["The security filter chain is applied to all incoming HTTP requests to enforce security rules ",["$","b",null,{"children":["$","u",null,{"children":"BEFORE"}]}]," sending the request to the controller"]}],["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"# Conceptual Diagram <span class=\"token keyword\">of</span> Security Filter Chain\n\nBrowser\n   │\n   │ <span class=\"token constant\">GET</span> <span class=\"token operator\">/</span>profile\n   ▼\n┌──────────────────────┐\n│ Spring Security      │\n│ Filter Chain         │\n│                      │\n│ Authentication       │\n│ Authorization        │\n│ <span class=\"token constant\">CSRF</span>                 │\n│ OAuth2               │\n│ Session              │\n│ etc<span class=\"token punctuation\">.</span>                 │\n└──────────┬───────────┘\n           │\n           ▼\n      Controller"}}]}],["$","hr",null,{}],["$","h4",null,{"className":"sub-section-header","children":"Basic Security Filter Chain Setup"}],["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$24"}}]}],"$L25","$L26","$L27","$L28","$L29","$L2a","$L2b","$L2c","$L2d","$L2e","$L2f","$L30"]}]
+31:T7a9,http
+                <span class="token operator">...</span>
+                <span class="token punctuation">.</span><span class="token function">httpBasic</span><span class="token punctuation">(</span>Customizer<span class="token punctuation">.</span><span class="token function">withDefaults</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">.</span><span class="token function">formLogin</span><span class="token punctuation">(</span>Customizer<span class="token punctuation">.</span><span class="token function">withDefaults</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">.</span><span class="token function">oauth2Login</span><span class="token punctuation">(</span>Customizer<span class="token punctuation">.</span><span class="token function">withDefaults</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">.</span><span class="token function">oauth2ResourceServer</span><span class="token punctuation">(</span>oauth2 <span class="token operator">-</span><span class="token operator">></span>
+                        oauth2<span class="token punctuation">.</span><span class="token function">jwt</span><span class="token punctuation">(</span>Customizer<span class="token punctuation">.</span><span class="token function">withDefaults</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">)</span><span class="token punctuation">;</span>32:T550,# application<span class="token punctuation">.</span>yml       
+
+    <span class="token literal-property property">security</span><span class="token operator">:</span>
+      <span class="token literal-property property">oauth2</span><span class="token operator">:</span>
+        <span class="token literal-property property">client</span><span class="token operator">:</span>
+          <span class="token literal-property property">registration</span><span class="token operator">:</span>
+            <span class="token literal-property property">google</span><span class="token operator">:</span>
+              client<span class="token operator">-</span>id<span class="token operator">:</span> $<span class="token punctuation">{</span><span class="token constant">GOOGLE_CLIENT_ID</span><span class="token punctuation">}</span>
+              client<span class="token operator">-</span>secret<span class="token operator">:</span> $<span class="token punctuation">{</span><span class="token constant">GOOGLE_CLIENT_SECRET</span><span class="token punctuation">}</span>
+              <span class="token literal-property property">scope</span><span class="token operator">:</span>
+                <span class="token operator">-</span> openid
+                <span class="token operator">-</span> profile
+                <span class="token operator">-</span> email16:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"authentication-methods","children":"Authentication Methods"}],["$","p",null,{"children":"Spring security can handle a variety of authentication methods"}],["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$31"}}]}],["$","ul",null,{"children":[["$","li",null,{"children":[["$","code",null,{"children":"httpBasic()"}],": enables login through credentials; useful for testing APIs, service-to-service communication"]}],["$","ul",null,{"children":[["$","li",null,{"children":["Spring expects the client to send ",["$","code",null,{"children":"Authorization: Basic base64(username:password)"}]]}],["$","li",null,{"children":["Example: ",["$","code",null,{"children":"curl -u tuan@example.com:password http://localhost:8080/api/users"}]]}]]}],["$","li",null,{"children":[["$","code",null,{"children":"formLogin()"}],": enables login through providing username and password"]}],["$","li",null,{"children":[["$","code",null,{"children":"oauth2Login()"}],": Enables OAuth2 login authentication"]}],["$","ul",null,{"children":[["$","li",null,{"children":"A login mechanism for an interactive client"}],["$","li",null,{"children":["Which OAuth2 providers are used are determined by the ",["$","code",null,{"children":"application.yml"}]," file"]}],["$","pre",null,{"className":"language-yaml","children":["$","code",null,{"className":"language-yaml","dangerouslySetInnerHTML":{"__html":"$32"}}]}]]}],"$L33","$L34"]}],"$L35"]}]
+36:T1ab0,# SecurityConfig<span class="token punctuation">.</span>java
+@Bean
+SecurityFilterChain <span class="token function">securityFilterChain</span><span class="token punctuation">(</span>HttpSecurity http<span class="token punctuation">)</span>
+      throws Exception <span class="token punctuation">{</span>
+
+        http
+            <span class="token punctuation">.</span><span class="token function">authorizeHttpRequests</span><span class="token punctuation">(</span>auth <span class="token operator">-</span><span class="token operator">></span> auth
+                <span class="token punctuation">.</span><span class="token function">requestMatchers</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token string">"/error"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">permitAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">anyRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">authenticated</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">)</span>
+
+            <span class="token comment">// Username/password login</span>
+            <span class="token punctuation">.</span><span class="token function">formLogin</span><span class="token punctuation">(</span>Customizer<span class="token punctuation">.</span><span class="token function">withDefaults</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment">// Google + GitHub OAuth2 login</span>
+            <span class="token punctuation">.</span><span class="token function">oauth2Login</span><span class="token punctuation">(</span>Customizer<span class="token punctuation">.</span><span class="token function">withDefaults</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+            <span class="token comment">// JWT Bearer-token authentication</span>
+            <span class="token punctuation">.</span><span class="token function">oauth2ResourceServer</span><span class="token punctuation">(</span>oauth2 <span class="token operator">-</span><span class="token operator">></span>
+                oauth2<span class="token punctuation">.</span><span class="token function">jwt</span><span class="token punctuation">(</span>Customizer<span class="token punctuation">.</span><span class="token function">withDefaults</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> http<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+# <span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">===</span><span class="token operator">==</span>
+# application<span class="token punctuation">.</span>yml
+
+<span class="token literal-property property">spring</span><span class="token operator">:</span>
+  <span class="token literal-property property">security</span><span class="token operator">:</span>
+    <span class="token literal-property property">oauth2</span><span class="token operator">:</span>
+      <span class="token literal-property property">client</span><span class="token operator">:</span>
+
+        <span class="token literal-property property">registration</span><span class="token operator">:</span>
+          <span class="token literal-property property">google</span><span class="token operator">:</span>
+            # <span class="token operator">/</span>oauth2<span class="token operator">/</span>authorization<span class="token operator">/</span>google
+            client<span class="token operator">-</span>id<span class="token operator">:</span> $<span class="token punctuation">{</span><span class="token constant">GOOGLE_CLIENT_ID</span><span class="token punctuation">}</span>
+            client<span class="token operator">-</span>secret<span class="token operator">:</span> $<span class="token punctuation">{</span><span class="token constant">GOOGLE_CLIENT_SECRET</span><span class="token punctuation">}</span>
+            <span class="token literal-property property">scope</span><span class="token operator">:</span>
+              <span class="token operator">-</span> openid
+              <span class="token operator">-</span> profile
+              <span class="token operator">-</span> email
+
+          <span class="token literal-property property">github</span><span class="token operator">:</span>
+            # <span class="token operator">/</span>oauth2<span class="token operator">/</span>authorization<span class="token operator">/</span>github
+            <span class="token literal-property property">provider</span><span class="token operator">:</span> github
+            client<span class="token operator">-</span>id<span class="token operator">:</span> $<span class="token punctuation">{</span><span class="token constant">GITHUB_CLIENT_ID</span><span class="token punctuation">}</span>
+            client<span class="token operator">-</span>secret<span class="token operator">:</span> $<span class="token punctuation">{</span><span class="token constant">GITHUB_CLIENT_SECRET</span><span class="token punctuation">}</span>
+            <span class="token literal-property property">scope</span><span class="token operator">:</span>
+              <span class="token operator">-</span> read<span class="token operator">:</span>user
+              <span class="token operator">-</span> user<span class="token operator">:</span>email17:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"multi-authentication-methods","children":"Multiple Authentication Methods"}],["$","p",null,{"children":["Sample ",["$","code",null,{"children":"SecurityConfig.java"}]," and ",["$","code",null,{"children":"application.yml"}]," setup for multiple authentication methods"]}],["$","ul",null,{"children":[["$","li",null,{"children":"Users can pick Google or GitHub login based on the URL link"}],["$","ul",null,{"children":[["$","li",null,{"children":["$","code",null,{"children":"<a href=\"/oauth2/authorization/google\"> Login with Google </a>"}]}],["$","li",null,{"children":["$","code",null,{"children":"<a href=\"/oauth2/authorization/github\"> Login with GitHub </a>"}]}]]}]]}],["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$36"}}]}],"$L37"]}]
+38:T7f8,<span class="token literal-property property">spring</span><span class="token operator">:</span>
+  # Spring's configuration
+  <span class="token operator">...</span>
+
+<span class="token literal-property property">app</span><span class="token operator">:</span>
+  <span class="token literal-property property">jwt</span><span class="token operator">:</span>
+    <span class="token literal-property property">issuer</span><span class="token operator">:</span> http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token operator">:</span><span class="token number">8080</span>
+    <span class="token literal-property property">audience</span><span class="token operator">:</span> spring<span class="token operator">-</span>security<span class="token operator">-</span>sample
+    access<span class="token operator">-</span>token<span class="token operator">-</span>expiration<span class="token operator">:</span> <span class="token number">900</span>
+    refresh<span class="token operator">-</span>token<span class="token operator">-</span>expiration<span class="token operator">:</span> <span class="token number">2592000</span>
+    <span class="token keyword">private</span><span class="token operator">-</span>key<span class="token operator">:</span> file<span class="token operator">:</span><span class="token operator">/</span>opt<span class="token operator">/</span>spring<span class="token operator">/</span>security<span class="token operator">/</span><span class="token keyword">private</span><span class="token punctuation">.</span>pem
+    <span class="token keyword">public</span><span class="token operator">-</span>key<span class="token operator">:</span> file<span class="token operator">:</span><span class="token operator">/</span>opt<span class="token operator">/</span>spring<span class="token operator">/</span>security<span class="token operator">/</span><span class="token keyword">public</span><span class="token punctuation">.</span>pem18:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"generating-verifying-jwt","children":"Generating and Verifying JWTs"}],["$","p",null,{"children":["Spring security has built in ",["$","code",null,{"children":"JwtEncoder"}]," and ",["$","code",null,{"children":"JwtDecoder"}]," for handling basic JWT generation and verification."]}],["$","ul",null,{"children":[["$","li",null,{"children":"An asymmetric key pair should be used to sign and verify the JWTs"}],["$","li",null,{"children":"The private key is used to sign the JWT and the public key is used to verify it"}]]}],["$","p",null,{"children":["$","b",null,{"children":"Important Classes"}]}],["$","ul",null,{"children":[["$","li",null,{"children":[["$","code",null,{"children":"application.yml"}]," : contains the JWT configuration properties like issuer, audience, expiration, and key paths"]}],["$","li",null,{"children":[["$","code",null,{"children":"SecurityConfig.java"}]," : configure the security filter chain"]}],["$","li",null,{"children":[["$","code",null,{"children":"JwtConfig.java"}]," : configure JWT encoder and decoder with the public/private keys"]}],["$","li",null,{"children":[["$","code",null,{"children":"JwtService.java"}]," : generate the JWT"]}]]}],["$","h4",null,{"className":"sub-section-header","children":["Sample ",["$","code",null,{"children":"application.yml"}]," configuration:"]}],["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$38"}}]}],["$","ul",null,{"children":[["$","li",null,{"children":[["$","b",null,{"children":"$L39"}],": the URL/hostname of the service that created and signed the JWT"]}],"$L3a","$L3b","$L3c","$L3d","$L3e","$L3f"]}],"$L40","$L41","$L42","$L43","$L44","$L45","$L46","$L47","$L48","$L49","$L4a","$L4b"]}]
+4c:T10a4,<span class="token comment">// SecurityConfig.java</span>
+
+@Configuration
+@EnableMethodSecurity
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SecurityConfig</span> <span class="token punctuation">{</span>
+
+    @Bean
+    SecurityFilterChain <span class="token function">securityFilterChain</span><span class="token punctuation">(</span> <span class="token parameter"><span class="token operator">...</span></span> <span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span>
+
+
+    @Bean
+    AuthenticationManager <span class="token function">authenticationManager</span><span class="token punctuation">(</span>
+            <span class="token parameter">UserDetailsService userDetailsService<span class="token punctuation">,</span>
+            PasswordEncoder passwordEncoder</span>
+    <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        DaoAuthenticationProvider provider <span class="token operator">=</span> 
+          <span class="token keyword">new</span> <span class="token class-name">DaoAuthenticationProvider</span><span class="token punctuation">(</span>userDetailsService<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        provider<span class="token punctuation">.</span><span class="token function">setPasswordEncoder</span><span class="token punctuation">(</span>passwordEncoder<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ProviderManager</span><span class="token punctuation">(</span>provider<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> 
+
+<span class="token comment">// ========================================================</span>
+<span class="token comment">// LoginService.java</span>
+
+<span class="token keyword">public</span> User <span class="token function">login</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token operator">...</span>
+
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+          authenticationManager<span class="token punctuation">.</span><span class="token function">authenticate</span><span class="token punctuation">(</span>
+                <span class="token keyword">new</span> <span class="token class-name">UsernamePasswordAuthenticationToken</span><span class="token punctuation">(</span>
+                      username<span class="token punctuation">,</span>
+                      password
+                <span class="token punctuation">)</span>
+          <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>AuthenticationException ex<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">InvalidCredentialsException</span><span class="token punctuation">(</span><span class="token string">"Invalid username or password."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> userRepository
+            <span class="token punctuation">.</span><span class="token function">findByUsername</span><span class="token punctuation">(</span>username<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">orElseThrow</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>19:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"username-password-auth","children":"Username / Password Authentication"}],["$","p",null,{"children":["Spring Security provides built-in support for username/password authentication through the ",["$","code",null,{"children":"AuthenticationManager"}]," and ",["$","code",null,{"children":"UserDetailsService"}],"."]}],["$","h4",null,{"className":"sub-section-header","children":"Hashing Passwords"}],["$","p",null,{"children":["Spring security provides a ",["$","code",null,{"children":"PasswordEncoder"}]," class for securely hashing passwords. By default, it uses BCrypt for hashing."]}],["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"<span class=\"token keyword\">import</span> org<span class=\"token punctuation\">.</span>springframework<span class=\"token punctuation\">.</span>security<span class=\"token punctuation\">.</span>crypto<span class=\"token punctuation\">.</span>password<span class=\"token punctuation\">.</span>PasswordEncoder<span class=\"token punctuation\">;</span>\n<span class=\"token operator\">...</span>\nString passwordHash <span class=\"token operator\">=</span>  passwordEncoder<span class=\"token punctuation\">.</span><span class=\"token function\">encode</span><span class=\"token punctuation\">(</span>passwordString<span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>"}}]}],["$","h4",null,{"className":"sub-section-header","children":"Authenticating Users"}],["$","p",null,{"children":["To authenticate users, Spring Security uses the ",["$","code",null,{"children":"AuthenticationManager"}]," class. The ",["$","code",null,{"children":"PasswordEncoder"}]," and ",["$","code",null,{"children":"UserDetailsService"}]," are given to the ",["$","code",null,{"children":"AuthenticationManager"}]," in ",["$","code",null,{"children":"SecurityConfig"}]," for handling authentication requests."]}],["$","p",null,{"children":["The authentication process is initated by the ",["$","code",null,{"children":"AuthenticationManager.authenticate(...)"}]," method."]}],["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$4c"}}]}],"$L4d","$L4e","$L4f","$L50","$L51"]}]
+1a:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"testing-against-xss-attacks","children":"Testing Against XSS Attacks"}],["$","hr",null,{}]]}]
+1b:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"security-tips","children":"Security Tips"}],["$","ul",null,{"children":[["$","li",null,{"children":"Use a valid OAuth 2 flow for authentication. Consider implementing 2-factor."}],["$","li",null,{"children":"Make sure your JWTs expire. Use refresh tokens, not long-lasting JWTs."}],["$","li",null,{"children":"Always use HTTPS."}],["$","li",null,{"children":["Authenticate ",["$","em",null,{"children":"every single endpoint that involves user data"}],". The client should never be deciding access control (I once had a CTO interview me for a government job and HE was staggeringly wrong about this)."]}],["$","li",null,{"children":"Prefer same-origin if possible. Otherwise make sure your CORS setup is strict and limited."}],["$","li",null,{"children":"Obfuscate your user-facing error messages (which includes everything returned in your 400, 500, 401, etc.). I hate this because it makes debugging harder, but anyone trying to hack your system shouldn't know they're getting closer because your errors are super helpful explaining exactly what's wrong."}],["$","li",null,{"children":"If you're storing sessions, they should be in an encrypted DB (like Redis) and session IDs should be different on every login."}],["$","li",null,{"children":"Sanitize and validate all your inputs (SQL injections, XML, protect vs. XSS, etc.)"}],["$","li",null,{"children":"Have JSON schemas you check on your incoming data. And don't f***ing rely on TypeScript to do this, TypeScript does not exist while the application is running. God I've had this argument so many times."}],["$","li",null,{"children":"Keep your libraries up to date."}],["$","li",null,{"children":"Use rate limiting and throttling."}],["$","li",null,{"children":"Cryptographically hash all passwords in your database. Encrypt all sensitive data."}],["$","li",null,{"children":["Escape any text value you're using from the DOM. For example, use ",["$","code",null,{"children":"textContent"}]," rather than ",["$","code",null,{"children":"innerHTML"}]," so you're not executing any HTML or JS they might edit your ",["$","code",null,{"children":"<div />"}]," to have."]}]]}],["$","hr",null,{}]]}]
+1c:["$","$L52",null,{"children":["$L53",["$","$L54",null,{"promise":"$@55"}]]}]
+1d:["$","$1","h",{"children":[null,[["$","$L56",null,{"children":"$L57"}],null],["$","$L58",null,{"children":["$","div",null,{"hidden":true,"children":["$","$59",null,{"fallback":null,"children":"$L5a"}]}]}]]}]
+1f:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/01ccb2bdd09c7699.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+23:["$","hr",null,{}]
+25:["$","ul",null,{"children":[["$","li",null,{"children":[["$","code",null,{"children":"authorizeHttpRequests()"}],": Defines the authorization rules for incoming HTTP requests"]}],["$","ul",null,{"children":[["$","li",null,{"children":[["$","code",null,{"children":"requestMatchers()"}],": Specifies the URL patterns to which the authorization rules apply"]}],["$","li",null,{"children":[["$","code",null,{"children":"permitAll()"}],": Allows access to the specified URL patterns without authentication"]}],["$","ul",null,{"children":["$","li",null,{"children":["Example: ",["$","code",null,{"children":"requestMatchers(\"/\", \"/error\").permitAll()"}]," allow all users to access \"/\" and \"/error\" without authentication"]}]}],["$","li",null,{"children":[["$","code",null,{"children":"authenticated()"}],": Requires authentication for the specified URL patterns"]}],["$","ul",null,{"children":["$","li",null,{"children":["Example: ",["$","code",null,{"children":"anyRequest().authenticated()"}]," means all requests require authentication"]}]}]]}],["$","li",null,{"children":[["$","code",null,{"children":"oauth2Login()"}],": Configures application to use OAuth2 login (Google, GitHub, X, etc.)"]}],["$","ul",null,{"children":["$","li",null,{"children":["Example: ",["$","code",null,{"children":"oauth2Login(Customizer.withDefaults())"}]," enables OAuth2 login with default settings"]}]}],["$","li",null,{"children":[["$","code",null,{"children":"logout()"}],": Configures the logout behavior of the application"]}],["$","ul",null,{"children":["$","li",null,{"children":["Example: ",["$","code",null,{"children":"logout(logout -> logout.logoutSuccessUrl(\"/\"))"}]," redirects users to the home page after logging out"]}]}]]}]
+26:["$","hr",null,{}]
+27:["$","h4",null,{"className":"sub-section-header","children":"Sample HTTP Request Rules"}]
+5b:T774,http
+    <span class="token punctuation">.</span><span class="token function">authorizeHttpRequests</span><span class="token punctuation">(</span>auth <span class="token operator">-</span><span class="token operator">></span> auth
+        <span class="token punctuation">.</span><span class="token function">requestMatchers</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token string">"/error"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">permitAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">requestMatchers</span><span class="token punctuation">(</span><span class="token string">"/api/public/**"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">permitAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">requestMatchers</span><span class="token punctuation">(</span><span class="token string">"/admin/**"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hasRole</span><span class="token punctuation">(</span><span class="token string">"ADMIN"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">anyRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">authenticated</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>28:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$5b"}}]}]
+29:["$","ul",null,{"children":[["$","li",null,{"children":[["$","code",null,{"children":"requestMatchers(\"/\", \"/error\").permitAll()"}],": Allows access to the home and error pages without authentication"]}],["$","li",null,{"children":[["$","code",null,{"children":"requestMatchers(\"/api/public/**\").permitAll()"}],": Permits all users to access public API endpoints"]}],["$","li",null,{"children":[["$","code",null,{"children":"requestMatchers(\"/admin/**\").hasRole(\"ADMIN\")"}],": Requires the user to have the \"ADMIN\" role to access admin endpoints"]}],["$","li",null,{"children":[["$","code",null,{"children":"anyRequest().authenticated()"}],": Requires authentication for all other requests"]}]]}]
+2a:["$","hr",null,{}]
+2b:["$","h4",null,{"className":"sub-section-header","children":"Enabling CSRF Protection"}]
+2c:["$","p",null,{"children":["Spring Security documentation on CSRF protection: ",["$","a",null,{"href":"https://docs.spring.io/spring-security/reference/servlet/exploits/csrf.html","target":"_blank","rel":"noopener noreferrer","children":"CSRF Protection"}]]}]
+2d:["$","p",null,{"children":"CSRF tokens generally last for the duration of the user's session, but an invalid CSRF token will be rejected by the server with a 403 Forbidden error"}]
+2e:["$","ul",null,{"children":[["$","li",null,{"children":[["$","code",null,{"children":".csrfTokenRepository()"}]," : configures how to store, generate and read CSRF tokens "]}],["$","ul",null,{"children":[["$","li",null,{"children":[["$","code",null,{"children":"CookieCsrfTokenRepository.withHttpOnlyFalse()"}],": Uses a cookie to store the CSRF token, with the HttpOnly flag set to false"]}],["$","li",null,{"children":[["$","code",null,{"children":"HttpSessionCsrfTokenRepository()"}],": Uses the HTTP session to store the CSRF token"]}]]}],["$","li",null,{"children":[["$","code",null,{"children":".csrfTokenRequestHandler()"}],": configures how Spring obtain CSRF token from incoming requests and exposes it to the response"]}],["$","ul",null,{"children":[["$","li",null,{"children":[["$","code",null,{"children":"CsrfTokenRequestAttributeHandler()"}],": opt-out of BREACH protection and CSRF token won't be encoded"]}],["$","li",null,{"children":[["$","code",null,{"children":"XorCsrfTokenRequestAttributeHandler"}]," : provides BREACH protection and makes the CSRF token available as an ",["$","code",null,{"children":"HttpServletRequest "}]," attribute called ",["$","code",null,{"children":"_csrf"}]]}]]}],["$","li",null,{"children":[["$","code",null,{"children":"ignoringRequestMatchers()"}],": Specifies which endpoints should be ignored for CSRF protection"]}]]}]
+5c:T9c5,<span class="token comment">// Enable CSRF protection with a cookie-based CSRF token repository</span>
+
+http
+    <span class="token punctuation">.</span><span class="token function">csrf</span><span class="token punctuation">(</span>csrf <span class="token operator">-</span><span class="token operator">></span> csrf
+        <span class="token punctuation">.</span><span class="token function">csrfTokenRepository</span><span class="token punctuation">(</span>
+              CookieCsrfTokenRepository<span class="token punctuation">.</span><span class="token function">withHttpOnlyFalse</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+         <span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">csrfTokenRequestHandler</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CsrfTokenRequestAttributeHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">ignoringRequestMatchers</span><span class="token punctuation">(</span><span class="token string">"/dev/**"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">authorizeHttpRequests</span><span class="token punctuation">(</span>
+    <span class="token operator">...</span><span class="token punctuation">.</span><span class="token punctuation">.</span>      
+<span class="token comment">// ===================================================================</span>
+<span class="token comment">// Disable CSRF protection</span>
+
+http
+    <span class="token punctuation">.</span><span class="token function">csrf</span><span class="token punctuation">(</span>csrf <span class="token operator">-</span><span class="token operator">></span> csrf<span class="token punctuation">.</span><span class="token function">disable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">authorizeHttpRequests</span><span class="token punctuation">(</span>
+    <span class="token operator">...</span><span class="token punctuation">.</span><span class="token punctuation">.</span>2f:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$5c"}}]}]
+30:["$","hr",null,{}]
+33:["$","li",null,{"children":[["$","code",null,{"children":"oauth2ResourceServer()"}],": expect the user has already been authenticated and will receive OAuth2/JWT access tokens; "]}]
+34:["$","ul",null,{"children":[["$","li",null,{"children":["Spring expects the client to send ",["$","code",null,{"children":"Authorization: Bearer <access_token>"}]]}],["$","li",null,{"children":"A token-validation mechanism for an API"}],["$","li",null,{"children":"Typical Use: API receiving OAuth2 access tokens"}],["$","li",null,{"children":["Unlike ",["$","code",null,{"children":"oauth2login"}],", this method will not redirect user to a login screen but shows an error 401 message"]}]]}]
+35:["$","hr",null,{}]
+37:["$","hr",null,{}]
+39:["$","u",null,{"children":"issuer"}]
+3a:["$","li",null,{"children":[["$","b",null,{"children":["$","u",null,{"children":"audience"}]}],": the intended audience of the JWT, usually the service that will consume the JWT"]}]
+3b:["$","li",null,{"children":[["$","b",null,{"children":["$","u",null,{"children":"access-token-expiration"}]}],": the expiration time for access tokens in seconds"]}]
+3c:["$","li",null,{"children":[["$","b",null,{"children":["$","u",null,{"children":"refresh-token-expiration"}]}],": the expiration time for refresh tokens in seconds"]}]
+3d:["$","li",null,{"children":[["$","b",null,{"children":["$","u",null,{"children":"private-key"}]}],": the ABSOLUTE path to the private key file for signing JWTs"]}]
+3e:["$","li",null,{"children":[["$","b",null,{"children":["$","u",null,{"children":"public-key"}]}],": the ABSOLUTE path to the public key file for verifying JWTs"]}]
+3f:["$","ul",null,{"children":[["$","li",null,{"children":["For Linux server: it can be ",["$","code",null,{"children":"file:/opt/spring/security/public.pem"}]]}],["$","li",null,{"children":["During development, it can be ",["$","code",null,{"children":"file:C:/Users/Name/.keys/jwt-public.pem"}]]}]]}]
+40:["$","h4",null,{"className":"sub-section-header","children":"Sample JWT configuration class:"}]
+41:["$","p",null,{"children":"The JWT configuration class is responsible for building and configuring the JWT encoder and decoder; supplying them with the necessary keys and settings."}]
+5d:T1a97,@Configuration
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JwtConfig</span> <span class="token punctuation">{</span>
+
+    @<span class="token function">Value</span><span class="token punctuation">(</span><span class="token string">"${app.jwt.private-key}"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> Resource privateKeyResource<span class="token punctuation">;</span>
+
+    @<span class="token function">Value</span><span class="token punctuation">(</span><span class="token string">"${app.jwt.public-key}"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> Resource publicKeyResource<span class="token punctuation">;</span>
+
+    @<span class="token function">Value</span><span class="token punctuation">(</span><span class="token string">"${app.jwt.issuer}"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> String issuer<span class="token punctuation">;</span>
+
+    @Bean
+    RSAPrivateKey <span class="token function">privateKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span> throws IOException <span class="token punctuation">{</span>
+
+        <span class="token keyword">return</span> RsaKeyConverters
+                <span class="token punctuation">.</span><span class="token function">pkcs8</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">convert</span><span class="token punctuation">(</span>privateKeyResource<span class="token punctuation">.</span><span class="token function">getInputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    @Bean
+    RSAPublicKey <span class="token function">publicKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span> throws IOException <span class="token punctuation">{</span>
+
+        <span class="token keyword">return</span> RsaKeyConverters
+                <span class="token punctuation">.</span><span class="token function">x509</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">convert</span><span class="token punctuation">(</span>publicKeyResource<span class="token punctuation">.</span><span class="token function">getInputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    @Bean
+    JwtEncoder <span class="token function">jwtEncoder</span><span class="token punctuation">(</span>
+            <span class="token parameter">RSAPublicKey publicKey<span class="token punctuation">,</span>
+            RSAPrivateKey privateKey</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token keyword">return</span> NimbusJwtEncoder
+                <span class="token punctuation">.</span><span class="token function">withKeyPair</span><span class="token punctuation">(</span>publicKey<span class="token punctuation">,</span> privateKey<span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">algorithm</span><span class="token punctuation">(</span>SignatureAlgorithm<span class="token punctuation">.</span><span class="token constant">RS256</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+   @Bean
+    JwtDecoder <span class="token function">jwtDecoder</span><span class="token punctuation">(</span>
+            <span class="token parameter">RSAPublicKey publicKey</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        NimbusJwtDecoder decoder <span class="token operator">=</span>
+                NimbusJwtDecoder
+                        <span class="token punctuation">.</span><span class="token function">withPublicKey</span><span class="token punctuation">(</span>publicKey<span class="token punctuation">)</span>
+                        <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Validate JWT issuer</span>
+        OAuth2TokenValidator<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Jwt</span></span><span class="token punctuation">></span></span><span class="token plain-text"> issuerValidator =
+                JwtValidators.createDefaultWithIssuer(issuer);
+
+        // Validate JWT audience
+        OAuth2TokenValidator</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Jwt</span></span><span class="token punctuation">></span></span><span class="token plain-text"> audienceValidator =
+                new JwtClaimValidator&lt;List</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">String</span></span><span class="token punctuation">></span></span><span class="token plain-text">>(
+                        JwtClaimNames.AUD,
+                        audiences -> audiences != null
+                                &amp;&amp; audiences.contains(audience)
+                );
+
+        // Consolidate the validators into a single validator
+        OAuth2TokenValidator</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Jwt</span></span><span class="token punctuation">></span></span><span class="token plain-text"> validator =
+                new DelegatingOAuth2TokenValidator</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span></span><span class="token punctuation">></span></span><span class="token plain-text">(
+                        issuerValidator,
+                        audienceValidator
+                );
+
+        decoder.setJwtValidator(validator);
+
+        return decoder;
+    }
+}</span>42:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$5d"}}]}]
+43:["$","h4",null,{"className":"sub-section-header","children":["Sample ",["$","code",null,{"children":"SecurityConfig.java"}]," setting:"]}]
+5e:Tceb,@Configuration
+@EnableMethodSecurity
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SecurityConfig</span> <span class="token punctuation">{</span>
+
+    @Bean
+    SecurityFilterChain <span class="token function">securityFilterChain</span><span class="token punctuation">(</span>HttpSecurity http<span class="token punctuation">)</span>
+            throws Exception <span class="token punctuation">{</span>
+
+        http
+                <span class="token punctuation">.</span><span class="token function">csrf</span><span class="token punctuation">(</span>csrf <span class="token operator">-</span><span class="token operator">></span> csrf<span class="token punctuation">.</span><span class="token function">disable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+                <span class="token punctuation">.</span><span class="token function">authorizeHttpRequests</span><span class="token punctuation">(</span>auth <span class="token operator">-</span><span class="token operator">></span> auth
+                        <span class="token punctuation">.</span><span class="token function">requestMatchers</span><span class="token punctuation">(</span>
+                                <span class="token string">"/"</span><span class="token punctuation">,</span>
+                                <span class="token string">"/auth/login"</span><span class="token punctuation">,</span>
+                                <span class="token string">"/auth/refresh"</span>
+                        <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">permitAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+                        <span class="token punctuation">.</span><span class="token function">anyRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">authenticated</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">)</span>
+
+                <span class="token punctuation">.</span><span class="token function">oauth2ResourceServer</span><span class="token punctuation">(</span>oauth2 <span class="token operator">-</span><span class="token operator">></span>
+                        oauth2<span class="token punctuation">.</span><span class="token function">jwt</span><span class="token punctuation">(</span>Customizer<span class="token punctuation">.</span><span class="token function">withDefaults</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> http<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>44:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$5e"}}]}]
+45:["$","ul",null,{"children":[["$","li",null,{"children":[["$","code",null,{"children":".csrf(csrf -> csrf.disable()"}]," : Disables CSRF protection for the application"]}],["$","ul",null,{"children":["$","li",null,{"children":"CSRF protection is not needed for stateless APIs and the access tokens / refresh tokens are not sent through cookies"}]}]]}]
+46:["$","h4",null,{"className":"sub-section-header","children":["Sample ",["$","code",null,{"children":"JwtService.java"}]," implementation:"]}]
+47:["$","p",null,{"children":"The JWT service class is responsible for generating the JWT with the appropriate data contents using the configured encoder."}]
+5f:Td6a,@Service
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JwtService</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> final JwtEncoder jwtEncoder<span class="token punctuation">;</span>
+
+    @<span class="token function">Value</span><span class="token punctuation">(</span><span class="token string">"${app.jwt.issuer}"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> String issuer<span class="token punctuation">;</span>
+
+    @<span class="token function">Value</span><span class="token punctuation">(</span><span class="token string">"${app.jwt.audience}"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> String audience<span class="token punctuation">;</span>
+
+    @<span class="token function">Value</span><span class="token punctuation">(</span><span class="token string">"${app.jwt.access-token-expiration}"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> long accessTokenExpiration<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token function">JwtService</span><span class="token punctuation">(</span><span class="token parameter">JwtEncoder jwtEncoder</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>jwtEncoder <span class="token operator">=</span> jwtEncoder<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> String <span class="token function">generateAccessToken</span><span class="token punctuation">(</span><span class="token parameter">User user</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        Instant now <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Role role <span class="token operator">=</span> user<span class="token punctuation">.</span><span class="token function">getRole</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        List<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">String</span></span><span class="token punctuation">></span></span><span class="token plain-text"> scopes = role.getScopes();
+
+        JwtClaimsSet claims =
+                JwtClaimsSet.builder()
+                        .issuer(issuer)
+                        .subject(user.getId().toString())
+                        .audience(List.of(audience))
+                        .issuedAt(now)
+                        .expiresAt(
+                                now.plusSeconds(accessTokenExpiration)
+                        )
+                        .claim("role", role.getName())
+                        .claim("scope", String.join(" ", scopes))
+                        .build();
+
+        return jwtEncoder
+                .encode(JwtEncoderParameters.from(claims))
+                .getTokenValue();
+    }
+}</span>48:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$5f"}}]}]
+49:["$","h4",null,{"className":"sub-section-header","children":"Sample Controller to use JwtService and generate the JWT:"}]
+60:Tfbd,@RestController
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DevController</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> final JwtService jwtService<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token function">DevController</span><span class="token punctuation">(</span><span class="token parameter">JwtService jwtService</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>jwtService <span class="token operator">=</span> jwtService<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    @<span class="token function">PostMapping</span><span class="token punctuation">(</span><span class="token string">"/dev/token"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> String <span class="token function">generateToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        Role role <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Role</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        role<span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        role<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"User"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        role<span class="token punctuation">.</span><span class="token function">setScopes</span><span class="token punctuation">(</span>List<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token string">"user:read"</span><span class="token punctuation">,</span> <span class="token string">"user:write"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        User user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        user<span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span><span class="token constant">UUID</span><span class="token punctuation">.</span><span class="token function">randomUUID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        user<span class="token punctuation">.</span><span class="token function">setRole</span><span class="token punctuation">(</span>role<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        user<span class="token punctuation">.</span><span class="token function">setEmailVerified</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> jwtService<span class="token punctuation">.</span><span class="token function">generateAccessToken</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>4a:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$60"}}]}]
+4b:["$","hr",null,{}]
+4d:["$","h4",null,{"className":"sub-section-header","children":"UserDetailsService"}]
+4e:["$","p",null,{"children":["In order for Spring to know the password hash for the user, you need to implement a custom ",["$","code",null,{"children":"UserDetailsService"}],"."]}]
+4f:["$","p",null,{"children":"This is also where any other authentication parameters can be retrieved and checked such as roles or account status."}]
+61:T148f,@Service
+@RequiredArgsConstructor
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CustomUserDetailsService</span> <span class="token keyword">implements</span> <span class="token class-name">UserDetailsService</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> final UserRepository userRepository<span class="token punctuation">;</span>
+
+    @Override
+    <span class="token keyword">public</span> UserDetails <span class="token function">loadUserByUsername</span><span class="token punctuation">(</span>String username<span class="token punctuation">)</span>
+            throws UsernameNotFoundException <span class="token punctuation">{</span>
+
+        <span class="token operator">...</span>
+    
+        User user <span class="token operator">=</span> userRepository
+              <span class="token punctuation">.</span><span class="token function">findByUsername</span><span class="token punctuation">(</span>username<span class="token punctuation">)</span>
+              <span class="token punctuation">.</span><span class="token function">orElseThrow</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span>
+                      <span class="token keyword">new</span> <span class="token class-name">UsernameNotFoundException</span><span class="token punctuation">(</span>
+                                <span class="token string">"User not found"</span>
+                      <span class="token punctuation">)</span>
+              <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">getPasswordHash</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">UsernameNotFoundException</span><span class="token punctuation">(</span>
+                    <span class="token string">"User did not register username and password."</span>
+            <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>user<span class="token punctuation">.</span><span class="token function">isEmailVerified</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">UsernameNotFoundException</span><span class="token punctuation">(</span>
+                    <span class="token string">"User email is not verified."</span>
+            <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>core<span class="token punctuation">.</span>userdetails<span class="token punctuation">.</span>User
+                <span class="token punctuation">.</span><span class="token function">withUsername</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">getUsername</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">password</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">getPasswordHash</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">roles</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">getRole</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>50:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$61"}}]}]
+51:["$","hr",null,{}]
+57:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+53:null
+55:{"metadata":[["$","title","0",{"children":"Spring Security"}],["$","meta","1",{"name":"description","content":"Notes on Spring Security"}]],"error":null,"digest":"$undefined"}
+5a:"$55:metadata"
