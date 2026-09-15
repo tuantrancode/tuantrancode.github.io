@@ -720,6 +720,122 @@ public class DevController {
         <hr/>
       </section>
 
+
+        {/* USERNAME / PASSWORD AUTH */}
+      <section>
+        <h3 className='section-header' id='username-password-auth'>Username / Password Authentication</h3>
+        <p>Spring Security provides built-in support for username/password authentication through the <code>AuthenticationManager</code> and <code>UserDetailsService</code>.</p>
+         
+        <h4 className='sub-section-header'>Hashing Passwords</h4>
+        <p>Spring security provides a <code>PasswordEncoder</code> class for securely hashing passwords. By default, it uses BCrypt for hashing.</p>
+        <CodeBlock language='java'>{`
+import org.springframework.security.crypto.password.PasswordEncoder;
+...
+String passwordHash =  passwordEncoder.encode(passwordString);        
+        `}</CodeBlock>
+
+         <h4 className='sub-section-header'>Authenticating Users</h4>
+         <p>To authenticate users, Spring Security uses the <code>AuthenticationManager</code> class. The <code>PasswordEncoder</code> and <code>UserDetailsService</code> are given to the <code>AuthenticationManager</code> in <code>SecurityConfig</code> for handling authentication requests.</p>
+         <p>The authentication process is initated by the <code>AuthenticationManager.authenticate(...)</code> method.</p>
+          <CodeBlock language='java'>{`
+// SecurityConfig.java
+
+@Configuration
+@EnableMethodSecurity
+public class SecurityConfig {
+
+    @Bean
+    SecurityFilterChain securityFilterChain( ... ) { ... }
+
+
+    @Bean
+    AuthenticationManager authenticationManager(
+            UserDetailsService userDetailsService,
+            PasswordEncoder passwordEncoder
+    ) {
+
+        DaoAuthenticationProvider provider = 
+          new DaoAuthenticationProvider(userDetailsService);
+
+        provider.setPasswordEncoder(passwordEncoder);
+
+        return new ProviderManager(provider);
+    }
+} 
+
+// ========================================================
+// LoginService.java
+
+public User login(...) {
+
+    ...
+
+    try {
+          authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                      username,
+                      password
+                )
+          );
+    } catch (AuthenticationException ex) {
+            throw new InvalidCredentialsException("Invalid username or password.");
+    }
+
+    return userRepository
+            .findByUsername(username)
+            .orElseThrow();
+}`}</CodeBlock>
+
+      <h4 className='sub-section-header'>UserDetailsService</h4>
+      <p>In order for Spring to know the password hash for the user, you need to implement a custom <code>UserDetailsService</code>.</p>
+      <p>This is also where any other authentication parameters can be retrieved and checked such as roles or account status.</p>
+      <CodeBlock language='java'>{`
+@Service
+@RequiredArgsConstructor
+public class CustomUserDetailsService implements UserDetailsService {
+
+    private final UserRepository userRepository;
+
+    @Override
+    public UserDetails loadUserByUsername(String username)
+            throws UsernameNotFoundException {
+
+        ...
+    
+        User user = userRepository
+              .findByUsername(username)
+              .orElseThrow(() ->
+                      new UsernameNotFoundException(
+                                "User not found"
+                      )
+              );
+
+        if (user.getPasswordHash() == null) {
+            throw new UsernameNotFoundException(
+                    "User did not register username and password."
+            );
+        }
+
+        if (!user.isEmailVerified()) {
+            throw new UsernameNotFoundException(
+                    "User email is not verified."
+            );
+        }
+
+        return org.springframework.security.core.userdetails.User
+                .withUsername(user.getUsername())
+                .password(user.getPasswordHash())
+                .roles(user.getRole().getName())
+                .build();
+    }
+}
+      
+      `}</CodeBlock>
+
+        <hr/>
+      </section>
+
+
         {/* TESTING AGAINST XSS ATTACKS */}
       <section>
         <h3 className='section-header' id='testing-against-xss-attacks'>Testing Against XSS Attacks</h3>
