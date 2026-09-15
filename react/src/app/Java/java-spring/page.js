@@ -472,6 +472,33 @@ public String processOrder(@Valid TacoOrder order, Errors errors, SessionStatus 
         <hr />
       </section>
 
+        {/* DEVELOPMENT VS PRODUCTION BUILD  */}
+      <section>
+        <h3 className='section-header' id='dev-prod-builds'>Dev Vs Prod Builds</h3>
+        <p>Spring Boot provides different profiles for development and production environments.</p>
+        <ul>
+          <li><code>dev</code> profile for development</li>
+          <li><code>prod</code> profile for production</li>
+        </ul>
+        <ol>
+        <li>To specify which configuration to use in Intellij IDEA: edit the run configuration and put the profile name in the "Active profiles" field.</li>
+        <li>To split the <code>application.yml</code> into a dev and prod configuration, you can create separate files:</li>
+        <ul>
+          <li><code>application-dev.yml</code> for development settings</li>
+          <li><code>application-prod.yml</code> for production settings</li>
+        </ul>
+        <li>To specify an endpoint as part of a particular profile, you can use the <code>@Profile</code> annotation on the controller class:</li>
+        </ol>
+        <CodeBlock lang='java'>{`
+@RestController
+@Profile("dev")
+@RequestMapping("/dev")
+public class DevController {
+  ...
+}        `}</CodeBlock>
+        <hr/>
+      </section>
+
        {/* Spring CORE  */}
       <section>
         <h3 className='section-header' id='springCore'>

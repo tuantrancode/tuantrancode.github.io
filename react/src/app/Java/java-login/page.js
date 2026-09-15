@@ -536,7 +536,620 @@ Cannot read HttpOnly ACCESS_TOKEN`}
 </section>
 
 
-    
+      {/* ACCESS AND REFRESH TOKENS LIFECYCLE  */}
+      <section>
+        <h3 className='section-header' id='access-refresh-tokens-lifecycle'>Access and Refresh Tokens Lifecycle</h3>
+        <figure>
+           <a href="/assets/images/access-refresh-tokens-lifecycle.png" target="_blank" rel="noopener noreferrer">
+              <img src="/assets/images/access-refresh-tokens-lifecycle.png" alt="access and refresh tokens lifecycle" style={{display: 'block', width: '100%', padding: '5px 0px'}}/>
+           </a>
+          <figcaption style={{ textAlign: "center", fontSize: "14px", marginTop: "6px" }}>Access and Refresh Tokens Lifecycle</figcaption>
+        </figure>
+        <ol>
+          <li>User log in and receive access and refresh tokens</li>
+          <li>User sends access token to get access to protected resources</li>
+          <li>When access token expires, use the refresh token to obtain a new access token</li>
+          <li>In order to get new refresh tokens, there are 2 ways to do so</li>
+          <ul>
+            <li>When receving the new access token, also receive a new refresh token alongside it and revoke the old refresh token</li>
+            <ul>
+              <li>Useful for the case that the refresh token is stolen, but more complex to implement</li>
+            </ul>
+            <li>When the refresh token is expired, have the user re-authenticate to obtain new tokens</li>
+            <ul>
+              <li>Simpler to implement, but if refresh token is stolen, it can be used for a longer period</li>
+            </ul>
+          </ul>
+        </ol>
+
+        <hr/>
+      </section>
+
+
+     {/* COOKIES */}
+
+<section>
+  <h3 className='section-header' id='cookies'>Cookies</h3>
+
+  <p>
+    Cookies are small pieces of data that a web server asks a browser to store.
+    The browser automatically sends cookies back to the server with subsequent
+    requests that match the cookie's rules. Cookies are commonly used to
+    maintain authentication sessions, store user preferences, and track
+    information between requests.
+  </p>
+
+  <p>
+    For authentication, cookies are especially useful for storing tokens that
+    should not be directly accessible to JavaScript. For example, an
+    authentication system can store a refresh token in an <code>HttpOnly</code>
+    cookie so that JavaScript running on the page cannot read the token.
+  </p>
+
+  <h4 className='sub-section-header'>Common Cookie Parameters</h4>
+
+  <p>
+    Cookies have several attributes that control when the browser stores the
+    cookie, when it sends the cookie, and whether client-side JavaScript can
+    access it.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Purpose</th>
+        <th>When to Use</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>HttpOnly</code></td>
+        <td>
+          Prevents JavaScript from reading the cookie through APIs such as
+          <code>document.cookie</code>.
+        </td>
+        <td>
+          Use for authentication tokens, session identifiers, and other
+          sensitive values that should not be accessible to JavaScript.
+        </td>
+      </tr>
+  <tr>
+    <td><code>Secure</code></td>
+    <td>
+      Instructs the browser to send the cookie only over HTTPS connections.
+    </td>
+    <td>
+      Use for sensitive cookies in production. This helps prevent the
+      cookie from being transmitted over an unencrypted connection.
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>SameSite</code></td>
+    <td>
+      Controls whether the browser sends the cookie with cross-site
+      requests.
+    </td>
+    <td>
+      Use <code>Strict</code> or <code>Lax</code> when possible to reduce
+      CSRF risk. Use <code>None</code> when the cookie genuinely needs to
+      be sent in cross-site requests.
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>Path</code></td>
+    <td>
+      Limits the URL paths for which the browser sends the cookie.
+    </td>
+    <td>
+      Use a narrow path when a cookie is only needed by specific
+      endpoints. Use <code>/</code> when the cookie is needed throughout
+      the application.
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>Domain</code></td>
+    <td>
+      Controls which host or hosts can receive the cookie.
+    </td>
+    <td>
+      Usually omit it when the cookie should only belong to the host that
+      created it. Configure it when a cookie needs to be shared across
+      appropriate subdomains.
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>Max-Age</code></td>
+    <td>
+      Specifies how long the cookie should remain stored, in seconds.
+    </td>
+    <td>
+      Use when you want a cookie to persist for a specific amount of time,
+      such as the lifetime of a refresh token.
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>Expires</code></td>
+    <td>
+      Specifies the exact date and time when the cookie expires.
+    </td>
+    <td>
+      Useful when an exact expiration timestamp is needed. Modern
+      applications commonly use <code>Max-Age</code> instead.
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>Partitioned</code></td>
+    <td>
+      Allows a cookie to be stored in a partitioned cookie jar, limiting
+      it to the context of the top-level site.
+    </td>
+    <td>
+      Useful for certain embedded or third-party scenarios where
+      cross-site functionality is required while limiting tracking and
+      cross-site cookie exposure.
+    </td>
+  </tr>
+</tbody>
+
+
+  </table>
+
+  <h4 className='sub-section-header'>Authentication Cookie Example</h4>
+
+  <p>
+    A refresh token can be stored in a cookie using several security
+    attributes:
+  </p>
+
+<CodeBlock language='java'>{`return ResponseCookie
+        .from(REFRESH_TOKEN_COOKIE, token)
+        .httpOnly(true)
+        .secure(true)
+        .sameSite("Strict")
+        .path("/auth")
+        .maxAge(maxAgeSeconds)
+        .build();`}</CodeBlock>
+
+  <p>
+    Each setting serves a different purpose:
+  </p>
+
+  <ul>
+    <li>
+      <strong><code>httpOnly(true)</code></strong> — Prevents JavaScript from
+      reading the refresh token. This reduces the ability of an XSS attack to
+      directly steal the token through <code>document.cookie</code>.
+    </li>
+
+```
+<li>
+  <strong><code>secure(true)</code></strong> — Causes the browser to send
+  the cookie only over HTTPS. This should be enabled for authentication
+  cookies in production.
+</li>
+
+<li>
+  <strong><code>sameSite("Strict")</code></strong> — Prevents the browser
+  from sending the cookie with most cross-site requests. This provides an
+  additional defense against CSRF attacks.
+</li>
+
+<li>
+  <strong><code>path("/auth")</code></strong> — Restricts the cookie to
+  requests whose path begins with <code>/auth</code>. For example, the
+  browser can send the cookie to <code>/auth/refresh</code>, but does not
+  send it to unrelated paths such as <code>/api/account</code>.
+</li>
+
+<li>
+  <strong><code>maxAge(maxAgeSeconds)</code></strong> — Controls how long
+  the browser keeps the cookie. In this example, the cookie lifetime can
+  be configured to match the refresh token's expiration time.
+</li>
+```
+
+  </ul>
+
+  <h4 className='sub-section-header'>Why Restrict the Cookie Path?</h4>
+
+  <p>
+    Authentication cookies do not necessarily need to be sent with every
+    request. If a refresh token is only used by the refresh endpoint, the
+    cookie can be restricted to the authentication path:
+  </p>
+
+<CodeBlock language='java'>{`.path("/auth")`}</CodeBlock>
+
+  <p>
+    For example, with a refresh endpoint at
+    <code>/auth/refresh</code>, the browser can send the refresh-token cookie
+    when refreshing the session. Requests such as
+    <code>/api/account</code> do not need to receive the refresh token.
+    Restricting the path therefore reduces the number of requests that carry
+    the sensitive refresh token.
+  </p>
+
+  <h4 className='sub-section-header'>Common SameSite Values</h4>
+
+  <ul>
+    <li>
+      <strong><code>Strict</code></strong> — Provides the strongest
+      cross-site restriction. The cookie is generally only sent in
+      same-site contexts. A good choice when your authentication architecture
+      does not require cross-site cookie requests.
+    </li>
+
+<li>
+  <strong><code>Lax</code></strong> — Allows the cookie in some
+  cross-site navigation scenarios while still restricting many
+  cross-site requests. This is commonly used as a balance between
+  security and compatibility.
+</li>
+
+<li>
+  <strong><code>None</code></strong> — Allows the cookie to be sent in
+  cross-site contexts. When using <code>None</code>, browsers generally
+  require <code>Secure</code> to also be enabled.
+</li>
+  </ul>
+
+  <hr/>
+</section>
+
+
+      {/* LOGOUT  */}
+      <section>
+        <h3 className='section-header' id='logout'>Logout</h3>
+        <p>To properly logout a user, you should invalidate their session and remove any authentication cookies.</p>
+        <p>Removing a cookie is typically done by overwriting the cookie using the same name, path, and same-site attributes with an expired date.</p>
+        <CodeBlock language='java'>{`
+// Example of creating a cookie
+ResponseCookie
+  .from(ACCESS_TOKEN_COOKIE, token)
+  .httpOnly(true)
+  .secure(true)
+  .sameSite("Lax")
+  .path("/")
+  .maxAge(maxAgeSeconds)
+  .build();   
+
+// Example of removing the cookie by overwriting it
+ResponseCookie
+  .from(ACCESS_TOKEN_COOKIE, "")
+  .httpOnly(true)
+  .secure(true)
+  .sameSite("Lax")
+  .path("/")
+  .maxAge(0)
+  .build();
+
+// ================================================
+// Example of invalidating a session
+
+// Clear SecurityContext for current request
+SecurityContextHolder.clearContext();
+
+// Invalidate HTTP session
+HttpSession session = request.getSession(false);
+if (session != null) {
+    session.invalidate();
+}       `}</CodeBlock>
+
+        <hr/>
+      </section>
+
+{/* HEADERS */}
+
+<section>
+  <h3 className='section-header' id='headers'>HTTP Security Headers</h3>
+
+  <p>
+    HTTP headers are metadata sent between the client and server with an HTTP
+    request or response. They can provide information about the request,
+    control browser behavior, and improve the security of a web application.
+  </p>
+
+  <p>
+    Some headers are specifically designed to protect browsers from common
+    attacks such as cross-site scripting (XSS), clickjacking, MIME-type
+    confusion, and insecure network connections. Spring Security can
+    automatically add several security-related response headers.
+  </p>
+
+  <h4 className='sub-section-header'>Common Security Headers</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Header</th>
+        <th>Purpose</th>
+        <th>When to Use</th>
+      </tr>
+    </thead>
+
+<tbody>
+  <tr>
+    <td><code>Content-Security-Policy</code></td>
+    <td>
+      Controls which sources the browser is allowed to load resources from,
+      such as JavaScript, CSS, images, fonts, and frames.
+    </td>
+    <td>
+      Use to reduce the impact of XSS and other content-injection attacks.
+      Start with a restrictive policy and explicitly allow only the
+      resources your application requires.
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>Strict-Transport-Security</code></td>
+    <td>
+      Tells the browser to use HTTPS for future requests to the domain.
+    </td>
+    <td>
+      Use in production when the application is served entirely over
+      HTTPS. Do not enable it carelessly on domains that still need HTTP.
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>X-Content-Type-Options</code></td>
+    <td>
+      Prevents browsers from MIME-sniffing a response and interpreting it
+      as a different content type.
+    </td>
+    <td>
+      Commonly enabled with <code>nosniff</code> as a general security
+      hardening measure.
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>X-Frame-Options</code></td>
+    <td>
+      Controls whether the application can be displayed inside a
+      <code>&lt;frame&gt;</code>, <code>&lt;iframe&gt;</code>, or
+      <code>&lt;object&gt;</code>.
+    </td>
+    <td>
+      Use to protect against clickjacking when your application does not
+      need to be embedded by other websites.
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>Referrer-Policy</code></td>
+    <td>
+      Controls how much referrer information the browser includes when
+      navigating from one page to another.
+    </td>
+    <td>
+      Use to prevent sensitive URL information from being unnecessarily
+      exposed to other sites.
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>Permissions-Policy</code></td>
+    <td>
+      Controls which browser features and APIs a page can use, such as the
+      camera, microphone, geolocation, and fullscreen mode.
+    </td>
+    <td>
+      Use to disable browser capabilities that your application does not
+      need.
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>Cache-Control</code></td>
+    <td>
+      Controls whether and how a response can be cached by browsers and
+      intermediary caches.
+    </td>
+    <td>
+      Use carefully for sensitive responses. Authentication-related or
+      private data may need to be prevented from being stored in shared
+      caches.
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>Cross-Origin-Opener-Policy</code></td>
+    <td>
+      Controls how a document's browsing context interacts with documents
+      opened from other origins.
+    </td>
+    <td>
+      Useful when stronger isolation between your application and
+      cross-origin documents is required.
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>Cross-Origin-Resource-Policy</code></td>
+    <td>
+      Controls which origins are allowed to load resources from your
+      application.
+    </td>
+    <td>
+      Useful for restricting cross-origin access to resources such as
+      images, scripts, and other files.
+    </td>
+  </tr>
+</tbody>
+
+  </table>
+
+  <h4 className='sub-section-header'>Content-Security-Policy</h4>
+
+  <p>
+    <code>Content-Security-Policy</code>, commonly called CSP, allows the
+    server to specify which sources the browser can trust when loading
+    content.
+  </p>
+
+  <p>
+    For example, a simple policy might allow scripts only from the same origin:
+  </p>
+
+<CodeBlock language='http'>{`Content-Security-Policy: default-src 'self'`}</CodeBlock>
+
+  <p>
+    This tells the browser to use the application's own origin as the default
+    allowed source for resources. A more complete policy can separately
+    control scripts, styles, images, fonts, connections, and frames.
+  </p>
+
+  <p>
+    CSP is particularly useful for reducing the impact of XSS because an
+    injected script may be prevented from executing even if an attacker
+    manages to inject HTML into a page.
+  </p>
+
+  <h4 className='sub-section-header'>Strict-Transport-Security</h4>
+
+  <p>
+    The <code>Strict-Transport-Security</code> header, also known as HSTS,
+    tells a browser that the site should only be accessed using HTTPS for a
+    specified period of time.
+  </p>
+
+<CodeBlock language='http'>{`Strict-Transport-Security: max-age=31536000`}</CodeBlock>
+
+  <p>
+    A commonly used production configuration also includes subdomains:
+  </p>
+
+<CodeBlock language='http'>{`Strict-Transport-Security: max-age=31536000; includeSubDomains`}</CodeBlock>
+
+  <p>
+    HSTS should generally be enabled only when the domain and its relevant
+    subdomains are correctly configured for HTTPS. Once a browser receives
+    the policy, it can automatically upgrade future HTTP requests to HTTPS.
+  </p>
+
+  <h4 className='sub-section-header'>X-Content-Type-Options</h4>
+
+  <p>
+    The <code>X-Content-Type-Options</code> header can prevent browsers from
+    attempting to guess the content type of a response.
+  </p>
+
+<CodeBlock language='http'>{`X-Content-Type-Options: nosniff`}</CodeBlock>
+
+  <p>
+    This is a common security hardening header and is particularly useful for
+    preventing browsers from interpreting resources as a different MIME type
+    than the server declared.
+  </p>
+
+  <h4 className='sub-section-header'>X-Frame-Options</h4>
+
+  <p>
+    <code>X-Frame-Options</code> controls whether another page can embed your
+    application in a frame. This can help protect against clickjacking.
+  </p>
+
+<CodeBlock language='http'>{`X-Frame-Options: DENY`}</CodeBlock>
+
+  <p>
+    <code>DENY</code> prevents the page from being displayed inside a frame.
+    Another commonly used value is <code>SAMEORIGIN</code>, which allows the
+    page to be framed by pages from the same origin.
+  </p>
+
+  <h4 className='sub-section-header'>Referrer-Policy</h4>
+
+  <p>
+    The <code>Referrer-Policy</code> header controls what information the
+    browser includes in the <code>Referer</code> request header when navigating
+    to another resource.
+  </p>
+
+<CodeBlock language='http'>{`Referrer-Policy: strict-origin-when-cross-origin`}</CodeBlock>
+
+  <p>
+    <code>strict-origin-when-cross-origin</code> is a common choice because it
+    provides more limited information when making cross-origin requests while
+    still allowing useful referrer information for same-origin requests.
+  </p>
+
+  <h4 className='sub-section-header'>Permissions-Policy</h4>
+
+  <p>
+    <code>Permissions-Policy</code> allows an application to control access to
+    certain browser features.
+  </p>
+
+  <p>
+    For example, an application that does not need the camera or microphone
+    could restrict them:
+  </p>
+
+<CodeBlock language='http'>{`Permissions-Policy: camera=(), microphone=()`}</CodeBlock>
+
+  <p>
+    This reduces the browser capabilities available to the page and can also
+    restrict capabilities for embedded content.
+  </p>
+
+  <h4 className='sub-section-header'>Cache-Control</h4>
+
+  <p>
+    <code>Cache-Control</code> controls how browsers and intermediary caches
+    store and reuse HTTP responses.
+  </p>
+
+  <p>
+    For a response containing highly sensitive information, an application
+    may prevent caching:
+  </p>
+
+<CodeBlock language='http'>{`Cache-Control: no-store`}</CodeBlock>
+
+  <p>
+    <code>no-store</code> instructs caches not to store the response. This can
+    be useful for responses containing sensitive authentication or account
+    information.
+  </p>
+
+  <h4 className='sub-section-header'>Security Headers in Spring Security</h4>
+
+  <p>
+    Spring Security provides default security headers and allows additional
+    headers to be configured through <code>HttpSecurity</code>.
+  </p>
+
+<CodeBlock language='java'>{`http
+    .headers(headers -> headers
+        .contentSecurityPolicy(csp -> csp
+            .policyDirectives("default-src 'self'")
+        )
+        .frameOptions(frame -> frame
+            .deny()
+        )
+    );`}</CodeBlock>
+
+  <p>
+    The exact headers and values should be based on the application's
+    requirements. Security headers are not a replacement for protections such
+    as proper input validation, output encoding, authentication,
+    authorization, and CSRF protection. They provide an additional layer of
+    browser-side security.
+  </p>
+
+  <hr/>
+</section>
+
+
       </>
   )
 };
