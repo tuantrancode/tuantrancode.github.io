@@ -85,6 +85,7 @@ const navSections = [
       { name: 'Git', link: '/Tools/git' },
       { name: 'Node.js', link: '/Tools/node' },
       { name: 'Maven and Gradle', link: '/Tools/maven-gradle' },
+      { name: 'Jetbrains IDEs', link: '/Tools/jetbrains' },
       { name: 'Visual Studio Code', link: '/Tools/visual-studio-code' },
       { name: 'Android Studio', link: '/Tools/android-studio' },
       { name: 'Eclipse for Java', link: '/Tools/eclipse' },
