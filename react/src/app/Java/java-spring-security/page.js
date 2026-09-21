@@ -496,13 +496,13 @@ spring:
           <li><code>JwtConfig.java</code> : configure JWT encoder and decoder with the public/private keys</li>
           <li><code>JwtService.java</code> : generate the JWT</li>
         </ul>
-         <h4 className='sub-section-header'>Generating 4096-bit RSA Keys:</h4>
+         <h4 className='sub-section-header'>Generating 2048-bit RSA Keys:</h4>
          <CodeBlock language='bash'>{`
 // Private key
 openssl genpkey \
   -algorithm RSA \
   -out jwt_private.pem \
-  -pkeyopt rsa_keygen_bits:4096
+  -pkeyopt rsa_keygen_bits:2048
   
 // Public key
 openssl rsa \
