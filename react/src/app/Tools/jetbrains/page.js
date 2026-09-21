@@ -38,8 +38,8 @@ export default function JetbrainsIDEs() {
 
             <tr>
               <td>Reformat Whole Document</td>
-              <td>Ctrl + Alt + L</td>
-              <td>Cmd + Option + L</td>
+              <td>Alt + Shift + F</td>
+              <td>Option + Shift + F</td>
               <td>
                 Formats the entire file according to the project's code style.
               </td>
@@ -47,8 +47,8 @@ export default function JetbrainsIDEs() {
 
             <tr>
               <td>Reformat Selection</td>
-              <td>Ctrl + Alt + L</td>
-              <td>Cmd + Option + L</td>
+              <td>Alt + Shift + F</td>
+              <td>Option + Shift + F</td>
               <td>
                 Select code first, then use the same shortcut to format only
                 the selection.

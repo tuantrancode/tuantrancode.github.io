@@ -69,6 +69,29 @@ public class OrderService { // Spring will create a new OrderService(UserService
 }
           `}</CodeBlock>
         </ul>
+        <hr/>
+
+         {/* COMMON ANNOTATIONS */}
+        <h3 className='section-header' id='common-annotations'>Common Annotations</h3>
+        <p>Beans are classes that have been labeled <code>@Component</code>, <code>@Service</code>, <code>@Repository</code>, <code>@Controller</code>, or etc.</p>
+        <h4 className='sub-section-header'>Bean Class Annotations</h4>
+        <ul>
+          <li><code>@Service</code>: Stereotype for service layer components that contain business logic</li>
+          <li><code>@Component</code>: Leftover stereotype if the class doesn't fit into other categories</li>
+          <li><code>@Repository</code>: Stereotype for data access layer components</li>
+          <li><code>@Controller</code>: Traditionally used for returning views/pages as Spring will treat the returned value as a view name: "user.html" from <code>src/main/resources/templates/user.html</code></li>
+          <li><code>@RestController</code>: Combination of <code>@Controller</code> and <code>@ResponseBody</code> for RESTful web services. Spring puts the returned value directly into the response body</li>
+        </ul>
+
+        <h4 className='sub-section-header'>Method Annotations</h4>
+        <ul>
+           <li><code>@Bean</code>: Tells Spring to create and manage the returned object as a bean in the application context</li>
+        </ul>
+
+        <h4 className='sub-section-header'>Fields Annotations</h4>
+        <ul>
+          <li><code>@Value</code>: Injects a value from application properties, environment variables, or other Spring property sources into a field</li>
+        </ul>
 
         <hr/>
 

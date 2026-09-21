@@ -302,7 +302,10 @@ http
     .authorizeHttpRequests(auth -> auth
         .requestMatchers("/", "/error").permitAll()
         .requestMatchers("/api/public/**").permitAll()
+        // Coarse authorization
         .requestMatchers("/admin/**").hasRole("ADMIN")
+        // Fine-grained authorization
+        .requestMatchers("/update/**").hasAuthority("SCOPE_user:write")
         .anyRequest().authenticated()
     )
 `}</CodeBlock>
@@ -504,8 +507,8 @@ app:
   jwt:
     issuer: http://localhost:8080
     audience: spring-security-sample
-    access-token-expiration: 900
-    refresh-token-expiration: 2592000
+    access-token-expiration: 15m
+    refresh-token-expiration: 30d
     private-key: file:/opt/spring/security/private.pem
     public-key: file:/opt/spring/security/public.pem  
 `}</CodeBlock>
@@ -721,6 +724,72 @@ public class DevController {
       </section>
 
 
+        {/* RBAC */}
+      <section>
+        <h3 className='section-header' id='role-based-access-control'>Role-Based Access Control (RBAC)</h3>
+        <p>Spring Security provides support for RBAC by restricting access to certain endpoints based on the user's role or scopes/permissions.</p>
+        <p>The endpoints RBAC configuration is done in the <code>SecurityConfig</code> class, in the SecurityFilterChain bean.</p>
+        <p>Additionally, Spring requires the user's claims be added to the JWT for Spring to know what role and permissions the user has.</p>
+        <CodeBlock language='java'>{`
+// SecurityConfig.java
+
+ SecurityFilterChain securityFilterChain(
+                ...
+                .authorizeHttpRequests(auth -> auth
+                        ...
+
+                        // Coarse authorization
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        // Fine-grained authorization
+                        .requestMatchers("/update/**").hasAuthority("SCOPE_user:write")
+
+                        .anyRequest().authenticated()
+
+// =================================================
+// CookieJwtAuthenticationFilter
+
+public class CookieJwtAuthenticationFilter extends OncePerRequestFilter {
+
+          ...
+
+          private void validateJwt(String accessToken) {
+
+            Jwt jwt = jwtDecoder.decode(accessToken);
+            String role = jwt.getClaimAsString("role");
+            List<GrantedAuthority> authorities = new ArrayList<>();
+
+            // Add role claims so Spring knows what role the user has
+            // JWT content has:  "role": "ADMIN"
+            if (role != null) {
+                authorities.add(new SimpleGrantedAuthority("ROLE_" + role));
+            }
+
+            // Add scopes claim
+            // JWT content has:  "scope": "user:read user:write"
+            String scope = jwt.getClaimAsString("scope");
+            if (scope != null) {
+                Arrays.stream(scope.split(" "))
+                  .filter(s -> !s.isBlank())
+                  .map(s -> new SimpleGrantedAuthority(s))
+                  .forEach(authorities::add);
+            }
+
+            JwtAuthenticationToken authentication = new JwtAuthenticationToken(jwt, authorities);
+
+            SecurityContextHolder
+                .getContext()
+                .setAuthentication(authentication);
+          }
+        `}</CodeBlock>
+        <ul>
+          <li>In SecurityConfig.java, <code>.hasRole("ADMIN")</code> automatically adds the "ROLE_" prefix so the same prefix need to be added when creating the role claim</li>
+          <li>In SecurityConfig.java, <code>.hasAuthority("user:write")</code> does NOT automatically add any prefix</li>
+        </ul>
+
+        <hr/>
+      </section>
+
+
         {/* USERNAME / PASSWORD AUTH */}
       <section>
         <h3 className='section-header' id='username-password-auth'>Username / Password Authentication</h3>
@@ -737,6 +806,10 @@ String passwordHash =  passwordEncoder.encode(passwordString);
          <h4 className='sub-section-header'>Authenticating Users</h4>
          <p>To authenticate users, Spring Security uses the <code>AuthenticationManager</code> class. The <code>PasswordEncoder</code> and <code>UserDetailsService</code> are given to the <code>AuthenticationManager</code> in <code>SecurityConfig</code> for handling authentication requests.</p>
          <p>The authentication process is initated by the <code>AuthenticationManager.authenticate(...)</code> method.</p>
+         <ul>
+          <li><code>authethenticationManager.authenticate()</code> will check if the password is correct</li>
+         </ul>
+         <p>After the password has been validated, any other authentication parameters can be retrieved and checked such as roles or account status.</p>
           <CodeBlock language='java'>{`
 // SecurityConfig.java
 
@@ -781,14 +854,20 @@ public User login(...) {
             throw new InvalidCredentialsException("Invalid username or password.");
     }
 
-    return userRepository
-            .findByUsername(username)
+    User user = userRepository
+            .findByEmailIgnoreCaseAndDeletedAtIsNullWithRole(email)
             .orElseThrow();
+
+    if (!user.isEmailVerified()) {
+        throw new VerifyEmailException("User email is not verified.");
+    }
+
+    return user;
+}
 }`}</CodeBlock>
 
       <h4 className='sub-section-header'>UserDetailsService</h4>
       <p>In order for Spring to know the password hash for the user, you need to implement a custom <code>UserDetailsService</code>.</p>
-      <p>This is also where any other authentication parameters can be retrieved and checked such as roles or account status.</p>
       <CodeBlock language='java'>{`
 @Service
 @RequiredArgsConstructor
@@ -816,12 +895,6 @@ public class CustomUserDetailsService implements UserDetailsService {
             );
         }
 
-        if (!user.isEmailVerified()) {
-            throw new UsernameNotFoundException(
-                    "User email is not verified."
-            );
-        }
-
         return org.springframework.security.core.userdetails.User
                 .withUsername(user.getUsername())
                 .password(user.getPasswordHash())
@@ -835,7 +908,56 @@ public class CustomUserDetailsService implements UserDetailsService {
         <hr/>
       </section>
 
+       {/* Email Verification and SMTP */}
+      <section>
+        <h3 className='section-header' id='email-verification-and-smtp'>Email Verification and SMTP</h3>
+        <p>Spring can send email verification links and other emails by configuring it with an SMTP service provider/server.</p>
+      <h4 className='sub-section-header'>Dependency & Setup</h4>
+      <CodeBlock language='java'>{`
+// pom.xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-mail</artifactId>
+</dependency>
 
+// ======================================================
+// application.yml
+spring:
+  mail:
+    host: <smtp-server-host>
+    port: 587
+    username: \${SMTP_USERNAME}
+    password: \${SMTP_KEY}
+    protocol: smtp
+
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+
+app:
+  auth:
+    email-verification-token-expiration: 24h
+    password-reset-token-expiration: 30m
+  mail:
+    from: no-reply@<hostname>
+    from-name: <sender-name>
+
+  frontend:
+    url: http://localhost:8080
+      `}</CodeBlock>
+
+        <hr/>
+      </section>
+
+        // TODO: Add a section on testing against XSS attacks and security tips
         {/* TESTING AGAINST XSS ATTACKS */}
       <section>
         <h3 className='section-header' id='testing-against-xss-attacks'>Testing Against XSS Attacks</h3>

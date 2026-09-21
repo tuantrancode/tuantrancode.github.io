@@ -17,11 +17,21 @@ export default function JavaLibraries() {
         <ul>
           <li><code>@Data</code> : combination of the following annotations</li>
           <ul>
+            <li><code>@RequiredArgsConstructor</code> : generates a constructor with required arguments for fields that are <code>final</code> or have <code>@NonNull</code></li>
             <li><code>@Getter</code> : generates getter methods for all fields</li>
             <li><code>@Setter</code> : generates setter methods for all non-final fields</li>
             <li><code>@ToString</code> : generates a toString() method with the following default: the class name followed by parentheses containing fields separated by commas, e.g. MyClass(foo=123, bar=234).</li>
             <li><code>@EqualsAndHashCode</code> : generates equals(Object other) and hashCode() methods; uses all non-static and non-transient fields (private/public Type name)</li>
-            <li><code>@RequiredArgsConstructor</code> : generates a constructor with required arguments for fields that are <code>final</code> or have <code>@NonNull</code></li>
+          </ul>
+          <li><code>@@Slf4j</code>: generates a logger instance</li>
+          <ul>
+            <li><code>log.info("message")</code></li>
+            <li><code>log.debug("message")</code></li>
+            <li><code>log.error("message", exception)</code></li>
+            <li><code>log.error("Email: {`{}`} | Password: {`{}`}", email, password, exception)</code></li>
+            <ul>
+              <li><code>{`{}`}</code> are placeholders for the actual values of the variables</li>
+            </ul>
           </ul>
           <li><code>@NoArgsConstructor</code> : generates a no-argument constructor</li>
           <li><code>@AllArgsConstructor</code> : generates a constructor with all fields as parameters</li>

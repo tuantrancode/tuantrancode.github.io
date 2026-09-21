@@ -1128,6 +1128,19 @@ class Cache {
         <h3 className='section-header' id='diagram'>RAG & Wait-Graph Diagram</h3>
         <p>Resource Allocation Graph (RAG) and wait-graph can be used to identify deadlocks in a system: <a href='/Tools/diagram'>Diagram Section</a></p>
       </section>
+
+      {/* SPRING JPA */}
+      <section>
+        <h3 className='section-header' id='spring-jpa'>Spring JPA</h3>
+        <p>Spring Data JPA provides a simple way to access database repositories while avoiding race condition and other concurrency issues.</p>
+        <ul>
+          <li>Avoid race condition: <code>{`@Lock(LockModeType.PESSIMISTIC_WRITE)`}</code> annotation on the repository method will lock the selected row in the database for the duration of the transaction, preventing other transactions from modifying it concurrently</li>
+          <ul>
+            <li>The annotation only lock rows that exist so it can't be used to avoid race condition when inserting new rows</li>
+          </ul>
+          <li>Atomic operation: <code>{`@Transactional`}</code> annotation can mark a method as transactional, making sure the whole operation is all or nothing</li>
+        </ul>
+      </section>
     </>
   );
 }
