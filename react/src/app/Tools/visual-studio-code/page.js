@@ -1,3 +1,4 @@
+import CodeBlock from '@/components/shared/CodeBlock';
 import SearchContainer from '@/components/shared/SearchContainer';
 
 export const metadata = {
@@ -116,13 +117,62 @@ export default function VisualStudioCode() {
             errors to make them easier to read.
           </li>
         </ul>
-
         <hr />
       </section>
 
+               {/* <!-- VS CODE SETTINGS --> */}
+      <h3 className='section-header' id='settings'>
+        VS Code Configuration Files
+      </h3>
+      <ul>
+        <li><code>*.code-workspace</code> : workspace configuration file that defines the structure and settings for a VS Code workspace.</li>
+        <ul>
+          <li>Also used to configure the extensions like setting <code>env</code> file for testing</li>
+        </ul>
+        <CodeBlock language='json'>{`
+{
+  "folders": [
+    {
+      "path": ".",
+    },
+    {
+      "name": "Backend",
+      "path": "spring-backend",
+    },
+    {
+      "name": "Frontend",
+      "path": "frontend-react",
+    },
+    {
+      "name": "Infrastructure",
+      "path": "infra",
+    },
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/target": true,
+      "**/node_modules": true,
+    },
+    "java.test.config": {
+      "name": "Backend Tests",
+      "workingDirectory": "\${workspaceFolder:Backend}",
+      "envFile": "\${workspaceFolder:Backend}/keys/set-env-var.env",
+    },
+    "java.test.defaultConfig": "Backend Tests",
+  },
+}
+        `}</CodeBlock>
+        <li><code>.vscode/launch.json</code> : workspace config file for run profile configurations, <code>env</code> file, and current working directory settings for the whole workspace (multi-projects).</li>
+        <li><code>settings.json</code> : VS Code editor settings file.</li>
+        <ul>
+          <li>The global settings can be accessed by <code>Ctrl + ,</code> or <code>{`File > Preferences > Settings`}</code></li>
+        </ul>
+      </ul>
+      <hr />
+
          {/* <!-- VS CODE SETTINGS --> */}
       <h3 className='section-header' id='settings'>
-        VS Code Settings
+        VS Code settings.json
       </h3>
       <p>
        After installing the extensions, you can configure VS Code settings to customize the editor's behavior and appearance. You can access the <code>settings.json</code> by using the keyboard shortcut <code>Ctrl + ,</code> (Windows/Linux) or <code>Cmd + ,</code> (Mac).
@@ -157,8 +207,6 @@ export default function VisualStudioCode() {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   }, 
       `}</CodeBlock>
-
-
       <hr />
 
       {/* <!-- VS CODE SHORTCUTS --> */}
