@@ -11,62 +11,120 @@ export default function VisualStudioCode() {
   return (
     <>
       {/* EXTENSIONS */}
-<section>
-  <h3 className='section-header' id='extensions'>Extensions</h3>
+      <section>
+        <h3 className='section-header' id='extensions'>
+          Extensions
+        </h3>
 
-  <h4 className='sub-section-header'>General</h4>
-  <ul>
-    <li><code>Todo Tree</code> - <code>gruntfuggly.todo-tree</code>: Highlights <code>TODO</code> and <code>FIXME</code> comments and provides a project-wide Todo Tree view.</li>
-    <li><code>Container Tools</code> - <code>ms-azuretools.container-tools</code>: Provides support for container development: Docker</li>
-    <ul>
-      <li>Allow for managing Docker containers, images, volumes, and networks</li>
-      <li>Dockerfile / Compose editing supports</li>
-    </ul>
-    <li><code>Cline</code> - <code>saoudrizwan.claude-dev</code>: harness for integrating AI model into VS Code.</li>
-    <li><code>GitHub Copilot</code> - <code>github.copilot</code>: AI coding assistant with code completion and generation.</li>
-  </ul>
+        <h4 className='sub-section-header'>General</h4>
+        <ul>
+          <li>
+            <code>Todo Tree</code> - <code>gruntfuggly.todo-tree</code>: Highlights <code>TODO</code> and{' '}
+            <code>FIXME</code> comments and provides a project-wide Todo Tree view.
+          </li>
+          <li>
+            <code>Container Tools</code> - <code>ms-azuretools.container-tools</code>: Provides support for container
+            development: Docker
+          </li>
+          <ul>
+            <li>Allow for managing Docker containers, images, volumes, and networks</li>
+            <li>Dockerfile / Compose editing supports</li>
+          </ul>
+          <li>
+            <code>Cline</code> - <code>saoudrizwan.claude-dev</code>: harness for integrating AI model into VS Code.
+          </li>
+          <li>
+            <code>GitHub Copilot</code> - <code>github.copilot</code>: AI coding assistant with code completion and
+            generation.
+          </li>
+        </ul>
 
-  <h4 className='sub-section-header'>Java / Spring</h4>
-  <ul>
-    <li><code>Extension Pack for Java</code> - <code>vscjava.vscode-java-pack</code>: Provides Java IntelliSense, debugging, testing, and Maven/Gradle support.</li>
-    <li><code>Spring Boot Extension Pack</code> - <code>vmware.vscode-boot-dev-pack</code>: Collection of extensions for developing Spring Boot applications. Includes the following extensions:</li>
-    <ul>
-      <li><code>Language Support for Java™ by Red Hat</code></li>
-      <li><code>Debuger for Java</code></li>
-      <li><code>Test Runner for Java</code></li>
-      <li><code>Maven for Java</code></li>
-      <li><code>Gradle for Java</code></li>
-      <li><code>Project Manager for Java</code></li>
-    </ul>
-    <li><code>Lombok Annotations Support for VS Code</code> - <code>vscjava.vscode-lombok</code>: Provides support for Lombok annotations in VS Code.</li>
-  </ul>
+        <h4 className='sub-section-header'>Java / Spring</h4>
+        <ul>
+          <li>
+            <code>Extension Pack for Java</code> - <code>vscjava.vscode-java-pack</code>: Provides Java IntelliSense,
+            debugging, testing, and Maven/Gradle support.
+          </li>
+          <li>
+            <code>Spring Boot Extension Pack</code> - <code>vmware.vscode-boot-dev-pack</code>: Collection of extensions
+            for developing Spring Boot applications. Includes the following extensions:
+          </li>
+          <ul>
+            <li>
+              <code>Language Support for Java™ by Red Hat</code>
+            </li>
+            <li>
+              <code>Debuger for Java</code>
+            </li>
+            <li>
+              <code>Test Runner for Java</code>
+            </li>
+            <li>
+              <code>Maven for Java</code>
+            </li>
+            <li>
+              <code>Gradle for Java</code>
+            </li>
+            <li>
+              <code>Project Manager for Java</code>
+            </li>
+          </ul>
+          <li>
+            <code>Lombok Annotations Support for VS Code</code> - <code>vscjava.vscode-lombok</code>: Provides support
+            for Lombok annotations in VS Code.
+          </li>
+        </ul>
 
-  <h4 className='sub-section-header'>DevOps</h4>
-  <ul>
-    <li><code>Ansible</code> - <code>redhat.ansible</code>: Provides Ansible module autocomplete, syntax validation, and module documentation on hover.</li>
-    <li><code>YAML</code> - <code>redhat.vscode-yaml</code>: Provides YAML validation, autocomplete, and Kubernetes schema support.</li>
-    <li><code>WSL</code> - <code>ms-tools.wsl</code>: Provides seamless integration with the Windows Subsystem for Linux, allowing developers to work with Linux environments directly from VS Code.</li>
-  </ul>
+        <h4 className='sub-section-header'>DevOps</h4>
+        <ul>
+          <li>
+            <code>Ansible</code> - <code>redhat.ansible</code>: Provides Ansible module autocomplete, syntax validation,
+            and module documentation on hover.
+          </li>
+          <li>
+            <code>YAML</code> - <code>redhat.vscode-yaml</code>: Provides YAML validation, autocomplete, and Kubernetes
+            schema support.
+          </li>
+          <li>
+            <code>WSL</code> - <code>ms-tools.wsl</code>: Provides seamless integration with the Windows Subsystem for
+            Linux, allowing developers to work with Linux environments directly from VS Code.
+          </li>
+        </ul>
 
-  <h4 className='sub-section-header'>Web Dev</h4>
-  <ul>
-    <li><code>Live Server</code> - <code>ritwickdey.liveserver</code>: Runs a local development server and automatically reloads the browser when files change.</li>
-    <li><code>Prettier - Code Formatter</code> - <code>esbenp.prettier-vscode</code>: Formats JavaScript, TypeScript, JSX, JSON, CSS, SCSS, HTML, Markdown, YAML, and other supported formats.</li>
-  </ul>
+        <h4 className='sub-section-header'>Web Dev</h4>
+        <ul>
+          <li>
+            <code>Live Server</code> - <code>ritwickdey.liveserver</code>: Runs a local development server and
+            automatically reloads the browser when files change.
+          </li>
+          <li>
+            <code>Prettier - Code Formatter</code> - <code>esbenp.prettier-vscode</code>: Formats JavaScript,
+            TypeScript, JSX, JSON, CSS, SCSS, HTML, Markdown, YAML, and other supported formats.
+          </li>
+        </ul>
 
-  <h4 className='sub-section-header'>React</h4>
-  <ul>
-    <li><code>ESLint</code> - <code>dbaeumer.vscode-eslint</code>: Provides JavaScript and TypeScript code analysis, syntax checking, and coding-standard enforcement using the project's ESLint configuration.</li>
-    <li><code>Document This</code> - <code>oouo-diogo-perdigao.docthis</code>: Generates documentation templates for JavaScript and TypeScript functions.</li>
-    <li><code>Pretty TypeScript Errors</code> - <code>yoavbls.pretty-ts-errors</code>: Reformats TypeScript compiler errors to make them easier to read.</li>
-  </ul>
+        <h4 className='sub-section-header'>React</h4>
+        <ul>
+          <li>
+            <code>ESLint</code> - <code>dbaeumer.vscode-eslint</code>: Provides JavaScript and TypeScript code analysis,
+            syntax checking, and coding-standard enforcement using the project's ESLint configuration.
+          </li>
+          <li>
+            <code>Document This</code> - <code>oouo-diogo-perdigao.docthis</code>: Generates documentation templates for
+            JavaScript and TypeScript functions.
+          </li>
+          <li>
+            <code>Pretty TypeScript Errors</code> - <code>yoavbls.pretty-ts-errors</code>: Reformats TypeScript compiler
+            errors to make them easier to read.
+          </li>
+        </ul>
 
-  <hr />
-</section>
+        <hr />
+      </section>
 
       {/* <!-- VS CODE SHORTCUTS --> */}
       <h3 className='section-header' id='shortcuts'>
-        Common Visual Studio Shortcuts
+        Common VS Code Shortcuts
       </h3>
       <SearchContainer placeholder='Search actions, shortcuts, or extensions...' searchSelector='tbody tr'>
         <table>
@@ -80,33 +138,97 @@ export default function VisualStudioCode() {
           </thead>
           <tbody>
             <tr>
-              <td>Format Selection</td>
-              <td>Ctrl + K, Ctrl + F</td>
-              <td>Cmd + K, Cmd + F</td>
-              <td></td>
+              <td>Optimize Imports</td>
+              <td>Shift + Alt + O</td>
+              <td>Shift + Option + O</td>
+              <td>Removes unused imports and organizes imports.</td>
             </tr>
+
             <tr>
-              <td>Format Whole Document</td>
+              <td>Reformat Whole Document</td>
               <td>Shift + Alt + F</td>
               <td>Shift + Option + F</td>
-              <td>Very useful. Life or Death</td>
+              <td>Formats the entire file according to the project's configured formatter.</td>
             </tr>
+
             <tr>
-              <td>Search and replace in all files</td>
-              <td>Ctrl + Shift + H</td>
-              <td>Cmd + Shift + H</td>
-              <td>Useful, but make sure to backup project before using.</td>
+              <td>Reformat Selection</td>
+              <td>Ctrl + K, Ctrl + F</td>
+              <td>Cmd + K, Cmd + F</td>
+              <td>Select code first, then use the shortcut to format only the selected code.</td>
             </tr>
+
+            <tr>
+              <td>Split Editor</td>
+              <td>Ctrl + \</td>
+              <td>Cmd + \</td>
+              <td>
+                Splits the current editor into another editor group. You can also right-click the file tab and select
+                "Split Right".
+              </td>
+            </tr>
+
             <tr>
               <td>Find</td>
               <td>Ctrl + F</td>
               <td>Cmd + F</td>
-              <td></td>
+              <td>Search within the current file.</td>
+            </tr>
+
+            <tr>
+              <td>Find &amp; Replace</td>
+              <td>Ctrl + H</td>
+              <td>Option + Cmd + F</td>
+              <td>Search and replace text within the current file.</td>
+            </tr>
+
+            <tr>
+              <td>Find in All Files</td>
+              <td>Ctrl + Shift + F</td>
+              <td>Cmd + Shift + F</td>
+              <td>Search for text throughout the workspace.</td>
+            </tr>
+
+            <tr>
+              <td>Replace in All Files</td>
+              <td>Ctrl + Shift + H</td>
+              <td>Cmd + Shift + H</td>
+              <td>Search and replace text throughout the workspace. Be careful when replacing common terms.</td>
+            </tr>
+
+            <tr>
+              <td>Search Everywhere / Quick Open</td>
+              <td>Ctrl + P</td>
+              <td>Cmd + P</td>
+              <td>
+                Quickly searches for and opens files in the workspace. This is the closest equivalent to IntelliJ's
+                Search Everywhere for file navigation.
+              </td>
             </tr>
             <tr>
-              <td>Find & Replace</td>
-              <td>Ctrl + H</td>
-              <td>Cmd + Option + F</td>
+              <td>Search Commands / Actions</td>
+              <td>Ctrl + Shift + P</td>
+              <td>Cmd + Shift + P</td>
+              <td>Opens the Command Palette to search VS Code commands, actions, settings, and extension commands.</td>
+            </tr>
+
+            <tr>
+              <td>Search Symbols in Workspace</td>
+              <td>Ctrl + T</td>
+              <td>Cmd + T</td>
+              <td>Searches classes, methods, functions, fields, and other symbols throughout the workspace.</td>
+            </tr>
+
+            <tr>
+              <td>Search Symbols in Current File</td>
+              <td>Ctrl + Shift + O</td>
+              <td>Cmd + Shift + O</td>
+              <td>Searches methods, classes, fields, and other symbols in the current file.</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
               <td></td>
             </tr>
             <tr>
@@ -147,12 +269,6 @@ export default function VisualStudioCode() {
               <td>Select All Occurences</td>
               <td>Ctrl + Shift + L</td>
               <td>Cmd + Shift + L</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>Split Editor</td>
-              <td>Ctrl + \</td>
-              <td>Cmd + \</td>
               <td></td>
             </tr>
             <tr>
@@ -200,6 +316,108 @@ export default function VisualStudioCode() {
       </SearchContainer>
       <hr />
 
+      {/* <!-- VS CODE SETTINGS SHORTCUTS --> */}
+      <h3 className='section-header' id='settings-shortcuts'>
+        VS Code Settings Shortcuts
+      </h3>
+
+      <SearchContainer placeholder='Search settings shortcuts...' searchSelector='tbody tr'>
+        <table>
+          <thead>
+            <tr>
+              <th>Action</th>
+              <th>Windows / Linux</th>
+              <th>Mac</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Command Palette</td>
+              <td>Ctrl + Shift + P</td>
+              <td>Cmd + Shift + P</td>
+              <td>Search and run VS Code commands, settings actions, extension commands, and developer tools.</td>
+            </tr>
+
+            <tr>
+              <td>Open Settings</td>
+              <td>Ctrl + ,</td>
+              <td>Cmd + ,</td>
+              <td>Opens the graphical VS Code Settings editor.</td>
+            </tr>
+
+            <tr>
+              <td>Open Keyboard Shortcuts</td>
+              <td>Ctrl + K, Ctrl + S</td>
+              <td>Cmd + K, Cmd + S</td>
+              <td>View, search, add, remove, and override keyboard shortcuts.</td>
+            </tr>
+
+            <tr>
+              <td>Open User Settings JSON</td>
+              <td>Ctrl + Shift + P</td>
+              <td>Cmd + Shift + P</td>
+              <td>Open the Command Palette and run "Preferences: Open User Settings (JSON)".</td>
+            </tr>
+
+            <tr>
+              <td>Open Workspace Settings JSON</td>
+              <td>Ctrl + Shift + P</td>
+              <td>Cmd + Shift + P</td>
+              <td>Open the Command Palette and run "Preferences: Open Workspace Settings (JSON)".</td>
+            </tr>
+
+            <tr>
+              <td>Open Keyboard Shortcuts JSON</td>
+              <td>Ctrl + Shift + P</td>
+              <td>Cmd + Shift + P</td>
+              <td>Open the Command Palette and run "Preferences: Open Keyboard Shortcuts (JSON)".</td>
+            </tr>
+
+            <tr>
+              <td>Extensions</td>
+              <td>Ctrl + Shift + X</td>
+              <td>Cmd + Shift + X</td>
+              <td>Opens the Extensions view to install, remove, enable, or configure extensions.</td>
+            </tr>
+
+            <tr>
+              <td>Toggle Sidebar</td>
+              <td>Ctrl + B</td>
+              <td>Cmd + B</td>
+              <td>Shows or hides the primary sidebar.</td>
+            </tr>
+
+            <tr>
+              <td>Toggle Panel</td>
+              <td>Ctrl + J</td>
+              <td>Cmd + J</td>
+              <td>Shows or hides the bottom panel containing Terminal, Output, Problems, and Debug Console.</td>
+            </tr>
+
+            <tr>
+              <td>Open Quick Open</td>
+              <td>Ctrl + P</td>
+              <td>Cmd + P</td>
+              <td>Quickly search for and open files in the current workspace.</td>
+            </tr>
+
+            <tr>
+              <td>Reload VS Code Window</td>
+              <td>Ctrl + Shift + P</td>
+              <td>Cmd + Shift + P</td>
+              <td>
+                Open the Command Palette and run "Developer: Reload Window". Useful after changing extensions or Java
+                workspace settings.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </SearchContainer>
+
+      <hr />
+
       {/* <!-- LOREM IPSUM --> */}
       <h3 className='section-header' id='lorem'>
         Using Lorem Ipsum
@@ -219,8 +437,7 @@ export default function VisualStudioCode() {
       </pre>
       <hr />
 
-
-      {/* <!-- GITHUB COPILOT --> */}
+         {/* <!-- GITHUB COPILOT --> */}
       <h3 className='section-header' id='githubCopilot'>
         GitHub Copilot
       </h3>
