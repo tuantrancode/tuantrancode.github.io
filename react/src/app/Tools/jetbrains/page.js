@@ -10,6 +10,20 @@ export const metadata = {
 export default function JetbrainsIDEs() {
   return (
     <>
+    {/* PLUGINS  */}
+      <section>
+        <h3 className='section-header' id='plugins'>Plugins</h3>
+        <ul>
+          <li><code>VSCode Keymap</code>: Provides VSCode-style keybindings for IntelliJ IDEA.</li>
+          <li><code>EnvFile</code>: Allows you to assign <code>.env</code> files to your run configurations.</li>
+          <li><code>JPA Buddy</code>: Enhances JPA development experience with code generation and visualization.</li>
+          <li><code>Security Analysis by Qodana</code>: Provides static analysis for code quality and security.</li>
+          <li><code>Python</code> and <code>Python Community Edition</code>: Provides enhanced Python development support.</li>
+        </ul>
+        <hr />
+      </section>
+
+
       {/* <!-- INTELLIJ IDEA SHORTCUTS --> */}
       <h3 className='section-header' id='intellij-shortcuts'>
         IntelliJ IDEA Common Shortcuts

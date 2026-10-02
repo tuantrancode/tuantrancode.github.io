@@ -77,6 +77,16 @@ export default function BrowserTools() {
         </ul>
         <hr />
 
+
+            {/* <!-- STRESS TESTING --> */}
+         <h3 className="section-header" id="stressTesting">Stress Testing</h3>
+        <p>Stress testing involves testing the API under high load conditions to evaluate its performance and stability.</p>
+        <ul>
+          <li>JMeter</li>
+          <li>Locust</li>
+        </ul>
+        <hr />
+
     </>
   );
 }

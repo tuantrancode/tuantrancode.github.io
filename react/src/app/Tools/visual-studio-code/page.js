@@ -10,6 +10,59 @@ export const metadata = {
 export default function VisualStudioCode() {
   return (
     <>
+      {/* EXTENSIONS */}
+<section>
+  <h3 className='section-header' id='extensions'>Extensions</h3>
+
+  <h4 className='sub-section-header'>General</h4>
+  <ul>
+    <li><code>Todo Tree</code> - <code>gruntfuggly.todo-tree</code>: Highlights <code>TODO</code> and <code>FIXME</code> comments and provides a project-wide Todo Tree view.</li>
+    <li><code>Container Tools</code> - <code>ms-azuretools.container-tools</code>: Provides support for container development: Docker</li>
+    <ul>
+      <li>Allow for managing Docker containers, images, volumes, and networks</li>
+      <li>Dockerfile / Compose editing supports</li>
+    </ul>
+    <li><code>Cline</code> - <code>saoudrizwan.claude-dev</code>: harness for integrating AI model into VS Code.</li>
+    <li><code>GitHub Copilot</code> - <code>github.copilot</code>: AI coding assistant with code completion and generation.</li>
+  </ul>
+
+  <h4 className='sub-section-header'>Java / Spring</h4>
+  <ul>
+    <li><code>Extension Pack for Java</code> - <code>vscjava.vscode-java-pack</code>: Provides Java IntelliSense, debugging, testing, and Maven/Gradle support.</li>
+    <li><code>Spring Boot Extension Pack</code> - <code>vmware.vscode-boot-dev-pack</code>: Collection of extensions for developing Spring Boot applications. Includes the following extensions:</li>
+    <ul>
+      <li><code>Language Support for Java™ by Red Hat</code></li>
+      <li><code>Debuger for Java</code></li>
+      <li><code>Test Runner for Java</code></li>
+      <li><code>Maven for Java</code></li>
+      <li><code>Gradle for Java</code></li>
+      <li><code>Project Manager for Java</code></li>
+    </ul>
+    <li><code>Lombok Annotations Support for VS Code</code> - <code>vscjava.vscode-lombok</code>: Provides support for Lombok annotations in VS Code.</li>
+  </ul>
+
+  <h4 className='sub-section-header'>DevOps</h4>
+  <ul>
+    <li><code>Ansible</code> - <code>redhat.ansible</code>: Provides Ansible module autocomplete, syntax validation, and module documentation on hover.</li>
+    <li><code>YAML</code> - <code>redhat.vscode-yaml</code>: Provides YAML validation, autocomplete, and Kubernetes schema support.</li>
+  </ul>
+
+  <h4 className='sub-section-header'>Web Dev</h4>
+  <ul>
+    <li><code>Live Server</code> - <code>ritwickdey.liveserver</code>: Runs a local development server and automatically reloads the browser when files change.</li>
+    <li><code>Prettier - Code Formatter</code> - <code>esbenp.prettier-vscode</code>: Formats JavaScript, TypeScript, JSX, JSON, CSS, SCSS, HTML, Markdown, YAML, and other supported formats.</li>
+  </ul>
+
+  <h4 className='sub-section-header'>React</h4>
+  <ul>
+    <li><code>ESLint</code> - <code>dbaeumer.vscode-eslint</code>: Provides JavaScript and TypeScript code analysis, syntax checking, and coding-standard enforcement using the project's ESLint configuration.</li>
+    <li><code>Document This</code> - <code>oouo-diogo-perdigao.docthis</code>: Generates documentation templates for JavaScript and TypeScript functions.</li>
+    <li><code>Pretty TypeScript Errors</code> - <code>yoavbls.pretty-ts-errors</code>: Reformats TypeScript compiler errors to make them easier to read.</li>
+  </ul>
+
+  <hr />
+</section>
+
       {/* <!-- VS CODE SHORTCUTS --> */}
       <h3 className='section-header' id='shortcuts'>
         Common Visual Studio Shortcuts
@@ -164,105 +217,6 @@ export default function VisualStudioCode() {
         </code>
       </pre>
       <hr />
-
-      {/* <!-- EXTENSIONS --> */}
-      <h3 className='section-header' id='extensions'>
-        Extensions
-      </h3>
-
-      <h4 className="sub-section-header">General</h4>
-      <ul>
-        <li>
-          <strong>Live Server</strong> <code>ritwickdey.liveserver</code> : allow for the website to auto-reload the
-          changes made in code
-        </li>
-        <ul>
-          <li>
-            Mobile testing Setup: in Live Server setting, check the option to "Use Local Ip"; this will allow mobile
-            devices to access the same website by putting in the same url, but make sure the phone is connected to the
-            same Wifi
-          </li>
-        </ul>
-
-        <li>
-          <strong>Prettier - Code formatter</strong> <code>esbenp.prettier-vscode</code> : extremely useful code
-          formatter for a variety of language
-        </li>
-        <ul>
-          <li>
-            Formats JavaScript , TypeScript , Flow , JSX , JSON , CSS , SCSS , Less , HTML , Vue , Angular , HANDLEBARS
-            , Ember , Glimmer , GraphQL , Markdown , YAML
-          </li>
-        </ul>
-
-        <li>
-          <strong>Todo Tree</strong> <code>gruntfuggly.todo-tree</code> : highlight <code>TODO</code> and{' '}
-          <code>FIXME</code> tags, and give a view of all those tags in a project
-        </li>
-        <ul>
-          <li>The Todo Tree can be viewed in the left side panel.</li>
-        </ul>
-
-        <li>
-          <strong>GitHub Copilot</strong> <code>github.copilot</code> : AI assistant
-        </li>
-      </ul>
-      
-       <h4 className="sub-section-header">Ansible / YAML</h4>
-      <ul>
-          <li>Ansible: (<code>redhat.ansible</code>)</li>
-          <ul>
-            <li>Has autocomplete for modules, syntax validation, and hover a module to see its documentation</li>
-          </ul>
-            <li>YAML: (<code>redhat.vscode-yaml</code>)</li>
-          <ul>
-            <li>Has YAML validation, autocomplete, and built-in Kubernetes syntax support</li>
-          </ul>
-      </ul>
-
-       <h4 className="sub-section-header">Javascript / Typescript</h4>
-       <ul>
-        <li>
-          <strong>ESLint</strong> <code>dbaeumer.vscode-eslint</code> : code analysis tool for Javascript and Typescript
-        </li>
-        <ul>
-          <li>
-            Requires the <code>eslint</code> npm package to be installed in the project to work:{' '}
-            <Link href='/Tools/node#eslint'>link</Link>
-          </li>
-          <li>It detect syntax error before compiling the code, enforce coding standards and best practices</li>
-        </ul>
-
-         <li>
-          <strong>Document This</strong> <code>oouo-diogo-perdigao.docthis</code> : create a quick documentation
-          template for a Javascript or Typescript function
-        </li>
-        <ul>
-          <li>
-            Right click the function name and select 'Document This'. Another shortcut is Ctrl + Alt + D, then Ctrl +
-            Alt + D again
-          </li>
-        </ul>
-
-         <li>
-          <strong>Pretty TypeScript Errors</strong> <code>yoavbls.pretty-ts-errors</code> : makes typescript error
-          easier to read
-        </li>
-       </ul>
-     
-
-      <h4 className="sub-section-header">Java</h4>
-      <ul>
-        <li><b>Extension Pack for Java</b> <code>vscjava.vscode-java-pack</code> : provides Java IntelliSense, debugging, testing, Maven/Gradle support</li>
-          <ul>
-            <li>To create a project, type in VS Code command palette: <code>Sprint Initializr: create Gradle project</code> or  <code>Sprint Initializr: create Maven project</code> </li>
-          </ul>
-        <li><b>Spring Boot Extension Pack</b> <code>vmware.vscode-boot-dev-pack</code> : collection of extensions to develop Spring Boot projects</li>
-        <ul>
-          <li><a href="https://spring.io/tools">https://spring.io/tools</a></li>
-        </ul>
-      </ul>
-      <hr/>
 
 
       {/* <!-- GITHUB COPILOT --> */}

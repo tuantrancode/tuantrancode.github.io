@@ -1211,6 +1211,98 @@ System.out.println(editor.getContent()); // Hello
   <hr/>
 </section>
 
+
+{/* PROJECTION PATTERN */}
+<section>
+  <h3 className="section-header" id="projection-pattern">Projection Pattern</h3>
+
+  <li><b>Definition:</b> provide a simplified interface to a complex subsystem</li>
+  <ul>
+    <li><a href="https://refactoring.guru/design-patterns/facade" target="_blank" rel="noopener noreferrer">Facade Pattern - Refactoring Guru</a></li>
+    <li>Use cases:</li>
+    <ul>
+        <li>Provide a simple interface for a complex system</li>
+        <li>Allow you to map between different systems or different representations of the same data</li>
+        <ul>
+          <li>Ex: Mapping between a database and entities (like Spring Data JPA)</li>
+        </ul>
+    </ul>
+  </ul>
+
+  <p>Solr Response Projection Sample</p>
+
+  <CodeBlock language="java">{`
+//            System 1                 Projection<T>                 System 2
+          ┌──────────────┐         ┌──────────────────┐         ┌──────────────┐
+          │    Type A1   │ ──────► │                  │ ──────► │   Type A2    │
+          └──────────────┘         │                  │         └──────────────┘
+                                   │     map(...)     │
+          ┌──────────────┐         │                  │         ┌──────────────┐
+          │    Type B1   │ ──────► │                  │ ──────► │   Type B2    │
+          └──────────────┘         └──────────────────┘         └──────────────┘
+
+// Main query method that needs to return a flexible object depending on which index is queried
+    
+public <T> T query(
+      SolrSearchRequest request,
+      SolrProjection<T> projection) { }
+
+SolrIdScoreResult resultA = query(request, new SolrIdScoreProjection());
+SolrImageResult resultB = query(request, new SolrImageProjection());
+
+// ==============================================================
+
+public interface SolrProjection<T> {
+      T map(SolrDocument document);
+}
+
+// ==============================================================
+// Type A Response Projection
+
+public record SolrIdScoreResult(
+        int id,
+        float score
+) {}
+
+public class SolrIdScoreProjection implements SolrProjection<SolrIdScoreResult> {
+
+  @Override
+    public SolrIdScoreResult map(SolrDocument document) {
+        return new SolrIdScoreResult(
+                (Integer) document.getFieldValue("id"),
+                (Float) document.getFieldValue("score")
+        );
+    }
+  }
+
+}
+
+// ==============================================================
+// Type B Response Projection
+
+public record SolrImageResult(
+        String imageName,
+        String imageUrl
+) {}
+
+public class SolrIImageProjection implements SolrProjection<SolrIImageResult> {
+
+  @Override
+    public SolrImageResult map(SolrDocument document) {
+        return new SolrIImageResult(
+                (String) document.getFieldValue("imageName"),
+                (String) document.getFieldValue("imageUrl")
+        );
+    }
+  }
+
+}
+
+`}</CodeBlock>
+
+  <hr/>
+</section>
+
     </>
   );
 }
