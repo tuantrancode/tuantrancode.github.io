@@ -1,0 +1,419 @@
+1:"$Sreact.fragment"
+2:I[79520,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/2bd62557d5d21956.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],""]
+3:I[35974,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/2bd62557d5d21956.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"ThemeProvider"]
+4:I[20908,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/2bd62557d5d21956.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"default"]
+5:I[39756,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/2bd62557d5d21956.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"default"]
+6:I[37457,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/2bd62557d5d21956.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"default"]
+10:I[68027,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/2bd62557d5d21956.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"default"]
+:HL["/_next/static/chunks/01ccb2bdd09c7699.css","style"]
+0:{"P":null,"b":"_lVujJu_wcQr-xy4MKDWT","p":"","c":["","Java","java-observability"],"i":false,"f":[[["",{"children":["Java",{"children":["java-observability",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/01ccb2bdd09c7699.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/f3af76091b908de4.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/2bd62557d5d21956.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/7dd66bdf8a7e5707.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"dark","children":[["$","head",null,{"children":[["$","style",null,{"children":"\n        "}],["$","$L2",null,{"id":"theme-script","strategy":"beforeInteractive","children":"\n            (function() {\n              const theme = localStorage.getItem('data-theme') || 'dark';\n              document.documentElement.dataset.theme = theme;\n              document.documentElement.setAttribute('data-theme', theme);\n            })();\n          "}]]}],["$","body",null,{"id":"root","children":["$","$L3",null,{"children":["$","$L4",null,{"children":["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}]]}],{"children":["Java",["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["java-observability",["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[[["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"observability","children":"Observability"}],["$","p",null,{"children":"Observability is the ability to understand the internal state of a system based on the data it produces, such as logs, metrics, and traces. In Java applications, observability can be achieved through various tools and libraries that help developers monitor and debug their applications effectively."}],["$","ul",null,{"children":[["$","li",null,{"children":[["$","code",null,{"children":"Traces"}]," : Data that shows the path and time of a request as it moves through different services."]}],["$","li",null,{"children":[["$","code",null,{"children":"Metrics"}]," : Data that provide information about the system's health, performance, and behavior."]}]]}],["$","p",null,{"children":"Examples: showing the time the parts of a request take and aggregating them"}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"<span class=\"token constant\">POST</span> <span class=\"token operator\">/</span>internal<span class=\"token operator\">/</span>anime                    420ms\n│\n├── anime<span class=\"token punctuation\">.</span>insert                        130ms\n│   ├── postgres                        18ms\n│   └── character<span class=\"token punctuation\">.</span>insert                72ms\n│\n└── anime<span class=\"token punctuation\">.</span>index                         270ms\n    ├── postgres queries                 45ms\n    ├── anime<span class=\"token punctuation\">.</span>index<span class=\"token punctuation\">.</span>build<span class=\"token operator\">-</span>documents      21ms\n    └── solr update                     196ms"}}]}],"$L7"]}],"$L8","$L9","$La","$Lb","$Lc","$Ld"],null,"$Le"]}],{},null,false]},null,false]},null,false]},null,false],"$Lf",false]],"m":"$undefined","G":["$10",["$L11"]],"s":false,"S":true}
+29:I[97367,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/2bd62557d5d21956.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"OutletBoundary"]
+2b:I[11533,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/2bd62557d5d21956.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"AsyncMetadataOutlet"]
+2d:I[97367,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/2bd62557d5d21956.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"ViewportBoundary"]
+2f:I[97367,["/_next/static/chunks/f3af76091b908de4.js","/_next/static/chunks/2bd62557d5d21956.js","/_next/static/chunks/7dd66bdf8a7e5707.js"],"MetadataBoundary"]
+30:"$Sreact.suspense"
+7:["$","hr",null,{}]
+12:T562,<span class="token comment">// Simple Architecture for Observability in Spring Boot</span>
+
+                              Spring Boot
+                                  │
+             ┌────────────────────┼────────────────────┐
+             │                    │                    │
+          <span class="token constant">TRACES</span>               <span class="token constant">METRICS</span>               <span class="token constant">LOGS</span>
+             │                    │                    │
+      OpenTelemetry           Micrometer          Logback<span class="token operator">/</span><span class="token constant">SLF4J</span>
+             │                    │                    │
+             │                    │              Grafana Alloy
+             │                    │                    │
+             ▼                    ▼                    ▼
+           Tempo              Prometheus              Loki
+             │                    │                    │
+             └────────────────────┼────────────────────┘
+                                  │
+                                  ▼
+                               Grafana13:T1694,<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> Observability <span class="token operator">--</span><span class="token operator">></span>
+
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> Spring Micrometer <span class="token operator">--</span><span class="token operator">></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span><span class="token plain-text">io.micrometer</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span><span class="token plain-text">micrometer-tracing-bridge-otel</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span><span class="token plain-text">
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> OpenTelemetry <span class="token operator">--</span><span class="token operator">></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span><span class="token plain-text">io.opentelemetry</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span><span class="token plain-text">opentelemetry-exporter-otlp</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span><span class="token plain-text">
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> Actuator <span class="token operator">--</span><span class="token operator">></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span><span class="token plain-text">org.springframework.boot</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span><span class="token plain-text">spring-boot-starter-actuator</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span><span class="token plain-text">
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> Lombok<span class="token operator">/</span><span class="token constant">SLF4J</span> <span class="token operator">--</span><span class="token operator">></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span><span class="token plain-text">org.projectlombok</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span><span class="token plain-text">lombok</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span><span class="token plain-text">
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>8:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"simple-setup","children":"Simple Setup"}],["$","p",null,{"children":"A simple setup to use with Spring Boot is with the following setup:"}],["$","ul",null,{"children":[["$","li",null,{"children":[["$","code",null,{"children":"Spring Micrometer"}]," : An observability abstraction that simplifies the process of adding metrics to your application."]}],["$","ul",null,{"children":[["$","li",null,{"children":[["$","code",null,{"children":"OpenTelemetry"}]," : a framework Micrometer can integrate with for tracing"]}],["$","li",null,{"children":[["$","code",null,{"children":"Actuator"}]," : provides health checks, metrics, and operational information of your Spring system during runtime"]}],["$","li",null,{"children":[["$","code",null,{"children":"Grafana Alloy"}]," : collect logs from ",["$","code",null,{"children":"Logback/SLF4J"}]," and send them to a "]}],["$","ul",null,{"children":["$","li",null,{"children":"Can also collect system operation information: CPU, RAM, disk, and Solr/ZooKeeper/PostgreSQL metrics so it can be used to monitor database performance"}]}]]}],["$","li",null,{"children":[["$","code",null,{"children":"Tempo"}]," : stores the trace produced by OpenTelemetry."]}],["$","li",null,{"children":[["$","code",null,{"children":"Prometheus"}]," : stores the metrics produced by Spring Micrometer."]}],["$","li",null,{"children":[["$","code",null,{"children":"Loki"}]," : stores the logs produced by Logback/SLF4J."]}],["$","li",null,{"children":[["$","code",null,{"children":"Grafana"}]," : visualizes the traces, metrics, and logs stored in their respective systems."]}]]}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$12"}}]}],["$","hr",null,{}],["$","h4",null,{"className":"sub-section-header","children":"Implementation:"}],["$","p",null,{"children":"Dependencies:"}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$13"}}]}],"$L14","$L15","$L16","$L17"]}]
+18:T2573,<span class="token literal-property property">services</span><span class="token operator">:</span>
+
+  <span class="token literal-property property">grafana</span><span class="token operator">:</span>
+    <span class="token literal-property property">image</span><span class="token operator">:</span> grafana<span class="token operator">/</span>grafana<span class="token operator">:</span>latest
+    <span class="token literal-property property">container_name</span><span class="token operator">:</span> grafana
+
+    <span class="token literal-property property">ports</span><span class="token operator">:</span>
+      # <span class="token constant">HOST</span><span class="token operator">:</span><span class="token constant">CONTAINER</span>
+      # Open Grafana at http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token operator">:</span><span class="token number">3000</span>
+      <span class="token operator">-</span> <span class="token string">"3000:3000"</span>
+
+    <span class="token literal-property property">volumes</span><span class="token operator">:</span>
+      # Persist Grafana dashboards<span class="token punctuation">,</span> users<span class="token punctuation">,</span> data<span class="token operator">-</span>source configuration<span class="token punctuation">,</span> etc<span class="token punctuation">.</span>
+      <span class="token operator">-</span> grafana<span class="token operator">-</span>data<span class="token operator">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>lib<span class="token operator">/</span>grafana
+
+    <span class="token literal-property property">depends_on</span><span class="token operator">:</span>
+      <span class="token operator">-</span> prometheus
+      <span class="token operator">-</span> tempo
+      <span class="token operator">-</span> loki
+
+
+  <span class="token literal-property property">prometheus</span><span class="token operator">:</span>
+    <span class="token literal-property property">image</span><span class="token operator">:</span> prom<span class="token operator">/</span>prometheus<span class="token operator">:</span>latest
+    <span class="token literal-property property">container_name</span><span class="token operator">:</span> prometheus
+
+    <span class="token literal-property property">ports</span><span class="token operator">:</span>
+      # Prometheus web <span class="token constant">UI</span><span class="token operator">/</span><span class="token constant">API</span><span class="token operator">:</span>
+      # http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token operator">:</span><span class="token number">9090</span>
+      <span class="token operator">-</span> <span class="token string">"9090:9090"</span>
+
+    <span class="token literal-property property">volumes</span><span class="token operator">:</span>
+      # Prometheus configuration<span class="token punctuation">.</span>
+      # Determines <span class="token constant">WHERE</span> Prometheus gets metrics from<span class="token punctuation">.</span>
+      <span class="token operator">-</span> <span class="token punctuation">.</span><span class="token operator">/</span>prometheus<span class="token punctuation">.</span>yml<span class="token operator">:</span><span class="token operator">/</span>etc<span class="token operator">/</span>prometheus<span class="token operator">/</span>prometheus<span class="token punctuation">.</span>yml<span class="token operator">:</span>ro
+
+      # Persist collected metric<span class="token operator">/</span>time<span class="token operator">-</span>series data<span class="token punctuation">.</span>
+      <span class="token operator">-</span> prometheus<span class="token operator">-</span>data<span class="token operator">:</span><span class="token operator">/</span>prometheus
+
+    <span class="token literal-property property">command</span><span class="token operator">:</span>
+      # Tell Prometheus which configuration file to load<span class="token punctuation">.</span>
+      <span class="token operator">-</span> <span class="token string">"--config.file=/etc/prometheus/prometheus.yml"</span>
+
+
+  <span class="token literal-property property">tempo</span><span class="token operator">:</span>
+    <span class="token literal-property property">image</span><span class="token operator">:</span> grafana<span class="token operator">/</span>tempo<span class="token operator">:</span>latest
+    <span class="token literal-property property">container_name</span><span class="token operator">:</span> tempo
+
+    <span class="token literal-property property">ports</span><span class="token operator">:</span>
+      # Tempo <span class="token constant">HTTP</span> <span class="token constant">API</span><span class="token punctuation">.</span>
+      # Grafana uses <span class="token keyword">this</span> to query Tempo<span class="token punctuation">.</span>
+      <span class="token operator">-</span> <span class="token string">"3200:3200"</span>
+
+      # OpenTelemetry <span class="token constant">OTLP</span> gRPC receiver<span class="token punctuation">.</span>
+      # Applications<span class="token operator">/</span>collectors can send traces here<span class="token punctuation">.</span>
+      <span class="token operator">-</span> <span class="token string">"4317:4317"</span>
+
+      # OpenTelemetry <span class="token constant">OTLP</span> <span class="token constant">HTTP</span> receiver<span class="token punctuation">.</span>
+      # Applications<span class="token operator">/</span>collectors can send traces here<span class="token punctuation">.</span>
+      <span class="token operator">-</span> <span class="token string">"4318:4318"</span>
+
+    <span class="token literal-property property">volumes</span><span class="token operator">:</span>
+      # Tempo configuration<span class="token punctuation">.</span>
+      <span class="token operator">-</span> <span class="token punctuation">.</span><span class="token operator">/</span>tempo<span class="token punctuation">.</span>yml<span class="token operator">:</span><span class="token operator">/</span>etc<span class="token operator">/</span>tempo<span class="token punctuation">.</span>yml<span class="token operator">:</span>ro
+
+      # Persist trace data<span class="token punctuation">.</span>
+      <span class="token operator">-</span> tempo<span class="token operator">-</span>data<span class="token operator">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>tempo
+
+    <span class="token literal-property property">command</span><span class="token operator">:</span>
+      <span class="token operator">-</span> <span class="token string">"-config.file=/etc/tempo.yml"</span>
+
+
+  <span class="token literal-property property">loki</span><span class="token operator">:</span>
+    <span class="token literal-property property">image</span><span class="token operator">:</span> grafana<span class="token operator">/</span>loki<span class="token operator">:</span>latest
+    <span class="token literal-property property">container_name</span><span class="token operator">:</span> loki
+
+    <span class="token literal-property property">ports</span><span class="token operator">:</span>
+      # Loki <span class="token constant">HTTP</span> <span class="token constant">API</span><span class="token punctuation">.</span>
+      #
+      # Alloy sends logs to <span class="token keyword">this</span> <span class="token constant">API</span><span class="token punctuation">.</span>
+      # Grafana also queries Loki through <span class="token keyword">this</span> port<span class="token punctuation">.</span>
+      <span class="token operator">-</span> <span class="token string">"3100:3100"</span>
+
+    <span class="token literal-property property">volumes</span><span class="token operator">:</span>
+      # Loki configuration<span class="token punctuation">.</span>
+      <span class="token operator">-</span> <span class="token punctuation">.</span><span class="token operator">/</span>loki<span class="token punctuation">.</span>yml<span class="token operator">:</span><span class="token operator">/</span>etc<span class="token operator">/</span>loki<span class="token operator">/</span>local<span class="token operator">-</span>config<span class="token punctuation">.</span>yaml<span class="token operator">:</span>ro
+
+      # Persist logs<span class="token operator">/</span>index data<span class="token punctuation">.</span>
+      <span class="token operator">-</span> loki<span class="token operator">-</span>data<span class="token operator">:</span><span class="token operator">/</span>loki
+
+    <span class="token literal-property property">command</span><span class="token operator">:</span>
+      <span class="token operator">-</span> <span class="token string">"-config.file=/etc/loki/local-config.yaml"</span>
+
+
+<span class="token literal-property property">volumes</span><span class="token operator">:</span>
+  grafana<span class="token operator">-</span>data<span class="token operator">:</span>
+  prometheus<span class="token operator">-</span>data<span class="token operator">:</span>
+  tempo<span class="token operator">-</span>data<span class="token operator">:</span>
+  loki<span class="token operator">-</span>data<span class="token operator">:</span>9:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"grafana-docker-compose-configuration","children":"Grafana Docker Compose Configuration"}],["$","p",null,{"children":"A sample docker-compose configuration for Tempo, Prometheus, Loki, and Grafana:"}],["$","p",null,{"children":["$","code",null,{"children":"docker-compose.yml"}]}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$18"}}]}],"$L19","$L1a","$L1b","$L1c"]}]
+1d:T843,<span class="token literal-property property">global</span><span class="token operator">:</span>
+
+  # How often Prometheus requests metrics from targets<span class="token punctuation">.</span>
+  <span class="token literal-property property">scrape_interval</span><span class="token operator">:</span> 15s
+
+
+<span class="token literal-property property">scrape_configs</span><span class="token operator">:</span>
+
+  <span class="token operator">-</span> job_name<span class="token operator">:</span> <span class="token string">"spring-backend"</span>
+
+    # <span class="token constant">URL</span> path Prometheus requests <span class="token keyword">for</span> metrics<span class="token punctuation">.</span>
+    #
+    # Spring Boot Actuator <span class="token operator">+</span> Micrometer exposes<span class="token operator">:</span>
+    #
+    # <span class="token constant">GET</span> <span class="token operator">/</span>actuator<span class="token operator">/</span>prometheus
+    #
+    <span class="token literal-property property">metrics_path</span><span class="token operator">:</span> <span class="token string">"/actuator/prometheus"</span>
+
+    <span class="token literal-property property">static_configs</span><span class="token operator">:</span>
+
+      # Spring is running on the host machine <span class="token keyword">while</span>
+      # Prometheus is inside Docker<span class="token punctuation">.</span>
+      #
+      # Prometheus will therefore request<span class="token operator">:</span>
+      #
+      # http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>host<span class="token punctuation">.</span>docker<span class="token punctuation">.</span>internal<span class="token operator">:</span><span class="token number">8080</span><span class="token operator">/</span>actuator<span class="token operator">/</span>prometheus
+      #
+      <span class="token operator">-</span> targets<span class="token operator">:</span>
+          <span class="token operator">-</span> <span class="token string">"host.docker.internal:8080"</span>a:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"prometheus-configuration","children":"Prometheus Configuration"}],["$","p",null,{"children":["$","code",null,{"children":"prometheus.yml"}]}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$1d"}}]}],["$","hr",null,{}]]}]
+1e:T1073,<span class="token literal-property property">server</span><span class="token operator">:</span>
+
+  # Tempo's own <span class="token constant">HTTP</span> <span class="token constant">API</span><span class="token punctuation">.</span>
+  #
+  # Grafana queries Tempo through <span class="token keyword">this</span> port<span class="token punctuation">.</span>
+  <span class="token literal-property property">http_listen_port</span><span class="token operator">:</span> <span class="token number">3200</span>
+
+
+<span class="token literal-property property">distributor</span><span class="token operator">:</span>
+
+  <span class="token literal-property property">receivers</span><span class="token operator">:</span>
+
+    # Enable the OpenTelemetry <span class="token function">Protocol</span> <span class="token punctuation">(</span><span class="token constant">OTLP</span><span class="token punctuation">)</span> receiver<span class="token punctuation">.</span>
+    <span class="token literal-property property">otlp</span><span class="token operator">:</span>
+
+      <span class="token literal-property property">protocols</span><span class="token operator">:</span>
+
+        <span class="token literal-property property">grpc</span><span class="token operator">:</span>
+
+          # Receive <span class="token constant">OTLP</span> traces using gRPC<span class="token punctuation">.</span>
+          #
+          # Port <span class="token number">4317</span> is the standard <span class="token constant">OTLP</span> gRPC port<span class="token punctuation">.</span>
+          #
+          # <span class="token number">0.0</span><span class="token number">.0</span><span class="token number">.0</span> means listen on all interfaces
+          # inside the container<span class="token punctuation">.</span>
+          <span class="token literal-property property">endpoint</span><span class="token operator">:</span> <span class="token number">0.0</span><span class="token number">.0</span><span class="token number">.0</span><span class="token operator">:</span><span class="token number">4317</span>
+
+        <span class="token literal-property property">http</span><span class="token operator">:</span>
+
+          # Receive <span class="token constant">OTLP</span> traces using <span class="token constant">HTTP</span><span class="token punctuation">.</span>
+          #
+          # Port <span class="token number">4318</span> is the standard <span class="token constant">OTLP</span> <span class="token constant">HTTP</span> port<span class="token punctuation">.</span>
+          <span class="token literal-property property">endpoint</span><span class="token operator">:</span> <span class="token number">0.0</span><span class="token number">.0</span><span class="token number">.0</span><span class="token operator">:</span><span class="token number">4318</span>
+
+
+<span class="token literal-property property">storage</span><span class="token operator">:</span>
+
+  <span class="token literal-property property">trace</span><span class="token operator">:</span>
+
+    # Store traces on the local filesystem<span class="token punctuation">.</span>
+    #
+    # Good <span class="token keyword">for</span> a simple single<span class="token operator">-</span>server<span class="token operator">/</span>dev setup<span class="token punctuation">.</span>
+    <span class="token literal-property property">backend</span><span class="token operator">:</span> local
+
+    <span class="token literal-property property">local</span><span class="token operator">:</span>
+
+      # Directory where Tempo writes trace data<span class="token punctuation">.</span>
+      #
+      # docker<span class="token operator">-</span>compose maps <span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>tempo to
+      # the tempo<span class="token operator">-</span>data Docker volume<span class="token punctuation">.</span>
+      <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>tempo<span class="token operator">/</span>tracesb:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"tempo-configuration","children":"Tempo Configuration"}],["$","p",null,{"children":["$","code",null,{"children":"tempo.yml"}]}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$1e"}}]}],"$L1f"]}]
+20:T145c,# Disable multi<span class="token operator">-</span>tenant authentication<span class="token punctuation">.</span>
+#
+# Convenient <span class="token keyword">for</span> local development<span class="token punctuation">.</span>
+# Don't expose <span class="token keyword">this</span> publicly <span class="token keyword">as</span><span class="token operator">-</span>is<span class="token punctuation">.</span>
+<span class="token literal-property property">auth_enabled</span><span class="token operator">:</span> <span class="token boolean">false</span>
+
+
+<span class="token literal-property property">server</span><span class="token operator">:</span>
+
+  # Loki <span class="token constant">HTTP</span> <span class="token constant">API</span><span class="token punctuation">.</span>
+  #
+  # Alloy sends logs here<span class="token punctuation">.</span>
+  # Grafana queries logs here<span class="token punctuation">.</span>
+  <span class="token literal-property property">http_listen_port</span><span class="token operator">:</span> <span class="token number">3100</span>
+
+
+<span class="token literal-property property">common</span><span class="token operator">:</span>
+
+  # Base directory Loki uses <span class="token keyword">for</span> local data<span class="token punctuation">.</span>
+  #
+  # docker<span class="token operator">-</span>compose maps <span class="token operator">/</span>loki to loki<span class="token operator">-</span>data<span class="token punctuation">.</span>
+  <span class="token literal-property property">path_prefix</span><span class="token operator">:</span> <span class="token operator">/</span>loki
+
+  # We only have one Loki instance<span class="token punctuation">.</span>
+  <span class="token literal-property property">replication_factor</span><span class="token operator">:</span> <span class="token number">1</span>
+
+  <span class="token literal-property property">ring</span><span class="token operator">:</span>
+
+    # Address used by <span class="token keyword">this</span> Loki instance<span class="token punctuation">.</span>
+    <span class="token literal-property property">instance_addr</span><span class="token operator">:</span> <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>
+
+    <span class="token literal-property property">kvstore</span><span class="token operator">:</span>
+
+      # Keep the ring information <span class="token keyword">in</span> memory<span class="token punctuation">.</span>
+      #
+      # Fine <span class="token keyword">for</span> a simple single<span class="token operator">-</span>instance setup<span class="token punctuation">.</span>
+      <span class="token literal-property property">store</span><span class="token operator">:</span> inmemory
+
+
+<span class="token literal-property property">schema_config</span><span class="token operator">:</span>
+
+  <span class="token literal-property property">configs</span><span class="token operator">:</span>
+
+    <span class="token operator">-</span> from<span class="token operator">:</span> <span class="token number">2024</span><span class="token operator">-</span><span class="token number">01</span><span class="token operator">-</span><span class="token number">01</span>
+
+      # Use Loki's <span class="token constant">TSDB</span> index format<span class="token punctuation">.</span>
+      <span class="token literal-property property">store</span><span class="token operator">:</span> tsdb
+
+      # Store log chunks on the local filesystem<span class="token punctuation">.</span>
+      <span class="token literal-property property">object_store</span><span class="token operator">:</span> filesystem
+
+      # Current Loki schema version used by <span class="token keyword">this</span> config<span class="token punctuation">.</span>
+      <span class="token literal-property property">schema</span><span class="token operator">:</span> v13
+
+      <span class="token literal-property property">index</span><span class="token operator">:</span>
+
+        # Prefix used <span class="token keyword">for</span> Loki's indexes<span class="token punctuation">.</span>
+        <span class="token literal-property property">prefix</span><span class="token operator">:</span> index_
+
+        # Create index periods <span class="token keyword">of</span> <span class="token number">24</span> hours<span class="token punctuation">.</span>
+        <span class="token literal-property property">period</span><span class="token operator">:</span> 24h
+
+
+<span class="token literal-property property">storage_config</span><span class="token operator">:</span>
+
+  <span class="token literal-property property">filesystem</span><span class="token operator">:</span>
+
+    # Actual log chunk storage location<span class="token punctuation">.</span>
+    #
+    # Because <span class="token operator">/</span>loki is persisted by Docker<span class="token punctuation">,</span>
+    # logs survive container restarts<span class="token punctuation">.</span>
+    <span class="token literal-property property">directory</span><span class="token operator">:</span> <span class="token operator">/</span>loki<span class="token operator">/</span>chunksc:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"loki-configuration","children":"Loki Configuration"}],["$","p",null,{"children":["$","code",null,{"children":"loki.yml"}]}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$20"}}]}],"$L21"]}]
+22:T9e1,<span class="token literal-property property">services</span><span class="token operator">:</span>
+
+  spring<span class="token operator">-</span>backend<span class="token operator">:</span>
+    <span class="token literal-property property">image</span><span class="token operator">:</span> your<span class="token operator">-</span>spring<span class="token operator">-</span>backend
+    <span class="token literal-property property">container_name</span><span class="token operator">:</span> spring<span class="token operator">-</span>backend
+
+  <span class="token literal-property property">alloy</span><span class="token operator">:</span>
+    <span class="token literal-property property">image</span><span class="token operator">:</span> grafana<span class="token operator">/</span>alloy<span class="token operator">:</span>latest
+    <span class="token literal-property property">container_name</span><span class="token operator">:</span> alloy
+    <span class="token literal-property property">volumes</span><span class="token operator">:</span>
+      # Alloy configuration
+      <span class="token operator">-</span> <span class="token punctuation">.</span><span class="token operator">/</span>alloy<span class="token operator">/</span>config<span class="token punctuation">.</span>alloy<span class="token operator">:</span><span class="token operator">/</span>etc<span class="token operator">/</span>alloy<span class="token operator">/</span>config<span class="token punctuation">.</span>alloy<span class="token operator">:</span>ro
+
+      # Gives Alloy access to Docker container logs<span class="token punctuation">.</span>
+      <span class="token operator">-</span> <span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>lib<span class="token operator">/</span>docker<span class="token operator">/</span>containers<span class="token operator">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>lib<span class="token operator">/</span>docker<span class="token operator">/</span>containers<span class="token operator">:</span>ro
+
+    <span class="token literal-property property">command</span><span class="token operator">:</span>
+      <span class="token operator">-</span> run
+      <span class="token operator">-</span> <span class="token operator">/</span>etc<span class="token operator">/</span>alloy<span class="token operator">/</span>config<span class="token punctuation">.</span>alloyd:["$","section",null,{"children":[["$","h3",null,{"className":"section-header","id":"grafana-alloy-configuration","children":"Grafana Alloy Configuration"}],["$","p",null,{"children":"Grafana Alloy has to be run on the same server as the application it's monitoring."}],["$","br",null,{}],["$","h4",null,{"className":"sub-section-header","children":"Alloy with Docker Compose:"}],["$","p",null,{"children":["Sample Docker Compose file to setup Grafana Alloy with Spring ",["$","code",null,{"children":"docker-compose.yml"}]]}],["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$22"}}]}],["$","br",null,{}],["$","h4",null,{"className":"sub-section-header","children":"Alloy on Ubuntu:"}],["$","p",null,{"children":["$","a",null,{"href":"https://grafana.com/docs/alloy/latest/setup/install/","target":"_blank","rel":"noopener noreferrer","children":"Grafana Alloy Installation Guide"}]}],"$L23","$L24","$L25","$L26","$L27","$L28"]}]
+e:["$","$L29",null,{"children":["$L2a",["$","$L2b",null,{"promise":"$@2c"}]]}]
+f:["$","$1","h",{"children":[null,[["$","$L2d",null,{"children":"$L2e"}],null],["$","$L2f",null,{"children":["$","div",null,{"hidden":true,"children":["$","$30",null,{"fallback":null,"children":"$L31"}]}]}]]}]
+11:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/01ccb2bdd09c7699.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+14:["$","p",null,{"children":"Code Implementation:"}]
+15:["$","ul",null,{"children":[["$","li",null,{"children":["use ",["$","code",null,{"children":"@Observed(name = \"trace-name\")"}]," annotation to mark methods for observability"]}],["$","li",null,{"children":["use ",["$","code",null,{"children":"log.error(\"Error occurred\", exception)"}]," for logging errors"]}],["$","ul",null,{"children":["$","li",null,{"children":[["$","code",null,{"children":"Grafana Alloy"}]," : needs to be run as a separate service on the same server as the Spring Boot application to collect the logs"]}]}],["$","li",null,{"children":"metrics doesn't need any code implementation for basic usage"}]]}]
+32:Ta08,<span class="token comment">// Trace Implementation Example</span>
+
+@<span class="token function">Observed</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"anime.index"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">indexBatch</span><span class="token punctuation">(</span>Map<span class="token operator">&lt;</span>Integer<span class="token punctuation">,</span> Set<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span></span><span class="token punctuation">></span></span><span class="token plain-text">> requests) </span><span class="token punctuation">{</span>
+    <span class="token operator">...</span>
+<span class="token punctuation">}</span><span class="token plain-text">
+    
+@Observed(name = "anime.index.build-documents")
+private List</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">SolrInputDocument</span></span><span class="token punctuation">></span></span><span class="token plain-text"> buildDocuments(...) </span><span class="token punctuation">{</span>
+    <span class="token operator">...</span>
+<span class="token punctuation">}</span><span class="token plain-text">
+
+// ================================================================
+
+// Logging Implementation Example
+
+@Slf4j
+public class ... </span><span class="token punctuation">{</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+    solrClient<span class="token punctuation">.</span><span class="token function">index</span><span class="token punctuation">(</span>documents<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>Exception e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    log<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">"Failed to index documents"</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">throw</span> e<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>16:["$","pre",null,{"className":"language-java","children":["$","code",null,{"className":"language-java","dangerouslySetInnerHTML":{"__html":"$32"}}]}]
+17:["$","hr",null,{}]
+19:["$","br",null,{}]
+1a:["$","p",null,{"children":"It exposes the following endpoints:"}]
+33:T5e5,Grafana       http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token operator">:</span><span class="token number">3000</span>
+Prometheus    http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token operator">:</span><span class="token number">9090</span>
+Tempo <span class="token constant">API</span>     <span class="token literal-property property">http</span><span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token operator">:</span><span class="token number">3200</span>
+
+<span class="token constant">OTLP</span> gRPC     localhost<span class="token operator">:</span><span class="token number">4317</span>
+<span class="token constant">OTLP</span> <span class="token constant">HTTP</span>     <span class="token literal-property property">http</span><span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token operator">:</span><span class="token number">4318</span>
+
+Loki <span class="token constant">API</span>      <span class="token literal-property property">http</span><span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token operator">:</span><span class="token number">3100</span>1b:["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$33"}}]}]
+1c:["$","hr",null,{}]
+1f:["$","hr",null,{}]
+21:["$","hr",null,{}]
+23:["$","p",null,{"children":"Sample commands to setup Grafana Alloy on Ubuntu:"}]
+34:T646,sudo apt install gpg
+
+sudo mkdir <span class="token operator">-</span>p <span class="token operator">/</span>etc<span class="token operator">/</span>apt<span class="token operator">/</span>keyrings
+
+sudo wget <span class="token operator">-</span><span class="token constant">O</span> <span class="token operator">/</span>etc<span class="token operator">/</span>apt<span class="token operator">/</span>keyrings<span class="token operator">/</span>grafana<span class="token punctuation">.</span>asc   https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>apt<span class="token punctuation">.</span>grafana<span class="token punctuation">.</span>com<span class="token operator">/</span>gpg<span class="token operator">-</span>full<span class="token punctuation">.</span>key
+
+sudo chmod <span class="token number">644</span> <span class="token operator">/</span>etc<span class="token operator">/</span>apt<span class="token operator">/</span>keyrings<span class="token operator">/</span>grafana<span class="token punctuation">.</span>asc
+
+echo <span class="token string">"deb [signed-by=/etc/apt/keyrings/grafana.asc] https://apt.grafana.com stable main"</span>   <span class="token operator">|</span> sudo tee <span class="token operator">/</span>etc<span class="token operator">/</span>apt<span class="token operator">/</span>sources<span class="token punctuation">.</span>list<span class="token punctuation">.</span>d<span class="token operator">/</span>grafana<span class="token punctuation">.</span>list
+
+sudo apt update
+sudo apt install alloy24:["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$34"}}]}]
+25:["$","br",null,{}]
+26:["$","p",null,{"children":["Sample config file: ",["$","code",null,{"children":"/etc/alloy/config.alloy"}]]}]
+35:T895,<span class="token comment">// Read logs from the Solr systemd service.</span>
+loki<span class="token punctuation">.</span>source<span class="token punctuation">.</span>journal <span class="token string">"solr"</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Only collect logs belonging to solr.service.</span>
+    matches <span class="token operator">=</span> <span class="token string">"_SYSTEMD_UNIT=solr.service"</span>
+
+    <span class="token comment">// Add a useful label to every log.</span>
+    labels <span class="token operator">=</span> <span class="token punctuation">{</span>
+        service <span class="token operator">=</span> <span class="token string">"solr"</span><span class="token punctuation">,</span>
+        server  <span class="token operator">=</span> <span class="token string">"solr-prod"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Send collected logs to the Loki writer below.</span>
+    forward_to <span class="token operator">=</span> <span class="token punctuation">[</span>
+        loki<span class="token punctuation">.</span>write<span class="token punctuation">.</span>central<span class="token punctuation">.</span>receiver<span class="token punctuation">,</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// Send logs to your central Loki server.</span>
+loki<span class="token punctuation">.</span>write <span class="token string">"central"</span> <span class="token punctuation">{</span>
+    endpoint <span class="token punctuation">{</span>
+        <span class="token comment">// Replace this with your Loki server's private IP/DNS name.</span>
+        <span class="token comment">//</span>
+        <span class="token comment">// 3100 = Loki HTTP port</span>
+        <span class="token comment">// /loki/api/v1/push = Loki log ingestion endpoint</span>
+        url <span class="token operator">=</span> <span class="token string">"http://10.0.0.10:3100/loki/api/v1/push"</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>27:["$","pre",null,{"className":"language-jsx","children":["$","code",null,{"className":"language-jsx","dangerouslySetInnerHTML":{"__html":"$35"}}]}]
+28:["$","hr",null,{}]
+2e:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+2a:null
+2c:{"metadata":[["$","title","0",{"children":"Observability in Java"}],["$","meta","1",{"name":"description","content":"Notes on implementing observability in Java applications, including logging, monitoring, and tracing."}]],"error":null,"digest":"$undefined"}
+31:"$2c:metadata"
