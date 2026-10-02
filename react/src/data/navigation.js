@@ -59,6 +59,7 @@ const navSections = [
       { name: 'REST API w/ Spring Boot', link: '/Java/java-rest-api' },
       { name: 'Login / Authorization', link: '/Java/java-login' },
       { name: 'Spring Security', link: '/Java/java-spring-security' },
+      { name: 'Observability', link: '/Java/java-observability' },
     ],
   },
   {

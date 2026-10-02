@@ -45,6 +45,7 @@ export default function VisualStudioCode() {
   <ul>
     <li><code>Ansible</code> - <code>redhat.ansible</code>: Provides Ansible module autocomplete, syntax validation, and module documentation on hover.</li>
     <li><code>YAML</code> - <code>redhat.vscode-yaml</code>: Provides YAML validation, autocomplete, and Kubernetes schema support.</li>
+    <li><code>WSL</code> - <code>ms-tools.wsl</code>: Provides seamless integration with the Windows Subsystem for Linux, allowing developers to work with Linux environments directly from VS Code.</li>
   </ul>
 
   <h4 className='sub-section-header'>Web Dev</h4>
