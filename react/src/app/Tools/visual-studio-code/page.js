@@ -1,6 +1,4 @@
-import React from 'react';
 import SearchContainer from '@/components/shared/SearchContainer';
-import Link from 'next/link';
 
 export const metadata = {
   title: 'Visual Studio Code',
@@ -121,6 +119,47 @@ export default function VisualStudioCode() {
 
         <hr />
       </section>
+
+         {/* <!-- VS CODE SETTINGS --> */}
+      <h3 className='section-header' id='settings'>
+        VS Code Settings
+      </h3>
+      <p>
+       After installing the extensions, you can configure VS Code settings to customize the editor's behavior and appearance. You can access the <code>settings.json</code> by using the keyboard shortcut <code>Ctrl + ,</code> (Windows/Linux) or <code>Cmd + ,</code> (Mac).
+      </p>
+
+      <h4 className='sub-section-header'>General</h4>
+      <CodeBlock language='json'>{`
+ "window.openFoldersInNewWindow": "on"   
+      `}</CodeBlock>
+
+      <h4 className='sub-section-header'>Java</h4>
+      <CodeBlock language='json'>{`
+ "[java]": {
+    "editor.defaultFormatter": "redhat.java",
+  },
+  "java.format.enabled": true,
+  "java.references.includeDeclarations": false,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+  },      
+      `}</CodeBlock>
+
+      <h4 className='sub-section-header'>WebDev</h4>
+      <CodeBlock language='json'>{`
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  }, 
+      `}</CodeBlock>
+
+
+      <hr />
 
       {/* <!-- VS CODE SHORTCUTS --> */}
       <h3 className='section-header' id='shortcuts'>
