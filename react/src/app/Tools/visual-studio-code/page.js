@@ -72,6 +72,15 @@ export default function VisualStudioCode() {
             <code>Lombok Annotations Support for VS Code</code> - <code>vscjava.vscode-lombok</code>: Provides support
             for Lombok annotations in VS Code.
           </li>
+          <li>
+            <code>IntelliJ IDEA Islands Theme</code> - <code>oleksandrhavrysh.vscode-intellij-theme</code>: Provides a theme that mimics the IntelliJ IDEA interface in VS Code.
+          </li>
+          <li>
+            <code>Type Decorations - Java, C#, PHP, Swift</code> - <code>devdinist.type-decorations</code>: Adds file type badges (class, interface, enum, etc.) in Java, C#, PHP, and Swift.
+          </li>
+          <li>
+            <code>JetBrains Icons New UI Dark</code> - <code>tzraeq.idea-icons-newui-dark</code>: Provides JetBrains based icons for VS Code.
+          </li>
         </ul>
 
         <h4 className='sub-section-header'>DevOps</h4>
@@ -99,6 +108,12 @@ export default function VisualStudioCode() {
           <li>
             <code>Prettier - Code Formatter</code> - <code>esbenp.prettier-vscode</code>: Formats JavaScript,
             TypeScript, JSX, JSON, CSS, SCSS, HTML, Markdown, YAML, and other supported formats.
+          </li>
+          <li>
+            <code>JetBrains New UI File Icon Theme Extended</code> - <code>fogio.jetbrains-file-icon-theme</code>: Provides icon for various WebDev languages.
+          </li>
+          <li>
+            The workbench color theme should be set to <code> "workbench.colorTheme": "Default Dark Modern"</code> in the workbench <code>.vscode/settings.json</code>
           </li>
         </ul>
 
