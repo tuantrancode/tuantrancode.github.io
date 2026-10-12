@@ -1,4 +1,3 @@
-import React from 'react';
 import CodeBlock from '@/components/shared/CodeBlock';
 
 export const metadata = {
@@ -332,6 +331,31 @@ public enum Size {
 // Size size = Size.SMALL
 // size.getValue() or Size.SMALL.getValue() to get the value
 `}</CodeBlock>
+      <br/>
+
+      <h4 className="sub-section-header">Case-Insensitive Enum</h4>
+      <p>In Spring project, the all enums can be set to accept case-insensitive values by adjusting the configuration in <code>application.yml</code></p>
+      
+      <CodeBlock language="yml">{`
+// Spring application.yml
+
+spring:
+  jackson:
+    mapper:
+      accept-case-insensitive-enums: true
+      `}</CodeBlock>
+      <br/>
+      <p>For normal Java project, the same can be done by configuring the Jackson mapper directly</p>
+      <CodeBlock language="java">{`
+// Normal Java project with Jackson
+
+import tools.jackson.databind.MapperFeature;
+import tools.jackson.databind.json.JsonMapper;
+
+JsonMapper jsonMapper = JsonMapper.builder()
+        .enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS)
+        .build();
+      `}</CodeBlock>
       <hr/>
       </section>
 
