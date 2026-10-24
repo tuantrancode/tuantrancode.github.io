@@ -36,6 +36,10 @@ export default function VisualStudioCode() {
             <code>GitHub Copilot</code> - <code>github.copilot</code>: AI coding assistant with code completion and
             generation.
           </li>
+          <li>
+            <code>Dev Container</code> - <code>ms-vscode.dev-container</code>: Provides support for developing applications in containers, including local development with Dev Containers.
+            Allows for creating and managing development environments using Docker containers so the testing env is consistent across all developers and not depending on the local machine.
+          </li>
         </ul>
 
         <h4 className='sub-section-header'>Java / Spring</h4>
